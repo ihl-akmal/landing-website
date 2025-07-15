@@ -33,7 +33,7 @@ const Navbar = () => {
 
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+              <a href="/" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 Home
               </a>
               <a
@@ -48,7 +48,7 @@ const Navbar = () => {
               >
                 Cek Sertifikat
               </a>
-              <a href="#about" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+              <a href="/about-us" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About Us
               </a>
               <a
@@ -75,7 +75,7 @@ const Navbar = () => {
         <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-pink-100">
           <div className="px-2 pt-2 pb-3 space-y-1">
             <a
-              href="#home"
+              href="/"
               className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
             >
               Home
@@ -93,7 +93,7 @@ const Navbar = () => {
               Cek Sertifikat
             </a>
             <a
-              href="#about"
+              href="/about-us"
               className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
             >
               About Us

@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Linkedin, Twitter, Instagram, Globe, Heart, Star, Sparkles, ChevronLeft, ChevronRight } from "lucide-react"
 
 const Mentors = () => {
@@ -9,7 +9,7 @@ const Mentors = () => {
   const mentors = [
     {
       name: "Aliffa Milanisty",
-      title: "Co-Founder & CEO",
+      title: "CEO",
       company: "Grazedu",
       image:
         "/aliffa.jpg",
@@ -75,20 +75,27 @@ const Mentors = () => {
     return 4
   }
 
+  // State untuk deteksi desktop dan mode slider
+  const [isDesktop, setIsDesktop] = useState(
+    typeof window !== "undefined" ? window.innerWidth >= 1024 : false
+  )
   const [mentorsPerSlide, setMentorsPerSlide] = useState(getMentorsPerSlide())
   const totalSlides = Math.ceil(mentors.length / mentorsPerSlide)
 
-  // Update mentors per slide on window resize
-  useState(() => {
+  // Update mentors per slide dan isDesktop on window resize
+  useEffect(() => {
     const handleResize = () => {
       setMentorsPerSlide(getMentorsPerSlide())
+      setIsDesktop(window.innerWidth >= 1024)
     }
-
     if (typeof window !== "undefined") {
       window.addEventListener("resize", handleResize)
       return () => window.removeEventListener("resize", handleResize)
     }
-  })
+  }, [])
+
+  // Kondisi: desktop & mentor <= 4
+  const showAllMentorsNoSlider = isDesktop && mentors.length <= 4
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides)
@@ -130,148 +137,217 @@ const Mentors = () => {
 
         {/* Slider Container */}
         <div className="relative">
-          {/* Navigation Buttons - Hidden on mobile, positioned better on larger screens */}
-          <button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 hidden md:flex items-center justify-center"
-            disabled={currentSlide === 0}
-          >
-            <ChevronLeft className="h-6 w-6 text-primary" />
-          </button>
-
-          <button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 hidden md:flex items-center justify-center"
-            disabled={currentSlide === totalSlides - 1}
-          >
-            <ChevronRight className="h-6 w-6 text-primary" />
-          </button>
-
-          {/* Mentors Grid - Responsive */}
-          <div className="px-0 md:px-12">
-            <div
-              className={`grid gap-8 transition-all duration-500 ease-in-out ${
-                mentorsPerSlide === 1
-                  ? "grid-cols-1"
-                  : mentorsPerSlide === 2
-                    ? "grid-cols-2"
-                    : "md:grid-cols-2 lg:grid-cols-4"
-              }`}
-            >
-              {getCurrentMentors().map((mentor, index) => (
-                <div key={`${currentSlide}-${index}`} className="group">
-                  <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-pink-100 relative overflow-hidden">
-                    {/* Decorative background */}
-                    <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-pink-100 rounded-full blur-2xl"></div>
-                    <div className="absolute top-2 right-2">
-                      <Star className="h-4 w-4 text-primary/30" />
-                    </div>
-
-                    <div className="text-center space-y-4 relative z-10">
-                      <div className="relative mx-auto w-24 h-24">
-                        <img
-                          src={mentor.image || "/placeholder.svg"}
-                          alt={mentor.name}
-                          className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
-                        />
-                        <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-1">
-                          <Heart className="h-3 w-3 text-white" />
-                        </div>
+          {/* Jika showAllMentorsNoSlider true, tampilkan grid tanpa slider */}
+          {showAllMentorsNoSlider ? (
+            <div className="px-0 md:px-12">
+              <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+                {mentors.map((mentor, index) => (
+                  <div key={index} className="group">
+                    <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-pink-100 relative overflow-hidden">
+                      {/* Decorative background */}
+                      <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-pink-100 rounded-full blur-2xl"></div>
+                      <div className="absolute top-2 right-2">
+                        <Star className="h-4 w-4 text-primary/30" />
                       </div>
-
-                      <div className="space-y-2">
-                        <h3 className="text-xl font-bold text-gray-900 font-poppins">{mentor.name}</h3>
-                        <p className="text-primary font-semibold">{mentor.title}</p>
-                        <p className="text-gray-600 text-sm">{mentor.company}</p>
-                        {/* <p className="text-xs text-gray-500 italic">{mentor.quote}</p> */}
-                      </div>
-
-                      <div className="space-y-3">
-                        <div className="flex flex-wrap gap-2 justify-center">
-                          {mentor.expertise.map((skill, skillIndex) => (
-                            <span
-                              key={skillIndex}
-                              className="px-3 py-1 bg-gradient-to-r from-primary/10 to-pink-100 text-primary text-xs rounded-full border border-primary/20"
-                            >
-                              {skill}
-                            </span>
-                          ))}
+                      <div className="text-center space-y-4 relative z-10">
+                        <div className="relative mx-auto w-24 h-24">
+                          <img
+                            src={mentor.image || "/placeholder.svg"}
+                            alt={mentor.name}
+                            className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
+                          />
+                          <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                          <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-1">
+                            <Heart className="h-3 w-3 text-white" />
+                          </div>
                         </div>
-
-                        <div className="flex justify-center gap-3 pt-2">
-                          {mentor.social.linkedin && (
-                            <a
-                              href={mentor.social.linkedin}
-                              className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
-                            >
-                              <Linkedin className="h-4 w-4" />
-                            </a>
-                          )}
-                          {/* {mentor.social.twitter && (
-                            <a
-                              href={mentor.social.twitter}
-                              className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
-                            >
-                              <Twitter className="h-4 w-4" />
-                            </a>
-                          )} */}
-                          {mentor.social.instagram && (
-                            <a
-                              href={mentor.social.instagram}
-                              className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
-                            >
-                              <Instagram className="h-4 w-4" />
-                            </a>
-                          )}
-                          {/* {mentor.social.globe && (
-                            <a
-                              href={mentor.social.globe}
-                              className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
-                            >
-                              <Globe className="h-4 w-4" />
-                            </a>
-                          )} */}
+                        <div className="space-y-2">
+                          <h3 className="text-xl font-bold text-gray-900 font-poppins">{mentor.name}</h3>
+                          <p className="text-primary font-semibold">{mentor.title}</p>
+                          <p className="text-gray-600 text-sm">{mentor.company}</p>
+                        </div>
+                        <div className="space-y-3">
+                          <div className="flex flex-wrap gap-2 justify-center">
+                            {mentor.expertise.map((skill, skillIndex) => (
+                              <span
+                                key={skillIndex}
+                                className="px-3 py-1 bg-gradient-to-r from-primary/10 to-pink-100 text-primary text-xs rounded-full border border-primary/20"
+                              >
+                                {skill}
+                              </span>
+                            ))}
+                          </div>
+                          <div className="flex justify-center gap-3 pt-2">
+                            {mentor.social.linkedin && (
+                              <a
+                                href={mentor.social.linkedin}
+                                className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
+                              >
+                                <Linkedin className="h-4 w-4" />
+                              </a>
+                            )}
+                            {mentor.social.instagram && (
+                              <a
+                                href={mentor.social.instagram}
+                                className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
+                              >
+                                <Instagram className="h-4 w-4" />
+                              </a>
+                            )}
+                          </div>
                         </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-
-          {/* Mobile Navigation Buttons - Below the cards */}
-          <div className="flex md:hidden justify-center gap-4 mt-8">
-            <button
-              onClick={prevSlide}
-              className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 flex items-center justify-center"
-              disabled={currentSlide === 0}
-            >
-              <ChevronLeft className="h-6 w-6 text-primary" />
-            </button>
-
-            <button
-              onClick={nextSlide}
-              className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 flex items-center justify-center"
-              disabled={currentSlide === totalSlides - 1}
-            >
-              <ChevronRight className="h-6 w-6 text-primary" />
-            </button>
-          </div>
-
-          {/* Slide Indicators */}
-          <div className="flex justify-center gap-2 mt-8">
-            {Array.from({ length: totalSlides }).map((_, index) => (
+          ) : (
+            <>
+              {/* Navigation Buttons - Hidden on mobile, positioned better on larger screens */}
               <button
-                key={index}
-                onClick={() => setCurrentSlide(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-200 ${
-                  index === currentSlide ? "bg-primary" : "bg-primary/30"
-                }`}
-              />
-            ))}
-          </div>
+                onClick={prevSlide}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 hidden md:flex items-center justify-center"
+                disabled={currentSlide === 0}
+              >
+                <ChevronLeft className="h-6 w-6 text-primary" />
+              </button>
+
+              <button
+                onClick={nextSlide}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 hidden md:flex items-center justify-center"
+                disabled={currentSlide === totalSlides - 1}
+              >
+                <ChevronRight className="h-6 w-6 text-primary" />
+              </button>
+
+              {/* Mentors Grid - Responsive */}
+              <div className="px-0 md:px-12">
+                <div
+                  className={`grid gap-8 transition-all duration-500 ease-in-out ${
+                    mentorsPerSlide === 1
+                      ? "grid-cols-1"
+                      : mentorsPerSlide === 2
+                        ? "grid-cols-2"
+                        : "md:grid-cols-2 lg:grid-cols-4"
+                  }`}
+                >
+                  {getCurrentMentors().map((mentor, index) => (
+                    <div key={`${currentSlide}-${index}`} className="group">
+                      <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-pink-100 relative overflow-hidden">
+                        {/* Decorative background */}
+                        <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-pink-100 rounded-full blur-2xl"></div>
+                        <div className="absolute top-2 right-2">
+                          <Star className="h-4 w-4 text-primary/30" />
+                        </div>
+
+                        <div className="text-center space-y-4 relative z-10">
+                          <div className="relative mx-auto w-24 h-24">
+                            <img
+                              src={mentor.image || "/placeholder.svg"}
+                              alt={mentor.name}
+                              className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg"
+                            />
+                            <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary/20 to-pink-400/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                            <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-1">
+                              <Heart className="h-3 w-3 text-white" />
+                            </div>
+                          </div>
+
+                          <div className="space-y-2">
+                            <h3 className="text-xl font-bold text-gray-900 font-poppins">{mentor.name}</h3>
+                            <p className="text-primary font-semibold">{mentor.title}</p>
+                            <p className="text-gray-600 text-sm">{mentor.company}</p>
+                            {/* <p className="text-xs text-gray-500 italic">{mentor.quote}</p> */}
+                          </div>
+
+                          <div className="space-y-3">
+                            <div className="flex flex-wrap gap-2 justify-center">
+                              {mentor.expertise.map((skill, skillIndex) => (
+                                <span
+                                  key={skillIndex}
+                                  className="px-3 py-1 bg-gradient-to-r from-primary/10 to-pink-100 text-primary text-xs rounded-full border border-primary/20"
+                                >
+                                  {skill}
+                                </span>
+                              ))}
+                            </div>
+
+                            <div className="flex justify-center gap-3 pt-2">
+                              {mentor.social.linkedin && (
+                                <a
+                                  href={mentor.social.linkedin}
+                                  className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
+                                >
+                                  <Linkedin className="h-4 w-4" />
+                                </a>
+                              )}
+                              {/* {mentor.social.twitter && (
+                                <a
+                                  href={mentor.social.twitter}
+                                  className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
+                                >
+                                  <Twitter className="h-4 w-4" />
+                                </a>
+                              )} */}
+                              {mentor.social.instagram && (
+                                <a
+                                  href={mentor.social.instagram}
+                                  className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
+                                >
+                                  <Instagram className="h-4 w-4" />
+                                </a>
+                              )}
+                              {/* {mentor.social.globe && (
+                                <a
+                                  href={mentor.social.globe}
+                                  className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
+                                >
+                                  <Globe className="h-4 w-4" />
+                                </a>
+                              )} */}
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              {/* Mobile Navigation Buttons - Below the cards */}
+              <div className="flex md:hidden justify-center gap-4 mt-8">
+                <button
+                  onClick={prevSlide}
+                  className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 flex items-center justify-center"
+                  disabled={currentSlide === 0}
+                >
+                  <ChevronLeft className="h-6 w-6 text-primary" />
+                </button>
+
+                <button
+                  onClick={nextSlide}
+                  className="bg-white/90 backdrop-blur-sm rounded-full p-3 shadow-lg hover:bg-white transition-all duration-200 border border-pink-100 flex items-center justify-center"
+                  disabled={currentSlide === totalSlides - 1}
+                >
+                  <ChevronRight className="h-6 w-6 text-primary" />
+                </button>
+              </div>
+
+              {/* Slide Indicators */}
+              <div className="flex justify-center gap-2 mt-8">
+                {Array.from({ length: totalSlides }).map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-200 ${
+                      index === currentSlide ? "bg-primary" : "bg-primary/30"
+                    }`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
         </div>
 
         {/* Call to action */}
