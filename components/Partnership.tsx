@@ -1,0 +1,75 @@
+"use client"
+
+import { Heart, Sparkles, Star } from "lucide-react"
+
+const Partnership = () => {
+  const partners = [
+    { name: "Google", logo: "https://via.placeholder.com/150x60/4285F4/FFFFFF?text=Google" },
+    { name: "Microsoft", logo: "https://via.placeholder.com/150x60/00A4EF/FFFFFF?text=Microsoft" },
+    { name: "Amazon", logo: "https://via.placeholder.com/150x60/FF9900/FFFFFF?text=Amazon" },
+    { name: "Meta", logo: "https://via.placeholder.com/150x60/1877F2/FFFFFF?text=Meta" },
+    { name: "Netflix", logo: "https://via.placeholder.com/150x60/E50914/FFFFFF?text=Netflix" },
+    { name: "Spotify", logo: "https://via.placeholder.com/150x60/1DB954/FFFFFF?text=Spotify" },
+    { name: "Uber", logo: "https://via.placeholder.com/150x60/000000/FFFFFF?text=Uber" },
+    { name: "Airbnb", logo: "https://via.placeholder.com/150x60/FF5A5F/FFFFFF?text=Airbnb" },
+  ]
+
+  return (
+    <section className="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-white relative overflow-hidden">
+      {/* Decorative elements */}
+      <div className="absolute top-10 left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-300/20 rounded-full blur-2xl"></div>
+      <div className="absolute top-1/2 left-1/4 w-16 h-16 bg-rose-300/15 rounded-full blur-lg"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-pink-100 px-4 py-2 rounded-full border border-primary/20 mb-6">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Partnership Goals</span>
+            <Heart className="h-4 w-4 text-primary" />
+          </div>
+
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 font-poppins">
+            Mitra <span className="text-primary">Kolaborasi</span> ✨
+          </h2>
+          <p className="text-lg text-gray-600">
+            {"Kemitraan dengan perusahaan-perusahaan terkemuka untuk memberikan pengalaman terbaik buat kamu! 💕"}
+          </p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center">
+          {partners.map((partner, index) => (
+            <div key={index} className="group">
+              <div className="bg-white rounded-2xl p-6 shadow-sm hover:shadow-lg transition-all duration-300 hover:scale-105 border border-pink-100 relative overflow-hidden">
+                {/* Decorative elements */}
+                <div className="absolute top-1 right-1">
+                  <Star className="h-3 w-3 text-primary/20" />
+                </div>
+                <div className="absolute bottom-1 left-1">
+                  <Heart className="h-2 w-2 text-primary/20" />
+                </div>
+
+                <img
+                  src={partner.logo || "/placeholder.svg?height=48&width=150"}
+                  alt={partner.name}
+                  className="w-full h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-16 text-center">
+          <p className="text-gray-600 mb-8 text-lg">
+            {"Bergabung dengan ribuan perempuan hebat yang telah mempercayai platform kami! 🌟"}
+          </p>
+          <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
+            {"Lihat Semua Mitra 💕"}
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Partnership

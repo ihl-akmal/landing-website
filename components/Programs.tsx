@@ -1,0 +1,115 @@
+"use client"
+
+import { Clock, GraduationCap, Monitor, ArrowRight, Sparkles, Heart, Star } from "lucide-react"
+
+const Programs = () => {
+  const programs = [
+    {
+      icon: Clock,
+      title: "Short Class",
+      description:
+        "Bantu kamu memahami konsep-konsep penting dengan metode pembelajaran yang fun dan mudah dipahami! 🧠✨",
+      color: "bg-blue-500",
+      gradient: "from-blue-400 to-blue-500",
+      bgPattern: "from-blue-50 to-indigo-50",
+    },
+    {
+      icon: GraduationCap,
+      title: "Intensive Class",
+      description:
+        "Dapatkan bimbingan karir yang tepat untuk mencapai impian profesionalmu dengan dukungan mentor inspiratif! 💼💫",
+      color: "bg-primary",
+      gradient: "from-primary to-primary-light",
+      bgPattern: "from-pink-50 to-rose-50",
+    },
+    {
+      icon: Monitor,
+      title: "E-Learning",
+      description:
+        "Platform pembelajaran online yang fleksibel dengan konten berkualitas tinggi dan akses kapan saja, dimana saja! 💻🌟",
+      color: "bg-orange-500",
+      gradient: "from-orange-400 to-pink-400",
+      bgPattern: "from-orange-50 to-pink-50",
+    },
+  ]
+
+  return (
+    <section
+      id="programs"
+      className="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-white relative overflow-hidden"
+    >
+      {/* Decorative elements */}
+      <div className="absolute top-10 left-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
+      <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-300/20 rounded-full blur-2xl"></div>
+      <div className="absolute top-1/2 right-1/4 w-16 h-16 bg-rose-300/15 rounded-full blur-lg"></div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-pink-100 px-4 py-2 rounded-full border border-primary/20 mb-6">
+            <Sparkles className="h-4 w-4 text-primary" />
+            <span className="text-sm font-medium text-primary">Program Pilihan Terbaik</span>
+            <Heart className="h-4 w-4 text-primary" />
+          </div>
+
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 font-poppins">
+            Explore Program <span className="text-primary">Impianmu</span> ✨
+          </h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            {
+              "Kami menawarkan berbagai program yang dirancang khusus untuk pengembangan potensi terbaikmu, beautiful! 💕"
+            }
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-8">
+          {programs.map((program, index) => (
+            <div key={index} className="group">
+              <div
+                className={`h-full rounded-3xl p-8 text-white bg-gradient-to-br ${program.gradient} hover:shadow-2xl hover:scale-105 transition-all duration-300 relative overflow-hidden`}
+              >
+                {/* Decorative background pattern */}
+                <div className="absolute inset-0 opacity-10">
+                  <div className="absolute top-4 right-4">
+                    <Star className="h-6 w-6" />
+                  </div>
+                  <div className="absolute bottom-4 left-4">
+                    <Heart className="h-4 w-4" />
+                  </div>
+                  <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                    <Sparkles className="h-8 w-8" />
+                  </div>
+                </div>
+
+                <div className="space-y-6 relative z-10">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4 w-fit border border-white/30">
+                    <program.icon className="h-8 w-8" />
+                  </div>
+
+                  <div className="space-y-4">
+                    <h3 className="text-2xl font-bold font-poppins">{program.title}</h3>
+                    <p className="text-white/90 leading-relaxed">{program.description}</p>
+                  </div>
+
+                  <button className="flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all duration-200 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30">
+                    Lihat Detail
+                    <ArrowRight className="h-5 w-5" />
+                  </button>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Call to action */}
+        <div className="text-center mt-12">
+          <p className="text-gray-600 mb-6 text-lg">{"Siap memulai perjalanan menuju versi terbaikmu? 🌟"}</p>
+          <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
+            {"Mulai Sekarang! 🚀"}
+          </button>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Programs
