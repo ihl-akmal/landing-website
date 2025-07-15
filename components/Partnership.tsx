@@ -6,7 +6,7 @@ const Partnership = () => {
   const partners = [
     { name: "Google", logo: "https://via.placeholder.com/150x60/4285F4/FFFFFF?text=Google" },
     { name: "Microsoft", logo: "https://via.placeholder.com/150x60/00A4EF/FFFFFF?text=Microsoft" },
-    { name: "Amazon", logo: "https://via.placeholder.com/150x60/FF9900/FFFFFF?text=Amazon" },
+    { name: "Amazon", logo: "/mitra/stikom.png" },
     { name: "Meta", logo: "https://via.placeholder.com/150x60/1877F2/FFFFFF?text=Meta" },
     { name: "Netflix", logo: "https://via.placeholder.com/150x60/E50914/FFFFFF?text=Netflix" },
     { name: "Spotify", logo: "https://via.placeholder.com/150x60/1DB954/FFFFFF?text=Spotify" },
@@ -33,7 +33,7 @@ const Partnership = () => {
             Mitra <span className="text-primary">Kolaborasi</span> ✨
           </h2>
           <p className="text-lg text-gray-600">
-            {"Kemitraan dengan perusahaan-perusahaan terkemuka untuk memberikan pengalaman terbaik buat kamu! 💕"}
+            {"Telah berkolaborasi dengan berbagai perusahaan, kampus hingga local community💕"}
           </p>
         </div>
 
@@ -64,7 +64,7 @@ const Partnership = () => {
             {"Bergabung dengan ribuan perempuan hebat yang telah mempercayai platform kami! 🌟"}
           </p>
           <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
-            {"Lihat Semua Mitra 💕"}
+            {"Ajukan Kerjasama 💕"}
           </button>
         </div>
       </div>

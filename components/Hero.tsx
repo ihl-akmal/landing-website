@@ -122,7 +122,7 @@ const Hero = () => {
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/50">
                 {/* Placeholder for new hero image - replace with your uploaded image */}
                 <img
-                  src="/placeholder.svg?height=384&width=500"
+                  src="/hero-image.png"
                   alt="Grazedu Hero Image"
                   className="w-full h-96 object-cover rounded-2xl shadow-lg"
                 />

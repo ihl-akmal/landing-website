@@ -8,88 +8,60 @@ const Mentors = () => {
 
   const mentors = [
     {
-      name: "Ahmad Rizal",
-      title: "Senior UI/UX Designer",
-      company: "Google Indonesia",
+      name: "Aliffa Milanisty",
+      title: "Co-Founder & CEO",
+      company: "Grazedu",
       image:
-        "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      expertise: ["UI/UX Design", "Product Strategy", "Design Systems"],
+        "/aliffa.jpg",
+      expertise: ["Public Speaking", "Pendidikan", "Woman Empowerment"],
       social: {
-        linkedin: "#",
+        linkedin: "http://linkedin.com/aliffamilanisty",
         twitter: "#",
-        instagram: "#",
+        instagram: "https://www.instagram.com/aliffamilanisty",
       },
       quote: "Design with empathy! 💕",
     },
     {
-      name: "Sasha Safira",
-      title: "Data Scientist",
-      company: "Tokopedia",
+      name: "Shinta Savita",
+      title: "Managing Director",
+      company: "Sakapuan",
       image:
-        "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      expertise: ["Machine Learning", "Data Analysis", "Python"],
+        "/shintasavita.jpg",
+      expertise: ["Emotional Intelligence", "Leadership", "Woman Empowerment"],
       social: {
         linkedin: "#",
         twitter: "#",
-        globe: "#",
+        instagram: "https://www.instagram.com/ssavitaj/",
       },
       quote: "Data tells beautiful stories! ✨",
     },
     {
-      name: "Hasan Parhabi",
-      title: "Full Stack Developer",
-      company: "Gojek",
+      name: "Helen Patricia",
+      title: "Marketing Communication",
+      company: "Hospitality Industry",
       image:
-        "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      expertise: ["React", "Node.js", "DevOps"],
+        "/helen.jpg",
+      expertise: ["Communication Skill"],
       social: {
         linkedin: "#",
-        instagram: "#",
+        instagram: "https://www.instagram.com/helennpatricia",
         globe: "#",
       },
       quote: "Code with passion! 🚀",
     },
     {
-      name: "Mutia Sari",
-      title: "Product Manager",
-      company: "Shopee",
+      name: "Hesti Wijayanti",
+      title: "Human Capital Practicioner",
+      company: "AVO Group",
       image:
-        "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      expertise: ["Product Strategy", "Agile", "Leadership"],
+        "/hesti.jpeg",
+      expertise: ["Character Building", "CV Review", "Interview Hacks"],
       social: {
         linkedin: "#",
         twitter: "#",
-        instagram: "#",
+        instagram: "https://www.instagram.com/hestiwf/",
       },
       quote: "Lead with heart! 💪",
-    },
-    {
-      name: "Diana Putri",
-      title: "Digital Marketing Specialist",
-      company: "Bukalapak",
-      image:
-        "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      expertise: ["Social Media", "Content Strategy", "SEO"],
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "#",
-      },
-      quote: "Marketing is storytelling! 📱",
-    },
-    {
-      name: "Rina Maharani",
-      title: "Business Analyst",
-      company: "Traveloka",
-      image:
-        "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      expertise: ["Business Intelligence", "Analytics", "Strategy"],
-      social: {
-        linkedin: "#",
-        globe: "#",
-        instagram: "#",
-      },
-      quote: "Data drives decisions! 📊",
     },
   ]
 
@@ -212,7 +184,7 @@ const Mentors = () => {
                         <h3 className="text-xl font-bold text-gray-900 font-poppins">{mentor.name}</h3>
                         <p className="text-primary font-semibold">{mentor.title}</p>
                         <p className="text-gray-600 text-sm">{mentor.company}</p>
-                        <p className="text-xs text-gray-500 italic">{mentor.quote}</p>
+                        {/* <p className="text-xs text-gray-500 italic">{mentor.quote}</p> */}
                       </div>
 
                       <div className="space-y-3">
@@ -236,14 +208,14 @@ const Mentors = () => {
                               <Linkedin className="h-4 w-4" />
                             </a>
                           )}
-                          {mentor.social.twitter && (
+                          {/* {mentor.social.twitter && (
                             <a
                               href={mentor.social.twitter}
                               className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
                             >
                               <Twitter className="h-4 w-4" />
                             </a>
-                          )}
+                          )} */}
                           {mentor.social.instagram && (
                             <a
                               href={mentor.social.instagram}
@@ -252,14 +224,14 @@ const Mentors = () => {
                               <Instagram className="h-4 w-4" />
                             </a>
                           )}
-                          {mentor.social.globe && (
+                          {/* {mentor.social.globe && (
                             <a
                               href={mentor.social.globe}
                               className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20"
                             >
                               <Globe className="h-4 w-4" />
                             </a>
-                          )}
+                          )} */}
                         </div>
                       </div>
                     </div>

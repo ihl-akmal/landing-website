@@ -67,7 +67,7 @@ const SocialProof = () => {
     {
       icon: Users,
       number: `${counts.mentors}+`,
-      label: "Mentor Cantik & Berpengalaman",
+      label: "Mentor Muda yang Inspiring",
       color: "bg-pink-100 text-primary",
       bgGradient: "from-pink-100 to-rose-100",
     },

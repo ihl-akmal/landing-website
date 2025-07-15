@@ -8,7 +8,7 @@ const Programs = () => {
       icon: Clock,
       title: "Short Class",
       description:
-        "Bantu kamu memahami konsep-konsep penting dengan metode pembelajaran yang fun dan mudah dipahami! 🧠✨",
+        "Kelas singkat untuk memberi wawasan praktis secara efisien dengan topik self improvement & soft skills 🧠✨",
       color: "bg-blue-500",
       gradient: "from-blue-400 to-blue-500",
       bgPattern: "from-blue-50 to-indigo-50",
@@ -17,16 +17,16 @@ const Programs = () => {
       icon: GraduationCap,
       title: "Intensive Class",
       description:
-        "Dapatkan bimbingan karir yang tepat untuk mencapai impian profesionalmu dengan dukungan mentor inspiratif! 💼💫",
+        "Kelas mendalam untuk kamu yang serius mau berkembang dibimbing step-by-step dengan materi terstruktur, mentor supportif, dan sesi interaktif💼💫",
       color: "bg-primary",
       gradient: "from-primary to-primary-light",
       bgPattern: "from-pink-50 to-rose-50",
     },
     {
-      icon: Monitor,
-      title: "E-Learning",
+      icon: Heart,
+      title: "Mentorship Club",
       description:
-        "Platform pembelajaran online yang fleksibel dengan konten berkualitas tinggi dan akses kapan saja, dimana saja! 💻🌟",
+        "Ruang berlangganan bulanan bagi perempuan muda untuk belajar, berkembang dan percaya diri dengan bimbingan 1on1 dengan mentor  💻🌟",
       color: "bg-orange-500",
       gradient: "from-orange-400 to-pink-400",
       bgPattern: "from-orange-50 to-pink-50",
