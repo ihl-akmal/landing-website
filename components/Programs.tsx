@@ -90,7 +90,11 @@ const Programs = () => {
                     <p className="text-white/90 leading-relaxed">{program.description}</p>
                   </div>
 
-                  <button className="flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all duration-200 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30">
+                  <button
+                    type="button"
+                    onClick={() => window.open('https://grazedu.myr.id', '_blank', 'noopener,noreferrer')}
+                    className="flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all duration-200 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30"
+                  >
                     Lihat Detail
                     <ArrowRight className="h-5 w-5" />
                   </button>

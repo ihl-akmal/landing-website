@@ -130,7 +130,7 @@ const Mentors = () => {
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {
-              "Bergabunglah dengan mentor-mentor inspiratif dari berbagai perusahaan teknologi terkemuka yang siap membimbingmu! 💕"
+              "Kenalan sama mentor & speaker muda yang siap membimbingmu! 💕"
             }
           </p>
         </div>
@@ -351,12 +351,12 @@ const Mentors = () => {
         </div>
 
         {/* Call to action */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <p className="text-gray-600 mb-6 text-lg">{"Ingin bertemu langsung dengan mentor inspiratif? 🌟"}</p>
           <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
             {"Book Mentoring Session! 💕"}
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   )

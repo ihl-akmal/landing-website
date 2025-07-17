@@ -3,6 +3,13 @@
 import { useState, useEffect, useRef } from "react"
 import { Users, Award, BookOpen, Star } from "lucide-react"
 
+const scrollToPrograms = () => {
+  const programSection = document.getElementById("programs")
+  if (programSection) {
+    programSection.scrollIntoView({ behavior: "smooth" })
+  }
+}
+
 const SocialProof = () => {
   const [isVisible, setIsVisible] = useState(false)
   const [counts, setCounts] = useState({
@@ -145,7 +152,7 @@ const SocialProof = () => {
         {/* Call to action */}
         <div className="text-center mt-12">
           <p className="text-gray-600 mb-6 text-lg">{"Siap jadi bagian dari komunitas perempuan hebat? 💪"}</p>
-          <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
+          <button onClick={scrollToPrograms} className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
             {"Gabung Sekarang! 🚀"}
           </button>
         </div>

@@ -4,14 +4,14 @@ import { Heart, Sparkles, Star } from "lucide-react"
 
 const Partnership = () => {
   const partners = [
-    { name: "Google", logo: "https://via.placeholder.com/150x60/4285F4/FFFFFF?text=Google" },
-    { name: "Microsoft", logo: "https://via.placeholder.com/150x60/00A4EF/FFFFFF?text=Microsoft" },
-    { name: "Amazon", logo: "/mitra/stikom.png" },
-    { name: "Meta", logo: "https://via.placeholder.com/150x60/1877F2/FFFFFF?text=Meta" },
-    { name: "Netflix", logo: "https://via.placeholder.com/150x60/E50914/FFFFFF?text=Netflix" },
-    { name: "Spotify", logo: "https://via.placeholder.com/150x60/1DB954/FFFFFF?text=Spotify" },
-    { name: "Uber", logo: "https://via.placeholder.com/150x60/000000/FFFFFF?text=Uber" },
-    { name: "Airbnb", logo: "https://via.placeholder.com/150x60/FF5A5F/FFFFFF?text=Airbnb" },
+    { name: "Indigo Telkom", logo: "/mitra/indigo.png" },
+    { name: "Dibimbing.id", logo: "/mitra/dibimbing.png" },
+    { name: "HearMe", logo: "/mitra/hearme.png" },
+    { name: "Kitalulus", logo: "/mitra/kitalulus.png", customClass: "h-16 md:h-20 w-auto" },
+    { name: "itb stikom", logo: "/mitra/stikom.png" },
+    { name: "growthskill", logo: "/mitra/growthskill.png" },
+    { name: "aiesec usu", logo: "/mitra/aiesecusu.png"},
+    { name: "temanbicaraku", logo: "/mitra/temanbicaraku.png", customClass: "h-16 md:h-20 w-auto" },
   ]
 
   return (
@@ -52,7 +52,9 @@ const Partnership = () => {
                 <img
                   src={partner.logo || "/placeholder.svg?height=48&width=150"}
                   alt={partner.name}
-                  className="w-full h-12 object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300"
+                  className={`w-full object-contain filter grayscale group-hover:grayscale-0 transition-all duration-300 ${
+                    partner.customClass || "h-16 md:h-20"
+                  }`}
                 />
               </div>
             </div>
