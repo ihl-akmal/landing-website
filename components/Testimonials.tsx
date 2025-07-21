@@ -55,7 +55,7 @@ const Testimonials = () => {
             Kata Mereka yang Sudah <span className="text-primary">#Growup</span> di Grazedu ✨
           </h2>
           <p className="text-lg text-gray-600">
-            {"Testimoni dari alumni yang telah berhasil mengembangkan karir mereka dan meraih impian! 💕"}
+            {"Pengalaman berharga dari para peserta yang telah bertransformasi 💕"}
           </p>
         </div>
 
