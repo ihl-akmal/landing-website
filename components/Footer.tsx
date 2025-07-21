@@ -41,7 +41,7 @@ const Footer = () => {
 
             <p className="text-gray-600 leading-relaxed">
               {
-                "Platform pengembangan diri & bagi perempuan muda untuk memaksimal potensi terbaiknya dalam karir professional maupun pertumbuhan pribadi 💪💕"
+                "Platform pengembangan diri & bagi perempuan muda untuk memaksimalkan potensi terbaiknya dalam karir professional maupun pertumbuhan pribadi 💪💕"
               }
             </p>
 
