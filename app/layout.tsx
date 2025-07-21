@@ -10,8 +10,8 @@ const poppins = Poppins({
 })
 
 export const metadata: Metadata = {
-  title: "Grazedu - Platform Khusus Perempuan Hebat",
-  description: "Platform pengembangan diri untuk perempuan muda yang ingin mengembangkan potensi terbaiknya",
+  title: "Grazedu - Platform Pengembangan Diri & Karir untuk Perempuan",
+  description: "Platform pengembangan diri & karir untuk perempuan muda untuk mencapai potensi maksimal dalam karir profesional maupun pertumbuhan pribadi",
     generator: 'v0.dev'
 }
 
