@@ -45,7 +45,7 @@ const Hero = () => {
                 }`}
               >
                 <Sparkles className="h-4 w-4 text-primary" />
-                <span className="text-sm font-medium text-primary">Platform Khusus Perempuan Hebat</span>
+                <span className="text-sm font-medium text-primary">Platform Perempuan Hebat</span>
                 <Heart className="h-4 w-4 text-primary" />
               </div>
 
@@ -68,8 +68,7 @@ const Hero = () => {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
               >
-                Platform pengembangan diri untuk perempuan muda yang ingin mengembangkan potensi terbaiknya dalam karir
-                professional maupun pertumbuhan pribadi <b>#KarenaPerempuanJugaBisa</b> 💪
+                Ruang untuk perempuan upgrade diri jadi versi terbaik. Sukses karir, tumbuh secara pribadi. <b>#KarenaPerempuanJugaBisa</b> 💪
               </p>
             </div>
 
@@ -122,7 +121,7 @@ const Hero = () => {
               <div className="relative bg-white/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/50">
                 {/* Placeholder for new hero image - replace with your uploaded image */}
                 <img
-                  src="/hero-image.png"
+                  src="/hero.jpg"
                   alt="Grazedu Hero Image"
                   className="w-full h-96 object-cover rounded-2xl shadow-lg"
                 />

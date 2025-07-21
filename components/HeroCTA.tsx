@@ -4,10 +4,10 @@ import { ArrowRight, CheckCircle, Heart, Sparkles } from "lucide-react"
 
 const HeroCTA = () => {
   const benefits = [
-    "Akses ke 50+ course premium yang amazing! ✨",
-    "Mentoring 1-on-1 dengan expert inspiratif 💕",
-    "Sertifikat yang diakui industri 🏆",
-    "Komunitas alumni yang kuat & supportif 👭",
+    "Materi kelas up to date ✨",
+    "Ruang belajar yang hangat, aman dan inklusif. No judgement💕",
+    "Sertifikat resmi yang bisa dipakai untuk karier 🏆",
+    "Merchandise eksklusif sebagai reward untuk kamu yang semangat belajar 👭",
   ]
 
   return (
@@ -57,9 +57,14 @@ const HeroCTA = () => {
                 {"Mulai Journey-ku! 🚀"}
                 <ArrowRight className="h-5 w-5" />
               </button>
-              <button className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-200">
+              <a
+                href="https://wa.me/6282340622274"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="border-2 border-white text-white px-8 py-4 rounded-full font-semibold hover:bg-white hover:text-primary transition-all duration-200 flex items-center justify-center"
+              >
                 {"Konsultasi Gratis 💬"}
-              </button>
+              </a>
             </div>
           </div>
 
@@ -68,7 +73,7 @@ const HeroCTA = () => {
               <div className="absolute inset-0 bg-gradient-to-r from-pink-400/30 to-white/20 rounded-3xl blur-2xl"></div>
               <div className="relative bg-white/10 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/20">
                 <img
-                  src="https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=500&h=600&fit=crop"
+                  src="/dokumentasi2.jpg?auto=compress&cs=tinysrgb&w=500&h=600&fit=crop"
                   alt="Success Story"
                   className="w-full h-96 object-cover rounded-2xl shadow-lg"
                 />
@@ -80,8 +85,8 @@ const HeroCTA = () => {
                       <Heart className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900 text-sm">Success Story</p>
-                      <p className="text-xs text-gray-600">{"Alumni Inspiratif! 💫"}</p>
+                      <p className="font-semibold text-gray-900 text-sm">Safe Space</p>
+                      <p className="text-xs text-gray-600">{"Ruang aman untuk tumbuh 💫"}</p>
                     </div>
                   </div>
                 </div>

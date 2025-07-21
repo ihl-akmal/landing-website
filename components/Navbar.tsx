@@ -42,12 +42,12 @@ const Navbar = () => {
               >
                 Program
               </a>
-              <a
+              {/* <a
                 href="#sertifikat"
                 className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
               >
                 Cek Sertifikat
-              </a>
+              </a> */}
               <a href="/about-us" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About Us
               </a>
@@ -86,12 +86,12 @@ const Navbar = () => {
             >
               Program
             </a>
-            <a
+            {/* <a
               href="#sertifikat"
               className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
             >
               Cek Sertifikat
-            </a>
+            </a> */}
             <a
               href="/about-us"
               className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"

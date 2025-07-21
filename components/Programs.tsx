@@ -24,9 +24,9 @@ const Programs = () => {
     },
     {
       icon: Heart,
-      title: "Mentorship Club",
+      title: "Magang Mandiri",
       description:
-        "Ruang berlangganan bulanan bagi perempuan muda untuk belajar, berkembang dan percaya diri dengan bimbingan 1on1 dengan mentor  💻🌟",
+        "Program magang untuk mendapatkan pengalaman praktis, mengembangkan skill, atau memenuhi syarat akademik seperti konversi SKS.  💻🌟",
       color: "bg-orange-500",
       gradient: "from-orange-400 to-pink-400",
       bgPattern: "from-orange-50 to-pink-50",
@@ -52,11 +52,11 @@ const Programs = () => {
           </div>
 
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-800 mb-4 font-poppins">
-            Explore Program <span className="text-primary">Impianmu</span> ✨
+            Explore Program <span className="text-primary">Pilihanmu</span> ✨
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {
-              "Kami menawarkan berbagai program yang dirancang khusus untuk pengembangan potensi terbaikmu, beautiful! 💕"
+              "Skill up, level up: Pilih program yang bikin kamu makin #grow💕"
             }
           </p>
         </div>
@@ -105,12 +105,12 @@ const Programs = () => {
         </div>
 
         {/* Call to action */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <p className="text-gray-600 mb-6 text-lg">{"Siap memulai perjalanan menuju versi terbaikmu? 🌟"}</p>
           <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
             {"Mulai Sekarang! 🚀"}
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   )

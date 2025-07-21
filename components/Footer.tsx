@@ -5,7 +5,7 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Heart, Spa
 const Footer = () => {
   const footerLinks = {
     Company: ["About Us", "Our Team", "Careers", "Contact"],
-    Programs: ["Web Development", "Data Science", "UI/UX Design", "Digital Marketing"],
+    Programs: ["Short Class", "Intensive Class", "Magang Mandiri"],
     Resources: ["Blog", "Documentation", "Help Center", "Community"],
     Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Disclaimer"],
   }
@@ -18,7 +18,7 @@ const Footer = () => {
       href: "https://instagram.com/grazedu_id",
       label: "Instagram",
     },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
+    { icon: Linkedin, href: "https://linkedin.com/company/grazedu", label: "LinkedIn" },
   ]
 
   return (
@@ -41,7 +41,7 @@ const Footer = () => {
 
             <p className="text-gray-600 leading-relaxed">
               {
-                "Platform pembelajaran online yang membantu perempuan muda mengembangkan potensi terbaik dengan dukungan mentor inspiratif dan komunitas yang supportif. ✨💕"
+                "Platform pengembangan diri & bagi perempuan muda untuk memaksimal potensi terbaiknya dalam karir professional maupun pertumbuhan pribadi 💪💕"
               }
             </p>
 
@@ -92,7 +92,7 @@ const Footer = () => {
         <div className="border-t border-pink-200 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-gray-500 text-sm">
-              {"© 2024 Grazedu. All rights reserved. Made with 💕 for amazing women!"}
+              {"© 2025 PT Grazedu Cerdas Indonesia. All rights reserved. Made with 💕 for amazing women!"}
             </p>
 
             <div className="flex items-center gap-4">

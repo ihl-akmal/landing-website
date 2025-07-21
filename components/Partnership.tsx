@@ -63,11 +63,16 @@ const Partnership = () => {
 
         <div className="mt-16 text-center">
           <p className="text-gray-600 mb-8 text-lg">
-            {"Bergabung dengan ribuan perempuan hebat yang telah mempercayai platform kami! 🌟"}
+            {"Ingin berkolaborasi menciptakan dampak yang positif & memberdayakan perempuan? 🌟"}
           </p>
-          <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
+          <a
+            href="https://wa.me/6282358712443"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md"
+          >
             {"Ajukan Kerjasama 💕"}
-          </button>
+          </a>
         </div>
       </div>
     </section>

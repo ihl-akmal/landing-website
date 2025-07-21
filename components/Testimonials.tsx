@@ -5,33 +5,33 @@ import { Star, Quote, Heart, Sparkles } from "lucide-react"
 const Testimonials = () => {
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "Alumni Batch 2023",
+      name: "Caca Aprilia Idias Putri ",
+      role: "Mahasiswa",
       company: "Tech Startup",
       image:
         "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
       content:
-        "Program ini benar-benar mengubah hidupku! Mentor-mentornya sangat inspiratif dan selalu siap membantu. Sekarang aku bekerja di perusahaan impian dan merasa lebih percaya diri! 💪✨",
+        "Setelah mengikuti webinar 'Woman of Worth', saya merasa lebih percaya diri dan memiliki mindset yang lebih positif. Saya belajar bagaimana mengelola pikiran negatif dan fokus pada hal-hal yang mendukung perkembangan pribadi dan profesional, yang membantu saya menghadapi tantangan hidup dengan lebih baik.",
       rating: 5,
     },
     {
-      name: "Michael Chen",
-      role: "Product Manager",
+      name: "Tetryanti Aztari Purbarini ",
+      role: "Mahasiswa",
       company: "E-commerce Platform",
       image:
         "https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
       content:
-        "Metode pembelajaran yang interaktif dan praktis membuat aku cepat memahami konsep-konsep kompleks. Komunitasnya juga sangat supportif dan penuh semangat! 🚀",
+        "Aku jadi lebih paham kalau self awarenessku masih kurang dan masih banyak hal yang perlu dianalisis dari diriku sendiri untuk tau apa yang sebenernya aku mau, terima kasih kak shinta atas materi dan sharing-sharingnyaaa, alsoo terima kasiii grazedu team buat acara kerennya!!! Ditunggu materi-materi menarik selanjutnya <3333",
       rating: 5,
     },
     {
-      name: "Lisa Anderson",
-      role: "UX Designer",
+      name: "Andara Ashadama",
+      role: "Mahasiswa",
       company: "Design Agency",
       image:
         "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=100&h=100&fit=crop",
       content:
-        "Investasi terbaik yang pernah aku lakukan untuk karirku! Kurikulum yang up-to-date dengan industry standards dan networking yang luas. Highly recommended! 💕",
+        "Kelasnya udah bagus banget! Please banyakin kelas yang kayak begini!🥹🙏 Soalnya aku ada kendala jaringan tadi, dan gak bisa ikutin sampai akhirr. Semuanya keren banget! Materi yang kakak sampaikan jelas dan mudah dimengerti! Makasih banyak yaa kakk buat ilmu dan wawasan yang disampaikan! Berdaging!😻😻😻 💕",
       rating: 5,
     },
   ]
@@ -82,21 +82,10 @@ const Testimonials = () => {
                   <p className="text-gray-700 leading-relaxed italic">"{testimonial.content}"</p>
 
                   <div className="flex items-center gap-4">
-                    <div className="relative">
-                      <img
-                        src={testimonial.image || "/placeholder.svg"}
-                        alt={testimonial.name}
-                        className="w-12 h-12 rounded-full object-cover border-2 border-primary/20"
-                      />
-                      <div className="absolute -bottom-1 -right-1 bg-primary rounded-full p-1">
-                        <Heart className="h-2 w-2 text-white" />
-                      </div>
-                    </div>
-
                     <div>
                       <h4 className="font-semibold text-gray-900 font-poppins">{testimonial.name}</h4>
                       <p className="text-sm text-gray-600">{testimonial.role}</p>
-                      <p className="text-sm text-primary">{testimonial.company + " ✨"}</p>
+                      {/* <p className="text-sm text-primary">{testimonial.company + " ✨"}</p> */}
                     </div>
                   </div>
                 </div>
@@ -106,12 +95,12 @@ const Testimonials = () => {
         </div>
 
         {/* Call to action */}
-        <div className="text-center mt-12">
+        {/* <div className="text-center mt-12">
           <p className="text-gray-600 mb-6 text-lg">{"Siap jadi success story berikutnya? 🌟"}</p>
           <button className="bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md">
             {"Mulai Journey-ku! 🚀"}
           </button>
-        </div>
+        </div> */}
       </div>
     </section>
   )

@@ -51,49 +51,59 @@ const AboutUs = () => {
     {
       name: 'Alifa Milanisty',
       role: 'Chief Executive Officer',
-      image: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      image: '/aliffa.jpg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
       achievements: [
-        'Associate (DP3A)',
-        'Master Degree in Psychology Studies & Master of Art in Educational Technology Universitas Negeri Malang',
+        'Awardee LPDP RI',
+        'Master of Art Clinical Psychology Universitas Gadjah Mada',
         'Karate Athlete',
-        'Content Creator'
+        'Content Creator & Public Speaker'
       ],
-      description: 'Speaker 100+ events on women empowerment, mentor ratusan perempuan muda, dan passionate dalam mengembangkan potensi generasi muda Indonesia. 💫',
+      description: 'Speaker 150+ events on women empowerment, mentor ratusan perempuan muda, dan passionate dalam mengembangkan potensi generasi muda Indonesia. 💫',
       social: {
-        instagram: '#',
-        linkedin: '#'
+        instagram: 'https://instagram.com/aliffamilanisty',
+        linkedin: 'https://linkedin.com/in/alifamilanisty'
       }
     },
     {
-      name: 'Sarah Johnson',
-      role: 'Head of Learning & Development',
-      image: 'https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      name: "Ihlasul A'mal",
+      role: 'Program Lead',
+      image: '/akmal.jpg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
       achievements: [
-        'M.Ed in Curriculum Design',
-        'Google Certified Trainer',
-        'TEDx Speaker',
-        'Learning Innovation Expert'
+        'Startup Founder',
+        'Ex MSIB Mentor',
+        'Bachelor of Informatics Engineering INSTIKI',
+        'Certified Public Speaking',
       ],
       description: 'Passionate educator dengan 8+ tahun pengalaman dalam pengembangan kurikulum dan metodologi pembelajaran yang engaging untuk perempuan muda. ✨',
       social: {
-        instagram: '#',
-        linkedin: '#'
+        instagram: 'https://instagram.com/ihl.akmal',
+        linkedin: 'https://linkedin.com/in/ihlasulamal98'
       }
     },
     {
-      name: 'Maya Sari',
-      role: 'Community & Partnership Manager',
-      image: 'https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      name: 'Dayinta Lalita Kisin',
+      role: 'Operational Lead',
+      image: '/dayinta.jpg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
       achievements: [
-        'MBA in Business Development',
-        'Certified Community Manager',
-        'Women Leadership Advocate',
-        'Startup Mentor'
+        'Bachelor of Financial Management Universitas Dian Nuswantoro',
       ],
       description: 'Expert dalam membangun komunitas yang kuat dan menjalin partnership strategis untuk mendukung pertumbuhan karir perempuan muda Indonesia. 🌟',
       social: {
-        instagram: '#',
-        linkedin: '#'
+        instagram: 'https://instagram.com/dayintalalita',
+        linkedin: 'https://www.linkedin.com/in/dayinta-lalita-kisin-659b62260/'
+      }
+    },
+    {
+      name: 'Cindy Mutiara Hapsari',
+      role: 'Learning Development Lead',
+      image: '/cindy.jpg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      achievements: [
+        'Bachelor of Anthropology Universitas Gadjah Mada',
+      ],
+      description: 'Expert dalam membangun komunitas yang kuat dan menjalin partnership strategis untuk mendukung pertumbuhan karir perempuan muda Indonesia. 🌟',
+      social: {
+        instagram: 'https://instagram.com/cindymutiaraah',
+        linkedin: 'https://www.linkedin.com/in/cindymutiarahapsari/'
       }
     }
   ];
@@ -105,7 +115,8 @@ const AboutUs = () => {
       description: 'Skill Up, Level Up. Temukan kelas-kelas seru & interaktif yang bikin kamu makin #Grow! 🚀',
       buttonText: 'Lihat Kelas',
       buttonColor: 'bg-gradient-to-r from-primary to-primary-light',
-      bgGradient: 'from-pink-50 to-rose-50'
+      bgGradient: 'from-pink-50 to-rose-50',
+      link: 'https://grazedu.myr.id'
     },
     {
       icon: Award,
@@ -113,15 +124,17 @@ const AboutUs = () => {
       description: 'Belajar sambil praktik nyata! Ikuti program magang di Grazedu dan dapatkan pengalaman berharga dalam mengembangkan generasi muda yang berdaya. 💼✨',
       buttonText: 'Gabung Sekarang',
       buttonColor: 'bg-gradient-to-r from-orange-400 to-pink-400',
-      bgGradient: 'from-orange-50 to-pink-50'
+      bgGradient: 'from-orange-50 to-pink-50',
+      link: ''
     },
     {
       icon: Globe,
       title: 'Explore Kolaborasi dengan Grazedu!',
-      description: 'Kami terbuka untuk berkolaborasi dengan komunitas, kampus, hingga brand yang punya visi sejalan dalam mengembangkan potensi anak muda Indonesia. 🤝💕',
+      description: 'Kami terbuka untuk berkolaborasi dengan komunitas, kampus, hingga brand yang punya visi sejalan dalam mengembangkan perempuan muda Indonesia. 🤝💕',
       buttonText: 'Ajukan Kolaborasi',
       buttonColor: 'bg-gradient-to-r from-purple-500 to-primary',
-      bgGradient: 'from-purple-50 to-pink-50'
+      bgGradient: 'from-purple-50 to-pink-50',
+      link: 'https://wa.me/6272358712443'
     }
   ];
 
@@ -141,9 +154,9 @@ const AboutUs = () => {
               <div className="relative">
                 <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-pink-400/20 rounded-3xl blur-2xl opacity-60"></div>
                 <img
-                  src="/cta.jpg"
+                  src="/dokumentasi1.jpg"
                   alt="Grazedu Team"
-                  className="relative w-full h-96 object-cover rounded-3xl shadow-2xl border border-white/50"
+                  className="relative w-full h-96 object-cover bg-white rounded-3xl shadow-2xl border border-white/50"
                 />
                 <div className="absolute -bottom-4 -right-4 bg-white rounded-2xl p-4 shadow-xl border border-pink-100">
                   <div className="flex items-center gap-3">
@@ -177,10 +190,11 @@ const AboutUs = () => {
 
                 <div className="space-y-4 text-lg text-gray-600 leading-relaxed">
                   <p>
-                    Kami adalah platform pengembangan diri yang berfokus pada peningkatan soft skill, pembentukan karakter kuat, dan pemberdayaan perempuan. Kami percaya, anak muda Indonesia punya potensi besar, tinggal butuh ruang yang tepat untuk mengasahnya. 💪
+                    Hampir 50% perempuan di Asia termasuk Indonesia tidak cukup percaya diri dan puas akan kemajuan karir mereka. Dampaknya masih sedikit perempuan yang berada di level kepemimpinan. Sedangkan beberapa tahun kedepan, jumlah populasi perempuan
+                    Indonesia akan lebih besar daripada pria. Kegagalan perempuan untuk berkembang secara pribadi dan profesional akan berpotensi menjadi beban, bukan lagi kekuatan.
                   </p>
                   <p>
-                    Di tengah dunia kerja yang kompetitif dan kehidupan yang makin kompleks, kami hadir sebagai safe space growing partner. Melalui kelas, komunitas, dan program mentoring, kami bantu kamu jadi pribadi yang lebih percaya diri, tangguh, dan berdampak. 🌟
+                    Untuk itu kami hadir sebagai safe space growing partner. Melalui kelas, komunitas, dan program mentoring, kami bantu kamu jadi pribadi yang lebih percaya diri, tangguh, dan berdaya. 🌟
                   </p>
                 </div>
               </div>
@@ -213,7 +227,7 @@ const AboutUs = () => {
                 <Eye className="h-8 w-8" />
               </div>
               <h2 className="text-2xl font-bold font-poppins mb-4 text-left">Visi</h2>
-              <p className="text-white/90 leading-relaxed text-left">Menjadi platform pembelajaran terdepan yang memberdayakan perempuan muda Indonesia untuk mencapai potensi terbaik mereka dalam karir dan kehidupan personal. ✨</p>
+              <p className="text-white/90 leading-relaxed text-left">Tempat ternyaman untuk perempuan bertumbuh. Setiap perempuan berhak mendapatkan kesempatan berkembang, tidak mengintimidasi dan ramah bagi siapapun✨</p>
             </div>
             {/* Misi - orange gradient */}
             <div className="h-full rounded-3xl p-8 text-white bg-gradient-to-br from-orange-400 to-pink-400 hover:shadow-2xl hover:scale-105 transition-all duration-300 relative overflow-hidden">
@@ -226,7 +240,7 @@ const AboutUs = () => {
                 <Target className="h-8 w-8" />
               </div>
               <h2 className="text-2xl font-bold font-poppins mb-4 text-left">Misi</h2>
-              <p className="text-white/90 leading-relaxed text-left">Menyediakan pendidikan berkualitas tinggi, mentoring inspiratif, dan komunitas supportif yang membantu perempuan muda berkembang dengan percaya diri dan mencapai impian mereka. 💕</p>
+              <p className="text-white/90 leading-relaxed text-left">Menyediakan kelas pembelajaran yang hangat, supportif, dan inspiratif yang membantu perempuan muda berkembang dengan percaya diri dan mencapai impian mereka. 💕</p>
             </div>
           </div>
         </div>
@@ -305,7 +319,7 @@ const AboutUs = () => {
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-4 gap-8">
             {teamMembers.map((member, index) => (
               <div key={index} className="group">
                 <div className="bg-white rounded-3xl p-6 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-pink-100 relative overflow-hidden">
@@ -341,7 +355,7 @@ const AboutUs = () => {
                         ))}
                       </div>
                       
-                      <p className="text-sm text-gray-700 leading-relaxed">{member.description}</p>
+                      {/* <p className="text-sm text-gray-700 leading-relaxed">{member.description}</p> */}
                       
                       <div className="flex justify-center gap-3 pt-2">
                         <a href={member.social.instagram} className="p-2 bg-gradient-to-br from-primary/10 to-pink-100 rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-primary/20">
@@ -392,7 +406,10 @@ const AboutUs = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-2 font-poppins text-white drop-shadow-md">{card.title}</h3>
                 <p className="text-white/90 mb-6 drop-shadow-md">{card.description}</p>
-                <button className="bg-white text-primary px-5 py-2 rounded-full font-semibold hover:scale-105 transition flex items-center gap-2 shadow-md">
+                <button
+                  className="bg-white text-primary px-5 py-2 rounded-full font-semibold hover:scale-105 transition flex items-center gap-2 shadow-md"
+                  onClick={() => card.link && card.link !== '' ? window.open(card.link, '_blank', 'noopener,noreferrer') : undefined}
+                >
                   {card.buttonText}
                   <ArrowRight className="w-4 h-4 text-primary" />
                 </button>
