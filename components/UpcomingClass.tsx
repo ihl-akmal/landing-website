@@ -15,6 +15,7 @@ const UpcomingClass = () => {
         "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
       badge: "BEST SELLER",
       badgeColor: "bg-primary text-white",
+      link: "https://grazedu.myr.id",
     },
     {
       title: "Entrepreneurship Journey ✨",
@@ -24,26 +25,40 @@ const UpcomingClass = () => {
       time: "14:00 PM",
       zoomMeeting: "Meeting ID: 987 654 321",
       image:
-        "https://images.pexels.com/photos/3184306/pexels-photo-3184306.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+        "/class/workplace.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
       badge: "TRENDING",
       badgeColor: "bg-orange-500 text-white",
+      link: "https://grazedu.myr.id",
     },
     {
-      title: "Digital Marketing Magic 🌟",
-      subtitle: "Strategi pemasaran digital untuk pemula",
-      instructor: "Ahmad Rizal",
-      date: "12 Mar 2024",
-      time: "19:00 PM",
-      zoomMeeting: "Meeting ID: 456 789 123",
+      title: "Workplace Communication for Women",
+      subtitle: "Membangun Komunikasi Professional di Dunia Kerja",
+      instructor: "Ajeng Kusumaning Ratri (AVP-CSR Education & Community Development at Indosat)",
+      date: "2 Agustus 2025",
+      time: "09.00-11.15 WIB",
+      zoomMeeting: "Zoom Meeting",
       image:
-        "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+        "/class/workplace.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
       badge: "NEW",
       badgeColor: "bg-green-500 text-white",
+      link: "https://s.id/KelasKomunikasiGrazedu",
+    },
+    {
+      title: "Intensive Class Public Speaking [BASIC]",
+      subtitle: null,
+      instructor: "Aliffa Milanisty (CEO Grazedu & Public Speaker 150+ events)",
+      date: "12 Juli 2025",
+      time: "15.30 WIB",
+      zoomMeeting: "Zoom Meeting",
+      image: "/class/publicspeaking.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "CLOSED",
+      badgeColor: "bg-primary text-white",
+      link: "https://grazedu.myr.id",
     },
   ]
 
-  // Filter hanya kelas Digital Marketing Magic
-  const activeClass = classes.find(c => c.title === "Digital Marketing Magic 🌟")
+  // Filter dua kelas aktif
+  const activeClasses = classes.filter(c => ["Workplace Communication for Women", "Intensive Class Public Speaking [BASIC]"].includes(c.title))
 
   return (
     <section className="py-20 bg-gradient-to-br from-white via-pink-50 to-rose-50 relative overflow-hidden">
@@ -67,19 +82,16 @@ const UpcomingClass = () => {
           </p>
         </div>
 
-        {/* Hanya render card aktif dan posisikan di tengah pada grid 3 kolom */}
-        <div className="grid md:grid-cols-3 gap-8">
-          <div className="col-span-1 md:col-start-2">
-            {activeClass && (
-              <div
-                className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-pink-100 flex flex-col"
-              >
+        {/* Render dua kelas aktif di grid */}
+        <div className="grid md:grid-cols-2 gap-8 justify-center">
+          {activeClasses.map((activeClass, idx) => (
+            <div key={activeClass.title} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-pink-100 flex flex-col max-w-2xl mx-auto">
                 <div className="relative">
-                  <img
-                    src={activeClass.image || "/placeholder.svg"}
-                    alt={activeClass.title}
-                    className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
+                <img
+                  src={activeClass.image || "/placeholder.svg"}
+                  alt={activeClass.title}
+                  className={`w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300${activeClass.badge === 'CLOSED' ? ' grayscale' : ''}`}
+                />
                   <div className="absolute top-4 left-4">
                     <span className={`px-3 py-1 text-xs font-bold rounded-full ${activeClass.badgeColor} shadow-md`}>
                       {activeClass.badge}
@@ -128,13 +140,19 @@ const UpcomingClass = () => {
                     </div>
                   </div>
 
-                  <button className="w-full bg-gradient-to-r from-primary to-primary-light text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md mt-auto">
-                    {"Daftar Sekarang! 🚀"}
-                  </button>
-                </div>
+                <a
+                  href={activeClass.badge === 'CLOSED' ? undefined : activeClass.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className={`w-full bg-gradient-to-r from-primary to-primary-light text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md mt-auto flex justify-center items-center${activeClass.badge === 'CLOSED' ? ' grayscale opacity-60 cursor-not-allowed pointer-events-none' : ''}`}
+                  aria-disabled={activeClass.badge === 'CLOSED' ? 'true' : undefined}
+                  tabIndex={activeClass.badge === 'CLOSED' ? -1 : 0}
+                >
+                  {activeClass.badge === 'CLOSED' ? 'Pendaftaran Ditutup' : 'Daftar Sekarang! 🚀'}
+                </a>
               </div>
-            )}
           </div>
+          ))}
         </div>
 
         {/* Call to action */}

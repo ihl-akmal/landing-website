@@ -1,6 +1,7 @@
 "use client"
 
 import { Clock, GraduationCap, Monitor, ArrowRight, Sparkles, Heart, Star } from "lucide-react"
+import { Dialog, DialogTrigger, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog"
 
 const Programs = () => {
   const programs = [
@@ -12,6 +13,7 @@ const Programs = () => {
       color: "bg-blue-500",
       gradient: "from-blue-400 to-blue-500",
       bgPattern: "from-blue-50 to-indigo-50",
+      link: "https://grazedu.myr.id/"
     },
     {
       icon: GraduationCap,
@@ -21,6 +23,7 @@ const Programs = () => {
       color: "bg-primary",
       gradient: "from-primary to-primary-light",
       bgPattern: "from-pink-50 to-rose-50",
+      link: "https://grazedu.myr.id/"
     },
     {
       icon: Heart,
@@ -30,6 +33,7 @@ const Programs = () => {
       color: "bg-orange-500",
       gradient: "from-orange-400 to-pink-400",
       bgPattern: "from-orange-50 to-pink-50",
+      link: ""
     },
   ]
 
@@ -90,14 +94,37 @@ const Programs = () => {
                     <p className="text-white/90 leading-relaxed">{program.description}</p>
                   </div>
 
-                  <button
-                    type="button"
-                    onClick={() => window.open('https://grazedu.myr.id', '_blank', 'noopener,noreferrer')}
-                    className="flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all duration-200 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30"
-                  >
-                    Lihat Detail
-                    <ArrowRight className="h-5 w-5" />
-                  </button>
+                  {/* Button logic: if Magang Mandiri, show Dialog; else, open link */}
+                  {program.title === "Magang Mandiri" ? (
+                    <Dialog>
+                      <DialogTrigger asChild>
+                        <button
+                          type="button"
+                          className="flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all duration-200 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30"
+                        >
+                          Lihat Detail
+                          <ArrowRight className="h-5 w-5" />
+                        </button>
+                      </DialogTrigger>
+                      <DialogContent>
+                        <DialogHeader>
+                          <DialogTitle>Informasi Magang Mandiri:</DialogTitle>
+                        </DialogHeader>
+                        <div className="text-center py-4 text-base">
+                          Magang Mandiri Batch 4 sedang berlangsung, ditunggu pembukaan batch 5 yaa ✨
+                        </div>
+                      </DialogContent>
+                    </Dialog>
+                  ) : (
+                    <button
+                      type="button"
+                      onClick={() => program.link && program.link !== '' ? window.open(program.link, '_blank', 'noopener,noreferrer') : undefined}
+                      className="flex items-center gap-2 text-white font-semibold hover:gap-4 transition-all duration-200 bg-white/20 backdrop-blur-sm px-4 py-2 rounded-full border border-white/30"
+                    >
+                      Lihat Detail
+                      <ArrowRight className="h-5 w-5" />
+                    </button>
+                  )}
                 </div>
               </div>
             </div>

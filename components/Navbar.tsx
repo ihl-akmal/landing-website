@@ -25,10 +25,12 @@ const Navbar = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center gap-2">
-            <div className="text-2xl font-bold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent font-poppins">
-              grazedu
-            </div>
-            <Heart className="h-5 w-5 text-primary" />
+            <img
+              src="/logo-grazedu-website.svg"
+              alt="Grazedu Logo"
+              className="h-8 w-auto"
+            />
+            {/* <Heart className="h-5 w-5 text-primary" /> */}
           </div>
 
           <div className="hidden md:block">

@@ -16,7 +16,7 @@ export default function HomePage() {
       <Hero />
       <SocialProof />
       <Programs />
-      {/* <UpcomingClass /> */}
+      <UpcomingClass />
       <Mentors />
       <Testimonials />
       <Partnership />

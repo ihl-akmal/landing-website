@@ -33,10 +33,12 @@ const Footer = () => {
           {/* Brand Section */}
           <div className="lg:col-span-2 space-y-6">
             <div className="flex items-center gap-2">
-              <div className="text-3xl font-bold bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent font-poppins">
-                grazedu
-              </div>
-              <Heart className="h-6 w-6 text-primary" />
+              <img
+                src="/logo-grazedu-website.svg"
+                alt="Grazedu Logo"
+                className="h-10 w-auto"
+              />
+              {/* <Heart className="h-6 w-6 text-primary" /> */}
             </div>
 
             <p className="text-gray-600 leading-relaxed">

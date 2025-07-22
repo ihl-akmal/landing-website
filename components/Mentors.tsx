@@ -37,8 +37,8 @@ const Mentors = () => {
     },
     {
       name: "Helen Patricia",
-      title: "Marketing Communication",
-      company: "Hospitality Industry",
+      title: "Corporate Branding",
+      company: "FKS Group",
       image:
         "/helen.jpg",
       expertise: ["Communication Skill"],
