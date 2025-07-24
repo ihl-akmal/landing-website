@@ -164,8 +164,8 @@ const AboutUs = () => {
                       <Heart className="h-6 w-6 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900 text-sm">#KarenaPerempuanJugaBisa</p>
-                      <p className="text-xs text-gray-600">Yuk melangkah bersama! 💕</p>
+                      <p className="font-semibold text-gray-900 text-sm">Ruang aman untuk tumbuh</p>
+                      <p className="text-xs text-gray-600">Sukses karir, tumbuh secara pribadi 💕</p>
                     </div>
                   </div>
                 </div>

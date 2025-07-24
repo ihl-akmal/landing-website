@@ -85,8 +85,8 @@ const HeroCTA = () => {
                       <Heart className="h-5 w-5 text-primary" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-900 text-sm">Safe Space</p>
-                      <p className="text-xs text-gray-600">{"Ruang aman untuk tumbuh 💫"}</p>
+                      <p className="font-semibold text-gray-900 text-sm">#KarenaPerempaunJugaBisa</p>
+                      <p className="text-xs text-gray-600">{"Yuk melangkah bersama 💫"}</p>
                     </div>
                   </div>
                 </div>
