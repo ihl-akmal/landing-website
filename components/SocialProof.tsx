@@ -24,7 +24,7 @@ const SocialProof = () => {
   const finalCounts = {
     mentors: 15,
     students: 3000,
-    rating: 4.6,
+    rating: 92,
     komunitas: 1000,
   }
 
@@ -59,7 +59,7 @@ const SocialProof = () => {
       setCounts({
         mentors: Math.floor(finalCounts.mentors * progress),
         students: Math.floor(finalCounts.students * progress),
-        rating: Math.min(finalCounts.rating * progress, finalCounts.rating),
+        rating: Math.floor(finalCounts.rating * progress),
         komunitas: Math.floor(finalCounts.komunitas * progress),
       })
 
@@ -81,14 +81,14 @@ const SocialProof = () => {
     {
       icon: Award,
       number: `${counts.students.toLocaleString()}+`,
-      label: "Learner Terdaftar",
+      label: "Perempuan Bergabung",
       color: "bg-purple-100 text-purple-600",
       bgGradient: "from-purple-100 to-pink-100",
     },
     {
       icon: BookOpen,
-      number: counts.rating.toFixed(1),
-      label: "Rating Kepuasan ⭐",
+      number: `${counts.rating}%`,
+      label: "Mereka Excited Belajar",
       color: "bg-yellow-100 text-yellow-600",
       bgGradient: "from-yellow-100 to-orange-100",
     },
@@ -117,7 +117,7 @@ const SocialProof = () => {
             Pencapaian <span className="text-primary">Luar Biasa</span> Bersama Kami ✨
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Bergabunglah dengan ribuan perempuan hebat yang telah meraih impian mereka
+          🌱 Bukan soal menjadi sempurna, tapi tentang berani memulai.
           </p>
         </div>
 
