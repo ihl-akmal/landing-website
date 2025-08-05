@@ -39,8 +39,8 @@ const UpcomingClass = () => {
       zoomMeeting: "Zoom Meeting",
       image:
         "/class/workplace.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "NEW",
-      badgeColor: "bg-green-500 text-white",
+      badge: "CLOSED",
+      badgeColor: "bg-primary text-white",
       link: "https://s.id/KelasKomunikasiGrazedu",
     },
     {
