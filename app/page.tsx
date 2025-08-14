@@ -1,3 +1,6 @@
+"use client"
+
+import { useState } from "react"
 import Navbar from "@/components/Navbar"
 import Hero from "@/components/Hero"
 import SocialProof from "@/components/SocialProof"
@@ -8,12 +11,23 @@ import Testimonials from "@/components/Testimonials"
 import Partnership from "@/components/Partnership"
 import HeroCTA from "@/components/HeroCTA"
 import Footer from "@/components/Footer"
+import AnnouncementBanner from "@/components/AnnouncementBanner"
 
 export default function HomePage() {
+  const [announcementVisible, setAnnouncementVisible] = useState(true)
+
+  const handleAnnouncementDismiss = () => {
+    setAnnouncementVisible(false)
+  }
+
   return (
     <div className="min-h-screen bg-white">
+      {announcementVisible && <AnnouncementBanner onDismiss={handleAnnouncementDismiss} />}
       <Navbar />
-      <Hero />
+      {/* Mobile-first responsive padding-top */}
+      <div className={announcementVisible ? "pt-24 sm:pt-28 md:pt-32" : "pt-14 sm:pt-16 md:pt-20"}>
+        <Hero />
+      </div>
       <SocialProof />
       <Programs />
       <UpcomingClass />

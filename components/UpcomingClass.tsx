@@ -61,7 +61,7 @@ const UpcomingClass = () => {
   const activeClasses = classes.filter(c => ["Workplace Communication for Women", "Intensive Class Public Speaking [BASIC]"].includes(c.title))
 
   return (
-    <section className="py-20 bg-gradient-to-br from-white via-pink-50 to-rose-50 relative overflow-hidden">
+    <section id="upcoming-class" className="py-20 bg-gradient-to-br from-white via-pink-50 to-rose-50 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-10 right-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
       <div className="absolute bottom-10 left-10 w-32 h-32 bg-pink-300/20 rounded-full blur-2xl"></div>

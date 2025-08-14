@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react"
 import { Menu, X, Heart } from "lucide-react"
 
-const Navbar = () => {
+interface NavbarProps {
+  announcementVisible?: boolean
+}
+
+const Navbar = ({ announcementVisible = true }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -18,12 +22,12 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-pink-100" : "bg-transparent"
-      }`}
+    className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+      announcementVisible ? "top-8 sm:top-12" : "top-0"
+    } ${isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-pink-100" : "bg-transparent"}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+        <div className="flex items-center justify-between h-14 sm:h-16 md:h-20">
           <div className="flex items-center gap-2">
             <a href="/" className="flex items-center">
               <img
@@ -65,51 +69,56 @@ const Navbar = () => {
           </div>
 
           <div className="md:hidden">
-            <button
+          <button
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-700 hover:text-primary transition-colors duration-200"
+              className="text-gray-700 hover:text-primary transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
           </div>
         </div>
       </div>
 
       {isOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-pink-100">
-          <div className="px-2 pt-2 pb-3 space-y-1">
-            <a
-              href="/"
-              className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-            >
-              Home
-            </a>
-            <a
-              href="#program"
-              className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-            >
-              Program
-            </a>
-            {/* <a
-              href="#sertifikat"
-              className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-            >
-              Cek Sertifikat
-            </a> */}
-            <a
-              href="/about-us"
-              className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-            >
-              About Us
-            </a>
-            <a
-              href="#contact"
-              className="block px-3 py-2 text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-            >
-              Contact
-            </a>
-          </div>
+        <div className="md:hidden bg-white/98 backdrop-blur-md border-t border-pink-100 shadow-lg">
+        <div className="px-4 pt-2 pb-4 space-y-1">
+          <a
+            href="#home"
+            onClick={() => setIsOpen(false)}
+            className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+          >
+            Home
+          </a>
+          <a
+            href="#programs"
+            onClick={() => setIsOpen(false)}
+            className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+          >
+            Program
+          </a>
+          <a
+            href="#sertifikat"
+            onClick={() => setIsOpen(false)}
+            className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+          >
+            Cek Sertifikat
+          </a>
+          <a
+            href="#about"
+            onClick={() => setIsOpen(false)}
+            className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+          >
+            About Us
+          </a>
+          <a
+            href="#contact"
+            onClick={() => setIsOpen(false)}
+            className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+          >
+            Contact
+          </a>
         </div>
+      </div>
       )}
     </nav>
   )
