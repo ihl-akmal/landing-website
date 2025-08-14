@@ -65,7 +65,7 @@ const AnnouncementBanner = ({ onDismiss }: AnnouncementBannerProps) => {
 
               {/* Desktop text */}
               <div className="hidden lg:block text-sm text-white/90 truncate">
-                Jangan lewatkan kelas eksklusif bulan ini! Daftar sekarang sebelum kuota penuh ✨
+                Short Class "Career-Ready Women in FMCG!" Daftar sekarang sebelum pendaftaran ditutup ✨
               </div>
 
               {/* Tablet text */}

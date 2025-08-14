@@ -31,6 +31,18 @@ const UpcomingClass = () => {
       link: "https://grazedu.myr.id",
     },
     {
+      title: "Career-Ready Women in FMCG",
+      subtitle: "Strategi Tembus Dunia Kerja dengan AI Tools",
+      instructor: "Hesti Wijayanti (People Operations Manager at AVO Group)",
+      date: "30 Agustus 2025",
+      time: "9.00-11.15 WIB",
+      zoomMeeting: "Zoom Meeting",
+      image: "/class/womenfmcg.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "NEW",
+      badgeColor: "bg-green-500 text-white",
+      link: "https://s.id/CareerWomenFMCG",
+    },
+    {
       title: "Workplace Communication for Women",
       subtitle: "Membangun Komunikasi Professional di Dunia Kerja",
       instructor: "Ajeng Kusumaning Ratri (AVP-CSR Education & Community Development at Indosat)",
@@ -43,22 +55,10 @@ const UpcomingClass = () => {
       badgeColor: "bg-primary text-white",
       link: "https://s.id/KelasKomunikasiGrazedu",
     },
-    {
-      title: "Intensive Class Public Speaking [BASIC]",
-      subtitle: null,
-      instructor: "Aliffa Milanisty (CEO Grazedu & Public Speaker 150+ events)",
-      date: "12 Juli 2025",
-      time: "15.30 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image: "/class/publicspeaking.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "CLOSED",
-      badgeColor: "bg-primary text-white",
-      link: "https://grazedu.myr.id",
-    },
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Workplace Communication for Women", "Intensive Class Public Speaking [BASIC]"].includes(c.title))
+  const activeClasses = classes.filter(c => ["Career-Ready Women in FMCG", "Workplace Communication for Women"].includes(c.title))
 
   return (
     <section id="upcoming-class" className="py-20 bg-gradient-to-br from-white via-pink-50 to-rose-50 relative overflow-hidden">
