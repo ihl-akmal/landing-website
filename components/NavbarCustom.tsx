@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react"
 import { Menu, X } from "lucide-react"
 
-const Navbar = () => {
+interface NavbarProps {
+  announcementVisible?: boolean
+}
+
+const NavbarCustom = ({ announcementVisible = true }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
 
@@ -18,22 +22,20 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-pink-100' : 'bg-transparent" : ""
-      }`}
+      className={`fixed left-0 right-0 z-40 transition-all duration-300 ${
+        announcementVisible ? "top-8 sm:top-12" : "top-0"
+      } bg-white/95 backdrop-blur-md ${isScrolled ? "shadow-lg border-b border-pink-100" : ""}`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Fixed height - consistent across all screen sizes */}
+        {/* Fixed height - exactly the same always */}
         <div className="flex items-center justify-between h-16 md:h-20">
-          {/* Logo */}
           <a href="/" className="flex items-center">
             <img src="/logo-grazedu-website.svg" alt="Grazedu Logo" className="h-8 w-auto" />
           </a>
 
-          {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+              <a href="/" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 Home
               </a>
               <a
@@ -60,12 +62,10 @@ const Navbar = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-700 hover:text-primary transition-colors duration-200 p-2 rounded-lg hover:bg-gray-100"
-              aria-label="Toggle menu"
             >
               {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </button>
@@ -73,10 +73,10 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Navigation Menu */}
+      {/* Mobile menu with better styling and positioning */}
       {isOpen && (
-        <div className="md:hidden bg-white/95 backdrop-blur-md border-t border-pink-100">
-          <div className="px-2 pt-2 pb-3 space-y-1">
+        <div className="md:hidden bg-white/98 backdrop-blur-md border-t border-pink-100 shadow-lg">
+          <div className="px-4 pt-2 pb-4 space-y-1">
             <a
               href="/"
               onClick={() => setIsOpen(false)}
@@ -119,4 +119,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default NavbarCustom

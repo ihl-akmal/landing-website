@@ -143,7 +143,7 @@ const AboutUs = () => {
       <Navbar />
       
       {/* Company Description Section */}
-      <section className="pt-24 pb-20 bg-gradient-to-br from-pink-50 via-rose-50 to-white relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-gradient-to-br from-pink-50 via-rose-50 to-white relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-10 left-10 w-24 h-24 bg-primary/10 rounded-full blur-xl"></div>
         <div className="absolute bottom-10 right-10 w-32 h-32 bg-pink-300/20 rounded-full blur-2xl"></div>

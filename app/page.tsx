@@ -1,7 +1,7 @@
 "use client"
 
 import { useState } from "react"
-import Navbar from "@/components/Navbar"
+import NavbarCustom from "@/components/NavbarCustom"
 import Hero from "@/components/Hero"
 import SocialProof from "@/components/SocialProof"
 import Programs from "@/components/Programs"
@@ -23,7 +23,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen bg-white">
       {announcementVisible && <AnnouncementBanner onDismiss={handleAnnouncementDismiss} />}
-      <Navbar announcementVisible={announcementVisible} />
+      <NavbarCustom announcementVisible={announcementVisible} />
       {/* Mobile-first responsive padding-top */}
       <div className={announcementVisible ? "pt-24 sm:pt-28 md:pt-32" : "pt-14 sm:pt-16 md:pt-20"}>
         <Hero />
