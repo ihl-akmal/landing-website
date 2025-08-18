@@ -6,6 +6,8 @@ import "./globals.css"
 import { GA_ID } from "@/lib/gtag"
 import { Providers } from "./providers"
 
+
+
 const poppins = Poppins({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -15,7 +17,6 @@ const poppins = Poppins({
 export const metadata: Metadata = {
   title: "Grazedu - Platform Pengembangan Diri & Karir untuk Perempuan",
   description: "Platform pengembangan diri & karir untuk perempuan muda untuk mencapai potensi maksimal dalam karir profesional maupun pertumbuhan pribadi",
-  generator: "v0.dev",
 }
 
 export default function RootLayout({

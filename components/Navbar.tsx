@@ -33,7 +33,7 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-8">
-              <a href="#home" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+              <a href="/" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 Home
               </a>
               <a
