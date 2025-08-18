@@ -1,7 +1,7 @@
 import type React from "react"
 import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
-import Script from "next/script"   // ⬅️ tambahkan ini
+import Script from "next/script"
 import "./globals.css"
 import { GA_ID } from "@/lib/gtag"
 import { Providers } from "./providers"
@@ -26,21 +26,16 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
-        <link
-          rel="icon"
-          type="image/png"
-          href="/favicon-96x96.png"
-          sizes="96x96"
-        />
+        <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
       </head>
       <body className={`${poppins.variable} font-sans`}>
-      <Providers>{children}</Providers>   {/* ⬅️ bungkus children */}
+        <Providers>{children}</Providers>
 
-        {/* ✅ Google Analytics */}
+        {/* Google Analytics */}
         {GA_ID && (
           <>
             <Script
