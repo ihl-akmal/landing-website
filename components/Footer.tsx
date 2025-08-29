@@ -6,7 +6,7 @@ const Footer = () => {
   const footerLinks = {
     Company: ["About Us", "Our Team", "Careers", "Contact"],
     Programs: ["Short Class", "Intensive Class", "Magang Mandiri"],
-    Resources: ["Blog", "Documentation", "Help Center", "Community"],
+    Resources: ["FAQ", "Documentation", "Help Center", "Community"],
     Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Disclaimer"],
   }
 
@@ -81,7 +81,10 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
-                    <a href="#" className="text-gray-600 hover:text-primary transition-colors duration-200">
+                    <a 
+                      href={link === "FAQ" ? "/faq" : "#"} 
+                      className="text-gray-600 hover:text-primary transition-colors duration-200"
+                    >
                       {link}
                     </a>
                   </li>

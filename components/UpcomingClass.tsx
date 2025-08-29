@@ -1,41 +1,17 @@
 "use client"
 
 import { Clock, User, Calendar, Video, Heart, Sparkles } from "lucide-react"
+import { generateStructuredData } from "@/lib/structured-data"
 
 const UpcomingClass = () => {
   const classes = [
+  
     {
-      title: "Leadership Vol 1 💪",
-      subtitle: null, // No subtitle for this class
-      instructor: "Michael Chen",
-      date: "28 Feb 2024",
-      time: "09:00 AM",
-      zoomMeeting: "Meeting ID: 123 456 789",
-      image:
-        "https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "BEST SELLER",
-      badgeColor: "bg-primary text-white",
-      link: "https://grazedu.myr.id",
-    },
-    {
-      title: "Entrepreneurship Journey ✨",
-      subtitle: "Menjadi perempuan yang mandiri berbisnis",
-      instructor: "Lisa Anderson",
-      date: "05 Mar 2024",
-      time: "14:00 PM",
-      zoomMeeting: "Meeting ID: 987 654 321",
-      image:
-        "/class/workplace.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "TRENDING",
-      badgeColor: "bg-orange-500 text-white",
-      link: "https://grazedu.myr.id",
-    },
-    {
-      title: "Career-Ready Women in FMCG",
+      title: "[EXTENDED] Career-Ready Women in FMCG",
       subtitle: "Strategi Tembus Dunia Kerja dengan AI Tools",
       instructor: "Hesti Wijayanti (People Operations Manager at AVO Group)",
-      date: "30 Agustus 2025",
-      time: "9.00-11.15 WIB",
+      date: "3 September 2025",
+      time: "18.30-20.45 WIB",
       zoomMeeting: "Zoom Meeting",
       image: "/class/womenfmcg.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
       badge: "NEW",
@@ -43,25 +19,50 @@ const UpcomingClass = () => {
       link: "https://s.id/CareerWomenFMCG",
     },
     {
-      title: "Workplace Communication for Women",
-      subtitle: "Membangun Komunikasi Professional di Dunia Kerja",
-      instructor: "Ajeng Kusumaning Ratri (AVP-CSR Education & Community Development at Indosat)",
-      date: "2 Agustus 2025",
+      title: "Intensive Class Personal Branding for Women [BASIC]",
+      subtitle: "",
+      instructor: "Nurrotul Ilma (Content Creator with 700k+ Tiktok Followers)",
+      date: "14 September 2025",
+      time: "19.15-21.15 WIB",
+      zoomMeeting: "Zoom Meeting",
+      image:
+        "/class/personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "FAVORIT",
+      badgeColor: "bg-orange-500 text-white",
+      link: "https://grazedu.myr.id/bootcamp/ic-personalbranding-batch1",
+    },
+    {
+      title: "Strategic Storytelling for Impactful Presentation",
+      subtitle: "Membangun Presentasi yang Profesional dengan Teknik Storytelling",
+      instructor: "Rachel Septiana Chandra (Founder & CEO Creative Lab)",
+      date: "13 September 2025 2025",
       time: "09.00-11.15 WIB",
       zoomMeeting: "Zoom Meeting",
       image:
-        "/class/workplace.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "CLOSED",
-      badgeColor: "bg-primary text-white",
-      link: "https://s.id/KelasKomunikasiGrazedu",
+        "/class/storytelling.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "NEW",
+      badgeColor: "bg-green-500 text-white",
+      link: "https://s.id/ShortClass-StrategicStorytelling",
     },
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Career-Ready Women in FMCG", "Workplace Communication for Women"].includes(c.title))
+  const activeClasses = classes.filter(c => ["[EXTENDED] Career-Ready Women in FMCG", "Intensive Class Personal Branding for Women [BASIC]","Strategic Storytelling for Impactful Presentation" ].includes(c.title))
 
   return (
-    <section id="upcoming-class" className="py-20 bg-gradient-to-br from-white via-pink-50 to-rose-50 relative overflow-hidden">
+    <>
+      {/* Structured Data for Courses */}
+      {activeClasses.map((course, index) => (
+        <script
+          key={index}
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(generateStructuredData('course', course))
+          }}
+        />
+      ))}
+      
+      <section id="upcoming-class" className="py-20 bg-gradient-to-br from-white via-pink-50 to-rose-50 relative overflow-hidden">
       {/* Decorative elements */}
       <div className="absolute top-10 right-10 w-20 h-20 bg-primary/10 rounded-full blur-xl"></div>
       <div className="absolute bottom-10 left-10 w-32 h-32 bg-pink-300/20 rounded-full blur-2xl"></div>
@@ -82,10 +83,10 @@ const UpcomingClass = () => {
           </p>
         </div>
 
-        {/* Render dua kelas aktif di grid */}
-        <div className="grid md:grid-cols-2 gap-8 justify-center">
+        {/* Render tiga kelas aktif di grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-center">
           {activeClasses.map((activeClass, idx) => (
-            <div key={activeClass.title} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-pink-100 flex flex-col max-w-2xl mx-auto">
+            <div key={activeClass.title} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-pink-100 flex flex-col w-full max-w-sm lg:max-w-none mx-auto">
                 <div className="relative">
                 <img
                   src={activeClass.image || "/placeholder.svg"}
@@ -102,9 +103,9 @@ const UpcomingClass = () => {
                   </div>
                 </div>
 
-                <div className="p-6 space-y-4 flex-1 flex flex-col">
+                <div className="p-4 lg:p-6 space-y-3 lg:space-y-4 flex-1 flex flex-col">
                   <div className="space-y-2 flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 font-poppins">{activeClass.title}</h3>
+                    <h3 className="text-lg lg:text-xl font-bold text-gray-900 font-poppins">{activeClass.title}</h3>
                     {/* Conditional rendering for subtitle - maintains consistent height */}
                     <div className="min-h-[1.5rem]">
                       {activeClass.subtitle && (
@@ -169,6 +170,7 @@ const UpcomingClass = () => {
         </div> */}
       </div>
     </section>
+    </>
   )
 }
 
