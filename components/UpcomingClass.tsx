@@ -7,16 +7,17 @@ const UpcomingClass = () => {
   const classes = [
   
     {
-      title: "[EXTENDED] Career-Ready Women in FMCG",
-      subtitle: "Strategi Tembus Dunia Kerja dengan AI Tools",
-      instructor: "Hesti Wijayanti (People Operations Manager at AVO Group)",
-      date: "3 September 2025",
-      time: "18.30-20.45 WIB",
+      title: "Strategic Storytelling for Impactful Presentation",
+      subtitle: "Membangun Presentasi yang Profesional dengan Teknik Storytelling",
+      instructor: "Rachel Septiana Chandra (Founder & CEO Creative Lab)",
+      date: "13 September 2025 2025",
+      time: "09.00-11.15 WIB",
       zoomMeeting: "Zoom Meeting",
-      image: "/class/womenfmcg.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      image:
+        "/class/storytelling.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
       badge: "NEW",
       badgeColor: "bg-green-500 text-white",
-      link: "https://s.id/CareerWomenFMCG",
+      link: "https://s.id/ShortClass-StrategicStorytelling",
     },
     {
       title: "Intensive Class Personal Branding for Women [BASIC]",
@@ -32,22 +33,22 @@ const UpcomingClass = () => {
       link: "https://grazedu.myr.id/bootcamp/ic-personalbranding-batch1",
     },
     {
-      title: "Strategic Storytelling for Impactful Presentation",
-      subtitle: "Membangun Presentasi yang Profesional dengan Teknik Storytelling",
-      instructor: "Rachel Septiana Chandra (Founder & CEO Creative Lab)",
-      date: "13 September 2025 2025",
-      time: "09.00-11.15 WIB",
+      title: "[EXTENDED] Career-Ready Women in FMCG",
+      subtitle: "Strategi Tembus Dunia Kerja dengan AI Tools",
+      instructor: "Hesti Wijayanti (People Operations Manager at AVO Group)",
+      date: "3 September 2025",
+      time: "18.30-20.45 WIB",
       zoomMeeting: "Zoom Meeting",
-      image:
-        "/class/storytelling.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "NEW",
-      badgeColor: "bg-green-500 text-white",
-      link: "https://s.id/ShortClass-StrategicStorytelling",
+      image: "/class/womenfmcg.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "CLOSED",
+      badgeColor: "bg-primary text-white",
+      link: "https://s.id/CareerWomenFMCG",
     },
+   
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["[EXTENDED] Career-Ready Women in FMCG", "Intensive Class Personal Branding for Women [BASIC]","Strategic Storytelling for Impactful Presentation" ].includes(c.title))
+  const activeClasses = classes.filter(c => ["Strategic Storytelling for Impactful Presentation","Intensive Class Personal Branding for Women [BASIC]","[EXTENDED] Career-Ready Women in FMCG" ].includes(c.title))
 
   return (
     <>
