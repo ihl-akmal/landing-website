@@ -30,7 +30,7 @@ const UpcomingClass = () => {
         "/class/personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
       badge: "FAVORIT",
       badgeColor: "bg-orange-500 text-white",
-      link: "https://grazedu.myr.id/bootcamp/ic-personalbranding-batch1",
+      link: "https://grazedu.myr.id/pl/ic-personalbranding-batch1-lastcall",
     },
     {
       title: "[EXTENDED] Career-Ready Women in FMCG",
