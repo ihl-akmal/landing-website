@@ -33,22 +33,22 @@ const UpcomingClass = () => {
       link: "https://grazedu.myr.id/pl/ic-personalbranding-batch1-lastcall",
     },
     {
-      title: "[EXTENDED] Career-Ready Women in FMCG",
-      subtitle: "Strategi Tembus Dunia Kerja dengan AI Tools",
-      instructor: "Hesti Wijayanti (People Operations Manager at AVO Group)",
-      date: "3 September 2025",
-      time: "18.30-20.45 WIB",
+      title: "Personal Branding Perempuan untuk Kredbilitas Professional",
+      subtitle: "Membangun Citra Diri & Narasi Otentik yang Kuat",
+      instructor: "Retno Pratiwi, S.Psi, M.H., CHRP., CHRM., CMT (Human Resources Manager at PT. Wahana Kosmetika Indonesia)",
+      date: "20 September 2025",
+      time: "9.00-11.15 WIB",
       zoomMeeting: "Zoom Meeting",
-      image: "/class/womenfmcg.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "CLOSED",
-      badgeColor: "bg-primary text-white",
-      link: "https://s.id/CareerWomenFMCG",
+      image: "/class/sc-personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "NEW",
+      badgeColor: "bg-green-500 text-white",
+      link: "https://s.id/SC-PersonalBranding",
     },
    
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Strategic Storytelling for Impactful Presentation","Intensive Class Personal Branding for Women [BASIC]","[EXTENDED] Career-Ready Women in FMCG" ].includes(c.title))
+  const activeClasses = classes.filter(c => ["Strategic Storytelling for Impactful Presentation","Intensive Class Personal Branding for Women [BASIC]","Personal Branding Perempuan untuk Kredbilitas Professional" ].includes(c.title))
 
   return (
     <>
