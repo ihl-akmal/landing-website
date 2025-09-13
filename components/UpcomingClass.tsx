@@ -5,33 +5,6 @@ import { generateStructuredData } from "@/lib/structured-data"
 
 const UpcomingClass = () => {
   const classes = [
-  
-    {
-      title: "Strategic Storytelling for Impactful Presentation",
-      subtitle: "Membangun Presentasi yang Profesional dengan Teknik Storytelling",
-      instructor: "Rachel Septiana Chandra (Founder & CEO Creative Lab)",
-      date: "13 September 2025 2025",
-      time: "09.00-11.15 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image:
-        "/class/storytelling.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "NEW",
-      badgeColor: "bg-green-500 text-white",
-      link: "https://s.id/ShortClass-StrategicStorytelling",
-    },
-    {
-      title: "Intensive Class Personal Branding for Women [BASIC]",
-      subtitle: "",
-      instructor: "Nurrotul Ilma (Content Creator with 700k+ Tiktok Followers)",
-      date: "14 September 2025",
-      time: "19.15-21.15 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image:
-        "/class/personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "FAVORIT",
-      badgeColor: "bg-orange-500 text-white",
-      link: "https://grazedu.myr.id/pl/ic-personalbranding-batch1-lastcall",
-    },
     {
       title: "Personal Branding Perempuan untuk Kredbilitas Professional",
       subtitle: "Membangun Citra Diri & Narasi Otentik yang Kuat",
@@ -44,11 +17,38 @@ const UpcomingClass = () => {
       badgeColor: "bg-green-500 text-white",
       link: "https://s.id/SC-PersonalBranding",
     },
+    {
+      title: "Strategic Storytelling for Impactful Presentation",
+      subtitle: "Membangun Presentasi yang Profesional dengan Teknik Storytelling",
+      instructor: "Rachel Septiana Chandra (Founder & CEO Creative Lab)",
+      date: "13 September 2025 2025",
+      time: "09.00-11.15 WIB",
+      zoomMeeting: "Zoom Meeting",
+      image:
+        "/class/storytelling.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "CLOSED",
+      badgeColor: "bg-green text-white",
+      link: "https://s.id/ShortClass-StrategicStorytelling",
+    },
+    {
+      title: "Intensive Class Personal Branding for Women [BASIC]",
+      subtitle: "",
+      instructor: "Nurrotul Ilma (Content Creator with 700k+ Tiktok Followers)",
+      date: "14 September 2025",
+      time: "19.15-21.15 WIB",
+      zoomMeeting: "Zoom Meeting",
+      image:
+        "/class/personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "CLOSED",
+      badgeColor: "bg-primary text-white",
+      link: "https://grazedu.myr.id/pl/ic-personalbranding-batch1-lastcall",
+    },
+    
    
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Strategic Storytelling for Impactful Presentation","Intensive Class Personal Branding for Women [BASIC]","Personal Branding Perempuan untuk Kredbilitas Professional" ].includes(c.title))
+  const activeClasses = classes.filter(c => ["Personal Branding Perempuan untuk Kredbilitas Professional","Strategic Storytelling for Impactful Presentation","Intensive Class Personal Branding for Women [BASIC]" ].includes(c.title))
 
   return (
     <>
