@@ -6,6 +6,19 @@ import { generateStructuredData } from "@/lib/structured-data"
 const UpcomingClass = () => {
   const classes = [
     {
+      title: "Assertive Communication for Women",
+      subtitle: "Berani Berpendapat Tanpa Takut Rasa Bersalah",
+      instructor: "Helen Patricia (Corporate Branding at FKS Group)",
+      date: "27 September 2025",
+      time: "09.00-11.15 WIB",
+      zoomMeeting: "Zoom Meeting",
+      image:
+        "/class/sc-asertif.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "NEW",
+      badgeColor: "bg-green-500 text-white",
+      link: "https://s.id/KelasAsertifGrazedu",
+    },
+    {
       title: "Personal Branding Perempuan untuk Kredbilitas Professional",
       subtitle: "Membangun Citra Diri & Narasi Otentik yang Kuat",
       instructor: "Retno Pratiwi, S.Psi, M.H., CHRP., CHRM., CMT (Human Resources Manager at PT. Wahana Kosmetika Indonesia)",
@@ -16,19 +29,6 @@ const UpcomingClass = () => {
       badge: "NEW",
       badgeColor: "bg-green-500 text-white",
       link: "https://s.id/SC-PersonalBranding",
-    },
-    {
-      title: "Strategic Storytelling for Impactful Presentation",
-      subtitle: "Membangun Presentasi yang Profesional dengan Teknik Storytelling",
-      instructor: "Rachel Septiana Chandra (Founder & CEO Creative Lab)",
-      date: "13 September 2025 2025",
-      time: "09.00-11.15 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image:
-        "/class/storytelling.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "CLOSED",
-      badgeColor: "bg-green text-white",
-      link: "https://s.id/ShortClass-StrategicStorytelling",
     },
     {
       title: "Intensive Class Personal Branding for Women [BASIC]",
@@ -48,7 +48,7 @@ const UpcomingClass = () => {
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Personal Branding Perempuan untuk Kredbilitas Professional","Strategic Storytelling for Impactful Presentation","Intensive Class Personal Branding for Women [BASIC]" ].includes(c.title))
+  const activeClasses = classes.filter(c => ["Assertive Communication for Women","Personal Branding Perempuan untuk Kredbilitas Professional","Intensive Class Personal Branding for Women [BASIC]" ].includes(c.title))
 
   return (
     <>
