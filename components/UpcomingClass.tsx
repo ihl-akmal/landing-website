@@ -19,6 +19,19 @@ const UpcomingClass = () => {
       link: "https://s.id/KelasAsertifGrazedu",
     },
     {
+      title: "Breaking the Pressure",
+      subtitle: "Membebaskan Diri dari Standar Perempuan Sempurna",
+      instructor: "Rifa Fauziyah (Content Creator)",
+      date: "18 Oktober 2025",
+      time: "15.15-17.15 WIB",
+      zoomMeeting: "Zoom Meeting",
+      image:
+        "/class/breaking-the-pressure.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
+      badge: "NEW",
+      badgeColor: "bg-green-500 text-white",
+      link: "https://grazedu.myr.id/pl/breaking-the-pressure",
+    },
+    {
       title: "Personal Branding Perempuan untuk Kredbilitas Professional",
       subtitle: "Membangun Citra Diri & Narasi Otentik yang Kuat",
       instructor: "Retno Pratiwi, S.Psi, M.H., CHRP., CHRM., CMT (Human Resources Manager at PT. Wahana Kosmetika Indonesia)",
@@ -26,29 +39,17 @@ const UpcomingClass = () => {
       time: "9.00-11.15 WIB",
       zoomMeeting: "Zoom Meeting",
       image: "/class/sc-personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "NEW",
-      badgeColor: "bg-green-500 text-white",
-      link: "https://s.id/SC-PersonalBranding",
-    },
-    {
-      title: "Intensive Class Personal Branding for Women [BASIC]",
-      subtitle: "",
-      instructor: "Nurrotul Ilma (Content Creator with 700k+ Tiktok Followers)",
-      date: "14 September 2025",
-      time: "19.15-21.15 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image:
-        "/class/personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
       badge: "CLOSED",
       badgeColor: "bg-primary text-white",
-      link: "https://grazedu.myr.id/pl/ic-personalbranding-batch1-lastcall",
+      link: "https://s.id/SC-PersonalBranding",
     },
+    
     
    
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Assertive Communication for Women","Personal Branding Perempuan untuk Kredbilitas Professional","Intensive Class Personal Branding for Women [BASIC]" ].includes(c.title))
+  const activeClasses = classes.filter(c => ["Assertive Communication for Women","Breaking the Pressure","Personal Branding Perempuan untuk Kredbilitas Professional" ].includes(c.title))
 
   return (
     <>
