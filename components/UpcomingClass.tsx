@@ -49,7 +49,7 @@ const UpcomingClass = () => {
   ]
 
   // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Assertive Communication for Women","Breaking the Pressure","Personal Branding Perempuan untuk Kredbilitas Professional" ].includes(c.title))
+  const activeClasses = classes.filter(c => ["Assertive Communication for Women","Personal Branding Perempuan untuk Kredbilitas Professional" ].includes(c.title))
 
   return (
     <>
@@ -85,8 +85,8 @@ const UpcomingClass = () => {
           </p>
         </div>
 
-        {/* Render tiga kelas aktif di grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-center">
+        {/* Render dua kelas aktif di grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 justify-center">
           {activeClasses.map((activeClass, idx) => (
             <div key={activeClass.title} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-pink-100 flex flex-col w-full max-w-sm lg:max-w-none mx-auto">
                 <div className="relative">
