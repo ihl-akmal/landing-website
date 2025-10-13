@@ -63,6 +63,20 @@ const Mentors = () => {
       },
       quote: "Lead with heart! 💪",
     },
+    {
+      name: "Nurrotul Ilma",
+      title: "Content Creator with 700k Tiktok Followers & Product Management",
+      company: "Prudential Syariah",
+      image:
+        "/nurrotulilma.jpg",
+      expertise: ["Personal Branding"],
+      social: {
+        linkedin: "#",
+        twitter: "#",
+        instagram: "https://www.instagram.com/nurrotulilma/",
+      },
+      quote: "Lead with heart! 💪",
+    },
   ]
 
   // Responsive slides configuration
