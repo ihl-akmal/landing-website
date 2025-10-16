@@ -82,7 +82,11 @@ const Footer = () => {
                 {links.map((link) => (
                   <li key={link}>
                     <a 
-                      href={link === "FAQ" ? "/faq" : "#"} 
+                      href={
+                        link === "FAQ" ? "/faq" : 
+                        link === "About Us" ? "/about-us" : 
+                        "#"
+                      } 
                       className="text-gray-600 hover:text-primary transition-colors duration-200"
                     >
                       {link}

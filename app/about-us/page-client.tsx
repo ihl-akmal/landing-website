@@ -134,7 +134,7 @@ const AboutUs = () => {
       buttonText: 'Ajukan Kolaborasi',
       buttonColor: 'bg-gradient-to-r from-purple-500 to-primary',
       bgGradient: 'from-purple-50 to-pink-50',
-      link: 'https://wa.me/6272358712443'
+      link: 'https://wa.me/6285256886581'
     }
   ];
 
