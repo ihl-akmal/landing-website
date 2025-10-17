@@ -43,6 +43,12 @@ const Navbar = () => {
                 Program
               </a>
               <a
+                href="/kelas"
+                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
+              >
+                Daftar Kelas
+              </a>
+              <a
                 href="#sertifikat"
                 className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
               >
@@ -90,6 +96,13 @@ const Navbar = () => {
               className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
             >
               Program
+            </a>
+            <a
+              href="/kelas"
+              onClick={() => setIsOpen(false)}
+              className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+            >
+              Daftar Kelas
             </a>
             <a
               href="#sertifikat"
