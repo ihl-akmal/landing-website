@@ -210,35 +210,30 @@ export default function ClassPage({ params }: ClassPageProps) {
 
 
         {/* Registration Form */}
-        <div id="registration-form" className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
-          <div className="text-center mb-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
-              Isi form berikut untuk mendaftar
-            </h2>
-            {/* <p className="text-gray-600 max-w-2xl mx-auto">
-              Isi form di bawah ini untuk mendaftar ke kelas <strong>{classData.title}</strong>. 
-              Tim kami akan segera menghubungi Anda untuk konfirmasi dan informasi lebih lanjut.
-            </p> */}
-          </div>
+        {/* Registration Form */}
+{/* Registration Form */}
+<section id="registration-form" className="mt-16">
+  <div className="max-w-6xl mx-auto px-4">
+    <div className="text-center mb-6">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+        Isi Formulir Pendaftaran
+      </h2>
+      <p className="text-gray-600 text-base">
+        Lengkapi data Anda untuk bergabung di kelas <strong>{classData.title}</strong>
+      </p>
+    </div>
 
-          {/* Google Form Embed */}
-          <div className="max-w-6xl mx-auto w-full sm:w-[90%]">
-            <div className="relative w-full" style={{ paddingBottom: '75%', height: 0 }}>
-              <iframe
-                src={classData.formUrl}
-                width="100%"
-                height="100%"
-                frameBorder="0"
-                marginHeight={0}
-                marginWidth={0}
-                className="absolute top-0 left-0 w-full h-full rounded-lg"
-                title={`Form Pendaftaran ${classData.title}`}
-              >
-                Loading…
-              </iframe>
-            </div>
-          </div>
-        </div>
+    <div className="w-full">
+      <iframe
+        src={classData.formUrl}
+        className="w-full min-h-[1400px] md:min-h-[1600px] rounded-2xl shadow-md border-0 bg-white sm:px-2"
+        title={`Form Pendaftaran ${classData.title}`}
+      ></iframe>
+    </div>
+  </div>
+</section>
+
+
       </div>
     </div>
   );
