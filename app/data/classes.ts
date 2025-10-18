@@ -278,7 +278,7 @@ export const classes: ClassData[] = [
     title: "Intensive Class Public Speaking for Women",
     shortDescription: "Bangun kepercayaan diri bicara di depan umum",
     description: "Kelas Public Speaking khusus untuk wanita yang ingin mengembangkan kemampuan berbicara di depan umum. Pelajari teknik presentasi yang efektif, cara mengatasi nervous, dan membangun kepercayaan diri untuk tampil percaya diri di berbagai kesempatan.",
-    status: 'new',
+    status: 'close',
     metaTitle: "Public Speaking for Women - Kelas Bicara di Depan Umum | GrazEdu",
     metaDescription: "Kelas Public Speaking khusus wanita. Pelajari teknik presentasi efektif, atasi nervous, dan bangun kepercayaan diri bicara di depan umum. Mentor berpengalaman, materi terstruktur.",
     keywords: ["public speaking", "presentasi", "kepercayaan diri", "wanita", "soft skill"],
