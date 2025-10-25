@@ -128,21 +128,7 @@ export default function RootLayout({
                 gtag('js', new Date());
                 gtag('config', '${GA_ID}', {
                   page_path: window.location.pathname,
-                });
-
-                // Track route changes (tanpa AnalyticsTracker)
-                if (typeof window !== 'undefined') {
-                  window.addEventListener('popstate', function() {
-                    gtag('config', '${GA_ID}', { page_path: window.location.pathname });
-                  });
-
-                  const pushState = history.pushState;
-                  history.pushState = function() {
-                    pushState.apply(this, arguments);
-                    gtag('config', '${GA_ID}', { page_path: window.location.pathname });
-                  };
-                }
-                
+                });                
               `}
             </Script>
           </>
