@@ -6,7 +6,7 @@ import "./globals.css"
 import { GA_ID } from "@/lib/gtag"
 import { Providers } from "./providers"
 import { generateStructuredData } from "@/lib/structured-data"
-import AnalyticsTracker from '@/components/AnalyticsTracker'
+
 
 
 
@@ -113,8 +113,7 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} font-sans`}>
         <Providers>{children}</Providers>
-        <AnalyticsTracker/>
-
+        
         {/* Google Analytics */}
         {GA_ID && (
           <>
@@ -130,6 +129,20 @@ export default function RootLayout({
                 gtag('config', '${GA_ID}', {
                   page_path: window.location.pathname,
                 });
+
+                // Track route changes (tanpa AnalyticsTracker)
+                if (typeof window !== 'undefined') {
+                  window.addEventListener('popstate', function() {
+                    gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+                  });
+
+                  const pushState = history.pushState;
+                  history.pushState = function() {
+                    pushState.apply(this, arguments);
+                    gtag('config', '${GA_ID}', { page_path: window.location.pathname });
+                  };
+                }
+                
               `}
             </Script>
           </>
