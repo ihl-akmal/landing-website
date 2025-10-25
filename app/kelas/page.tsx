@@ -23,9 +23,10 @@ export const metadata: Metadata = {
 
 
 export default async function ClassesPage() {
+  console.log("GOOGLE_SHEETS_ID ==> ", process.env.GOOGLE_SHEETS_ID);
+  alert("fghfhgfh");
   // const classes = getAllClasses();
   const classes = await getAllClasses();
-  console.log("GOOGLE_SHEETS_ID ==> ", process.env.GOOGLE_SHEETS_ID);
    // Jika tidak ada kelas
    if (!classes || classes.length === 0) {
     return <p className="text-center py-16">Belum ada kelas yang tersedia saat ini.</p>;
