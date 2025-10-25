@@ -82,9 +82,17 @@ export async function fetchClassesFromGoogleSheets(
       return [];
     }
 
-    // Baca file service account
-    const keyPath = path.join(process.cwd(), 'app/config/service-account.json');
-    const credentials = JSON.parse(fs.readFileSync(keyPath, 'utf-8'));
+    let credentials;
+
+if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+  const fixedKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY.replace(/\\n/g, '\\n');
+  credentials = JSON.parse(fixedKey);
+} else {
+  const keyPath = path.join(process.cwd(), 'app/config/service-account.json');
+  const fileContent = fs.readFileSync(keyPath, 'utf-8');
+  credentials = JSON.parse(fileContent);
+}
+
 
     // Buat auth client
     const auth = new google.auth.GoogleAuth({
