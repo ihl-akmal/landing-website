@@ -13,7 +13,7 @@ export const metadata: Metadata = {
   description: "Daftar lengkap kelas pengembangan diri dan soft skills untuk perempuan. Temukan kelas yang paling relevan dengan perjalanan dirimu. Mentor inspiratif dan pembelajaran langsung.",
   keywords: "kelas pengembangan diri, soft skills, wanita, mentoring, pendidikan, grazedu, daftar kelas",
   openGraph: {
-    title: "Daftar Kelas | GrazEdu",
+    title: "Daftar Kelas | Grazedu",
     description: "Daftar lengkap kelas pengembangan diri dan soft skills untuk perempuan. Pilih kelas yang sesuai dengan kebutuhan dan jadwal Anda.",
     type: "website",
     locale: "id_ID",

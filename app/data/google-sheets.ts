@@ -157,7 +157,6 @@ export async function fetchClassesFromGoogleSheets(
 
     return formattedData;
   } catch (error) {
-    console.log("GOOGLE_SERVICE_ACCOUNT_KEY ==> ", process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
     console.error('❌ Gagal mengambil data dari Google Sheets:', error);
     return [];
   }
