@@ -84,14 +84,14 @@ export async function fetchClassesFromGoogleSheets(
 
     let credentials;
 
-if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
-  const fixedKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY.replace(/\\n/g, '\\n');
-  credentials = JSON.parse(fixedKey);
-} else {
-  const keyPath = path.join(process.cwd(), 'app/config/service-account.json');
-  const fileContent = fs.readFileSync(keyPath, 'utf-8');
-  credentials = JSON.parse(fileContent);
-}
+    if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
+      const fixedKey = process.env.GOOGLE_SERVICE_ACCOUNT_KEY.replace(/\\n/g, '\\n');
+      credentials = JSON.parse(fixedKey);
+    } else {
+      const keyPath = path.join(process.cwd(), 'app/config/service-account.json');
+      const fileContent = fs.readFileSync(keyPath, 'utf-8');
+      credentials = JSON.parse(fileContent);
+    }
 
 
     // Buat auth client
@@ -157,6 +157,7 @@ if (process.env.GOOGLE_SERVICE_ACCOUNT_KEY) {
 
     return formattedData;
   } catch (error) {
+    console.log("GOOGLE_SERVICE_ACCOUNT_KEY ==> ", process.env.GOOGLE_SERVICE_ACCOUNT_KEY);
     console.error('❌ Gagal mengambil data dari Google Sheets:', error);
     return [];
   }
