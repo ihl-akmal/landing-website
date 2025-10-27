@@ -1,60 +1,30 @@
-"use client"
-
-import { Clock, User, Calendar, Video, Heart, Sparkles } from "lucide-react"
+import { Clock, User, Calendar, Video, Heart, Sparkles, ArrowRight } from "lucide-react"
 import { generateStructuredData } from "@/lib/structured-data"
+import { getAllClasses } from "@/app/data/google-sheets";
 
-const UpcomingClass = () => {
-  const classes = [
-    {
-      title: "Assertive Communication for Women",
-      subtitle: "Berani Berpendapat Tanpa Takut Rasa Bersalah",
-      instructor: "Helen Patricia (Corporate Branding at FKS Group)",
-      date: "27 September 2025",
-      time: "09.00-11.15 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image:
-        "/class/sc-asertif.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "CLOSED",
-      badgeColor: "bg-primary text-white",
-      link: "https://s.id/KelasAsertifGrazedu",
-    },
-    {
-      title: "Breaking the Pressure",
-      subtitle: "Membebaskan Diri dari Standar Perempuan Sempurna",
-      instructor: "Rifa Fauziyah (Content Creator)",
-      date: "18 Oktober 2025",
-      time: "15.15-17.15 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image:
-        "/class/breaking-the-pressure.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "NEW",
-      badgeColor: "bg-green-500 text-white",
-      link: "https://grazedu.myr.id/pl/breaking-the-pressure",
-    },
-    {
-      title: "Personal Branding Perempuan untuk Kredbilitas Professional",
-      subtitle: "Membangun Citra Diri & Narasi Otentik yang Kuat",
-      instructor: "Retno Pratiwi, S.Psi, M.H., CHRP., CHRM., CMT (Human Resources Manager at PT. Wahana Kosmetika Indonesia)",
-      date: "20 September 2025",
-      time: "9.00-11.15 WIB",
-      zoomMeeting: "Zoom Meeting",
-      image: "/class/sc-personalbranding.png?auto=compress&cs=tinysrgb&w=300&h=200&fit=crop",
-      badge: "CLOSED",
-      badgeColor: "bg-primary text-white",
-      link: "https://s.id/SC-PersonalBranding",
-    },
-    
-    
-   
-  ]
+export const UpcomingClass = async () => {
+  const allClasses = await getAllClasses();
+  // Filter kelas yang aktif (bukan 'close') dan ambil 3 kelas teratas (terbaru)
+  const upcomingClasses = allClasses.slice(0, 3);
 
-  // Filter dua kelas aktif
-  const activeClasses = classes.filter(c => ["Assertive Communication for Women","Personal Branding Perempuan untuk Kredbilitas Professional" ].includes(c.title))
+  // Helper untuk menentukan warna badge berdasarkan status
+  const getBadgeProps = (status?: 'new' | 'favorit' | 'close') => {
+    switch (status) {
+      case 'new':
+        return { text: 'NEW', color: 'bg-green-500 text-white' };
+      case 'favorit':
+        return { text: 'FAVORIT', color: 'bg-yellow-400 text-gray-900' };
+      case 'close':
+        return { text: 'CLOSED', color: 'bg-primary text-white' };
+      default:
+        return { text: 'LIMITED', color: 'bg-primary text-white' };
+    }
+  };
 
   return (
     <>
       {/* Structured Data for Courses */}
-      {activeClasses.map((course, index) => (
+      {upcomingClasses.map((course, index) => (
         <script
           key={index}
           type="application/ld+json"
@@ -86,18 +56,21 @@ const UpcomingClass = () => {
         </div>
 
         {/* Render dua kelas aktif di grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 justify-center">
-          {activeClasses.map((activeClass, idx) => (
-            <div key={activeClass.title} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-pink-100 flex flex-col w-full max-w-sm lg:max-w-none mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 justify-center">
+          {upcomingClasses.map((course, idx) => {
+            const badge = getBadgeProps(course.status as any);
+            const isClosed = course.status === 'close';
+            return (
+            <div key={course.slug} className="bg-white rounded-3xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 group border border-pink-100 flex flex-col w-full max-w-sm lg:max-w-none mx-auto">
                 <div className="relative">
                 <img
-                  src={activeClass.image || "/placeholder.svg"}
-                  alt={activeClass.title}
-                  className={`w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300${activeClass.badge === 'CLOSED' ? ' grayscale' : ''}`}
+                  src={course.image || "/placeholder.svg"}
+                  alt={course.title}
+                  className={`w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300 ${isClosed ? 'grayscale' : ''}`}
                 />
                   <div className="absolute top-4 left-4">
-                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${activeClass.badgeColor} shadow-md`}>
-                      {activeClass.badge}
+                    <span className={`px-3 py-1 text-xs font-bold rounded-full ${badge.color} shadow-md`}>
+                      {badge.text}
                     </span>
                   </div>
                   <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm rounded-full p-2">
@@ -107,55 +80,47 @@ const UpcomingClass = () => {
 
                 <div className="p-4 lg:p-6 space-y-3 lg:space-y-4 flex-1 flex flex-col">
                   <div className="space-y-2 flex-1">
-                    <h3 className="text-lg lg:text-xl font-bold text-gray-900 font-poppins">{activeClass.title}</h3>
+                    <h3 className="text-lg lg:text-xl font-bold text-gray-900 font-poppins">{course.title}</h3>
                     {/* Conditional rendering for subtitle - maintains consistent height */}
                     <div className="min-h-[1.5rem]">
-                      {activeClass.subtitle && (
-                        <p className="text-gray-600 text-sm font-medium italic">{activeClass.subtitle}</p>
+                      {course.shortDescription && (
+                        <p className="text-gray-600 text-sm font-medium italic">{course.shortDescription}</p>
                       )}
                     </div>
                   </div>
 
                   <div className="space-y-3">
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <div className="bg-primary/10 p-1 rounded-lg">
-                        <Calendar className="h-4 w-4 text-primary" />
-                      </div>
-                      <span>{activeClass.date}</span>
-                      <div className="bg-primary/10 p-1 rounded-lg ml-2">
-                        <Clock className="h-4 w-4 text-primary" />
-                      </div>
-                      <span>{activeClass.time}</span>
+                      <Calendar className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span>{course.date}</span>
+                      <Clock className="h-4 w-4 text-primary flex-shrink-0 ml-2" />
+                      <span>{course.time}</span>
                     </div>
 
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <div className="bg-primary/10 p-1 rounded-lg">
-                        <User className="h-4 w-4 text-primary" />
-                      </div>
-                      <span>Pemateri: {activeClass.instructor}</span>
+                      <User className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span className="truncate">{course.instructor}</span>
                     </div>
 
                     <div className="flex items-center gap-2 text-sm text-gray-600">
-                      <div className="bg-primary/10 p-1 rounded-lg">
-                        <Video className="h-4 w-4 text-primary" />
-                      </div>
-                      <span>{activeClass.zoomMeeting}</span>
+                      <Video className="h-4 w-4 text-primary flex-shrink-0" />
+                      <span>{course.location}</span>
                     </div>
                   </div>
 
                 <a
-                  href={activeClass.badge === 'CLOSED' ? undefined : activeClass.link}
+                  href={isClosed ? undefined : `/kelas/${course.slug}`}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`w-full bg-gradient-to-r from-primary to-primary-light text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md mt-auto flex justify-center items-center${activeClass.badge === 'CLOSED' ? ' grayscale opacity-60 cursor-not-allowed pointer-events-none' : ''}`}
-                  aria-disabled={activeClass.badge === 'CLOSED' ? 'true' : undefined}
-                  tabIndex={activeClass.badge === 'CLOSED' ? -1 : 0}
+                  className={`w-full bg-gradient-to-r from-primary to-primary-light text-white py-3 rounded-2xl font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md mt-auto flex justify-center items-center ${isClosed ? 'grayscale opacity-60 cursor-not-allowed pointer-events-none' : ''}`}
+                  aria-disabled={isClosed ? 'true' : undefined}
+                  tabIndex={isClosed ? -1 : 0}
                 >
-                  {activeClass.badge === 'CLOSED' ? 'Pendaftaran Ditutup' : 'Daftar Sekarang! 🚀'}
+                  {isClosed ? 'Pendaftaran Ditutup' : <>Daftar Sekarang! <ArrowRight className="w-4 h-4 ml-1" /></>}
                 </a>
               </div>
           </div>
-          ))}
+          )})}
         </div>
 
         {/* Call to action */}
@@ -175,5 +140,3 @@ const UpcomingClass = () => {
     </>
   )
 }
-
-export default UpcomingClass

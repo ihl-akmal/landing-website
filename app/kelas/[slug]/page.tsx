@@ -6,7 +6,8 @@ import { Button } from '@/components/ui/button';
 import { ArrowLeft, Clock, Users, DollarSign, Star, CheckCircle, Calendar, MapPin, BookOpen, Award } from 'lucide-react';
 import Link from 'next/link';
 
-export const revalidate = 60;
+//delay perubahan data gsheet
+// export const revalidate = 60;
 
 interface ClassPageProps {
   params: {

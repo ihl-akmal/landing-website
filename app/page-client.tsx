@@ -1,11 +1,10 @@
 "use client"
 
-import { useState } from "react"
+import { useState, ReactNode } from "react"
 import NavbarCustom from "@/components/NavbarCustom"
 import Hero from "@/components/Hero"
 import SocialProof from "@/components/SocialProof"
 import Programs from "@/components/Programs"
-import UpcomingClass from "@/components/UpcomingClass"
 import Mentors from "@/components/Mentors"
 import Testimonials from "@/components/Testimonials"
 import Partnership from "@/components/Partnership"
@@ -13,7 +12,7 @@ import HeroCTA from "@/components/HeroCTA"
 import Footer from "@/components/Footer"
 import AnnouncementBanner from "@/components/AnnouncementBanner"
 
-export default function HomePage() {
+export default function HomePageClient({ children }: { children: ReactNode }) {
   const [announcementVisible, setAnnouncementVisible] = useState(true)
 
   const handleAnnouncementDismiss = () => {
@@ -32,7 +31,7 @@ export default function HomePage() {
       </div>
       <SocialProof />
       <Programs />
-      <UpcomingClass />
+      {children} {/* Di sini kita merender UpcomingClass yang diterima dari server */}
       <Mentors />
       <Testimonials />
       <Partnership />

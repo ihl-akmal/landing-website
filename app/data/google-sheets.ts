@@ -151,6 +151,9 @@ export async function fetchClassesFromGoogleSheets(
       return obj as GoogleSheetsClass;
     });
 
+    // Balik urutan array agar data terbaru (paling bawah di sheet) muncul pertama
+    formattedData.reverse();
+
     // Simpan cache
     cachedClasses = formattedData;
     lastFetched = now;

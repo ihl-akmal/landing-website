@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
-import HomePageClient from "./page-client"
+import HomePageClient from './page-client';
+import { UpcomingClass } from '@/components/UpcomingClass';
 
 export const metadata: Metadata = {
   title: "Grazedu - Platform Pengembangan Diri & Karir untuk Perempuan",
@@ -13,6 +14,11 @@ export const metadata: Metadata = {
   },
 }
 
-export default function HomePage() {
-  return <HomePageClient />
+export default function Page() {
+  return (
+    <HomePageClient>
+      {/* UpcomingClass dirender di server dan dilewatkan sebagai children */}
+      <UpcomingClass />
+    </HomePageClient>
+  );
 }
