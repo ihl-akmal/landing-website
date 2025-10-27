@@ -151,14 +151,17 @@ export async function fetchClassesFromGoogleSheets(
       return obj as GoogleSheetsClass;
     });
 
+    // Filter kelas dengan status 'draft' sesuai permintaan.
+    let filteredData = formattedData.filter(cls => cls.status !== 'draft');
+    
     // Balik urutan array agar data terbaru (paling bawah di sheet) muncul pertama
-    formattedData.reverse();
+    filteredData.reverse();
 
     // Simpan cache
-    cachedClasses = formattedData;
+    cachedClasses = filteredData;
     lastFetched = now;
 
-    return formattedData;
+    return filteredData;
   } catch (error) {
     console.error('❌ Gagal mengambil data dari Google Sheets:', error);
     return [];
