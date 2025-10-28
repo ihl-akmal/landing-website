@@ -2,6 +2,9 @@ import { Clock, User, Calendar, Video, Heart, Sparkles, ArrowRight } from "lucid
 import { generateStructuredData } from "@/lib/structured-data"
 import { getAllClasses } from "@/app/data/google-sheets";
 
+//delay untuk merubah data terbaru
+export const revalidate = 5;
+
 export const UpcomingClass = async () => {
   const allClasses = await getAllClasses();
   // Filter kelas yang aktif (bukan 'close') dan ambil 3 kelas teratas (terbaru)
