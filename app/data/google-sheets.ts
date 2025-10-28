@@ -69,13 +69,6 @@ let lastFetched = 0; // timestamp
 export async function fetchClassesFromGoogleSheets(
   config: GoogleSheetsConfig
 ): Promise<GoogleSheetsClass[]> {
-  const now = Date.now();
-
-  // Gunakan cache jika masih berlaku (60 detik)
-  if (cachedClasses && now - lastFetched < 60000) {
-    return cachedClasses;
-  }
-
   try {
     if (!config.spreadsheetId || !config.serviceAccountKey) {
       console.warn('⚠️ Google Sheets config belum lengkap');
@@ -99,7 +92,6 @@ export async function fetchClassesFromGoogleSheets(
       credentials,
       scopes: ['https://www.googleapis.com/auth/spreadsheets.readonly'],
     });
-
     const authClient = await auth.getClient();
     const sheets = google.sheets({ version: 'v4', auth: authClient as any });
 
@@ -156,10 +148,6 @@ export async function fetchClassesFromGoogleSheets(
     
     // Balik urutan array agar data terbaru (paling bawah di sheet) muncul pertama
     filteredData.reverse();
-
-    // Simpan cache
-    cachedClasses = filteredData;
-    lastFetched = now;
 
     return filteredData;
   } catch (error) {

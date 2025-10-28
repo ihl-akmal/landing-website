@@ -5,7 +5,7 @@ import Image from 'next/image';
 import { Metadata } from 'next';
 
 //delay untuk merubah data terbaru
-// export const revalidate=60;
+export const revalidate = 5;
 
 
 

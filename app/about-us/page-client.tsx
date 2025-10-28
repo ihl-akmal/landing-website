@@ -67,7 +67,7 @@ const AboutUs = () => {
     {
       name: "Ihlasul A'mal",
       role: 'Program Lead',
-      image: '/akmal.jpg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
+      image: '/ihlasulamal.jpg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop',
       achievements: [
         'Startup Founder',
         'Ex MSIB Mentor',

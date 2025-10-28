@@ -7,7 +7,7 @@ import { ArrowLeft, Clock, Users, DollarSign, Star, CheckCircle, Calendar, MapPi
 import Link from 'next/link';
 
 //delay perubahan data gsheet
-// export const revalidate = 60;
+export const revalidate = 5;
 
 interface ClassPageProps {
   params: {
@@ -186,7 +186,7 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
             <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 md:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <Award className="h-6 w-6 text-purple-500" />
-                Apa yang Akan Anda Pelajari
+                Apa yang Akan Kamu Pelajari
               </h2>
               <ul className="space-y-3">
                 {classData.benefits.map((benefit, index) => (
@@ -203,7 +203,7 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
           <div className="bg-white rounded-2xl shadow-lg p-6 md:p-8">
             <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
               <CheckCircle className="h-6 w-6 text-purple-500" />
-              Benefit
+              Benefit yang Kamu Dapatkan
             </h2>
             <ul className="space-y-3">
               {['E-sertifikat', 'Relasi', 'Ilmu bermanfaat', 'Merchandise'].map((benefit, index) => (
@@ -225,7 +225,7 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
       Isi Formulir Pendaftaran
     </h2>
     <p className="text-gray-600 text-base">
-      Lengkapi data Anda untuk bergabung di kelas <strong>{classData.title}</strong>
+      Lengkapi data kamu untuk bergabung di kelas <strong>{classData.title}</strong>
     </p>
   </div>
 
