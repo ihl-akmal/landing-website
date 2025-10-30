@@ -44,8 +44,8 @@ export interface ClassData {
   currentParticipants?: number;
   
   // Additional Info
-  requirements?: string[];
-  benefits?: string[];
+  requirements: string[];
+  benefits: string[];
   testimonials?: {
     name: string;
     text: string;
@@ -366,6 +366,7 @@ export async function getAllClasses(): Promise<ClassData[]> {
 
   // Mapping GoogleSheetsClass → ClassData
   const mapped: ClassData[] = data.map((cls: GoogleSheetsClass) => ({
+    
     slug: cls.slug,
     title: cls.title,
     description: cls.description || '',
@@ -402,8 +403,10 @@ export async function getAllClasses(): Promise<ClassData[]> {
         ? cls.benefits.split(/[;,]/).map((b) => b.trim())
         : [],
     testimonials: [],
+    
   }));
   
+
 
   return mapped.filter(cls => cls.isActive);
 }

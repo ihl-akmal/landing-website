@@ -45,10 +45,10 @@ const NavbarCustom = ({ announcementVisible = true }: NavbarProps) => {
                 Program
               </a>
               <a
-                href="#sertifikat"
+                href="/kelas"
                 className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
               >
-                Cek Sertifikat
+                Kelas
               </a>
               <a href="/about-us" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About Us
@@ -92,11 +92,11 @@ const NavbarCustom = ({ announcementVisible = true }: NavbarProps) => {
               Program
             </a>
             <a
-              href="#sertifikat"
+              href="/kelas"
               onClick={() => setIsOpen(false)}
               className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
             >
-              Cek Sertifikat
+              Kelas
             </a>
             <a
               href="/about-us"

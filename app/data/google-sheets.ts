@@ -135,11 +135,6 @@ export async function fetchClassesFromGoogleSheets(
       // ✅ Konversi string boolean → boolean
       obj.isActive = obj.isActive === 'true' || obj.isActive === true;
 
-      // ✅ Split benefits jadi array
-      obj.benefits = obj.benefits
-        ? obj.benefits.split(';').map((b: string) => b.trim())
-        : [];
-
       return obj as GoogleSheetsClass;
     });
 

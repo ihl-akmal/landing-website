@@ -48,7 +48,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     },
     twitter: {
       card: 'summary_large_image',
-      title: classData.metaTitle || `${classData.title} | GrazEdu`,
+      title: classData.metaTitle || `${classData.title} | Grazedu`,
       description: classData.metaDescription || classData.description,
       images: classData.image ? [classData.image] : [],
     },
@@ -119,6 +119,9 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
                 <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
                   {classData.title}
                 </h1>
+                <p className="text-xl text-gray-500 font-medium leading-relaxed mb-6">
+                  {classData.shortDescription}
+                </p>
                 <p className="text-base text-gray-600 leading-relaxed">
                   {classData.description}
                 </p>
@@ -131,7 +134,7 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
                     <Clock className="h-5 w-5 text-purple-500" />
                     <div>
                       <span className="text-sm text-gray-500">Waktu</span>
-                      <p className="font-medium">{classData.duration}</p>
+                      <p className="font-medium">{classData.date} | {classData.time}</p>
                     </div>
                   </div>
                 )}
@@ -140,7 +143,7 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
                   <div className="flex items-center gap-3 text-gray-600">
                     <Users className="h-5 w-5 text-purple-500" />
                     <div>
-                      <span className="text-sm text-gray-500">Mentor</span>
+                      <span className="text-sm text-gray-500">Pemateri</span>
                       <p className="font-medium">{classData.instructor}</p>
                     </div>
                   </div>
@@ -182,17 +185,17 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
         {/* Class Details Sections */}
         <div className="grid lg:grid-cols-3 gap-8 mb-8">
           {/* Apa yang Akan Anda Pelajari */}
-          {classData.benefits && classData.benefits.length > 0 && (
+          {classData.requirements && classData.requirements.length > 0 && (
             <div className="lg:col-span-2 bg-white rounded-2xl shadow-lg p-6 md:p-8">
               <h2 className="text-2xl font-bold text-gray-900 mb-6 flex items-center gap-2">
                 <Award className="h-6 w-6 text-purple-500" />
                 Apa yang Akan Kamu Pelajari
               </h2>
               <ul className="space-y-3">
-                {classData.benefits.map((benefit, index) => (
+                {classData.requirements.map((requirement, index) => (
                   <li key={index} className="flex items-start gap-3">
                     <CheckCircle className="h-5 w-5 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-gray-700">{benefit}</span>
+                    <span className="text-gray-700">{requirement}</span>
                   </li>
                 ))}
               </ul>
@@ -206,7 +209,7 @@ export default async function ClassPage({ params }: { params: Promise<{ slug: st
               Benefit yang Kamu Dapatkan
             </h2>
             <ul className="space-y-3">
-              {['E-sertifikat', 'Relasi', 'Ilmu bermanfaat', 'Merchandise'].map((benefit, index) => (
+              {classData.benefits.map((benefit, index) => (
                 <li key={index} className="flex items-start gap-3">
                   <div className="h-2 w-2 bg-purple-500 rounded-full mt-2 flex-shrink-0"></div>
                   <span className="text-gray-700">{benefit}</span>

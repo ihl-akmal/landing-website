@@ -4,7 +4,7 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Heart, Spa
 
 const Footer = () => {
   const footerLinks = {
-    Company: ["About Us", "Our Team", "Careers", "Contact"],
+    Company: ["About Us", "Kelas", "Careers", "Contact"],
     Programs: ["Short Class", "Intensive Class", "Magang Mandiri"],
     Resources: ["FAQ", "Documentation", "Help Center", "Community"],
     Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Disclaimer"],
@@ -84,7 +84,9 @@ const Footer = () => {
                     <a 
                       href={
                         link === "FAQ" ? "/faq" : 
-                        link === "About Us" ? "/about-us" : 
+                        link === "About Us" ? "/about-us" :
+                        link === "Kelas" ? "/kelas" :
+                        
                         "#"
                       } 
                       className="text-gray-600 hover:text-primary transition-colors duration-200"

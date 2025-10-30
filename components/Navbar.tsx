@@ -46,14 +46,9 @@ const Navbar = () => {
                 href="/kelas"
                 className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
               >
-                Daftar Kelas
+                Kelas
               </a>
-              <a
-                href="#sertifikat"
-                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-              >
-                Cek Sertifikat
-              </a>
+              
               <a href="/about-us" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About Us
               </a>
@@ -102,15 +97,9 @@ const Navbar = () => {
               onClick={() => setIsOpen(false)}
               className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
             >
-              Daftar Kelas
+              Kelas
             </a>
-            <a
-              href="#sertifikat"
-              onClick={() => setIsOpen(false)}
-              className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
-            >
-              Cek Sertifikat
-            </a>
+            
             <a
               href="/about-us"
               onClick={() => setIsOpen(false)}
