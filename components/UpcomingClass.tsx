@@ -7,8 +7,14 @@ export const revalidate = 5;
 
 export const UpcomingClass = async () => {
   const allClasses = await getAllClasses();
-  // Filter kelas yang aktif (bukan 'close') dan ambil 3 kelas teratas (terbaru)
-  const upcomingClasses = allClasses.slice(0, 3);
+
+  // Filter hanya kelas yang bukan draft
+  const filteredClasses = allClasses.filter(
+  (cls) => cls.status !== "draft"
+);
+
+  //  ambil 3 kelas teratas (terbaru)
+  const upcomingClasses = filteredClasses.slice(0, 3);
 
   // Helper untuk menentukan warna badge berdasarkan status
   const getBadgeProps = (status?: 'new' | 'favorit' | 'close') => {
