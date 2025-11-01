@@ -3,7 +3,8 @@ import { generateStructuredData } from "@/lib/structured-data"
 import { getAllClasses } from "@/app/data/google-sheets";
 
 //delay untuk merubah data terbaru
-export const revalidate = 5;
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
 
 export const UpcomingClass = async () => {
   const allClasses = await getAllClasses();
