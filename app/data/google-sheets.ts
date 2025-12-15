@@ -36,6 +36,7 @@ export interface GoogleSheetsClass {
   benefits: string;
   location: string;
   status: string;
+  expirationDate: string; // <-- Tambahkan ini untuk kolom "Tanggal Kadaluarsa"
 }
 
 // ===========================
@@ -140,11 +141,31 @@ export async function fetchClassesFromGoogleSheets(
 
     // Filter kelas dengan status 'draft' sesuai permintaan.
     let filteredData = formattedData.filter(cls => cls.status !== 'draft');
+    // Implementasi Logika Baru
+    const now = new Date();
+
+    let processedData = filteredData
+      // Cek tanggal kadaluarsa untuk SEMUA kelas yang tidak 'draft'
+      .map(cls => {
+        // Pastikan ada tanggal kadaluarsa dan formatnya valid
+        if (cls.expirationDate) {
+          const expiration = new Date(cls.expirationDate);
+          // Jika tanggal sekarang SUDAH MELEWATI atau SAMA DENGAN tanggal kadaluarsa
+          if (now >= expiration) {
+            // Ubah statusnya menjadi 'close' secara otomatis, menimpa status sebelumnya
+            return { ...cls, status: 'close' };
+          }
+        }
+        // Jika tidak ada tanggal kadaluarsa atau belum kadaluarsa, kembalikan data kelas apa adanya
+        return cls;
+      });
     
     // Balik urutan array agar data terbaru (paling bawah di sheet) muncul pertama
-    filteredData.reverse();
+    processedData.reverse();
 
-    return filteredData;
+    return processedData;
+    // Balik urutan agar data terbaru (paling bawah di sheet) muncul pertama
+    
   } catch (error) {
     console.error('❌ Gagal mengambil data dari Google Sheets:', error);
     return [];

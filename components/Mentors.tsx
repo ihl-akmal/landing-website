@@ -89,27 +89,25 @@ const Mentors = () => {
     return 4
   }
 
-  // State untuk deteksi desktop dan mode slider
-  const [isDesktop, setIsDesktop] = useState(
-    typeof window !== "undefined" ? window.innerWidth >= 1024 : false
-  )
-  const [mentorsPerSlide, setMentorsPerSlide] = useState(getMentorsPerSlide())
-  const totalSlides = Math.ceil(mentors.length / mentorsPerSlide)
+  // Inisialisasi state dengan nilai default yang aman untuk SSR
+  const [mentorsPerSlide, setMentorsPerSlide] = useState(4);
+  const [isClient, setIsClient] = useState(false);
 
   // Update mentors per slide dan isDesktop on window resize
   useEffect(() => {
-    const handleResize = () => {
-      setMentorsPerSlide(getMentorsPerSlide())
-      setIsDesktop(window.innerWidth >= 1024)
-    }
-    if (typeof window !== "undefined") {
-      window.addEventListener("resize", handleResize)
-      return () => window.removeEventListener("resize", handleResize)
-    }
-  }, [])
+    // Set isClient menjadi true setelah mount, ini hanya berjalan di client
+    setIsClient(true);
 
-  // Kondisi: desktop & mentor <= 4
-  const showAllMentorsNoSlider = isDesktop && mentors.length <= 4
+    const handleResize = () => {
+      setMentorsPerSlide(getMentorsPerSlide());
+    };
+    handleResize(); // Panggil sekali saat mount untuk set nilai awal yang benar di client
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []); // Dependency kosong memastikan ini hanya berjalan di client
+
+  const totalSlides = Math.ceil(mentors.length / mentorsPerSlide);
+  const showAllMentorsNoSlider = isClient && window.innerWidth >= 1024 && mentors.length <= 4;
 
   const nextSlide = () => {
     setCurrentSlide((prev) => (prev + 1) % totalSlides)

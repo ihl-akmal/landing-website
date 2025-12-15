@@ -42,6 +42,7 @@ export interface ClassData {
   endDate?: string;
   maxParticipants?: number;
   currentParticipants?: number;
+  expirationDate: string; // <-- Tambahkan ini untuk kolom "Tanggal Kadaluarsa"
   
   // Additional Info
   requirements: string[];
@@ -385,6 +386,7 @@ export async function getAllClasses(): Promise<ClassData[]> {
     date: cls.date,
     time: cls.time,
     location: cls.location,
+    expirationDate: cls.expirationDate,
     level: cls.level as 'Beginner' | 'Intermediate' | 'Advanced' | undefined,
     category: cls.category,
     formUrl: cls.formUrl,
