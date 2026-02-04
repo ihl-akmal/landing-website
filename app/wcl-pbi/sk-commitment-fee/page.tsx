@@ -14,7 +14,7 @@ export default function SkCommitmentFeePage() {
               Syarat & Ketentuan
             </h1>
             <p className="text-xl text-primary font-semibold">
-              Commitment Fee Program WCL-PBI
+              Commitment Fee Program Women's Career Lab - Project Based Internship | Social Media & Content Strategist
             </p>
           </div>
         </div>
