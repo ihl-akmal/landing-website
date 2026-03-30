@@ -3,12 +3,12 @@
 import { useForm, useFieldArray } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { createClass, ClassData } from "@/lib/actions/classes";
+import { updateClass, getAdminClassById, ClassData } from "@/lib/actions/classes";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
-import { useRouter } from "next/navigation";
+import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { Loader2, ArrowLeft, PlusCircle, XCircle } from "lucide-react";
 import Link from "next/link";
@@ -19,7 +19,6 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
 
 const classSchema = z.object({
   // SEO
@@ -40,7 +39,7 @@ const classSchema = z.object({
   time: z.string().regex(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/, "Waktu harus valid").optional().or(z.literal("")),
   location: z.string().optional(),
   closeRegistration: z.string().optional(),
-  
+
   // List Dinamis
   whatYouWillLearn: z.array(z.object({ value: z.string() })).optional(),
   benefits: z.array(z.object({ value: z.string() })).optional(),
@@ -58,10 +57,13 @@ const generateNumberOptions = (max: number) => {
   return Array.from({ length: max }, (_, i) => String(i).padStart(2, '0'));
 };
 
-export default function CreateClassPage() {
+export default function EditClassPage() {
   const router = useRouter();
+  const params = useParams();
+  const classId = params.id as string;
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   // State for time dropdowns
@@ -81,7 +83,6 @@ export default function CreateClassPage() {
       flyerUrl: "",
       whatYouWillLearn: [{ value: "" }],
       benefits: [{ value: "" }],
-      time: "00:00", // Initial value
     },
   });
 
@@ -90,11 +91,52 @@ export default function CreateClassPage() {
     form.setValue("time", `${hour}:${minute}`, { shouldValidate: true });
   }, [hour, minute, form]);
 
-  useEffect(() => {
+    useEffect(() => {
     if (closeDate) {
       form.setValue("closeRegistration", `${closeDate}T${closeHour}:${closeMinute}`);
     }
   }, [closeDate, closeHour, closeMinute, form]);
+
+  useEffect(() => {
+    if (!classId) return;
+    const fetchClass = async () => {
+      try {
+        const classData = await getAdminClassById(classId);
+        if (classData) {
+          form.reset({
+            ...classData,
+            whatYouWillLearn: classData.whatYouWillLearn?.map(value => ({ value })) ?? [],
+            benefits: classData.benefits?.map(value => ({ value })) ?? [],
+          });
+           // Set initial time dropdown values
+          if (classData.time && classData.time.includes(':')) {
+            const [initialHour, initialMinute] = classData.time.split(':');
+            setHour(initialHour);
+            setMinute(initialMinute);
+          }
+          if (classData.closeRegistration && classData.closeRegistration.includes('T')) {
+            const [datePart, timePart] = classData.closeRegistration.split('T');
+            setCloseDate(datePart);
+            if (timePart.includes(':')) {
+                const [initialCloseHour, initialCloseMinute] = timePart.split(':');
+                setCloseHour(initialCloseHour);
+                setCloseMinute(initialCloseMinute);
+            }
+          }
+        }
+      } catch (err) {
+        setError("Gagal memuat data kelas");
+        toast({
+          title: "Gagal Memuat Data",
+          description: "Terjadi kesalahan saat memuat data kelas. Silakan coba lagi.",
+          variant: "destructive",
+        });
+      } finally {
+        setIsLoading(false);
+      }
+    };
+    fetchClass();
+  }, [classId, form, toast]);
 
   const {
     fields: learnFields,
@@ -118,29 +160,48 @@ export default function CreateClassPage() {
     setIsSubmitting(true);
     setError(null);
     try {
-       const classData: ClassData = {
+       const classData: Partial<ClassData> = {
         ...values,
         whatYouWillLearn: values.whatYouWillLearn?.map(item => item.value).filter(v => v),
         benefits: values.benefits?.map(item => item.value).filter(v => v),
       };
-      await createClass(classData);
-      toast({ 
+      await updateClass(classId, classData);
+      toast({
         title: "Sukses!",
-        description: "Kelas baru berhasil disimpan."
+        description: "Perubahan kelas berhasil disimpan.",
       });
       router.push("/admin/kelas");
     } catch (err) {
-       const errorMessage = err instanceof Error ? err.message : "Terjadi kesalahan tidak diketahui";
-       toast({ 
+      const errorMessage = err instanceof Error ? err.message : "Terjadi kesalahan tidak diketahui";
+      toast({
         title: "Gagal!",
         description: `Terjadi kesalahan: ${errorMessage}`,
-        variant: "destructive"
+        variant: "destructive",
       });
       setError(errorMessage);
     } finally {
       setIsSubmitting(false);
     }
   };
+
+   if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-64">
+        <Loader2 className="h-8 w-8 animate-spin text-purple-600" />
+      </div>
+    );
+  }
+
+  if (error && !isLoading) {
+     return (
+      <div className="max-w-4xl mx-auto p-6 text-center">
+         <p className="text-red-500">{error}</p>
+         <Link href="/admin/kelas">
+          <Button variant="outline" className="mt-4">Kembali ke Daftar Kelas</Button>
+        </Link>
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -150,7 +211,7 @@ export default function CreateClassPage() {
             <ArrowLeft className="h-4 w-4" />
           </Button>
         </Link>
-        <h1 className="text-2xl font-bold">Buat Kelas Baru</h1>
+        <h1 className="text-2xl font-bold">Edit Kelas</h1>
       </div>
 
       <form onSubmit={form.handleSubmit(onSubmit)}>
@@ -195,13 +256,13 @@ export default function CreateClassPage() {
                     <Input id="location" {...form.register("location")} />
                 </div>
             </div>
-            
+
             <div className="grid grid-cols-2 gap-4">
-              <div>
-                  <label htmlFor="date" className="block text-sm font-medium mb-1">Tanggal Pelaksanaan</label>
-                  <Input id="date" type="date" {...form.register("date")} />
-              </div>
-              <div>
+                <div>
+                    <label htmlFor="date" className="block text-sm font-medium mb-1">Tanggal Pelaksanaan</label>
+                    <Input id="date" type="date" {...form.register("date")} />
+                </div>
+                 <div>
                   <label className="block text-sm font-medium mb-1">Waktu Pelaksanaan</label>
                   <div className="flex items-center gap-2">
                     <Select value={hour} onValueChange={setHour}>
@@ -318,7 +379,7 @@ export default function CreateClassPage() {
             </div>
           </TabsContent>
         </Tabs>
-        
+
         <div className="flex justify-end pt-6">
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? (
@@ -326,7 +387,7 @@ export default function CreateClassPage() {
                 <Loader2 className="mr-2 h-4 w-4 animate-spin" /> Menyimpan...
               </>
             ) : (
-              "Simpan Kelas"
+              "Simpan Perubahan"
             )}
           </Button>
         </div>

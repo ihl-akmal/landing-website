@@ -1,4 +1,5 @@
-"use client";
+
+'use client';
 
 import { usePathname, useRouter } from "next/navigation";
 import Link from "next/link";
@@ -12,6 +13,9 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import { Toaster } from "@/components/ui/toaster";
+
+
 
 export default function AdminLayout({
   children,
@@ -42,7 +46,7 @@ export default function AdminLayout({
     <div className="min-h-screen bg-gray-50 flex">
       {/* Mobile sidebar toggle */}
       <div className="lg:hidden fixed top-0 left-0 right-0 h-16 bg-white border-b z-20 px-4 flex items-center justify-between">
-        <div className="font-bold text-lg text-purple-600">GrazEdu Admin</div>
+        <div className="font-bold text-lg text-purple-600">Admin Panel</div>
         <button onClick={() => setSidebarOpen(!sidebarOpen)} className="p-2">
           {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
@@ -55,7 +59,7 @@ export default function AdminLayout({
       `}>
         <div className="h-16 flex items-center justify-center border-b hidden lg:flex">
           <div className="font-bold text-xl text-purple-600 px-6 w-full text-center">
-            GrazEdu Admin
+            Admin Panel
           </div>
         </div>
 
@@ -96,6 +100,7 @@ export default function AdminLayout({
         <main className="p-6 md:p-8 max-w-7xl mx-auto">
           {children}
         </main>
+        <Toaster />
       </div>
     </div>
   );

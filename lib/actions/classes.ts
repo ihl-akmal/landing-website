@@ -5,22 +5,39 @@ import { revalidatePath } from "next/cache";
 
 export interface ClassData {
   id?: string;
+  
+  // SEO & URL
   slug: string;
+  metaTitle?: string;
+  metaDescription?: string;
+  keywords?: string;
+
+  // Detail Kelas
   title: string;
+  subtitle?: string;
+  flyerUrl?: string;
   shortDescription?: string;
-  description?: string;
-  category?: string;
+  instructor?: string;
   date?: string;
   time?: string;
-  instructor?: string;
-  price?: string;
-  image?: string;
-  status: "draft" | "publish";
-  wagLink?: string;
+  location?: string;
+  
+  // Konten List
+  whatYouWillLearn?: string[];
+  benefits?: string[];
+  
+  // Pendaftaran & Harga
   closeRegistration?: string; // ISO string 
+  price?: string;
+  wagLink?: string;
+
+  // Status
+  status: "draft" | "publish" | "closed";
+  
+  // Sistem
   createdAt?: string;
-  // Pertanyaan custom tambahan jika diperlukan
 }
+
 
 export async function getAdminClasses() {
   try {
@@ -66,5 +83,55 @@ export async function deleteClass(id: string) {
     return { success: true };
   } catch (error) {
     return { success: false, error: "Gagal menghapus kelas" };
+  }
+}
+
+export async function getClassBySlug(slug: string): Promise<ClassData | null> {
+  try {
+    const snapshot = await adminDb
+      .collection("classes")
+      .where("slug", "==", slug)
+      .where("status", "==", "publish") // Hanya ambil kelas yang sudah publish
+      .limit(1)
+      .get();
+
+    if (snapshot.empty) {
+      return null;
+    }
+
+    const doc = snapshot.docs[0];
+    return {
+      id: doc.id,
+      ...doc.data(),
+    } as ClassData;
+  } catch (error) {
+    console.error(`Error fetching class with slug ${slug}:`, error);
+    return null;
+  }
+}
+
+export async function getAdminClassById(id: string): Promise<ClassData | null> {
+  try {
+    const doc = await adminDb.collection("classes").doc(id).get();
+    if (!doc.exists) {
+      return null;
+    }
+    return { id: doc.id, ...doc.data() } as ClassData;
+  } catch (error) {
+    console.error(`Error fetching class with id ${id}:`, error);
+    return null;
+  }
+}
+
+export async function updateClass(id: string, data: Partial<ClassData>) {
+  try {
+    await adminDb.collection("classes").doc(id).update(data);
+    revalidatePath("/admin/kelas");
+    revalidatePath(`/kelas/${data.slug}`);
+    revalidatePath(`/admin/kelas/${id}/edit`);
+    return { success: true };
+  } catch (error) {
+    console.error(`Error updating class with id ${id}:`, error);
+    return { success: false, error: "Gagal memperbarui kelas" };
   }
 }
