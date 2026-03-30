@@ -3,6 +3,7 @@
 import { adminDb } from "@/lib/firebase/admin";
 import { revalidatePath } from "next/cache";
 
+
 export interface ClassData {
   id?: string;
   
@@ -38,7 +39,11 @@ export interface ClassData {
   createdAt?: string;
 }
 
-
+/**
+ * Gets all classes for the admin panel.
+ * It dynamically changes the status of "publish" classes to "closed" 
+ * if the registration date has passed, to match the public view.
+ */
 export async function getAdminClasses() {
   try {
     const snapshot = await adminDb
@@ -46,15 +51,55 @@ export async function getAdminClasses() {
       .orderBy("createdAt", "desc")
       .get();
       
-    return snapshot.docs.map((doc) => ({
-      id: doc.id,
-      ...doc.data(),
-    })) as ClassData[];
+    const now = new Date();
+
+    return snapshot.docs.map((doc) => {
+      const classData = { id: doc.id, ...doc.data() } as ClassData;
+
+      // Dynamic status change for admin panel view
+      if (classData.status === "publish" && classData.closeRegistration && new Date(classData.closeRegistration) < now) {
+        return { ...classData, status: "closed" };
+      }
+
+      return classData;
+    }) as ClassData[];
   } catch (error) {
     console.error("Error fetching classes:", error);
     return [];
   }
 }
+
+/**
+ * Gets all classes that are relevant for the public.
+ * It dynamically changes the status of "publish" classes to "closed" 
+ * if the registration date has passed.
+ */
+export async function getPublicClasses(): Promise<ClassData[]> {
+  try {
+    const snapshot = await adminDb
+      .collection("classes")
+      .where("status", "in", ["publish", "closed"])
+      .orderBy("createdAt", "desc")
+      .get();
+      
+    const now = new Date();
+
+    return snapshot.docs.map((doc) => {
+      const classData = { id: doc.id, ...doc.data() } as ClassData;
+
+      // Dynamic status change
+      if (classData.status === "publish" && classData.closeRegistration && new Date(classData.closeRegistration) < now) {
+        return { ...classData, status: "closed" };
+      }
+
+      return classData;
+    });
+  } catch (error) {
+    console.error("Error fetching public classes:", error);
+    return [];
+  }
+}
+
 
 export async function createClass(data: Omit<ClassData, "id" | "createdAt">) {
   try {
@@ -86,12 +131,17 @@ export async function deleteClass(id: string) {
   }
 }
 
+/**
+ * Gets a single class by its slug for public view.
+ * It won't return "draft" classes.
+ * It dynamically changes the status of a "publish" class to "closed"
+ * if the registration date has passed.
+ */
 export async function getClassBySlug(slug: string): Promise<ClassData | null> {
   try {
     const snapshot = await adminDb
       .collection("classes")
       .where("slug", "==", slug)
-      .where("status", "==", "publish") // Hanya ambil kelas yang sudah publish
       .limit(1)
       .get();
 
@@ -100,16 +150,30 @@ export async function getClassBySlug(slug: string): Promise<ClassData | null> {
     }
 
     const doc = snapshot.docs[0];
-    return {
+    const classData = {
       id: doc.id,
       ...doc.data(),
     } as ClassData;
+
+    // Don't show draft classes to the public
+    if (classData.status === "draft") {
+      return null;
+    }
+
+    // Dynamic status change
+    const now = new Date();
+    if (classData.status === "publish" && classData.closeRegistration && new Date(classData.closeRegistration) < now) {
+      return { ...classData, status: "closed" };
+    }
+
+    return classData;
   } catch (error) {
     console.error(`Error fetching class with slug ${slug}:`, error);
     return null;
   }
 }
 
+// Returns the raw data, so the edit form shows the true status
 export async function getAdminClassById(id: string): Promise<ClassData | null> {
   try {
     const doc = await adminDb.collection("classes").doc(id).get();

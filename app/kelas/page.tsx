@@ -1,4 +1,4 @@
-import { getAdminClasses, ClassData } from '@/lib/actions/classes';
+import { getPublicClasses, ClassData } from '@/lib/actions/classes';
 import { Clock, Users, DollarSign, ArrowRight, Star, Calendar, MapPin } from 'lucide-react';
 import Link from 'next/link';
 import Image from 'next/image';
@@ -20,13 +20,15 @@ export const metadata: Metadata = {
 };
 
 export default async function ClassesPage() {
-  const classes: ClassData[] = await getAdminClasses();
+  // Menggunakan fungsi yang benar untuk data publik
+  const classes: ClassData[] = await getPublicClasses();
 
   if (!classes || classes.length === 0) {
     return <p className="text-center py-16">Belum ada kelas yang tersedia saat ini.</p>;
   }
 
-  const visibleClasses = classes.filter(cls => cls.status === 'publish' || cls.status === 'closed');
+  // Filter manual tidak lagi diperlukan karena getPublicClasses sudah menangani ini
+  // const visibleClasses = classes.filter(cls => cls.status === 'publish' || cls.status === 'closed');
   const availableClassCount = classes.filter(cls => cls.status === 'publish').length;
 
   return (
@@ -62,7 +64,8 @@ export default async function ClassesPage() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {visibleClasses.map((classItem) => (
+          {/* Langsung map dari classes karena sudah difilter di backend */}
+          {classes.map((classItem) => (
             <div key={classItem.slug} className={`group ${classItem.status === 'closed' ? 'opacity-70 cursor-not-allowed' : ''}`}>
               <div className="h-full bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100">
                 {classItem.flyerUrl && classItem.flyerUrl.trim() !== '' ? (
