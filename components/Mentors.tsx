@@ -8,32 +8,32 @@ const Mentors = () => {
 
   const mentors = [
     {
-      name: "Aliffa Milanisty",
-      title: "CEO",
-      company: "Grazedu",
+      name: "Rachel Septiana Chandra",
+      title: "Founder & CEO",
+      company: "CGI Creative Lab",
       image:
-        "/aliffa.jpg",
-      expertise: ["Public Speaking", "Pendidikan", "Woman Empowerment"],
+        "/rachel-cgi.jpg",
+      expertise: ["Social Media Management", "Social Media Analysis", "Copywriting"],
       social: {
-        linkedin: "http://linkedin.com/aliffamilanisty",
+        linkedin: "https://linkedin.com/in/rachelseptiana",
         twitter: "#",
-        instagram: "https://www.instagram.com/aliffamilanisty",
-      },
-      quote: "Design with empathy! 💕",
-    },
-    {
-      name: "Shinta Savita",
-      title: "Managing Director",
-      company: "Sakapuan",
-      image:
-        "/shintasavita.jpg",
-      expertise: ["Emotional Intelligence", "Leadership", "Woman Empowerment"],
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        instagram: "https://www.instagram.com/ssavitaj/",
+        instagram: "https://www.instagram.com/rchlsch/",
       },
       quote: "Data tells beautiful stories! ✨",
+    },
+    {
+      name: "Retno Pratiwi,S.Psi.,M.H",
+      title: "HR Manager",
+      company: "Cosmetic Company",
+      image:
+        "/retno-pratiwi.jpg",
+      expertise: ["Career Plan", "CV Creation", "Interview Strategy"],
+      social: {
+        linkedin: "https://linkedin.com/in/retnopratw",
+        twitter: "#",
+        instagram: "https://www.instagram.com/retnopratiw/",
+      },
+      quote: "Lead with heart! 💪",
     },
     {
       name: "Helen Patricia",
@@ -43,25 +43,27 @@ const Mentors = () => {
         "/helen.jpg",
       expertise: ["Communication Skill"],
       social: {
-        linkedin: "#",
+        linkedin: "https://linkedin.com/in/helenpatricia",
+        twitter: "#",
         instagram: "https://www.instagram.com/helennpatricia",
         globe: "#",
       },
       quote: "Code with passion! 🚀",
     },
+    
     {
-      name: "Hesti Wijayanti",
-      title: "Human Capital Practicioner",
-      company: "AVO Group",
+      name: "Aliffa Milanisty",
+      title: "Public Speaker & Content Creator",
+      company: "",
       image:
-        "/hesti.jpeg",
-      expertise: ["Character Building", "CV Review", "Interview Hacks"],
+        "/aliffa.jpg",
+      expertise: ["Public Speaking", "Pendidikan", "Woman Empowerment"],
       social: {
-        linkedin: "#",
+        linkedin: "https://linkedin.com/in/aliffamilanisty",
         twitter: "#",
-        instagram: "https://www.instagram.com/hestiwf/",
+        instagram: "https://www.instagram.com/aliffamilanisty",
       },
-      quote: "Lead with heart! 💪",
+      quote: "Design with empathy! 💕",
     },
     {
       name: "Nurrotul Ilma",
@@ -71,7 +73,7 @@ const Mentors = () => {
         "/nurrotulilma.jpg",
       expertise: ["Personal Branding"],
       social: {
-        linkedin: "#",
+        linkedin: "https://linkedin.com/in/nurrotul-ilma",
         twitter: "#",
         instagram: "https://www.instagram.com/nurrotulilma/",
       },
