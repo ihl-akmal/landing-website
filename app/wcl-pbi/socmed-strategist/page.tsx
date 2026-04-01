@@ -3,11 +3,19 @@
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import { useState } from "react"
-import { ChevronDown, Heart, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock } from "lucide-react"
+import { ChevronDown, Heart, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
 
 export default function SocialMediaContentStrategistPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
   const [activePackage, setActivePackage] = useState<"fast-track" | "career-ready">("fast-track")
+
+  const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   // Program Overview
   const programHighlights = [
@@ -38,82 +46,78 @@ export default function SocialMediaContentStrategistPage() {
     {
       week: 1,
       title: "The Strategist's Mindset",
-      topics: ["Career-Path Social Media", "Peran Social Media untuk Bisnis", "Social Media Marketing Fundamental", "Memahami Target Market & STP (Segmenting, Targeting, Positioning)", "Competitor Benchmarking"],
+      topics: ["Career-Path Social Media","Fundamental Berpikir Strategis", "Peran Social Media untuk Bisnis", "Social Media Marketing Fundamental", "Memahami Target Market & STP (Segmenting, Targeting, Positioning)", "Competitor Benchmarking"],
       hours: 8,
     },
     {
       week: 2,
       title: "Social Media & Content Architecture",
       topics: [
-        "Visual Content Design",
-        "Copywriting Basics",
-        "Content Calendar Planning",
-        "Storytelling Techniques",
-        "1-on-1 Content Review Session"
+        "Content Pillar & Categories",
+        "Content Management: Content Brief, Content Calendar",
+        "Project Management Tools",
       ],
       hours: 8,
     },
     {
       week: 3,
-      title: "Content Creation & Management",
-      topics: ["Reels & Short-form Video", "Hashtag Strategy", "Engagement Tactics", "Instagram Algorithm"],
+      title: "Content Creation",
+      topics: [
+        "Content Production Workflow",
+        "The Hook & Copywriting Formula",
+        "Visual Branding with Canva", 
+        "AI Assistance: Text & Image Generation"],
       hours: 8,
     },
     {
       week: 4,
-      title: "Reporting & Portfolio Building",
-      topics: ["Crisis Management", "Community Building", "Comment Strategy", "User-Generated Content"],
+      title: "Social Media Reporting",
+      topics: [
+        "Social Media Metric",
+        "Analisis Data & Pembuatan Reporting with AI",
+        "Communication with Stakeholders: Strategi menyajikan laporan performa (insight) kepada atasan atau klien secara meyakinkan",
+        ],
       hours: 8,
-      isPremiumWeek: true, // Simulasi Week yang digembok untuk Fast-Track
+      // Simulasi Week yang digembok untuk Fast-Track
     },
     {
       week: 5,
-      title: "Client Project Kickoff",
+      title: "Meta Business Ecosystem",
       topics: [
-        "Metrics Overview",
-        "Data Interpretation",
-        "Report Making",
-        "Optimization Strategies",
-        "Advanced Analytics Workshop"
+        "Mengenal Dapur Meta: Meta Business Suite vs Meta Business Portfolio",
+        "Integrasi Ekosistem Bisnis: ",
+        "Manajemen Tim & Keamanan Aset",
+        "Fitur Unified Inbox & Komunikasi",
+
       ],
       hours: 8,
+      isPremiumWeek: true, 
     },
     {
       week: 6,
-      title: "Project",
-      topics: ["Campaign Planning", "Multi-channel Strategy", "Budget Allocation", "Launch & Execution"],
+      title: "Social Media Advertising & Campaign Architecture",
+      topics: [
+        "Pengenalan Social Media Advertising",
+        "Menentukan Campaign Objective",
+        "Targeting Audience",
+        "Ad Placement",
+      ],
       hours: 8,
+      isPremiumWeek: true, 
     },
     {
       week: 7,
-      title: "Project",
-      topics: ["UMKM Partner Introduction", "Project Brief Deep Dive", "Strategy Development", "Client Communication"],
-      hours: 8,
-    },
-    {
-      week: 8,
-      title: "Project",
+      title: "Creative Strategy & Growth Performance",
       topics: [
-        "UMKM Partner Introduction",
-        "Project Brief Deep Dive",
-        "Strategy Development",
-        "Client Communication",
-        "Exclusive Career Counseling"
+        "Membuat Materi Iklan Kreatif dengan AI",
+        "Benchmarking dengan Meta Ads Library",
+        "Cara Membaca Data di Ads Manager",
+        "Evaluasi & Scaling Sederhana", 
       ],
       hours: 8,
+      isPremiumWeek: true,
     },
-    {
-      week: 9,
-      title: "Project",
-      topics: ["Final Presentation", "Results Analysis", "Portfolio Building", "Graduation & Networking"],
-      hours: 8,
-    },
-    {
-      week: 10,
-      title: "Project Presentation & Celebration",
-      topics: ["UMKM Partner Introduction", "Project Brief Deep Dive", "Strategy Development", "Client Communication"],
-      hours: 8,
-    },
+    
   ]
 
   // Tools
@@ -195,24 +199,24 @@ export default function SocialMediaContentStrategistPage() {
   // Learning Methods
   const learningMethods = [
     {
-      title: "Deep Dive Learning",
+      title: "Intimate Learning",
       icon: BookOpen,
       description:
-        "Interactive workshops dan intensive sessions dengan expert mentor. Setiap sesi dirancang untuk deep understanding dengan Q&A interaktif dan real case studies.",
+        "Pendekatan pembelajaran dengan jumlah peserta yang terbatas untuk menciptakan suasana lebih akrab dan memungkinkan diskusi lebih intensif.",
       color: "from-blue-400 to-blue-600",
     },
     {
-      title: "Fun Bonding Night",
-      icon: Users,
+      title: "Low Cognitive Load",
+      icon: Gamepad2,
       description:
-        "Casual hangout untuk build community, share experiences, dan relax dari pembelajaran intense. Networking session yang fun dan supportive!",
+        "Menyeimbangkan sesi belajar dengan melalui sesi fun games untuk menjaga kesehatan mental dan membangun engagement satu sama lain.",
       color: "from-pink-400 to-pink-600",
     },
     {
-      title: "Weekly Mentoring",
+      title: "Feedback Oriented",
       icon: MessageSquare,
       description:
-        "1-on-1 atau small group mentoring sessions untuk discuss progress, challenges, dan career guidance dari mentor berpengalaman.",
+        "Pembelajaran yang juga berfokus pada feedback, bukan penilaian semata, agar setiap peserta mendapatkan insight perbaikan yang lebih mendalam.",
       color: "from-purple-400 to-purple-600",
     },
   ]
@@ -220,104 +224,149 @@ export default function SocialMediaContentStrategistPage() {
   // Mentors (2 people)
   const mentors = [
     {
-      name: "Rara Setiawan",
-      title: "Senior Social Media Manager",
-      company: "Tokopedia",
+      name: "Rachel Septiana Chandra",
+      title: "Founder & CEO",
+      company: "CGI Creative Lab",
       image:
-        "https://images.pexels.com/photos/3183287/pexels-photo-3183287.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      bio: "5+ tahun expertise dalam social media strategy dan content creation. Berhasil scale multiple brands dari 0 ke 500k+ followers.",
-      specialties: ["Social Strategy", "Content Creation", "Community Management"],
+        "/rachel-cgi.jpg",
+      bio: "9+ tahun pengalaman di industri kreatif yang akan membimbing peserta menguasai strategi sosial media dan konten dari sudut pandang praktisi agensi.",
+      specialties: ["Social Media Strategy", "Meta Business Suite","Content Creation"],
+      label: "Expert mentor"
     },
     {
-      name: "Dina Wijaya",
-      title: "Content Strategist",
-      company: "Shopee Indonesia",
+      name: "Novilia Ayu Kusuma, CHRP",
+      title: "HR Practitioner",
+      // company: "Shopee Indonesia",
       image:
-        "https://images.pexels.com/photos/3306009/pexels-photo-3306009.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop",
-      bio: "Spesialis dalam viral content dan engagement strategy. Passionate tentang membantu UMKM berkembang melalui digital marketing.",
-      specialties: ["Viral Content", "Analytics", "UMKM Growth"],
+        "/novilia-ayu.jpeg",
+      bio: "14+ tahun berpengalaman dalam talent management yang berperan dalam pengembangan potensi serta kesiapan karir profesional peserta.",
+      specialties: ["Career Counseling & Coaching", "Linkedin & Resume Optimization","Interview Strategy"],
+      label: "Career Mentor"
+    },
+    {
+      name: "Retno Pratiwi,S.Psi.,M.H.,CHRP.",
+      title: "HR Manager",
+      company: "Manufacture Industry",
+      image:
+        "/retno-pratiwi.jpg",
+      bio: "8+ tahun berpengalaman di bidang rekrutmen yang berperan dalam memvalidasi kurikulum program agar tetap relevan dan sesuai dengan standar kebutuhan industri terkini.",
+      specialties: ["Career Counseling & Coaching", "Strategic Talent Acquisition"],
+      label: "Industry Advisor"
     },
   ]
+
+  // Jadwal Pembelajaran
+  const scheduleData = [
+    { label: "Durasi", value: "2-3 bulan" },
+    { label: "Frekuensi Pembelajaran", value: "1x per minggu" },
+    { label: "Waktu Kelas", value: "Setiap Jumat malam 19.30-21.30 WIB" },
+    { label: "Akses materi", value: "Google Classroom" },
+    { label: "Grup kelas", value: "WhatsApp Group" },
+  ];
 
   // Timeline (Week by week)
   const timeline = [
     {
       week: 1,
-      title: "Kick Off & Foundation",
-      description: "Orientation, meet the mentors, dan deep dive ke fundamentals social media strategy",
+      title: "Registration",
+      description: "Periode pendaftaran untuk mengamankan seat batch 2.",
     },
     {
       week: 2,
-      title: "Content Creation Sprint",
-      description: "Intensive training content creation. Setiap participant membuat first content piece",
+      title: "On-Boarding",
+      description: "Sesi pengenalan ekosistem belajar, serta penyelarasan ekspektasi antara peserta dan mentor.",
     },
     {
       week: 3,
-      title: "Platform Mastery",
-      description: "Deep dive Instagram & TikTok. Ngerti algorithm, best practices, dan viral strategies",
+      title: "Sesi Pembelajaran Intensif",
+      description: "Rangkaian kelas interaktif yang berfokus pada pendalaman materi teknis social media.",
     },
     {
       week: 4,
-      title: "Community Building",
-      description: "Learn community management, crisis handling, dan build engaged audience",
+      title: "Initial Placement",
+      description: "Fase persiapan administratif dan pembekalan khusus sebelum peserta diterjunkan untuk menangani proyek nyata di Mitra Magang.",
     },
     {
       week: 5,
-      title: "Analytics & Optimization",
-      description: "Understand metrics, create reports, dan optimize based on data",
+      title: "Hands-on Practical Experience",
+      description: "Sesi mengimplementasikan materi yang telah dipelajari melalui praktik nyata di Mitra Magang.",
     },
     {
       week: 6,
-      title: "Campaign Planning",
-      description: "Develop comprehensive marketing campaign untuk real client (UMKM partner)",
+      title: "Final Presentation & Graduation",
+      description: "Pemaparan hasil kerja akhir sebagai bentuk validasi kompetensi, dilanjutkan dengan seremoni kelulusan dan pemberian sertifikat resmi.",
     },
-    {
-      week: 7,
-      title: "Project Execution",
-      description: "Execute campaign bersama UMKM partner. Real impact, real results!",
-    },
-    {
-      week: 8,
-      title: "Showcase & Graduation",
-      description: "Present results, celebrate success, networking, dan close dengan kuat",
-    },
+    
+    
   ]
+
+  // Learning Story
+  const testimonials = [
+      {
+          name: "Naufa Zelda Aurelia",
+          role: "Mahasiswa",
+          avatar: "/path-to-avatar-1.jpg",
+          content: "JUJURRRR aku bener-bener dapet ilmu baru pas sesi ini. Jadi kaya, 'oh selama ini kita scroll tuh di belakang layarnya kayak gini ya wkwk'. Sukses terus untuk tim Grazedu, and hopefully see you in the next amazing classs🤪✌",
+          stars: 5,
+      },
+      {
+          name: "Nina Widiya Nengsih",
+          role: "Mahasiswa",
+          avatar: "/path-to-avatar-2.jpg",
+          content: "Aku jadi paham kalo visual brand tentang warna, font itu penting banget buat brand kita padahal dulu aku ngasal trs 😭😭",
+          stars: 5,
+      },
+      {
+          name: "Khoiru Nisa",
+          role: "Mahasiswa",
+          avatar: "/path-to-avatar-3.jpg",
+          content: "Banyaakk banget ilmunya! Aku kira bidang ini tuh cuma sekadar bikin konten, tapi ternyata semua hal itu ada ilmunya. So far aku suka dengan program Grazedu yang ini, karena emang menarik dan sangat-sangat berguna. Thank you untuk semua yang terlibat dalam program ini, kalian beneran keren! <3",
+          stars: 5,
+      },
+  ];
+
 
   // Schedule & Pricing
   const pricingPackages = [
     {
-      name: "Learner",
-      price: "Rp 59.000",
-      duration: "8 minggu",
+      name: "Fast-track",
+      price: "Rp 369.000",
+      weeklyPrice: "Sekitar 46rb/minggu",
+      duration: "2 bulan pembelajaran",
       color: "from-pink-400 to-pink-600",
       benefits: [
-        "All workshop materials & recordings",
-        "Access to learning platform",
-        "Weekly mentoring sessions (group)",
-        "Community access",
-        "Professional certificate",
-        "Portfolio project with UMKM",
-        "Email support",
-        "Alumni community access",
+        "4x sesi intensif",
+        "Akses materi & recording",
+        "Materi pre-learning",
+        "Feedback tugas",
+        "Community group (fun games)",
+        "Magang 1 bulan di agensi kreatif/UMKM",
+        "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
+        "Sesi 1-on-1 dengan Career Mentor",
+        "900 kredit AI Smart Prompt Premium",
       ],
     },
     {
       name: "Career-Ready",
-      price: "Rp 299.000",
-      duration: "8 minggu + Extended",
+      price: "Rp 499.000",
+      originalPrice: "Rp 599.000",
+      weeklyPrice: "Sekitar 41rb/minggu",
+      duration: "3 bulan pembelajaran",
       isPopular: true,
       color: "from-primary to-primary-light",
       benefits: [
-        "All Starter benefits +",
-        "Priority support (24/7 chat)",
-        "1-on-1 mentoring sessions (2x/month)",
-        "Resume & LinkedIn optimization",
-        "Job preparation coaching",
-        "Career counseling (post-program)",
-        "Extended mentorship (3 months)",
-        "Exclusive networking events",
-        "Job board access",
-        "Interview prep sessions",
+        "7x sesi intensif",
+        "Akses materi & recording",
+        "Materi pre-learning",
+        "Feedback tugas",
+        "Community group (fun games)",
+        "Magang 2 bulan di agensi kreatif/UMKM",
+        "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
+        "Sesi 1-on-1 dengan Career Mentor",
+        "900 kredit AI Smart Prompt Premium",
+        "+Career Class: CV, Interview Strategy, Linkedin Optimization",
+        "+Cutie merchandise",
+        "+Recommendation Letter jika dibutuhkan"
       ],
     },
   ]
@@ -325,54 +374,55 @@ export default function SocialMediaContentStrategistPage() {
   // FAQ
   const faqs = [
     {
-      question: "Apakah saya perlu experience sebelumnya untuk mengikuti program ini?",
+      question: "Kenapa program ini berbayar?",
       answer:
-        "Tidak! Program ini dirancang untuk beginner hingga intermediate level. Kami akan teach you dari foundation dan tidak ada pengetahuan sebelumnya yang required. Yang penting adalah keinginan kamu untuk learn dan grow bersama komunitas.",
+        "Karena program ini dirancang sebagai ruang belajar terkurasi dan berpendampingan, bukan magang massal. Biaya digunakan untuk memastikan kualitas materi, pendampingan mentor, kurasi UMKM, validasi sertifikat, serta pengalaman praktik yang nyata, agar peserta benar-benar belajar, bertumbuh, dan pulang dengan skill serta portofolio yang bernilai.",
     },
     {
-      question: "Berapa banyak jam per minggu yang harus saya investasikan?",
+      question: "Siapa yang layak untuk ikut program ini?",
       answer:
-        "Program ini membutuhkan komitmen 8-10 jam per minggu. Ini termasuk workshop (4 jam), mentoring (1-2 jam), bonding activities (1 jam), dan self-paced learning (2-3 jam). Jadwal fleksibel sehingga bisa disesuaikan dengan aktivitas kamu.",
+        "Fresh graduate maupun mahasiswa yang masih kesulitan dapatin portfolio pertamanya, serta IRT yang telah lama jeda karir yang ingin reskilling.",
     },
     {
-      question: "Apakah saya bisa mengikuti program sambil bekerja full-time?",
+      question: "Apakah untuk mengikuti program ini benar tanpa seleksi?",
       answer:
-        "Tentu! Banyak peserta kami yang mengikuti program sambil bekerja. Workshop kami dijadwalkan di malam hari dan weekend untuk accommodate working professionals. Namun, pastikan kamu bisa commit untuk full 8 minggu program.",
+        "Iya betul, namun untuk menjaga kualitas program, kuota yang disediakan terbatas.",
     },
     {
-      question: "Apakah ada sertifikat yang diakui industri?",
+      question: "Kebetulan aku punya pekerjaan/kuliah lain, kalau jadwalnya bentrok gimana?",
       answer:
-        "Ya! Setiap peserta yang menyelesaikan program akan mendapatkan sertifikat WCL-PBI yang diakui oleh industri dan partner kami. Sertifikat ini menunjukkan bahwa kamu telah menyelesaikan intensive training dalam social media strategy dan content creation.",
+        "Program ini full online dan didesain Low Cognitive Load. Kalau kamu ketinggalan kelas, kamu bisa menonton rekaman kelas, lalu bisa bertanya dengan mentor, ataupun kita bisa fasilitasi kalau mau diskusi bareng teman yang lain.",
     },
     {
-      question: "Siapa mentor saya dan apa background mereka?",
+      question: "Tools apa saja yang perlu aku siapin",
       answer:
-        "Mentor kami adalah professional berpengalaman dari top tech companies seperti Tokopedia, Shopee, dan lainnya. Mereka memiliki 5+ tahun experience dan passionate tentang mentoring. Lihat profil mentor di section di atas untuk informasi lebih detail.",
+        "Cukup laptop/smartphone dan internet yang stabil",
+    },
+    
+    {
+      question: "Apakah materinya ramah untuk yang baru mengenal sosial media",
+      answer:
+        "Yaps, materinya telah di-desain ramah untuk pemula sehingga tidak menghalangi kamu untuk belajar.",
     },
     {
-      question: "Apa saja yang akan saya pelajari tentang tools?",
+      question: "Tapi kalo bagi yang udah punya basic sedikit tentang social media, masih bisa ikut?",
       answer:
-        "Kami akan teach kamu berbagai tools profesional yang digunakan industry: Figma untuk design, Meta Business Suite untuk management, Google Analytics untuk tracking, dan many more. Semua tools ini user-friendly dan kamu akan learn hands-on.",
+        "Tentu aja! Materi telah dirancang ramah pemula hingga intermediate. Baik pemula maupun yang sudah ada basic, masih bisa tetep mengikuti.",
     },
     {
-      question: "Apakah ada job placement setelah program?",
+      question: "Apakah saat sesi praktik magang juga dilakukan secara online?",
       answer:
-        "Kami tidak menjamin job placement, namun kami punya strong track record dalam helping alumni mendapatkan pekerjaan. Kami provide job board akses, resume coaching, interview prep, dan koneksi dengan potential employer. 85% alumni kami working sesuai field mereka dalam 3 bulan.",
+        "Betul banget! Semua sesi pembelajaran termasuk magang di mitra akan dilaksanakan secara online.",
     },
     {
-      question: "Apakah program ini online atau offline?",
+      question: "Sesi praktik magangnya ini nanti dipilihin atau bagaimana?",
       answer:
-        "Program kami hybrid! Mayoritas workshop dilakukan online untuk fleksibilitas. Namun kami juga mengadakan bonding activities dan networking session offline di Jakarta untuk community building yang lebih strong. Kamu bisa pilih format yang suit kamu.",
+        "Kamu dapat menentukan sendiri sesuai minatmu berdasarkan mitra magang yang tersedia. Kamu tidak perlu repot apply CV berkali-kali dan menunggu lamaranmu diterima, karena di program ini kamu sudah pasti diterima.",
     },
     {
-      question: "Apa yang terjadi jika saya miss beberapa session?",
+      question: "Sertifikat penyelesaian berbasis 3 pilar itu maksudnya gimana kak?",
       answer:
-        "Jangan khawatir! Semua workshop sessions direkam dan bisa kamu akses kapan saja. Kami juga provide summary notes untuk setiap session. Namun, cobalah untuk attend live sebanyak mungkin untuk maximize learning dan community interaction.",
-    },
-    {
-      question: "Bagaimana proses pendaftaran dan kapan deadline?",
-      answer:
-        "Proses pendaftaran sangat simple: 1) Fill application form online, 2) Attend assessment call (15 menit), 3) Finalize enrollment. Deadline untuk batch February 2026 adalah 31 Januari 2026. Spots terbatas jadi jangan delay!",
+        "Apabila kamu dinyatakan lulus pada program ini dengan standar yang telah ditetapkan, maka sertifikat penyelesaian yang akan kamu terima akan ditandatangani oleh platform (Grazedu), Industry Advisor, dan Mitra Magang. Tanda-tangan ketiganya menjadi validitas bahwa kamu benar-benar telah menyelesaikan program ini dan memiliki hasil kerja yang terbukti.",
     },
   ]
 
@@ -417,23 +467,23 @@ export default function SocialMediaContentStrategistPage() {
             <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Users className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                <span>15 Posisi Tersedia</span>
+                <span>25 Posisi Tersedia</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                <span>10 Minggu</span>
+                <span>2-3 Bulan</span>
               </div>
             </div>
           </div>
 
           {/* CTA Buttons */}
           <div className="flex flex-wrap items-center gap-4">
-            <button className="bg-gradient-to-r from-primary to-pink-600 text-white px-8 py-3.5 rounded-lg font-bold hover:shadow-lg transition-all duration-300">
+            <a href="#pricing" onClick={(e) => handleScroll(e, 'pricing')} className="bg-gradient-to-r from-primary to-pink-600 text-white px-8 py-3.5 rounded-lg font-bold hover:shadow-lg transition-all duration-300">
               Daftar Sekarang
-            </button>
-            <button className="bg-white/10 text-white backdrop-blur-md border border-white/20 px-8 py-3.5 rounded-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center gap-2">
+            </a>
+            <a href="#kurikulum" onClick={(e) => handleScroll(e, 'kurikulum')} className="bg-white/10 text-white backdrop-blur-md border border-white/20 px-8 py-3.5 rounded-lg font-semibold hover:bg-white/20 transition-all duration-300 flex items-center gap-2">
               <span>▶</span> Lihat Kurikulum
-            </button>
+            </a>
           </div>
         </div>
       </section>
@@ -445,18 +495,23 @@ export default function SocialMediaContentStrategistPage() {
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
               Women's Career Lab - Project Based Internship Social Media & Content Strategist program dirancang untuk memberdayakan perempuan muda yang ingin
-              mengembangkan karir di industri digital marketing. Program ini menggabungkan teori fundamental dengan
-              hands-on practical experience bekerja langsung dengan UMKM partner. Cocok untuk kamu yang passionate tentang social media
-              tapi belum punya pengalaman dan portfolio.
+              mengembangkan karir di industri digital marketing. 
             </p>
-
+            <p>
+            Program ini menggabungkan teori fundamental dengan hands-on practical experience bekerja langsung dengan Mitra Magang (Agensi Kreatif dan UMKM/Startup). Cocok untuk kamu yang passionate tentang social media
+            tapi belum punya pengalaman dan portfolio.
+            </p>
+            <p>Terdapat 2 tipe pembelajaran yang bisa kamu pilih:</p>
+            <ul className="list-disc list-inside pl-5">
+              <li>Fast-track (2 bulan): 4 sesi pembelajaran intensif + 1 bulan praktik.</li>
+              <li>Career Ready (3 bulan): 7 sesi pembelajaran intensif + 2 bulan praktik.</li>
+            </ul>
           </div>
         </div>
-
       </section>
 
       {/* Kurikulum */}
-      <section className="py-16 bg-white">
+      <section id="kurikulum" className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Kurikulum Pembelajaran</h2>
 
@@ -469,7 +524,7 @@ export default function SocialMediaContentStrategistPage() {
                 : "text-gray-500 hover:text-gray-700"
                 }`}
             >
-              Fast-Track (2 bulan)
+              Fast-Track
             </button>
             <button
               onClick={() => setActivePackage("career-ready")}
@@ -478,7 +533,7 @@ export default function SocialMediaContentStrategistPage() {
                 : "text-gray-500 hover:text-gray-700"
                 }`}
             >
-              Career-Ready (3 bulan)
+              Career-Ready
             </button>
           </div>
 
@@ -499,7 +554,7 @@ export default function SocialMediaContentStrategistPage() {
                     <div className="text-left flex items-start gap-3">
                       {isLocked && <Lock className="h-5 w-5 text-gray-500 mt-1 flex-shrink-0" />}{!isLocked && (week as any).isPremiumWeek && <span className="h-2 w-2 rounded-full bg-amber-500 mt-2 flex-shrink-0"></span>}
                       <div>
-                        <p className={`text-sm font-semibold mb-1 ${isLocked ? "text-gray-500" : "text-primary"}`}>Week {week.week}</p>
+                        <p className={`text-sm font-semibold mb-1 ${isLocked ? "text-gray-500" : "text-primary"}`}>Sesi {week.week}</p>
                         <h3 className={`text-lg font-bold ${isLocked ? "text-gray-500" : "text-gray-900"}`}>{week.title}</h3>
                       </div>
                     </div>
@@ -511,7 +566,7 @@ export default function SocialMediaContentStrategistPage() {
                       )}
                       {!isLocked && (week as any).isPremiumWeek && (
                         <span className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-amber-200 uppercase tracking-widest whitespace-nowrap shadow-sm mb-1">
-                          ⭐ Eksklusif
+                          ⭐ Include
                         </span>
                       )}
                       {!isLocked && (
@@ -528,7 +583,7 @@ export default function SocialMediaContentStrategistPage() {
                           <div key={idx} className="flex items-start gap-3">
                             <CheckCircle className={`h-5 w-5 flex-shrink-0 mt-0.5 ${(week as any).isPremiumWeek ? "text-amber-500" : "text-primary"}`} />
                             <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-                              <span className={`text-base ${(week as any).isPremiumWeek ? "font-semibold text-gray-900" : "text-gray-700"}`}>
+                              <span className={`text-base ${(week as any).isPremiumWeek ? "text-gray-900" : "text-gray-700"}`}>
                                 {topicItem as string}
                               </span>
                             </div>
@@ -601,14 +656,23 @@ export default function SocialMediaContentStrategistPage() {
       {/* Mentors */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Mentors Kamu</h2>
-          <div className="grid md:grid-cols-2 gap-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors</h2>
+          <div className="grid md:grid-cols-3 gap-8">
             {mentors.map((mentor, index) => (
               <div
                 key={index}
                 className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300"
               >
-                <img src={mentor.image || "/placeholder.svg"} alt={mentor.name} className="w-full h-64 object-cover" />
+                <div className="relative w-full h-64 bg-gray-100">
+                  <img src={(mentor as any).image || "/placeholder.svg"} alt={(mentor as any).name} className="w-full h-full object-cover" />
+                  {(mentor as any).label && (
+                    <div className="absolute top-4 right-4">
+                      <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                        {(mentor as any).label}
+                      </span>
+                    </div>
+                  )}
+                </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-1">{mentor.name}</h3>
                   <p className="text-primary font-semibold mb-3">{mentor.title}</p>
@@ -627,6 +691,29 @@ export default function SocialMediaContentStrategistPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Jadwal Pembelajaran */}
+      <section className="py-16 bg-white">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-left">Jadwal Pembelajaran</h2>
+            <div className="border border-gray-200 rounded-xl overflow-hidden shadow-lg">
+              <div className="bg-primary text-white p-6 text-center">
+                <h3 className="text-2xl font-bold">Social Media & Content Strategist</h3>
+                <p className="opacity-90">Jadwal Batch 2 Tahun 2026</p>
+              </div>
+              <div className="divide-y divide-gray-200">
+                {scheduleData.map((row, index) => (
+                  <div key={index} className="grid grid-cols-3">
+                    <div className="col-span-1 p-4 font-semibold text-gray-800 bg-gray-50 ">{row.label}</div>
+                    <div className="col-span-2 p-4 text-gray-600">{row.value}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -653,9 +740,38 @@ export default function SocialMediaContentStrategistPage() {
           </div>
         </div>
       </section>
+      {/* Learning Story */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Learning Stories</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div className="p-6 flex-grow">
+                  <div className="flex items-center mb-4">
+                    {/* <img className="h-12 w-12 rounded-full object-cover mr-4" src={testimonial.avatar} alt={testimonial.name} /> */}
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">{testimonial.name}</h3>
+                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-4">{testimonial.content}</p>
+                </div>
+                <div className="bg-gray-100 p-4 flex justify-end items-center">
+                    <div className="flex items-center">
+                        {[...Array(testimonial.stars)].map((_, i) => (
+                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                        ))}
+                    </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Schedule & Pricing */}
-      <section className="py-16 bg-gray-50">
+      <section id="pricing" className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Jadwal & Biaya</h2>
           <p className="text-gray-600 mb-12">Batch Februari 2026 - Limited Spots!</p>
@@ -674,10 +790,24 @@ export default function SocialMediaContentStrategistPage() {
                 )}
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
-                  <p className="text-3xl font-bold bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-1">
-                    {pkg.price}
-                  </p>
-                  <p className="text-gray-600 mb-6">{pkg.duration}</p>
+                  <div className="mb-1">
+                    {(pkg as any).originalPrice && (
+                      <p className="text-base text-gray-400 line-through">
+                        {(pkg as any).originalPrice}
+                      </p>
+                    )}
+                    <div className="flex items-baseline gap-2">
+                      <p className="text-2xl font-bold bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent">
+                        {pkg.price}
+                      </p>
+                      {(pkg as any).weeklyPrice && (
+                        <p className="text-gray-500 text-xs">
+                          {(pkg as any).weeklyPrice}
+                        </p>
+                      )}
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-6 text-sm">{pkg.duration}</p>
 
                   <button
                     className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${pkg.isPopular
