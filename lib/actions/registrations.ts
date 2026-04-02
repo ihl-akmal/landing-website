@@ -10,11 +10,41 @@ export interface RegistrationData {
   email: string;
   whatsapp: string;
   domicile: string;
+  usia?: number; // Menambahkan usia, dibuat opsional untuk kompatibilitas
   status: string;
   infoSource: string;
   challenge: string;
   hope: string;
   createdAt?: string;
+}
+
+/**
+ * Memeriksa apakah email sudah terdaftar untuk kelas tertentu.
+ * @param classId ID kelas
+ * @param email Email yang akan diperiksa
+ * @returns Object dengan boolean `exists`
+ */
+export async function checkEmailExists(classId: string, email: string) {
+  try {
+    if (!classId || !email) {
+      // Tidak mengembalikan error, anggap tidak ada jika input tidak valid
+      return { exists: false };
+    }
+
+    const snapshot = await adminDb
+      .collection('classes')
+      .doc(classId)
+      .collection('registrations')
+      .where('email', '==', email)
+      .limit(1)
+      .get();
+
+    return { exists: !snapshot.empty };
+  } catch (error) {
+    console.error('Error checking email existence:', error);
+    // Jika terjadi error di server, kembalikan pesan untuk ditampilkan
+    return { error: 'Gagal memverifikasi email. Silakan coba lagi.' };
+  }
 }
 
 export async function createRegistration(data: RegistrationData) {

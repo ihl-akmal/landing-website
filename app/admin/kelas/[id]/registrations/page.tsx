@@ -1,9 +1,10 @@
 import { getRegistrationsByClassId, RegistrationData } from "@/lib/actions/registrations";
 import { getAdminClassById } from "@/lib/actions/classes";
 import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Users } from "lucide-react";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import ExportButton from "@/components/admin/ExportButton"; // Impor komponen baru
 
 export const dynamic = "force-dynamic";
 
@@ -24,17 +25,36 @@ export default async function RegistrationsPage({ params }: RegistrationsPagePro
     notFound();
   }
 
+  const totalRegistrations = registrations.length;
+  
+  // Membuat nama file yang deskriptif
+  const fileName = `Daftar Peserta - ${classData.title.replace(/[^a-zA-Z0-9]/g, '_')}`;
+
   return (
     <div className="space-y-6">
-      <div className="flex items-center gap-4">
-        <Link href="/admin/kelas">
-          <Button variant="outline" size="icon">
-            <ArrowLeft className="h-4 w-4" />
-          </Button>
-        </Link>
+      <div className="flex justify-between items-start">
+        <div className="flex items-center gap-4">
+            <Link href="/admin/kelas">
+                <Button variant="outline" size="icon">
+                    <ArrowLeft className="h-4 w-4" />
+                </Button>
+            </Link>
+            <div>
+                <h1 className="text-2xl font-bold">Daftar Peserta</h1>
+                <p className="text-gray-500">Kelas: {classData.title}</p>
+            </div>
+        </div>
+        <ExportButton data={registrations} fileName={fileName} />
+      </div>
+
+      {/* Informasi Jumlah Pendaftar */}
+      <div className="bg-white rounded-xl shadow-sm border p-4 flex items-center gap-4">
+        <div className="bg-blue-100 p-3 rounded-full">
+            <Users className="h-6 w-6 text-blue-600" />
+        </div>
         <div>
-          <h1 className="text-2xl font-bold">Daftar Peserta</h1>
-          <p className="text-gray-500">Kelas: {classData.title}</p>
+            <p className="text-gray-500 text-sm">Jumlah Pendaftar</p>
+            <p className="text-2xl font-bold">{totalRegistrations} Peserta</p>
         </div>
       </div>
 
@@ -51,7 +71,7 @@ export default async function RegistrationsPage({ params }: RegistrationsPagePro
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200">
-              {registrations.length === 0 ? (
+              {totalRegistrations === 0 ? (
                 <tr>
                   <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
                     Belum ada peserta yang mendaftar.
