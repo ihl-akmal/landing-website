@@ -9,27 +9,27 @@ const Programs = () => {
       icon: Clock,
       title: "Short Class",
       description:
-        "Kelas singkat untuk memberi wawasan praktis secara efisien dengan topik self improvement & soft skills 🧠✨",
+        "Sesi kelas berdurasi singkat yang bertujuan memberi perspektif & fondasi tentang pemberdayaan perempuan maupun dunia kerja. 🧠✨",
       color: "bg-blue-500",
       gradient: "from-blue-400 to-blue-500",
       bgPattern: "from-blue-50 to-indigo-50",
-      link: "https://grazedu.myr.id/"
+      link: "/kelas"
     },
     {
       icon: GraduationCap,
-      title: "Intensive Class",
+      title: "Women's Career Lab",
       description:
-        "Kelas mendalam untuk kamu yang serius mau berkembang dibimbing step-by-step dengan materi terstruktur, mentor supportif, dan sesi interaktif💼💫",
+        "Program upskilling dengan format Project-Based-Internship untuk membantu perempuan memiliki real-portfolio pertamanya di bidang tertentu 💼💫",
       color: "bg-primary",
       gradient: "from-primary to-primary-light",
       bgPattern: "from-pink-50 to-rose-50",
-      link: "https://grazedu.myr.id/"
+      link: "/wcl-pbi/socmed-strategist"
     },
     {
       icon: Heart,
-      title: "Magang Mandiri",
+      title: "Career-Mentorship",
       description:
-        "Program magang untuk mendapatkan pengalaman praktis, mengembangkan skill, atau memenuhi syarat akademik seperti konversi SKS.  💻🌟",
+        "Sesi bimbingan karir yang dipersonalisasi untuk perempuan untuk memetakan arah karir, mengenali potensi diri, serta menyusun langkah strategis menuju dunia kerja 💻🌟",
       color: "bg-orange-500",
       gradient: "from-orange-400 to-pink-400",
       bgPattern: "from-orange-50 to-pink-50",

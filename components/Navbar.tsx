@@ -1,7 +1,19 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Menu, X } from "lucide-react"
+import Link from "next/link"
+import { Menu, X, ChevronDown } from "lucide-react"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import {
+  Collapsible,
+  CollapsibleContent,
+  CollapsibleTrigger,
+} from "@/components/ui/collapsible"
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -36,18 +48,20 @@ const Navbar = () => {
               <a href="/" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 Home
               </a>
-              <a
-                href="#programs"
-                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-              >
-                Program
-              </a>
-              <a
-                href="/kelas"
-                className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium"
-              >
-                Kelas
-              </a>
+              
+              <DropdownMenu>
+                              <DropdownMenuTrigger className="flex items-center text-gray-700 hover:text-primary transition-colors duration-200 font-medium focus:outline-none">
+                                Program <ChevronDown className="h-4 w-4 ml-1" />
+                              </DropdownMenuTrigger>
+                              <DropdownMenuContent>
+                                <DropdownMenuItem asChild>
+                                  <Link href="/kelas">Short Class</Link>
+                                </DropdownMenuItem>
+                                <DropdownMenuItem asChild>
+                                  <Link href="/wcl-pbi/socmed-strategist">Women's Career Lab</Link>
+                                </DropdownMenuItem>
+                              </DropdownMenuContent>
+                            </DropdownMenu>
               
               <a href="/about-us" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About Us
@@ -85,20 +99,28 @@ const Navbar = () => {
             >
               Home
             </a>
-            <a
-              href="#programs"
-              onClick={() => setIsOpen(false)}
-              className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
-            >
-              Program
-            </a>
-            <a
-              href="/kelas"
-              onClick={() => setIsOpen(false)}
-              className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
-            >
-              Kelas
-            </a>
+            <Collapsible>
+              <CollapsibleTrigger className="flex justify-between items-center w-full px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg">
+                <span>Program</span>
+                <ChevronDown className="h-5 w-5" />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-4">
+                <a
+                  href="/kelas"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+                >
+                  Short Class
+                </a>
+                <a
+                  href="/wcl-pbi/socmed-strategist"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+                >
+                  Women's Career Lab
+                </a>
+              </CollapsibleContent>
+            </Collapsible>
             
             <a
               href="/about-us"
