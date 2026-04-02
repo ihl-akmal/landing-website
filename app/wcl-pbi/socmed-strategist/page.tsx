@@ -17,29 +17,7 @@ export default function SocialMediaContentStrategistPage() {
     }
   };
 
-  // Program Overview
-  const programHighlights = [
-    {
-      icon: Users,
-      title: "Community-Driven",
-      description: "Belajar dan berkembang bersama komunitas perempuan yang supportive dan inspiring",
-    },
-    {
-      icon: BookOpen,
-      title: "Hands-On Learning",
-      description: "Mendapatkan pengalaman nyata melalui project-based learning dengan UMKM",
-    },
-    {
-      icon: Zap,
-      title: "Career Acceleration",
-      description: "Dapatkan skills, portfolio, dan networking untuk accelerate karir kamu",
-    },
-    {
-      icon: Heart,
-      title: "Mentorship Support",
-      description: "Bimbingan langsung dari professional berpengalaman di industri",
-    },
-  ]
+  
 
   // Kurikulum by Week
   const curriculum = [
@@ -245,8 +223,8 @@ export default function SocialMediaContentStrategistPage() {
     },
     {
       name: "Retno Pratiwi,S.Psi.,M.H.,CHRP.",
-      title: "HR Manager",
-      company: "Manufacture Industry",
+      title: "HR Practitioner",
+      // company: "Manufacture Industry",
       image:
         "/retno-pratiwi.jpg",
       bio: "8+ tahun berpengalaman di bidang rekrutmen yang berperan dalam memvalidasi kurikulum program agar tetap relevan dan sesuai dengan standar kebutuhan industri terkini.",
@@ -258,8 +236,8 @@ export default function SocialMediaContentStrategistPage() {
   // Jadwal Pembelajaran
   const scheduleData = [
     { label: "Durasi", value: "2-3 bulan" },
-    { label: "Frekuensi Pembelajaran", value: "1x per minggu" },
-    { label: "Waktu Kelas", value: "Setiap Jumat malam 19.30-21.30 WIB" },
+    { label: "Frekuensi belajar", value: "1x per minggu" },
+    { label: "Waktu kelas", value: "Setiap Jumat malam 19.30-21.30 WIB" },
     { label: "Akses materi", value: "Google Classroom" },
     { label: "Grup kelas", value: "WhatsApp Group" },
   ];
@@ -333,6 +311,7 @@ export default function SocialMediaContentStrategistPage() {
       price: "Rp 369.000",
       weeklyPrice: "Sekitar 46rb/minggu",
       duration: "2 bulan pembelajaran",
+      href: "https://grazedu.myr.id/pl/fast-track-womens-career-lab-socmed-strategist/",
       color: "from-pink-400 to-pink-600",
       benefits: [
         "4x sesi intensif",
@@ -349,9 +328,10 @@ export default function SocialMediaContentStrategistPage() {
     {
       name: "Career-Ready",
       price: "Rp 499.000",
-      originalPrice: "Rp 599.000",
+      originalPrice: "Rp 799.000",
       weeklyPrice: "Sekitar 41rb/minggu",
       duration: "3 bulan pembelajaran",
+      href: "https://grazedu.myr.id/pl/career-ready-womens-career-lab-socmed-strategist/",
       isPopular: true,
       color: "from-primary to-primary-light",
       benefits: [
@@ -379,6 +359,11 @@ export default function SocialMediaContentStrategistPage() {
         "Karena program ini dirancang sebagai ruang belajar terkurasi dan berpendampingan, bukan magang massal. Biaya digunakan untuk memastikan kualitas materi, pendampingan mentor, kurasi UMKM, validasi sertifikat, serta pengalaman praktik yang nyata, agar peserta benar-benar belajar, bertumbuh, dan pulang dengan skill serta portofolio yang bernilai.",
     },
     {
+      question: "Apa outcome dari program ini?",
+      answer:
+        "Membantu kamu untuk punya portfolio pertama di bidang social media. Dari portfolio pertama ini, akan sangat berguna untuk kamu menjemput opportunity baru setelahnya.",
+    },
+    {
       question: "Siapa yang layak untuk ikut program ini?",
       answer:
         "Fresh graduate maupun mahasiswa yang masih kesulitan dapatin portfolio pertamanya, serta IRT yang telah lama jeda karir yang ingin reskilling.",
@@ -398,16 +383,11 @@ export default function SocialMediaContentStrategistPage() {
       answer:
         "Cukup laptop/smartphone dan internet yang stabil",
     },
-    
+
     {
       question: "Apakah materinya ramah untuk yang baru mengenal sosial media",
       answer:
         "Yaps, materinya telah di-desain ramah untuk pemula sehingga tidak menghalangi kamu untuk belajar.",
-    },
-    {
-      question: "Tapi kalo bagi yang udah punya basic sedikit tentang social media, masih bisa ikut?",
-      answer:
-        "Tentu aja! Materi telah dirancang ramah pemula hingga intermediate. Baik pemula maupun yang sudah ada basic, masih bisa tetep mengikuti.",
     },
     {
       question: "Apakah saat sesi praktik magang juga dilakukan secara online?",
@@ -740,6 +720,7 @@ export default function SocialMediaContentStrategistPage() {
           </div>
         </div>
       </section>
+
       {/* Learning Story */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -773,8 +754,8 @@ export default function SocialMediaContentStrategistPage() {
       {/* Schedule & Pricing */}
       <section id="pricing" className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-4">Jadwal & Biaya</h2>
-          <p className="text-gray-600 mb-12">Batch Februari 2026 - Limited Spots!</p>
+          <h2 className="text-3xl font-bold text-gray-900 mb-4">Biaya Program</h2>
+          <p className="text-gray-600 mb-12">Batch 2 - April 2026 | Limited Spots!</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {pricingPackages.map((pkg, index) => (
@@ -809,14 +790,15 @@ export default function SocialMediaContentStrategistPage() {
                   </div>
                   <p className="text-gray-600 mb-6 text-sm">{pkg.duration}</p>
 
-                  <button
-                    className={`w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${pkg.isPopular
+                  <a
+                    href={pkg.href} target="_blank"
+                    className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${pkg.isPopular
                       ? "bg-primary text-white hover:shadow-lg"
                       : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
                       }`}
                   >
                     Daftar Paket Ini
-                  </button>
+                  </a>
 
                   <div className="space-y-4">
                     {pkg.benefits.map((benefit, idx) => (
@@ -836,7 +818,7 @@ export default function SocialMediaContentStrategistPage() {
       {/* FAQ */}
       <section className="py-16 bg-white">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Frequently Asked Questions</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Frequently Asked Questions</h2>
           <div className="space-y-4">
             {faqs.map((faq, index) => (
               <div
