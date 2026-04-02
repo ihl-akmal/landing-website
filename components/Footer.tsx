@@ -4,8 +4,8 @@ import { Mail, Phone, MapPin, Facebook, Twitter, Instagram, Linkedin, Heart, Spa
 
 const Footer = () => {
   const footerLinks = {
-    Company: ["About Us", "Kelas", "Careers", "Contact"],
-    Programs: ["Short Class", "Intensive Class", "Magang Mandiri"],
+    Company: ["About Us", "Careers", "Contact"],
+    Programs: ["Short Class", "Women's Career Lab", "Career-Mentorship"],
     Resources: ["FAQ", "Documentation", "Help Center", "Community"],
     Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Disclaimer"],
   }
@@ -85,7 +85,8 @@ const Footer = () => {
                       href={
                         link === "FAQ" ? "/faq" : 
                         link === "About Us" ? "/about-us" :
-                        link === "Kelas" ? "/kelas" :
+                        link === "Short Class" ? "/kelas" :
+                        link === "Women's Career Lab" ? "/wcl-pbi/socmed-strategist":
                         
                         "#"
                       } 

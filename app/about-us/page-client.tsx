@@ -116,26 +116,26 @@ const AboutUs = () => {
       buttonText: 'Lihat Kelas',
       buttonColor: 'bg-gradient-to-r from-primary to-primary-light',
       bgGradient: 'from-pink-50 to-rose-50',
-      link: 'https://grazedu.myr.id'
+      link: '/kelas'
     },
     {
       icon: Award,
-      title: 'Explore Kesempatan Magang di Grazedu!',
-      description: 'Belajar sambil praktik nyata! Ikuti program magang di Grazedu dan dapatkan pengalaman berharga dalam mengembangkan generasi muda yang berdaya. 💼✨',
+      title: 'Bangun Real-Portfolio Pertama Tanpa Seleksi',
+      description: 'Belajar sambil praktik nyata! Ikuti program Womens Career Lab 💼✨',
       buttonText: 'Gabung Sekarang',
       buttonColor: 'bg-gradient-to-r from-orange-400 to-pink-400',
       bgGradient: 'from-orange-50 to-pink-50',
-      link: ''
+      link: '/wcl-pbi/socmed-strategist'
     },
-    {
-      icon: Globe,
-      title: 'Explore Kolaborasi dengan Grazedu!',
-      description: 'Kami terbuka untuk berkolaborasi dengan komunitas, kampus, hingga brand yang punya visi sejalan dalam mengembangkan perempuan muda Indonesia. 🤝💕',
-      buttonText: 'Ajukan Kolaborasi',
-      buttonColor: 'bg-gradient-to-r from-purple-500 to-primary',
-      bgGradient: 'from-purple-50 to-pink-50',
-      link: 'https://wa.me/6285256886581'
-    }
+    // {
+    //   icon: Globe,
+    //   title: 'Explore Kolaborasi dengan Grazedu!',
+    //   description: 'Kami terbuka untuk berkolaborasi dengan komunitas, kampus, hingga brand yang punya visi sejalan dalam mengembangkan perempuan muda Indonesia. 🤝💕',
+    //   buttonText: 'Ajukan Kolaborasi',
+    //   buttonColor: 'bg-gradient-to-r from-purple-500 to-primary',
+    //   bgGradient: 'from-purple-50 to-pink-50',
+    //   link: 'https://wa.me/6285256886581'
+    // }
   ];
 
   return (
@@ -398,7 +398,7 @@ const AboutUs = () => {
               Pilih cara terbaik untuk bergabung dengan komunitas amazing Grazedu dan kembangkan potensi terbaikmu! 💕
             </p>
           </div>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {ctaCards.map((card, idx) => (
               <div key={idx} className={`rounded-3xl p-8 shadow-lg bg-white/10 backdrop-blur-sm`}> 
                 <div className="bg-white/20 rounded-full p-4 w-fit mb-4">

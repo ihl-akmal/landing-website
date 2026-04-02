@@ -66,7 +66,7 @@ const Partnership = () => {
             {"Ingin berkolaborasi menciptakan dampak yang positif & memberdayakan perempuan? 🌟"}
           </p>
           <a
-            href="https://wa.me/6282358712443"
+            href="https://wa.me/6282340622274"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md"

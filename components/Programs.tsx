@@ -29,7 +29,7 @@ const Programs = () => {
       icon: Heart,
       title: "Career-Mentorship",
       description:
-        "Sesi bimbingan karir yang dipersonalisasi untuk perempuan untuk memetakan arah karir, mengenali potensi diri, serta menyusun langkah strategis menuju dunia kerja 💻🌟",
+        "Sesi bimbingan karir yang dipersonalisasi untuk perempuan dalam memetakan arah karir, mengenali potensi diri, serta menyusun langkah strategis menuju dunia kerja 💻🌟",
       color: "bg-orange-500",
       gradient: "from-orange-400 to-pink-400",
       bgPattern: "from-orange-50 to-pink-50",
