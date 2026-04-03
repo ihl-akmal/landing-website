@@ -325,7 +325,7 @@ export default function SocialMediaContentStrategistPage() {
         "Magang 1 bulan di agensi kreatif/UMKM",
         "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
         "Sesi 1-on-1 dengan Career Mentor",
-        "900 kredit AI Smart Prompt Premium",
+        "450 kredit AI Smart Prompt Premium",
       ],
     },
     {
@@ -346,7 +346,7 @@ export default function SocialMediaContentStrategistPage() {
         "Magang 2 bulan di agensi kreatif/UMKM",
         "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
         "Sesi 1-on-1 dengan Career Mentor",
-        "900 kredit AI Smart Prompt Premium",
+        "450 kredit AI Smart Prompt Premium",
         "+Career Class: CV, Interview Strategy, Linkedin Optimization",
         "+Cutie merchandise",
         "+Recommendation Letter jika dibutuhkan"
@@ -764,13 +764,19 @@ export default function SocialMediaContentStrategistPage() {
             {pricingPackages.map((pkg, index) => (
               <div
                 key={index}
-                className={`rounded-xl overflow-hidden border-2 transition-all duration-300 ${pkg.isPopular
-                  ? "border-primary bg-gradient-to-br from-primary/5 to-pink-50 shadow-lg scale-105 md:scale-100"
-                  : "border-gray-200 bg-white"
-                  }`}
+                className={`rounded-xl overflow-hidden border-2 transition-all duration-300 relative ${
+                  pkg.isPopular
+                    ? "border-primary bg-gradient-to-br from-primary/5 to-pink-50 shadow-lg scale-105 md:scale-100"
+                    : "border-gray-200 bg-white"
+                }`}
               >
                 {pkg.isPopular && (
-                  <div className="bg-primary text-white text-center py-2 text-sm font-bold">PALING DIREKOMENDASIKAN</div>
+                  <>
+                    <div className="bg-primary text-white text-center py-2 text-sm font-bold">
+                      PALING DIREKOMENDASIKAN
+                    </div>
+                    
+                  </>
                 )}
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
@@ -794,11 +800,13 @@ export default function SocialMediaContentStrategistPage() {
                   <p className="text-gray-600 mb-6 text-sm">{pkg.duration}</p>
 
                   <a
-                    href={pkg.href} target="_blank"
-                    className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${pkg.isPopular
-                      ? "bg-primary text-white hover:shadow-lg"
-                      : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
-                      }`}
+                    href={pkg.href}
+                    target="_blank"
+                    className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${
+                      pkg.isPopular
+                        ? "bg-primary text-white hover:shadow-lg"
+                        : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
+                    }`}
                   >
                     Daftar Paket Ini
                   </a>
@@ -834,8 +842,9 @@ export default function SocialMediaContentStrategistPage() {
                 >
                   <h3 className="text-lg font-bold text-gray-900 text-left">{faq.question}</h3>
                   <ChevronDown
-                    className={`h-5 w-5 text-primary flex-shrink-0 transition-transform duration-300 ${openFaqIndex === index ? "transform rotate-180" : ""
-                      }`}
+                    className={`h-5 w-5 text-primary flex-shrink-0 transition-transform duration-300 ${
+                      openFaqIndex === index ? "transform rotate-180" : ""
+                    }`}
                   />
                 </button>
                 {openFaqIndex === index && (
@@ -851,6 +860,5 @@ export default function SocialMediaContentStrategistPage() {
 
       <Footer />
     </div>
-  )
+  );
 }
-
