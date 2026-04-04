@@ -348,7 +348,7 @@ export default function SocialMediaContentStrategistPage() {
         "Sesi 1-on-1 dengan Career Mentor",
         "450 kredit AI Smart Prompt Premium",
         "+Career Class: CV, Interview Strategy, Linkedin Optimization",
-        "+Cutie merchandise",
+        "+Sweet merchandise",
         "+Recommendation Letter jika dibutuhkan"
       ],
     },
