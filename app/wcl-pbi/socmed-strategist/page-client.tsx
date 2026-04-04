@@ -241,8 +241,15 @@ export default function SocialMediaContentStrategistPage() {
     { label: "Durasi", value: "2-3 bulan" },
     { label: "Frekuensi belajar", value: "1x per minggu" },
     { label: "Waktu kelas", value: "Setiap Jumat malam 19.30-21.30 WIB" },
-    { label: "Akses materi", value: "Google Classroom" },
-    { label: "Grup kelas", value: "WhatsApp Group" },
+    { label: "Mulai belajar", value: "Jumat, 24 Apil 2026" },
+    { label: "Periode belajar", 
+      value: (
+        <ul className="list-disc list-inside">
+          <li>Fast track: April-Juni 2026</li>
+          <li>Career-Ready: April-Juli 2026</li>
+        </ul>
+      ),
+     },
   ];
 
   // Timeline (Week by week)
@@ -717,7 +724,7 @@ export default function SocialMediaContentStrategistPage() {
       {/* Timeline */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">Program Timeline</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">Program Phase</h2>
           <div className="space-y-6">
             {timeline.map((item, index) => (
               <div key={index} className="flex gap-6 relative">
