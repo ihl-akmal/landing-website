@@ -321,7 +321,7 @@ export default function SocialMediaContentStrategistPage() {
         "Magang 1 bulan di agensi kreatif/UMKM",
         <>
           300 kredit{" "}
-              <a href="https://prompthink.vercel.app" className="underline">
+              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
                 AI Smart Prompt Premium
               </a>
         </>,
@@ -348,7 +348,7 @@ export default function SocialMediaContentStrategistPage() {
         "Magang 2 bulan di agensi kreatif/UMKM",
         <>
           450 kredit{" "}
-              <a href="https://prompthink.vercel.app" className="underline">
+              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
                 AI Smart Prompt Premium
               </a>
         </>,
