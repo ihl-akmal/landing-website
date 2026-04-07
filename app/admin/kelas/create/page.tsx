@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Loader2, ArrowLeft, PlusCircle, XCircle } from "lucide-react";
+import { Loader2, ArrowLeft, PlusCircle, XCircle, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import {
   Tabs,
@@ -19,7 +19,7 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
 const classSchema = z.object({
   // SEO
@@ -53,7 +53,6 @@ const classSchema = z.object({
 
 type ClassFormValues = z.infer<typeof classSchema>;
 
-// Helper to generate number range with leading zeros
 const generateNumberOptions = (max: number) => {
   return Array.from({ length: max }, (_, i) => String(i).padStart(2, '0'));
 };
@@ -62,9 +61,8 @@ export default function CreateClassPage() {
   const router = useRouter();
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [error, setError] = useState<string | null>(null);
+  const [serverError, setServerError] = useState<string | null>(null);
 
-  // State for time dropdowns
   const [hour, setHour] = useState("00");
   const [minute, setMinute] = useState("00");
   const [closeDate, setCloseDate] = useState("");
@@ -81,11 +79,10 @@ export default function CreateClassPage() {
       flyerUrl: "",
       whatYouWillLearn: [{ value: "" }],
       benefits: [{ value: "" }],
-      time: "00:00", // Initial value
+      time: "00:00",
     },
   });
 
-  // Sync dropdown state with react-hook-form
   useEffect(() => {
     form.setValue("time", `${hour}:${minute}`, { shouldValidate: true });
   }, [hour, minute, form]);
@@ -96,50 +93,39 @@ export default function CreateClassPage() {
     }
   }, [closeDate, closeHour, closeMinute, form]);
 
-  const {
-    fields: learnFields,
-    append: appendLearn,
-    remove: removeLearn,
-  } = useFieldArray({
+  const { fields: learnFields, append: appendLearn, remove: removeLearn } = useFieldArray({
     control: form.control,
     name: "whatYouWillLearn",
   });
 
-  const {
-    fields: benefitFields,
-    append: appendBenefit,
-    remove: removeBenefit,
-  } = useFieldArray({
+  const { fields: benefitFields, append: appendBenefit, remove: removeBenefit } = useFieldArray({
     control: form.control,
     name: "benefits",
   });
 
   const onSubmit = async (values: ClassFormValues) => {
     setIsSubmitting(true);
-    setError(null);
-    try {
-       const classData: ClassData = {
-        ...values,
-        whatYouWillLearn: values.whatYouWillLearn?.map(item => item.value).filter(v => v),
-        benefits: values.benefits?.map(item => item.value).filter(v => v),
-      };
-      await createClass(classData);
+    setServerError(null);
+
+    const classData: Omit<ClassData, "id" | "createdAt"> = {
+      ...values,
+      whatYouWillLearn: values.whatYouWillLearn?.map(item => item.value).filter(v => v),
+      benefits: values.benefits?.map(item => item.value).filter(v => v),
+    };
+
+    const result = await createClass(classData);
+
+    if (result.success) {
       toast({ 
         title: "Sukses!",
         description: "Kelas baru berhasil disimpan."
       });
       router.push("/admin/kelas");
-    } catch (err) {
-       const errorMessage = err instanceof Error ? err.message : "Terjadi kesalahan tidak diketahui";
-       toast({ 
-        title: "Gagal!",
-        description: `Terjadi kesalahan: ${errorMessage}`,
-        variant: "destructive"
-      });
-      setError(errorMessage);
-    } finally {
-      setIsSubmitting(false);
-    }
+    } else {
+      setServerError(result.error || "Terjadi kesalahan tidak diketahui");
+    } 
+
+    setIsSubmitting(false);
   };
 
   return (
@@ -160,7 +146,6 @@ export default function CreateClassPage() {
             <TabsTrigger value="website">Pengaturan Website</TabsTrigger>
           </TabsList>
 
-          {/* TAB PENGATURAN KELAS */}
           <TabsContent value="kelas" className="mt-6 space-y-6">
              <div>
               <label htmlFor="title" className="block text-sm font-medium mb-1">Judul Kelas</label>
@@ -245,7 +230,6 @@ export default function CreateClassPage() {
                  {form.formState.errors.closeRegistration && <p className="text-red-500 text-xs mt-1">{form.formState.errors.closeRegistration.message}</p>}
             </div>
 
-            {/* Dynamic Input: Apa yang dipelajari */}
             <div>
               <label className="block text-sm font-medium mb-2">Apa yang akan dipelajari</label>
               {learnFields.map((field, index) => (
@@ -261,7 +245,6 @@ export default function CreateClassPage() {
               </Button>
             </div>
 
-             {/* Dynamic Input: Benefit */}
             <div>
               <label className="block text-sm font-medium mb-2">Benefit yang didapatkan</label>
               {benefitFields.map((field, index) => (
@@ -297,7 +280,6 @@ export default function CreateClassPage() {
             </div>
           </TabsContent>
 
-          {/* TAB PENGATURAN WEBSITE */}
           <TabsContent value="website" className="mt-6 space-y-6">
             <div>
               <label htmlFor="slug" className="block text-sm font-medium mb-1">Slug URL</label>
@@ -319,6 +301,14 @@ export default function CreateClassPage() {
           </TabsContent>
         </Tabs>
         
+        {serverError && (
+          <Alert variant="destructive" className="mt-4">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Gagal Menyimpan</AlertTitle>
+            <AlertDescription>{serverError}</AlertDescription>
+          </Alert>
+        )}
+
         <div className="flex justify-end pt-6">
           <Button type="submit" disabled={isSubmitting}>
             {isSubmitting ? (

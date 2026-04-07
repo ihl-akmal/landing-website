@@ -6,9 +6,7 @@ import "./globals.css"
 import { GA_ID } from "@/lib/gtag"
 import { Providers } from "./providers"
 import { generateStructuredData } from "@/lib/structured-data"
-
-
-
+import { Toaster } from "@/components/ui/toaster"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -113,6 +111,7 @@ export default function RootLayout({
       </head>
       <body className={`${poppins.variable} font-sans`}>
         <Providers>{children}</Providers>
+        <Toaster />
         
         {/* Google Analytics */}
         {GA_ID && (
