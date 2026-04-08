@@ -103,6 +103,17 @@ export async function getPublicClasses(): Promise<ClassData[]> {
 
 export async function createClass(data: Omit<ClassData, "id" | "createdAt">) {
   try {
+    // Check for existing slug
+    const existingSlugSnapshot = await adminDb
+      .collection("classes")
+      .where("slug", "==", data.slug)
+      .limit(1)
+      .get();
+
+    if (!existingSlugSnapshot.empty) {
+      return { success: false, error: "Slug sudah digunakan. Silakan gunakan slug lain." };
+    }
+      
     const newClassRef = adminDb.collection("classes").doc();
     const classData = {
       ...data,
@@ -116,7 +127,7 @@ export async function createClass(data: Omit<ClassData, "id" | "createdAt">) {
     return { success: true, id: newClassRef.id };
   } catch (error) {
     console.error("Error creating class:", error);
-    return { success: false, error: "Gagal membuat kelas" };
+    return { success: false, error: "Gagal membuat kelas. Terjadi kesalahan server." };
   }
 }
 
@@ -189,10 +200,29 @@ export async function getAdminClassById(id: string): Promise<ClassData | null> {
 
 export async function updateClass(id: string, data: Partial<ClassData>) {
   try {
+    // If slug is being updated, we need to check for uniqueness
+    if (data.slug) {
+      const existingSlugSnapshot = await adminDb
+        .collection("classes")
+        .where("slug", "==", data.slug)
+        .get();
+        
+      // Check if the found slug belongs to a different document
+      const slugBelongsToAnotherDoc = existingSlugSnapshot.docs.some(doc => doc.id !== id);
+
+      if (slugBelongsToAnotherDoc) {
+        return { success: false, error: "Slug sudah digunakan. Silakan gunakan slug lain." };
+      }
+    }
+    
     await adminDb.collection("classes").doc(id).update(data);
+    
     revalidatePath("/admin/kelas");
-    revalidatePath(`/kelas/${data.slug}`);
     revalidatePath(`/admin/kelas/${id}/edit`);
+    if(data.slug) {
+      revalidatePath(`/kelas/${data.slug}`);
+    }
+
     return { success: true };
   } catch (error) {
     console.error(`Error updating class with id ${id}:`, error);

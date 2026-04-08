@@ -1,7 +1,7 @@
 'use client'
 import { getAdminClasses, deleteClass, ClassData } from "@/lib/actions/classes";
 import Link from "next/link";
-import { PlusCircle, Edit, Trash2, Eye, UsersIcon } from "lucide-react";
+import { PlusCircle, Edit, Trash2, Eye, UsersIcon, FileCheck } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState, useEffect } from 'react';
 import {
@@ -156,18 +156,23 @@ export default function AdminKelasPage() {
                       </Link>
                     </td>
                     <td className="px-6 py-4 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        <Link href={`/kelas/${cls.slug}`} target="_blank">
+                      <div className="flex items-center justify-end gap-1">
+                        <Link href={`/admin/kelas/${cls.id}/evaluasi`} title="Kelola Evaluasi">
+                          <Button variant="ghost" size="icon" className="text-gray-500 hover:text-green-600">
+                            <FileCheck className="w-4 h-4" />
+                          </Button>
+                        </Link>
+                        <Link href={`/kelas/${cls.slug}`} target="_blank" title="Lihat Halaman Publik">
                           <Button variant="ghost" size="icon" className="text-gray-500 hover:text-purple-600">
                             <Eye className="w-4 h-4" />
                           </Button>
                         </Link>
-                        <Link href={`/admin/kelas/${cls.id}/edit`}>
+                        <Link href={`/admin/kelas/${cls.id}/edit`} title="Edit Kelas">
                           <Button variant="ghost" size="icon" className="text-gray-500 hover:text-blue-600">
                             <Edit className="w-4 h-4" />
                           </Button>
                         </Link>
-                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-red-600" onClick={() => setClassToDelete(cls.id!)}>
+                        <Button variant="ghost" size="icon" className="text-gray-500 hover:text-red-600" onClick={() => setClassToDelete(cls.id!)} title="Hapus Kelas">
                           <Trash2 className="w-4 h-4" />
                         </Button>
                       </div>

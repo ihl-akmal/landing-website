@@ -15,6 +15,7 @@ if (!admin.apps.length) {
         clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
         privateKey: formatPrivateKey(process.env.FIREBASE_PRIVATE_KEY),
       }),
+      storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET
     });
   } catch (error) {
     console.error('Firebase admin initialization error:', error);
@@ -23,5 +24,6 @@ if (!admin.apps.length) {
 
 const adminDb = admin.firestore();
 const adminAuth = admin.auth();
+const adminStorage = admin.storage();
 
-export { adminDb, adminAuth };
+export { adminDb, adminAuth, adminStorage };

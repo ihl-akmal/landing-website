@@ -10,7 +10,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useRouter, useParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { Loader2, ArrowLeft, PlusCircle, XCircle } from "lucide-react";
+import { Loader2, ArrowLeft, PlusCircle, XCircle, AlertCircle } from "lucide-react";
 import Link from "next/link";
 import {
   Tabs,
@@ -19,6 +19,8 @@ import {
   TabsTrigger,
 } from "@/components/ui/tabs";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+
 
 const classSchema = z.object({
   // SEO
@@ -52,7 +54,6 @@ const classSchema = z.object({
 
 type ClassFormValues = z.infer<typeof classSchema>;
 
-// Helper to generate number range with leading zeros
 const generateNumberOptions = (max: number) => {
   return Array.from({ length: max }, (_, i) => String(i).padStart(2, '0'));
 };
@@ -64,9 +65,9 @@ export default function EditClassPage() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [serverError, setServerError] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
 
-  // State for time dropdowns
   const [hour, setHour] = useState("00");
   const [minute, setMinute] = useState("00");
   const [closeDate, setCloseDate] = useState("");
@@ -81,17 +82,16 @@ export default function EditClassPage() {
     defaultValues: {
       status: "draft",
       flyerUrl: "",
-      whatYouWillLearn: [{ value: "" }],
-      benefits: [{ value: "" }],
+      whatYouWillLearn: [],
+      benefits: [],
     },
   });
 
-  // Sync dropdown state with react-hook-form
   useEffect(() => {
     form.setValue("time", `${hour}:${minute}`, { shouldValidate: true });
   }, [hour, minute, form]);
 
-    useEffect(() => {
+  useEffect(() => {
     if (closeDate) {
       form.setValue("closeRegistration", `${closeDate}T${closeHour}:${closeMinute}`);
     }
@@ -108,7 +108,6 @@ export default function EditClassPage() {
             whatYouWillLearn: classData.whatYouWillLearn?.map(value => ({ value })) ?? [],
             benefits: classData.benefits?.map(value => ({ value })) ?? [],
           });
-           // Set initial time dropdown values
           if (classData.time && classData.time.includes(':')) {
             const [initialHour, initialMinute] = classData.time.split(':');
             setHour(initialHour);
@@ -125,63 +124,47 @@ export default function EditClassPage() {
           }
         }
       } catch (err) {
-        setError("Gagal memuat data kelas");
-        toast({
-          title: "Gagal Memuat Data",
-          description: "Terjadi kesalahan saat memuat data kelas. Silakan coba lagi.",
-          variant: "destructive",
-        });
+        setLoadError("Gagal memuat data kelas. Silakan coba lagi.");
       } finally {
         setIsLoading(false);
       }
     };
     fetchClass();
-  }, [classId, form, toast]);
+  }, [classId, form]);
 
-  const {
-    fields: learnFields,
-    append: appendLearn,
-    remove: removeLearn,
-  } = useFieldArray({
+  const { fields: learnFields, append: appendLearn, remove: removeLearn } = useFieldArray({
     control: form.control,
     name: "whatYouWillLearn",
   });
 
-  const {
-    fields: benefitFields,
-    append: appendBenefit,
-    remove: removeBenefit,
-  } = useFieldArray({
+  const { fields: benefitFields, append: appendBenefit, remove: removeBenefit } = useFieldArray({
     control: form.control,
     name: "benefits",
   });
 
   const onSubmit = async (values: ClassFormValues) => {
     setIsSubmitting(true);
-    setError(null);
-    try {
-       const classData: Partial<ClassData> = {
-        ...values,
-        whatYouWillLearn: values.whatYouWillLearn?.map(item => item.value).filter(v => v),
-        benefits: values.benefits?.map(item => item.value).filter(v => v),
-      };
-      await updateClass(classId, classData);
-      toast({
-        title: "Sukses!",
-        description: "Perubahan kelas berhasil disimpan.",
-      });
-      router.push("/admin/kelas");
-    } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : "Terjadi kesalahan tidak diketahui";
-      toast({
-        title: "Gagal!",
-        description: `Terjadi kesalahan: ${errorMessage}`,
-        variant: "destructive",
-      });
-      setError(errorMessage);
-    } finally {
-      setIsSubmitting(false);
+    setServerError(null);
+
+    const classData: Partial<ClassData> = {
+      ...values,
+      whatYouWillLearn: values.whatYouWillLearn?.map(item => item.value).filter(v => v),
+      benefits: values.benefits?.map(item => item.value).filter(v => v),
+    };
+
+    const result = await updateClass(classId, classData);
+
+    if (result.success) {
+        toast({
+            title: "Sukses!",
+            description: "Perubahan kelas berhasil disimpan.",
+        });
+        router.push("/admin/kelas");
+    } else {
+        setServerError(result.error || "Terjadi kesalahan tidak diketahui");
     }
+
+    setIsSubmitting(false);
   };
 
    if (isLoading) {
@@ -192,12 +175,16 @@ export default function EditClassPage() {
     );
   }
 
-  if (error && !isLoading) {
+  if (loadError) {
      return (
-      <div className="max-w-4xl mx-auto p-6 text-center">
-         <p className="text-red-500">{error}</p>
-         <Link href="/admin/kelas">
-          <Button variant="outline" className="mt-4">Kembali ke Daftar Kelas</Button>
+      <div className="max-w-4xl mx-auto p-6">
+         <Alert variant="destructive">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Gagal Memuat Data</AlertTitle>
+            <AlertDescription>{loadError}</AlertDescription>
+        </Alert>
+         <Link href="/admin/kelas" className="mt-4 inline-block">
+          <Button variant="outline">Kembali ke Daftar Kelas</Button>
         </Link>
       </div>
     );
@@ -221,7 +208,6 @@ export default function EditClassPage() {
             <TabsTrigger value="website">Pengaturan Website</TabsTrigger>
           </TabsList>
 
-          {/* TAB PENGATURAN KELAS */}
           <TabsContent value="kelas" className="mt-6 space-y-6">
              <div>
               <label htmlFor="title" className="block text-sm font-medium mb-1">Judul Kelas</label>
@@ -306,7 +292,6 @@ export default function EditClassPage() {
                  {form.formState.errors.closeRegistration && <p className="text-red-500 text-xs mt-1">{form.formState.errors.closeRegistration.message}</p>}
             </div>
 
-            {/* Dynamic Input: Apa yang dipelajari */}
             <div>
               <label className="block text-sm font-medium mb-2">Apa yang akan dipelajari</label>
               {learnFields.map((field, index) => (
@@ -322,7 +307,6 @@ export default function EditClassPage() {
               </Button>
             </div>
 
-             {/* Dynamic Input: Benefit */}
             <div>
               <label className="block text-sm font-medium mb-2">Benefit yang didapatkan</label>
               {benefitFields.map((field, index) => (
@@ -358,7 +342,6 @@ export default function EditClassPage() {
             </div>
           </TabsContent>
 
-          {/* TAB PENGATURAN WEBSITE */}
           <TabsContent value="website" className="mt-6 space-y-6">
             <div>
               <label htmlFor="slug" className="block text-sm font-medium mb-1">Slug URL</label>
@@ -379,6 +362,14 @@ export default function EditClassPage() {
             </div>
           </TabsContent>
         </Tabs>
+        
+        {serverError && (
+          <Alert variant="destructive" className="mt-4">
+            <AlertCircle className="h-4 w-4" />
+            <AlertTitle>Gagal Menyimpan</AlertTitle>
+            <AlertDescription>{serverError}</AlertDescription>
+          </Alert>
+        )}
 
         <div className="flex justify-end pt-6">
           <Button type="submit" disabled={isSubmitting}>
