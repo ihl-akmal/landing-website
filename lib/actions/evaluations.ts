@@ -29,26 +29,14 @@ export interface EvaluationSubmission {
     submittedAt: Date;
 }
 
-export async function generateEvaluationLink(classId: string): Promise<GenerateLinkResult> {
+export async function generateEvaluationLink(classId: string, expiresAt: Date): Promise<GenerateLinkResult> {
   try {
     const classData = await getAdminClassById(classId);
     if (!classData) {
       return { success: false, error: "Kelas tidak ditemukan." };
     }
 
-    const existingLinkSnap = await adminDb.collection('evaluationLinks').where('classId', '==', classId).limit(1).get();
-    if (!existingLinkSnap.empty) {
-      const existingLink = existingLinkSnap.docs[0];
-      const now = new Date();
-      const expiresAt = existingLink.data().expiresAt.toDate();
-      if (expiresAt > now) {
-         return { success: false, error: "Link aktif sudah ada untuk kelas ini." };
-      }
-      await existingLink.ref.delete(); 
-    }
-
     const token = randomBytes(24).toString('hex');
-    const expiresAt = new Date(Date.now() + 60 * 60 * 1000); // 1 hour from now
 
     await adminDb.collection('evaluationLinks').doc(token).set({
       classId,
@@ -77,8 +65,6 @@ export async function getActiveEvaluationLink(classId: string): Promise<{ token:
         if (expiresAt > now) {
             return { token: doc.id, expiresAt };
         } else {
-            await doc.ref.delete();
-            revalidatePath(`/admin/kelas/${classId}/evaluasi`);
             return null;
         }
     } catch (error) {
@@ -98,7 +84,6 @@ export async function validateEvaluationToken(token: string): Promise<ValidateTo
         const linkData = tokenDoc.data()!;
         const now = new Date();
         if (linkData.expiresAt.toDate() < now) {
-            await tokenDoc.ref.delete();
             return { isValid: false, error: "Link evaluasi telah kedaluwarsa." };
         }
 

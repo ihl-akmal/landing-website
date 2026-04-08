@@ -12,6 +12,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@
 import { Loader2, ArrowLeft, Link as LinkIcon, AlertCircle, Copy, Check, Clock, Users } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useToast } from "@/components/ui/use-toast";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 export default function EvaluationManagementPage() {
   const params = useParams();
@@ -25,9 +26,13 @@ export default function EvaluationManagementPage() {
   const [activeLink, setActiveLink] = useState<{ url: string; expiresAt: Date } | null>(null);
   const [submissions, setSubmissions] = useState<EvaluationSubmission[]>([]);
   
-  const [isActivating, setIsActivating] = useState(false);
-  const [activationError, setActivationError] = useState<string | null>(null);
+  const [isCreating, setIsCreating] = useState(false);
+  const [creationError, setCreationError] = useState<string | null>(null);
   const [isCopied, setIsCopied] = useState(false);
+  
+  const [expiryDate, setExpiryDate] = useState<string>("");
+  const [expiryHour, setExpiryHour] = useState<string>("23");
+  const [expiryMinute, setExpiryMinute] = useState<string>("59");
 
   useEffect(() => {
     if (!classId) return;
@@ -65,23 +70,30 @@ export default function EvaluationManagementPage() {
     fetchData();
   }, [classId]);
 
-  const handleActivateLink = async () => {
-    setIsActivating(true);
-    setActivationError(null);
+  const handleCreateLink = async () => {
+    setIsCreating(true);
+    setCreationError(null);
 
-    const result = await generateEvaluationLink(classId);
+    if (!expiryDate) {
+        setCreationError("Silakan tentukan tanggal dan waktu pengisian evaluasi.");
+        setIsCreating(false);
+        return;
+    }
+
+    const [year, month, day] = expiryDate.split('-').map(Number);
+    const expirationDate = new Date(year, month - 1, day, parseInt(expiryHour), parseInt(expiryMinute));
+
+    const result = await generateEvaluationLink(classId, expirationDate);
 
     if (result.success && result.token) {
       const fullLink = `${window.location.origin}/evaluasi/${result.token}`;
-      // Manually set the new active link info instead of re-fetching
-      const expiresAt = new Date(Date.now() + 60 * 60 * 1000);
-      setActiveLink({ url: fullLink, expiresAt });
-      toast({ title: "Sukses", description: "Link evaluasi berhasil diaktifkan." });
+      setActiveLink({ url: fullLink, expiresAt: expirationDate });
+      toast({ title: "Sukses", description: "Link evaluasi berhasil dibuat." });
     } else {
-      setActivationError(result.error || "Terjadi kesalahan yang tidak diketahui.");
+      setCreationError(result.error || "Terjadi kesalahan yang tidak diketahui.");
     }
 
-    setIsActivating(false);
+    setIsCreating(false);
   };
 
   const handleCopyToClipboard = () => {
@@ -90,6 +102,12 @@ export default function EvaluationManagementPage() {
     setIsCopied(true);
     setTimeout(() => setIsCopied(false), 2000);
     toast({ title: "Tersalin!", description: "Link evaluasi telah disalin ke clipboard." });
+  }
+  
+  const isEvaluationExpired = () => {
+      if (!activeLink) return false;
+      const now = new Date();
+      return now > activeLink.expiresAt;
   }
 
   if (isLoading) {
@@ -130,16 +148,17 @@ export default function EvaluationManagementPage() {
                 <CardTitle>Link Evaluasi</CardTitle>
                 <CardDescription>
                     {activeLink ? 
-                    "Link berikut aktif dan dapat dibagikan ke peserta. Link akan kedaluwarsa secara otomatis." :
-                    "Aktifkan link untuk dibagikan kepada peserta. Link bersifat unik dan hanya aktif selama 1 jam."}
+                    "Link berikut aktif dan dapat dibagikan ke peserta. Link akan kedaluwarsa sesuai waktu yang ditentukan." :
+                    "Buat link untuk dibagikan kepada peserta. Tentukan batas waktu pengisian."
+                    }
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
-                {activationError && (
+                {creationError && (
                      <Alert variant="destructive">
                         <AlertCircle className="h-4 w-4" />
-                        <AlertTitle>Aktivasi Gagal</AlertTitle>
-                        <AlertDescription>{activationError}</AlertDescription>
+                        <AlertTitle>Pembuatan Gagal</AlertTitle>
+                        <AlertDescription>{creationError}</AlertDescription>
                     </Alert>
                 )}
 
@@ -154,21 +173,55 @@ export default function EvaluationManagementPage() {
                         </div>
                         <div className="text-xs text-gray-500 flex items-center">
                             <Clock className="h-3 w-3 mr-1.5" />
-                            Kedaluwarsa pada: {activeLink.expiresAt.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' })} WIB
+                            Kedaluwarsa pada: {activeLink.expiresAt.toLocaleString('id-ID', { dateStyle: 'medium', timeStyle: 'short' })} WIB
                         </div>
                     </div>
                 ) : (
                     <div className="flex flex-col items-start gap-4">
-                         <p className="text-sm text-gray-600 p-4 bg-gray-50 rounded-md border">
-                            Status form evaluasi saat ini <span className="font-semibold text-red-600">tidak aktif</span>. 
-                        </p>
-                        <Button onClick={handleActivateLink} disabled={isActivating}>
-                            {isActivating ? (
-                                <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Mengaktifkan...</>
-                            ) : (
-                                <><LinkIcon className="mr-2 h-4 w-4" /> Aktifkan Link Evaluasi</>
-                            )}
-                        </Button>
+                        {isEvaluationExpired() ? (
+                            <Alert variant="destructive">
+                                <AlertCircle className="h-4 w-4" />
+                                <AlertTitle>Waktu Evaluasi Telah Lewat</AlertTitle>
+                                <AlertDescription>Anda tidak dapat membuat link evaluasi baru karena waktu evaluasi telah lewat.</AlertDescription>
+                            </Alert>
+                        ) : (
+                            <>
+                                <div className="w-full space-y-2">
+                                    <label className="text-sm font-medium">Batas Waktu Pengisian</label>
+                                    <div className="flex items-center gap-2">
+                                        <Input id="expiryDate" type="date" value={expiryDate} onChange={(e) => setExpiryDate(e.target.value)} className="w-auto"/>
+                                        <Select value={expiryHour} onValueChange={setExpiryHour}>
+                                            <SelectTrigger className="w-[80px]">
+                                                <SelectValue placeholder="Jam" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {Array.from({ length: 24 }, (_, i) => i.toString().padStart(2, '0')).map(hour => (
+                                                    <SelectItem key={hour} value={hour}>{hour}</SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                        <span>:</span>
+                                        <Select value={expiryMinute} onValueChange={setExpiryMinute}>
+                                            <SelectTrigger className="w-[80px]">
+                                                <SelectValue placeholder="Menit" />
+                                            </SelectTrigger>
+                                            <SelectContent>
+                                                {Array.from({ length: 60 }, (_, i) => i.toString().padStart(2, '0')).map(minute => (
+                                                    <SelectItem key={minute} value={minute}>{minute}</SelectItem>
+                                                ))}
+                                            </SelectContent>
+                                        </Select>
+                                    </div>
+                                </div>
+                                <Button onClick={handleCreateLink} disabled={isCreating}>
+                                    {isCreating ? (
+                                        <><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Membuat...</>
+                                    ) : (
+                                        <><LinkIcon className="mr-2 h-4 w-4" /> Buat Link Evaluasi</>
+                                    )}
+                                </Button>
+                            </>
+                        )}
                     </div>
                 )}
             </CardContent>
