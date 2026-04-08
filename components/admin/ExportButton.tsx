@@ -4,10 +4,7 @@ import { Button } from '@/components/ui/button';
 import { Download } from 'lucide-react';
 import * as XLSX from 'xlsx';
 
-// Note for developer: You need to install xlsx package:
-// npm install xlsx
-// or
-// yarn add xlsx
+// This component is now generic and can export any array of objects to Excel.
 
 interface ExportData {
   [key: string]: any;
@@ -21,61 +18,47 @@ interface ExportButtonProps {
 
 export default function ExportButton({ data, fileName, className }: ExportButtonProps) {
   const exportToExcel = () => {
-    if (data.length === 0) {
+    // Check if there is data to export
+    if (!data || data.length === 0) {
         alert("Tidak ada data untuk diekspor.");
         return;
     }
 
-    // 1. Mempersiapkan data (memilih dan mengubah urutan kolom)
-    const worksheetData = data.map(item => ({
-      'Nama': item.name,
-      'Email': item.email,
-      'No. WhatsApp': item.whatsapp,
-      'Domisili': item.domicile,
-      'Usia': item.usia,
-      'Status': item.status,
-      'Sumber Informasi': item.infoSource,
-      'Tantangan': item.challenge,
-      'Harapan': item.hope,
-      'Tanggal Daftar': item.createdAt 
-        ? new Date(item.createdAt).toLocaleString('id-ID', {
-            year: 'numeric',
-            month: 'long',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
-          })
-        : '-',
-    }));
+    // 1. Create a worksheet directly from the data array.
+    // The keys of the first object in the array will be used as headers.
+    const worksheet = XLSX.utils.json_to_sheet(data);
 
-    // 2. Membuat worksheet dari data
-    const ws = XLSX.utils.json_to_sheet(worksheetData);
+    // 2. (Optional) Auto-calculate column widths for better readability.
+    try {
+        const header = Object.keys(data[0]);
+        const colWidths = header.map((key) => ({
+            // Calculate max width of header or cell content
+            wch: Math.max(
+                key.length,
+                ...data.map((row) => (row[key] ? row[key].toString().length : 0))
+            ) + 1, // Add a little extra padding
+        }));
+        worksheet["!cols"] = colWidths;
+    } catch (e) {
+        console.error("Could not calculate column widths for Excel export", e);
+    }
 
-    // 3. (Opsional) Mengatur lebar kolom agar lebih rapi
-    const columnWidths = [
-        { wch: 30 }, // Nama
-        { wch: 30 }, // Email
-        { wch: 20 }, // No. WhatsApp
-        { wch: 20 }, // Domisili
-        { wch: 10 }, // Usia
-        { wch: 20 }, // Status
-        { wch: 20 }, // Sumber Informasi
-        { wch: 40 }, // Tantangan
-        { wch: 40 }, // Harapan
-        { wch: 25 }, // Tanggal Daftar
-    ];
-    ws['!cols'] = columnWidths;
+    // 3. Create a new workbook and append the worksheet.
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Data'); // Use a generic sheet name
 
-    // 4. Membuat workbook dan menambahkan worksheet ke dalamnya
-    const wb = XLSX.utils.book_new();
-    XLSX.utils.book_append_sheet(wb, ws, 'Peserta');
-
-    // 5. Memicu unduhan file Excel
-    XLSX.writeFile(wb, `${fileName}.xlsx`);
+    // 4. Trigger the file download.
+    XLSX.writeFile(workbook, `${fileName}.xlsx`);
   };
 
   return (
-    <Button onClick={exportToExcel} className={className} variant="outline">
+    <Button 
+      onClick={exportToExcel} 
+      className={className} 
+      variant="outline"
+      // Disable the button if there is no data
+      disabled={!data || data.length === 0}
+    >
       <Download className="mr-2 h-4 w-4" />
       Export Excel
     </Button>

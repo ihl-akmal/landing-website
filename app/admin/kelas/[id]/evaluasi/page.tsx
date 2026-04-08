@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { getAdminClassById, ClassData } from "@/lib/actions/classes";
-import { generateEvaluationLink, getActiveEvaluationLink, getEvaluationSubmissions, EvaluationSubmission } from "@/lib/actions/evaluations";
+import { generateEvaluationLink, getActiveEvaluationLink, getEvaluationSubmissions, EvaluationSubmission, getFullEvaluationsForExport } from "@/lib/actions/evaluations";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -13,6 +13,7 @@ import { Loader2, ArrowLeft, Link as LinkIcon, AlertCircle, Copy, Check, Clock, 
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { useToast } from "@/components/ui/use-toast";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import ExportButton from "@/components/admin/ExportButton";
 
 export default function EvaluationManagementPage() {
   const params = useParams();
@@ -25,6 +26,7 @@ export default function EvaluationManagementPage() {
 
   const [activeLink, setActiveLink] = useState<{ url: string; expiresAt: Date } | null>(null);
   const [submissions, setSubmissions] = useState<EvaluationSubmission[]>([]);
+  const [exportData, setExportData] = useState<any[]>([]);
   
   const [isCreating, setIsCreating] = useState(false);
   const [creationError, setCreationError] = useState<string | null>(null);
@@ -40,10 +42,11 @@ export default function EvaluationManagementPage() {
     async function fetchData() {
       setIsLoading(true);
       try {
-        const [classInfo, activeLinkData, submissionsData] = await Promise.all([
+        const [classInfo, activeLinkData, submissionsData, fullEvaluations] = await Promise.all([
           getAdminClassById(classId),
           getActiveEvaluationLink(classId),
-          getEvaluationSubmissions(classId)
+          getEvaluationSubmissions(classId),
+          getFullEvaluationsForExport(classId)
         ]);
 
         if (!classInfo) {
@@ -54,6 +57,7 @@ export default function EvaluationManagementPage() {
         
         setClassData(classInfo);
         setSubmissions(submissionsData);
+        setExportData(fullEvaluations);
 
         if (activeLinkData) {
           const fullLink = `${window.location.origin}/evaluasi/${activeLinkData.token}`;
@@ -109,6 +113,9 @@ export default function EvaluationManagementPage() {
       const now = new Date();
       return now > activeLink.expiresAt;
   }
+  
+  const fileName = `Evaluasi - ${classData?.title.replace(/[^a-zA-Z0-9]/g, '_')}`;
+
 
   if (isLoading) {
     return (
@@ -228,14 +235,17 @@ export default function EvaluationManagementPage() {
         </Card>
 
         <Card>
-            <CardHeader>
-                <CardTitle className="flex items-center">
-                    <Users className="h-5 w-5 mr-3 text-purple-600"/>
-                    Evaluasi Diterima
-                </CardTitle>
-                <CardDescription>
-                    Berikut adalah daftar peserta yang telah berhasil mengirimkan evaluasi.
-                </CardDescription>
+            <CardHeader className="flex flex-row items-center justify-between">
+                 <div className="space-y-1.5">
+                    <CardTitle className="flex items-center">
+                        <Users className="h-5 w-5 mr-3 text-purple-600"/>
+                        Evaluasi Diterima
+                    </CardTitle>
+                    <CardDescription>
+                        Berikut adalah daftar peserta yang telah berhasil mengirimkan evaluasi.
+                    </CardDescription>
+                 </div>
+                <ExportButton data={exportData} fileName={fileName} />
             </CardHeader>
             <CardContent>
                 <Table>

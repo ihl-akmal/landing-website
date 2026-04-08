@@ -189,3 +189,47 @@ export async function getEvaluationSubmissions(classId: string): Promise<Evaluat
         return [];
     }
 }
+
+export async function getFullEvaluationsForExport(classId: string): Promise<any[]> {
+    try {
+        const evaluationsSnap = await adminDb.collection('evaluations')
+            .where('classId', '==', classId)
+            .orderBy('submittedAt', 'desc')
+            .get();
+
+        if (evaluationsSnap.empty) {
+            return [];
+        }
+
+        const registrationsSnap = await adminDb.collection('classes').doc(classId).collection('registrations').get();
+        const registrationNameMap = new Map<string, string>();
+        registrationsSnap.forEach(doc => {
+            registrationNameMap.set(doc.id, doc.data().name);
+        });
+
+        const evaluationsForExport = evaluationsSnap.docs.map(doc => {
+            const data = doc.data();
+            const registrantName = registrationNameMap.get(data.registrationId) || 'Nama Tidak Ditemukan';
+            
+            return {
+                "Nama Peserta": registrantName,
+                "Waktu Mengisi": data.submittedAt.toDate().toLocaleString('id-ID', { dateStyle: 'full', timeStyle: 'long' }),
+                "Mengalami Perubahan Positif": data.selfChange || '-',
+                "Cerita Perubahan": data.changeDescription || '-',
+                "Rating Acara Keseluruhan": data.overallRating || 0,
+                "Rating Narasumber": data.speakerRating || 0,
+                "Rating Moderator": data.moderatorRating || 0,
+                "Materi Sesuai Harga": data.isWorthy || '-',
+                "Tertarik Ikut Kelas Serupa": data.wouldAttendAgain || '-',
+                "Rating Rekomendasi (1-5)": data.recommendationLikelihood || 0,
+                "Saran Perbaikan": data.improvementSuggestion || '-',
+            };
+        });
+
+        return evaluationsForExport;
+
+    } catch (error) {
+        console.error("Error getting full evaluations for export:", error);
+        return [];
+    }
+}
