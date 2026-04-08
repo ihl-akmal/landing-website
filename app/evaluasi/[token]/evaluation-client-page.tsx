@@ -33,20 +33,20 @@ interface RegistrationData {
 }
 
 const formSchema = z.object({
-  registrationId: z.string().min(1, "Nama Anda harus dipilih."),
-  selfChange: z.enum(["Iya", "Tidak", "Mungkin"], { required_error: "Anda harus memilih salah satu opsi." }),
+  registrationId: z.string().min(1, "Nama harus dipilih."),
+  selfChange: z.enum(["Iya", "Tidak", "Mungkin"], { required_error: "Kamu harus memilih salah satu opsi." }),
   changeDescription: z.string().optional(),
   overallRating: z.number().min(1, "Rating harus diisi.").max(5),
   speakerRating: z.number().min(1, "Rating harus diisi.").max(5),
   moderatorRating: z.number().min(1, "Rating harus diisi.").max(5),
-  isWorthy: z.enum(["Iya", "Tidak", "Mungkin"], { required_error: "Anda harus memilih salah satu opsi." }),
-  wouldAttendAgain: z.enum(["Tertarik", "Tidak", "Mungkin"], { required_error: "Anda harus memilih salah satu opsi." }),
+  isWorthy: z.enum(["Iya", "Tidak", "Mungkin"], { required_error: "Kamu harus memilih salah satu opsi." }),
+  wouldAttendAgain: z.enum(["Tertarik", "Tidak", "Mungkin"], { required_error: "Kamu harus memilih salah satu opsi." }),
   recommendationLikelihood: z.number().min(1, "Rating harus diisi.").max(5),
   improvementSuggestion: z.string().optional(),
 }).refine(data => {
   if (data.selfChange === 'Iya') return data.changeDescription && data.changeDescription.trim().length > 0;
   return true;
-}, { message: "Cerita perubahan harus diisi jika Anda merasakan perubahan.", path: ["changeDescription"] });
+}, { message: "Cerita perubahan harus diisi.", path: ["changeDescription"] });
 
 export default function EvaluationClientPage({ token }: EvaluationClientPageProps) {
   const [isLoading, setIsLoading] = useState(true);
@@ -67,10 +67,10 @@ export default function EvaluationClientPage({ token }: EvaluationClientPageProp
           setRegistrations(result.registrations);
           document.title = `Form Evaluasi - ${result.classData.title}`;
         } else {
-          setValidationError(result.error || "Link tidak valid atau kedaluwarsa.");
+          setValidationError(result.error || "Form evaluasi sudah kedaluwarsa.");
         }
       } catch (error) {
-        setValidationError("Terjadi kesalahan saat memvalidasi link Anda.");
+        setValidationError("Terjadi kesalahan saat memvalidasi link.");
       } finally {
         setIsLoading(false);
       }
@@ -139,8 +139,8 @@ export default function EvaluationClientPage({ token }: EvaluationClientPageProp
           <div className="container mx-auto max-w-lg px-4">
             <div className="bg-white p-8 rounded-2xl shadow-lg text-center">
               <CheckCircle className="h-20 w-20 mx-auto text-green-500" />
-              <h1 className="text-3xl md:text-4xl font-bold mt-4">Terima Kasih!</h1>
-              <p className="text-lg text-gray-600 mt-2">Evaluasi Anda telah berhasil dikirim. Masukan Anda sangat berharga bagi kami.</p>
+              <h1 className="text-3xl md:text-4xl font-bold mt-4">Terima Kasih ya!</h1>
+              <p className="text-sm text-gray-600 mt-2">Evaluasi telah berhasil dikirim. Masukan dari kamu sangat berharga. Untuk distribusi sertifikat akan diinformasikan estimasi H+7 melalui WAG</p>
               <Link href="/kelas" passHref>
                 <Button className="mt-6 text-white">Lihat Kelas Lainnya</Button>
               </Link>
@@ -162,30 +162,30 @@ export default function EvaluationClientPage({ token }: EvaluationClientPageProp
             <Form {...form}>
                 <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-10">
                 <div className="space-y-8">
-                    <FormField control={form.control} name="registrationId" render={({ field }) => (<FormItem><FormLabel>Nama Lengkap Anda</FormLabel><Select onValueChange={field.onChange} defaultValue={field.value}><FormControl><SelectTrigger><SelectValue placeholder="Pilih nama Anda dari daftar" /></SelectTrigger></FormControl><SelectContent>{registrations.map(reg => (<SelectItem key={reg.id} value={reg.id}>{reg.name}</SelectItem>))}</SelectContent></Select><FormMessage /></FormItem>)} />
-                    <FormField control={form.control} name="selfChange" render={({ field }) => (<FormItem className="space-y-3"><FormLabel>Apakah Anda mengalami perubahan positif setelah kelas ini?</FormLabel><FormControl><RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-wrap items-center gap-x-6 gap-y-3"><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Iya" /></FormControl><FormLabel className="font-normal">Iya</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Tidak" /></FormControl><FormLabel className="font-normal">Tidak</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Mungkin" /></FormControl><FormLabel className="font-normal">Mungkin</FormLabel></FormItem></RadioGroup></FormControl><FormMessage /></FormItem>)} />
+                    <FormField control={form.control} name="registrationId" render={({ field }) => (<FormItem><FormLabel>Nama Lengkap</FormLabel><Select onValueChange={field.onChange} defaultValue={field.value}><FormControl><SelectTrigger><SelectValue placeholder="Pilih nama kamu dari daftar" /></SelectTrigger></FormControl><SelectContent>{registrations.map(reg => (<SelectItem key={reg.id} value={reg.id}>{reg.name}</SelectItem>))}</SelectContent></Select><FormMessage /></FormItem>)} />
+                    <FormField control={form.control} name="selfChange" render={({ field }) => (<FormItem className="space-y-3"><FormLabel>Apakah kamu mengalami perubahan positif setelah kelas ini?</FormLabel><FormControl><RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-wrap items-center gap-x-6 gap-y-3"><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Iya" /></FormControl><FormLabel className="font-normal">Iya</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Tidak" /></FormControl><FormLabel className="font-normal">Tidak</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Mungkin" /></FormControl><FormLabel className="font-normal">Mungkin</FormLabel></FormItem></RadioGroup></FormControl><FormMessage /></FormItem>)} />
                     <FormField control={form.control} name="changeDescription" render={({ field }) => (<FormItem><FormLabel>Jika Iya, ceritakan perubahan positifnya</FormLabel><FormControl><Textarea placeholder="Contoh: Saya menjadi lebih percaya diri..." {...field} /></FormControl><FormMessage /></FormItem>)} />
                 </div>
 
                 <hr className="border-gray-200" />
 
                 <div className="space-y-8">
-                    <h3 className="text-lg font-medium text-gray-800 text-center">Beri Rating Pengalaman Anda</h3>
+                    <h3 className="text-lg font-medium text-gray-800 text-center">Beri Rating Pengalaman Kelas</h3>
                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-8">
                         <FormField control={form.control} name="overallRating" render={({ field }) => (<FormItem className="flex flex-col items-center"><FormLabel>Acara Keseluruhan</FormLabel><FormControl><StarRating {...field} /></FormControl><FormMessage /></FormItem>)} />
                         <FormField control={form.control} name="speakerRating" render={({ field }) => (<FormItem className="flex flex-col items-center"><FormLabel>Narasumber</FormLabel><FormControl><StarRating {...field} /></FormControl><FormMessage /></FormItem>)} />
                         <FormField control={form.control} name="moderatorRating" render={({ field }) => (<FormItem className="flex flex-col items-center"><FormLabel>Moderator</FormLabel><FormControl><StarRating {...field} /></FormControl><FormMessage /></FormItem>)} />
                     </div>
-                    <FormField control={form.control} name="isWorthy" render={({ field }) => (<FormItem className="space-y-3"><FormLabel>Apakah materi sesuai dengan harga?</FormLabel><FormControl><RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-wrap items-center gap-x-6 gap-y-3"><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Iya" /></FormControl><FormLabel className="font-normal">Sangat sesuai</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Tidak" /></FormControl><FormLabel className="font-normal">Kurang</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Mungkin" /></FormControl><FormLabel className="font-normal">Biasa saja</FormLabel></FormItem></RadioGroup></FormControl><FormMessage /></FormItem>)} />
+                    <FormField control={form.control} name="isWorthy" render={({ field }) => (<FormItem className="space-y-3"><FormLabel>Apakah materi sesuai dengan kebutuhanmu?</FormLabel><FormControl><RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-wrap items-center gap-x-6 gap-y-3"><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Iya" /></FormControl><FormLabel className="font-normal">Sangat sesuai</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Tidak" /></FormControl><FormLabel className="font-normal">Kurang</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Mungkin" /></FormControl><FormLabel className="font-normal">Biasa saja</FormLabel></FormItem></RadioGroup></FormControl><FormMessage /></FormItem>)} />
                     <FormField control={form.control} name="wouldAttendAgain" render={({ field }) => (<FormItem className="space-y-3"><FormLabel>Tertarik untuk ikut kelas serupa lagi?</FormLabel><FormControl><RadioGroup onValueChange={field.onChange} defaultValue={field.value} className="flex flex-wrap items-center gap-x-6 gap-y-3"><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Tertarik" /></FormControl><FormLabel className="font-normal">Sangat Tertarik</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Tidak" /></FormControl><FormLabel className="font-normal">Tidak</FormLabel></FormItem><FormItem className="flex items-center space-x-2"><FormControl><RadioGroupItem value="Mungkin" /></FormControl><FormLabel className="font-normal">Mungkin</FormLabel></FormItem></RadioGroup></FormControl><FormMessage /></FormItem>)} />
-                    <FormField control={form.control} name="recommendationLikelihood" render={({ field }) => (<FormItem><FormLabel>Seberapa besar kemungkinan Anda merekomendasikan acara ini?</FormLabel><FormControl><StarRating {...field} /></FormControl><FormDescription>1 bintang: Sangat tidak mungkin, 5 bintang: Sangat mungkin</FormDescription><FormMessage /></FormItem>)} />
+                    <FormField control={form.control} name="recommendationLikelihood" render={({ field }) => (<FormItem><FormLabel>Seberapa besar kemungkinan kamu merekomendasikan acara ini?</FormLabel><FormControl><StarRating {...field} /></FormControl><FormDescription>1 bintang: Sangat tidak mungkin, 5 bintang: Sangat mungkin</FormDescription><FormMessage /></FormItem>)} />
                     <FormField control={form.control} name="improvementSuggestion" render={({ field }) => (<FormItem><FormLabel>Saran untuk acara kedepannya?</FormLabel><FormControl><Textarea placeholder="Contoh: Perbanyak sesi tanya jawab." {...field} /></FormControl><FormMessage /></FormItem>)} />
                 </div>
 
                 {submissionError && (<Alert variant="destructive" className="mt-6"><AlertCircle className="h-4 w-4" /><AlertTitle>Gagal Mengirim</AlertTitle><AlertDescription>{submissionError}</AlertDescription></Alert>)}
 
-                <div className="flex justify-end pt-6 border-t border-gray-200">
-                    <Button type="submit" className="text-white" disabled={isSubmitting} size="lg">{isSubmitting ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Mengirim...</>) : "Kirim Evaluasi"}</Button>
+                <div className="pt-2">
+                    <Button type="submit" className="text-white w-full" disabled={isSubmitting} size="lg">{isSubmitting ? (<><Loader2 className="mr-2 h-4 w-4 animate-spin" /> Mengirim...</>) : "Kirim Evaluasi"}</Button>
                 </div>
                 </form>
             </Form>

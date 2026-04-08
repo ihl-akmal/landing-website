@@ -84,7 +84,7 @@ export async function validateEvaluationToken(token: string): Promise<ValidateTo
         const linkData = tokenDoc.data()!;
         const now = new Date();
         if (linkData.expiresAt.toDate() < now) {
-            return { isValid: false, error: "Link evaluasi telah kedaluwarsa." };
+            return { isValid: false, error: "Form evaluasi telah kedaluwarsa." };
         }
 
         const classId = linkData.classId;
