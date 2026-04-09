@@ -215,11 +215,11 @@ export default function SocialMediaContentStrategistPage() {
       label: "Expert mentor"
     },
     {
-      name: "Novilia Ayu Kusuma, CHRP",
+      name: "Novilia Ayu Kusuma, CHRP.",
       title: "HR Practitioner",
       // company: "Shopee Indonesia",
       image:
-        "/novilia-ayu.jpeg",
+        "/novilia-ayu.jpg",
       bio: "14+ tahun berpengalaman dalam talent management yang berperan dalam pengembangan potensi serta kesiapan karir profesional peserta.",
       specialties: ["Career Counseling & Coaching", "Linkedin & Resume Optimization","Interview Strategy"],
       label: "Career Mentor"
@@ -670,7 +670,7 @@ export default function SocialMediaContentStrategistPage() {
       {/* Mentors */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors & Advisor</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {mentors.map((mentor, index) => (
               <div
