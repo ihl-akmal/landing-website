@@ -512,7 +512,7 @@ export default function SocialMediaContentStrategistPage() {
               mengembangkan karir di industri digital marketing. 
             </p>
             <p>
-            Program ini menggabungkan teori fundamental dengan hands-on practical experience bekerja langsung dengan Mitra Magang (Agensi Kreatif dan UMKM/Startup). Cocok untuk kamu yang passionate tentang social media
+            Program ini mengkombinasikan pendekatan belajar women-centric dan teori fundamental dengan hands-on practical experience bekerja langsung dengan Mitra Magang (Agensi Kreatif dan UMKM/Startup). Cocok untuk kamu yang passionate tentang social media
             tapi belum punya pengalaman dan portfolio.
             </p>
             <p>Terdapat 2 tipe pembelajaran yang bisa kamu pilih:</p>
