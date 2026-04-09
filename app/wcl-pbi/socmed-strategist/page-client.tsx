@@ -231,7 +231,7 @@ export default function SocialMediaContentStrategistPage() {
       image:
         "/retno-pratiwi.jpg",
       bio: "8+ tahun berpengalaman di bidang rekrutmen yang berperan dalam memvalidasi kurikulum program agar tetap relevan dan sesuai dengan standar kebutuhan industri terkini.",
-      specialties: ["Career Counseling & Coaching", "Strategic Talent Acquisition"],
+      specialties: ["Career Counseling & Coaching", "Career Strategy", "Konsultan SDM"],
       label: "Industry Advisor"
     },
   ]
@@ -266,21 +266,32 @@ export default function SocialMediaContentStrategistPage() {
     },
     {
       week: 3,
+      title: "Sesi 1-on-1 with Career Mentor",
+      description: "Sesi privat secara daring membahas pengembangan karier, tantangan, maupun dilema karir yang dialami peserta.",
+    },
+    {
+      week: 4,
       title: "Sesi Pembelajaran Intensif",
       description: "Rangkaian kelas interaktif yang berfokus pada pendalaman materi teknis social media.",
     },
     {
-      week: 4,
+      week: 5,
+      title: "Kelas Persiapan Karir",
+      description: "Kelas dukungan persiapan karir meliputi CV Creation, Interview Strategy maupun Linkedin Optimization",
+    },
+    {
+      week: 6,
       title: "Initial Placement",
       description: "Fase persiapan administratif dan pembekalan khusus sebelum peserta diterjunkan untuk menangani proyek nyata di Mitra Magang.",
     },
+    
     {
-      week: 5,
+      week: 7,
       title: "Hands-on Practical Experience",
       description: "Sesi mengimplementasikan materi yang telah dipelajari melalui praktik nyata di Mitra Magang.",
     },
     {
-      week: 6,
+      week: 8,
       title: "Final Presentation & Graduation",
       description: "Pemaparan hasil kerja akhir sebagai bentuk validasi kompetensi, dilanjutkan dengan seremoni kelulusan dan pemberian sertifikat resmi.",
     },
@@ -465,7 +476,7 @@ export default function SocialMediaContentStrategistPage() {
               Bangun Real-Portfolio Pertamamu Tanpa Seleksi!
             </h1>
             <p className="text-lg text-white mb-8 leading-relaxed">
-              Mulai karir Social Media & Content Strategist dengan pengalaman nyata bekerja langsung dengan UMKM partner. Dapatkan basic experiences dan portfolio sebelum masuk dunia industri.
+              Mulai karir Social Media & Content Strategist dengan pengalaman nyata bekerja langsung dengan UMKM partner. Dapatkan basic experiences dan portfolio sebagai bekal masuk dunia industri.
             </p>
             <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
