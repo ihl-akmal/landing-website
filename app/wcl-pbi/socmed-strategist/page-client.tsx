@@ -264,34 +264,26 @@ export default function SocialMediaContentStrategistPage() {
       title: "On-Boarding",
       description: "Sesi pengenalan ekosistem belajar, serta penyelarasan ekspektasi antara peserta dan mentor.",
     },
+   
     {
       week: 3,
-      title: "Sesi 1-on-1 with Career Mentor",
-      description: "Sesi privat secara daring membahas pengembangan karier, tantangan, maupun dilema karir yang dialami peserta.",
-    },
-    {
-      week: 4,
       title: "Sesi Pembelajaran Intensif",
       description: "Rangkaian kelas interaktif yang berfokus pada pendalaman materi teknis social media.",
     },
+    
     {
-      week: 5,
-      title: "Kelas Persiapan Karir",
-      description: "Kelas dukungan persiapan karir meliputi CV Creation, Interview Strategy maupun Linkedin Optimization",
-    },
-    {
-      week: 6,
+      week: 4,
       title: "Initial Placement",
       description: "Fase persiapan administratif dan pembekalan khusus sebelum peserta diterjunkan untuk menangani proyek nyata di Mitra Magang.",
     },
     
     {
-      week: 7,
+      week: 5,
       title: "Hands-on Practical Experience",
       description: "Sesi mengimplementasikan materi yang telah dipelajari melalui praktik nyata di Mitra Magang.",
     },
     {
-      week: 8,
+      week: 6,
       title: "Final Presentation & Graduation",
       description: "Pemaparan hasil kerja akhir sebagai bentuk validasi kompetensi, dilanjutkan dengan seremoni kelulusan dan pemberian sertifikat resmi.",
     },
@@ -354,9 +346,9 @@ export default function SocialMediaContentStrategistPage() {
     },
     {
       name: "Career-Ready",
-      price: "Rp 499.000",
+      price: "Rp 459.000",
       originalPrice: "Rp 799.000",
-      weeklyPrice: "Sekitar 41rb/minggu",
+      weeklyPrice: "Sekitar 38rb/minggu",
       duration: "3 bulan pembelajaran",
       href: "https://grazedu.myr.id/pl/career-ready-womens-career-lab-socmed-strategist/",
       isPopular: true,
@@ -380,7 +372,7 @@ export default function SocialMediaContentStrategistPage() {
         
         "+Career Class: CV, Interview Strategy, Linkedin Optimization",
         "+Sweet merchandise",
-        "+Recommendation Letter jika dibutuhkan"
+        "+Recommendation Letter"
       ],
     },
   ]
@@ -804,7 +796,7 @@ export default function SocialMediaContentStrategistPage() {
                 {pkg.isPopular && (
                   <>
                     <div className="bg-primary text-white text-center py-2 text-sm font-bold">
-                      PALING DIREKOMENDASIKAN
+                      EDISI FLASH SALE SAMPAI 13 APRIL 2026!
                     </div>
                     
                   </>
