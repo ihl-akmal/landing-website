@@ -335,7 +335,12 @@ export default function SocialMediaContentStrategistPage() {
         "Feedback tugas",
         "Community group (fun games)",
         "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
-        "Sesi 1-on-1 dengan Career Mentor",
+        <>
+          300 kredit{" "}
+              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
+                AI Smart Prompt Premium
+              </a>
+        </>,
         
       ],
     },
@@ -358,13 +363,13 @@ export default function SocialMediaContentStrategistPage() {
         "Community group (fun games)",
         
         "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
-        "Sesi 1-on-1 dengan Career Mentor",
         <>
-          +450 kredit{" "}
+          450 kredit{" "}
               <a href="https://prompthink.vercel.app" className="underline" target="_blank">
                 AI Smart Prompt Premium
               </a>
         </>,
+        "+Konsultasi karir private dengan Career Mentor",
         "+Career Class: CV, Interview Strategy, Linkedin Optimization",
         "+Sweet merchandise",
         "+Recommendation Letter"
