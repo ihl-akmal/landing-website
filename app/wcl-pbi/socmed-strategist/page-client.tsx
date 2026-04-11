@@ -321,7 +321,7 @@ export default function SocialMediaContentStrategistPage() {
   const pricingPackages = [
     {
       name: "Fast-track",
-      price: "Rp 369.000",
+      price: "Rp 299.000",
       weeklyPrice: "Sekitar 46rb/minggu",
       duration: "2 bulan pembelajaran",
       href: "https://grazedu.myr.id/pl/fast-track-womens-career-lab-socmed-strategist/",
@@ -329,13 +329,8 @@ export default function SocialMediaContentStrategistPage() {
       benefits: [
         "4x sesi intensif",
         "Magang 1 bulan di agensi kreatif/UMKM",
-        <>
-          300 kredit{" "}
-              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
-                AI Smart Prompt Premium
-              </a>
-        </>,
-        "Akses materi & recording",
+        
+        "Akses kelas & recording material",
         "Materi pre-learning",
         "Feedback tugas",
         "Community group (fun games)",
@@ -347,7 +342,7 @@ export default function SocialMediaContentStrategistPage() {
     {
       name: "Career-Ready",
       price: "Rp 459.000",
-      originalPrice: "Rp 799.000",
+      originalPrice: "Rp 579.000",
       weeklyPrice: "Sekitar 38rb/minggu",
       duration: "3 bulan pembelajaran",
       href: "https://grazedu.myr.id/pl/career-ready-womens-career-lab-socmed-strategist/",
@@ -356,20 +351,20 @@ export default function SocialMediaContentStrategistPage() {
       benefits: [
         "7x sesi intensif",
         "Magang 2 bulan di agensi kreatif/UMKM",
-        <>
-          450 kredit{" "}
-              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
-                AI Smart Prompt Premium
-              </a>
-        </>,
-        "Akses materi & recording",
+        
+        "Akses kelas & recording",
         "Materi pre-learning",
         "Feedback tugas",
         "Community group (fun games)",
         
         "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
         "Sesi 1-on-1 dengan Career Mentor",
-        
+        <>
+          +450 kredit{" "}
+              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
+                AI Smart Prompt Premium
+              </a>
+        </>,
         "+Career Class: CV, Interview Strategy, Linkedin Optimization",
         "+Sweet merchandise",
         "+Recommendation Letter"
@@ -813,11 +808,7 @@ export default function SocialMediaContentStrategistPage() {
                       <p className="text-2xl font-bold bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent">
                         {pkg.price}
                       </p>
-                      {(pkg as any).weeklyPrice && (
-                        <p className="text-gray-500 text-xs">
-                          {(pkg as any).weeklyPrice}
-                        </p>
-                      )}
+                     
                     </div>
                   </div>
                   <p className="text-gray-600 mb-6 text-sm">{pkg.duration}</p>
