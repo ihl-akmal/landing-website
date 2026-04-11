@@ -215,7 +215,7 @@ export default function SocialMediaContentStrategistPage() {
       label: "Expert mentor"
     },
     {
-      name: "Novilia Ayu Kusuma, CHRP.",
+      name: "Novilia Ayu Kusuma,S.Psi., CHRP.",
       title: "HR Practitioner",
       // company: "Shopee Indonesia",
       image:
