@@ -3,10 +3,11 @@ import type { Metadata } from "next"
 import { Poppins } from "next/font/google"
 import Script from "next/script"
 import "./globals.css"
-import { GA_ID } from "@/lib/gtag"
+import { GTM_ID } from "@/lib/gtag"
 import { Providers } from "./providers"
 import { generateStructuredData } from "@/lib/structured-data"
 import { Toaster } from "@/components/ui/toaster"
+import AnalyticsTracker from "@/components/AnalyticsTracker"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -84,12 +85,26 @@ export default function RootLayout({
   return (
     <html lang="id">
       <head>
+        {GTM_ID && (
+          <Script
+            id="gtm-script"
+            strategy="afterInteractive"
+            dangerouslySetInnerHTML={{
+              __html: `
+                (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+                })(window,document,'script','dataLayer','${GTM_ID}');
+              `,
+            }}
+          />
+        )}
         <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <link rel="shortcut icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
         
-        {/* Structured Data for GEO */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -110,28 +125,17 @@ export default function RootLayout({
         />
       </head>
       <body className={`${poppins.variable} font-sans`}>
+        <noscript>
+          <iframe
+            src={`https://www.googletagmanager.com/ns.html?id=${GTM_ID}`}
+            height="0"
+            width="0"
+            style={{ display: "none", visibility: "hidden" }}
+          ></iframe>
+        </noscript>
         <Providers>{children}</Providers>
         <Toaster />
-        
-        {/* Google Analytics */}
-        {GA_ID && (
-          <>
-            <Script
-              strategy="afterInteractive"
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-            />
-            <Script id="gtag-init" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', '${GA_ID}', {
-                  page_path: window.location.pathname,
-                });                
-              `}
-            </Script>
-          </>
-        )}
+        <AnalyticsTracker />
       </body>
     </html>
   )
