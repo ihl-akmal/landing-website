@@ -216,10 +216,12 @@ export default function RegistrationForm({ classId, closeDate }: RegistrationFor
                     <label htmlFor="status" className="block text-sm font-medium text-gray-700 mb-1">Status Saat Ini</label>
                     <select id="status" name="status" value={formData.status} onChange={handleInputChange} className="w-full p-2 border rounded-md bg-white text-gray-500">
                         <option value="" disabled>Pilih Status</option>
-                        <option value="Pelajar/Mahasiswa">Pelajar/Mahasiswa</option>
+                        <option value="Pelajar">Pelajar</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
                         <option value="Fresh Graduate">Fresh Graduate</option>
                         <option value="Karyawan">Karyawan</option>
                         <option value="Wirausaha">Wirausaha</option>
+                        <option value="IRT">IRT</option>
                         <option value="Lainnya">Lainnya</option>
                     </select>
                     {errors.status && <p className="text-red-500 text-xs mt-1">{errors.status}</p>}

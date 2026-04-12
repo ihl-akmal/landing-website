@@ -64,8 +64,9 @@ export default async function RegistrationsPage({ params }: RegistrationsPagePro
             <thead className="bg-gray-50 text-gray-700 border-b">
               <tr>
                 <th className="px-6 py-4 font-medium">Nama</th>
-                <th className="px-6 py-4 font-medium">Email</th>
                 <th className="px-6 py-4 font-medium">Whatsapp</th>
+                <th className="px-6 py-4 font-medium">Usia</th>
+                <th className="px-6 py-4 font-medium">Status</th>
                 <th className="px-6 py-4 font-medium">Domisili</th>
                 <th className="px-6 py-4 font-medium">Tanggal Daftar</th>
               </tr>
@@ -81,8 +82,9 @@ export default async function RegistrationsPage({ params }: RegistrationsPagePro
                 registrations.map((reg) => (
                   <tr key={reg.id} className="hover:bg-gray-50/50">
                     <td className="px-6 py-4 font-medium text-gray-900">{reg.name}</td>
-                    <td className="px-6 py-4 text-gray-600">{reg.email}</td>
                     <td className="px-6 py-4 text-gray-600">{reg.whatsapp}</td>
+                    <td className="px-6 py-4 text-gray-600">{reg.usia}</td>
+                    <td className="px-6 py-4 text-gray-600">{reg.status}</td>
                     <td className="px-6 py-4 text-gray-600">{reg.domicile}</td>
                     <td className="px-6 py-4 text-gray-600">
                       {reg.createdAt ? new Date(reg.createdAt).toLocaleDateString('id-ID', { year: 'numeric', month: 'long', day: 'numeric' }) : '-'}

@@ -94,15 +94,15 @@ export default async function ClassPage({ params }: ClassPageProps) {
 
           {/* Right Column: Details */}
           <div className="flex flex-col justify-center">
-            <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-2">
+            <h1 className="text-3xl md:text-4xl font-bold text-primary mb-2">
               {classData.title}
             </h1>
             {classData.subtitle && (
-                <h2 className="text-xl md:text-2xl font-medium text-gray-700 mb-4">
+                <h2 className="text-lg md:text-xl font-medium text-gray-700 mb-4">
                     {classData.subtitle}
                 </h2>
             )}
-            <p className="text-gray-600 mb-6">
+            <p className="text-gray-600 mb-6 whitespace-pre-line">
               {classData.shortDescription}
             </p>
 
