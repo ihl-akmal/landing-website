@@ -801,7 +801,7 @@ export default function SocialMediaContentStrategistPage() {
                     />
                 ):(
                 <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
-                        Opsi belajar kilat & hemat (Sisa 9 seat)
+                        Opsi belajar kilat & hemat
                     </div>
                 )}
                 <div className="p-8">
