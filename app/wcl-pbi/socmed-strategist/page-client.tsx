@@ -1,8 +1,8 @@
 "use client"
 
 import Navbar from "@/components/Navbar"
-
 import Footer from "@/components/Footer"
+import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
 import { ChevronDown, Heart, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
 
@@ -355,7 +355,7 @@ export default function SocialMediaContentStrategistPage() {
       color: "from-primary to-primary-light",
       benefits: [
         "7x sesi intensif",
-        "Magang 2 bulan di agensi kreatif/UMKM",
+        <>Magang <strong>2 bulan</strong> di agensi kreatif/UMKM</>,
         
         "Akses kelas & recording",
         "Materi pre-learning",
@@ -369,10 +369,11 @@ export default function SocialMediaContentStrategistPage() {
                 AI Smart Prompt Premium
               </a>
         </>,
-        "+Konsultasi karir private dengan Career Mentor",
-        "+Career Class: CV, Interview Strategy, Linkedin Optimization",
-        "+Sweet merchandise",
-        "+Recommendation Letter"
+        <><strong>+Konsultasi karir private dengan Career Mentor</strong></>,
+        <><strong>+Career Class: CV, Interview Strategy, Linkedin Optimization</strong></>,
+        <><strong>+Sweet merchandise</strong></>,
+        <><strong>+Recommendation Letter</strong></>,
+      
       ],
     },
   ]
@@ -473,7 +474,7 @@ export default function SocialMediaContentStrategistPage() {
             <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Users className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                <span>25 Posisi Tersedia</span>
+                <span>Limited Spots</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
@@ -793,13 +794,15 @@ export default function SocialMediaContentStrategistPage() {
                     : "border-gray-200 bg-white"
                 }`}
               >
-                {pkg.isPopular && (
-                  <>
-                    <div className="bg-primary text-white text-center py-2 text-sm font-bold">
-                      EDISI FLASH SALE SAMPAI 13 APRIL 2026!
+                {pkg.isPopular ? (
+                    <CountdownTimer 
+                        targetDate="2026-04-13T23:59:59"
+                        className="bg-primary text-white text-center py-2 text-sm font-semibold"
+                    />
+                ):(
+                <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
+                        Opsi belajar kilat & hemat (Sisa 9 seat)
                     </div>
-                    
-                  </>
                 )}
                 <div className="p-8">
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
