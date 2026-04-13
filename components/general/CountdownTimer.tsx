@@ -58,11 +58,11 @@ const CountdownTimer = ({ targetDate, className }: CountdownTimerProps) => {
         <div className='flex items-center justify-center gap-2 tracking-wider'>
             <span>Flash Sale Berakhir:</span>
             <span className="font-bold tabular-nums">
-                {String(timeLeft.days).padStart(2, '0')}d : {String(timeLeft.hours).padStart(2, '0')}h : {String(timeLeft.minutes).padStart(2, '0')}m : {String(timeLeft.seconds).padStart(2, '0')}s
+                {String(timeLeft.days).padStart(2)} h : {String(timeLeft.hours).padStart(2)} j : {String(timeLeft.minutes).padStart(2, '0')} m : {String(timeLeft.seconds).padStart(2, '0')} d
             </span>
         </div>
       ) : (
-        <span>Sisa 11 seat lagi!</span>
+        <span>MOST POPULAR: 80% PESERTA PILIH PAKET INI</span>
       )}
     </div>
   );

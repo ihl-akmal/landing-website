@@ -20,7 +20,10 @@ export default function SocialMediaContentStrategistPage() {
     }
   };
 
-  
+    // --- Logika Flash Sale ---
+    const flashSaleEndDate = new Date("2026-04-13T23:59:59");
+    const isFlashSaleActive = new Date() < flashSaleEndDate;
+    // ------------------------
 
   // Kurikulum by Week
   const curriculum = [
@@ -346,11 +349,13 @@ export default function SocialMediaContentStrategistPage() {
     },
     {
       name: "Career-Ready",
-      price: "Rp 459.000",
-      originalPrice: "Rp 579.000",
+      price: isFlashSaleActive ? "Rp 459.000" : "Rp 499.000", // Harga dinamis
+      originalPrice: isFlashSaleActive ? "Rp 579.000" : "Rp 579.000", // Harga coret dinamis
       weeklyPrice: "Sekitar 38rb/minggu",
       duration: "3 bulan pembelajaran",
-      href: "https://grazedu.myr.id/pl/career-ready-womens-career-lab-socmed-strategist/",
+      href: isFlashSaleActive 
+            ? "https://grazedu.myr.id/pl/career-ready-womens-career-lab-socmed-strategist/"
+            : "https://grazedu.myr.id/pl/career-ready-wcl-socmed-strategist", // Link dinamis
       isPopular: true,
       color: "from-primary to-primary-light",
       benefits: [
@@ -794,12 +799,16 @@ export default function SocialMediaContentStrategistPage() {
                     : "border-gray-200 bg-white"
                 }`}
               >
-                {pkg.isPopular ? (
+                {pkg.isPopular && isFlashSaleActive ? (
                     <CountdownTimer 
                         targetDate="2026-04-13T23:59:59"
                         className="bg-primary text-white text-center py-2 text-sm font-semibold"
                     />
-                ):(
+                  ) : pkg.isPopular ? (
+                    <div className="bg-primary text-white text-center py-2 text-sm font-semibold">
+                        MOST POPULAR: 80% PESERTA PILIH PAKET INI
+                    </div>
+                ) : (
                 <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
                         Opsi belajar kilat & hemat
                     </div>
