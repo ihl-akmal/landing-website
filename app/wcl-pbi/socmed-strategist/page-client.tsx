@@ -787,7 +787,7 @@ export default function SocialMediaContentStrategistPage() {
       <section id="pricing" className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Biaya Program</h2>
-          <p className="text-gray-600 mb-12">Batch 2 - April 2026 | Limited Spots!</p>
+          <p className="text-gray-600 mb-12">Limited Spots! Pendaftaran terakhir 19 April 2026</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {pricingPackages.map((pkg, index) => (
