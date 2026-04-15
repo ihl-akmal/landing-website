@@ -186,6 +186,7 @@ export default function RegistrationForm({ classId, closeDate }: RegistrationFor
             <div className="space-y-4">
                 <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+                    <p className="text-sm text-gray-400">Pastikan penulisan nama sudah benar</p>
                     <Input id="name" name="name" value={formData.name} onChange={handleInputChange} />
                     {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name}</p>}
                 </div>
@@ -196,7 +197,7 @@ export default function RegistrationForm({ classId, closeDate }: RegistrationFor
                 </div>
                 <div>
                     <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-1">No. WhatsApp</label>
-                    <Input id="whatsapp" name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} />
+                    <Input type="number" id="whatsapp" name="whatsapp" value={formData.whatsapp} onChange={handleInputChange} />
                     {errors.whatsapp && <p className="text-red-500 text-xs mt-1">{errors.whatsapp}</p>}
                 </div>
                 <div>

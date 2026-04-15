@@ -202,17 +202,21 @@ export async function getFullEvaluationsForExport(classId: string): Promise<any[
         }
 
         const registrationsSnap = await adminDb.collection('classes').doc(classId).collection('registrations').get();
-        const registrationNameMap = new Map<string, string>();
+        const registrationInfoMap = new Map<string, { name: string; email: string }>();
         registrationsSnap.forEach(doc => {
-            registrationNameMap.set(doc.id, doc.data().name);
+            const regData = doc.data();
+            registrationInfoMap.set(doc.id, { name: regData.name || '', email: regData.email || '' });
         });
 
         const evaluationsForExport = evaluationsSnap.docs.map(doc => {
             const data = doc.data();
-            const registrantName = registrationNameMap.get(data.registrationId) || 'Nama Tidak Ditemukan';
+            const registrantInfo = registrationInfoMap.get(data.registrationId);
+            const registrantName = registrantInfo?.name || 'Nama Tidak Ditemukan';
+            const registrantEmail = registrantInfo?.email || 'Email Tidak Ditemukan';
             
             return {
                 "Nama Peserta": registrantName,
+                "Email Peserta": registrantEmail,
                 "Waktu Mengisi": data.submittedAt.toDate().toLocaleString('id-ID', { dateStyle: 'full', timeStyle: 'long' }),
                 "Mengalami Perubahan Positif": data.selfChange || '-',
                 "Cerita Perubahan": data.changeDescription || '-',
