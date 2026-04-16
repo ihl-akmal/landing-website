@@ -806,7 +806,7 @@ export default function SocialMediaContentStrategistPage() {
                     />
                   ) : pkg.isPopular ? (
                     <div className="bg-primary text-white text-center py-2 text-sm font-semibold">
-                        MOST POPULAR: 80% PESERTA PILIH PAKET INI
+                        MOST POPULAR
                     </div>
                 ) : (
                 <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
@@ -830,10 +830,10 @@ export default function SocialMediaContentStrategistPage() {
                   </div>
                   <p className="text-gray-600 mb-6 text-sm">{pkg.duration}</p>
 
-                  <a
-                    href={pkg.href}
+                  <a 
+                    href={undefined}
                     target="_blank"
-                    className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 ${
+                    className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 opacity-50 cursor-not-allowed pointer-events-none ${
                       pkg.isPopular
                         ? "bg-primary text-white hover:shadow-lg"
                         : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
@@ -856,6 +856,38 @@ export default function SocialMediaContentStrategistPage() {
           </div>
         </div>
       </section>
+
+      {/* Waiting List Section */}
+      <section className="bg-gray-50 py-12">
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-primary rounded-2xl shadow-lg p-8 flex flex-col sm:flex-row items-center gap-6">
+      
+      {/* Icon */}
+      <div className="flex-shrink-0 bg-white/20 rounded-full p-4">
+        <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+
+      {/* Text */}
+      <div className="flex-1 text-center sm:text-left">
+        <h2 className="text-2xl font-bold text-white mt-1">Pendaftaran sudah ditutup.</h2>
+        <p className="text-white/80 mt-1 text-sm">
+          Jangan sampai ketinggalan batch berikutnya! Daftar waiting list sekarang dan kami akan kabari kamu duluan.
+        </p>
+      </div>
+
+      {/* CTA */}
+      <div className="flex-shrink-0">
+        
+         <a href="https://forms.gle/NqtDi6WBuKEhCRgV7" target="_blank" className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-xl font-semibold shadow hover:shadow-md hover:scale-105 transition-all duration-200 whitespace-nowrap">
+          🔔 Daftar Waiting List
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       {/* FAQ */}
       <section className="py-16 bg-white">
