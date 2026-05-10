@@ -3,7 +3,7 @@ import type { Metadata } from "next"
 export const homeMetadata: Metadata = {
   title: "Grazedu - Platform Pengembangan Diri & Karir untuk Perempuan",
   description: "Platform pengembangan diri & karir untuk perempuan muda untuk mencapai potensi maksimal dalam karir profesional maupun pertumbuhan pribadi",
-  keywords: "pengembangan diri, karir perempuan, mentoring, pendidikan, grazedu",
+  keywords: "pengembangan diri, self development, pemberdayaan perempuan, women empowerment, karir perempuan, mentoring, pendidikan, grazedu, ",
   openGraph: {
     title: "Grazedu - Platform Pengembangan Diri & Karir untuk Perempuan",
     description: "Platform pengembangan diri & karir untuk perempuan muda untuk mencapai potensi maksimal dalam karir profesional maupun pertumbuhan pribadi",

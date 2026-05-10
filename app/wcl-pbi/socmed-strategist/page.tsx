@@ -4,7 +4,7 @@ import SocialMediaContentStrategistPage from './page-client'
 export const metadata: Metadata = {
   title: "WCL-PBI | Socmed Strategist - Grazedu",
   description: "Women's Career Lab Project Based Internship Social Media & Content Strategist yaitu program yang dirancang untuk memberdayakan perempuan muda yang ingin mengembangkan karir di industri digital",
-  keywords: "women's career lab, upskilling, project based internship, social media strategist",
+  keywords: "womens career lab, upskilling, project based internship khusus perempuan, virtual internship, bootcamp perempuan digital, bootcamp social media, ",
   openGraph: {
     title: "WCL-PBI | Socmed Strategist - Grazedu",
     description: "Women's Career Lab Project Based Internship Social Media & Content Strategist yaitu program yang dirancang untuk memberdayakan perempuan muda yang ingin mengembangkan karir di industri digital",
