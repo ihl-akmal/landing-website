@@ -9,6 +9,15 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  async rewrites() {
+    return [
+      {
+        source: '/wcl/:path*',
+        destination: 'http://202.10.43.96/wcl/:path*',
+      },
+    ]
+  },
 }
+
 
 export default nextConfig
