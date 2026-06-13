@@ -38,17 +38,26 @@ const Footer = () => {
                 alt="Grazedu Logo"
                 className="h-10 w-auto"
               />
-              {/* <Heart className="h-6 w-6 text-primary" /> */}
             </div>
 
             <p className="text-gray-600 leading-relaxed">
-              {
-                "Platform pengembangan diri & bagi perempuan muda untuk memaksimalkan potensi terbaiknya dalam karir professional maupun pertumbuhan pribadi 💪💕"
-              }
+              {"Platform pengembangan diri & upskilling bagi perempuan muda untuk memulai karir pertamanya lebih percaya diri melalui kelas pembelajaran yang empatik dan inklusif💪💕"}
             </p>
 
+            {/* SDGs Section */}
+            <div className="mt-6">
+                <h4 className="text-md font-semibold text-gray-700 font-poppins mb-4">
+                    Fokus kami pada 3 poin SDGs:
+                </h4>
+                <div className="flex gap-2">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB_EHlOtMH2gBDctYPVOknRH1-qJweClDMfs1qBYxj4Q&s=10" alt="SDG 4" className="w-20 h-20" />
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYGKiXK4WpiZvACjH2TY7EajTx1t5DoQwnMFB49N6jtpgzOiUIPT2lldo&s=10" alt="SDG 5" className="w-20 h-20" />
+                    <img src="https://indonesia.un.org/profiles/undg_country/themes/custom/undg/images/SDGs/id/SDG-8.svg" alt="SDG 8" className="w-20 h-20" />
+                </div>
+            </div>
+
             <div className="space-y-3">
-              <div className="flex items-center gap-3 text-gray-600">
+               <div className="flex items-center gap-3 text-gray-600">
                 <div className="bg-primary/10 p-2 rounded-lg">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
@@ -81,15 +90,15 @@ const Footer = () => {
               <ul className="space-y-2">
                 {links.map((link) => (
                   <li key={link}>
-                    <a 
+                    <a
                       href={
-                        link === "FAQ" ? "/faq" : 
+                        link === "FAQ" ? "/faq" :
                         link === "About Us" ? "/about-us" :
                         link === "Short Class" ? "/kelas" :
                         link === "Women's Career Lab" ? "/wcl-pbi/socmed-strategist":
-                        
+
                         "#"
-                      } 
+                      }
                       className="text-gray-600 hover:text-primary transition-colors duration-200"
                     >
                       {link}
