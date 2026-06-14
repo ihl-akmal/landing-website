@@ -5,7 +5,15 @@ import Footer from "@/components/Footer"
 import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
 import { ChevronDown, Heart, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
-
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselDots
+} from "@/components/ui/carousel"
 
 
 export default function SocialMediaContentStrategistPage() {
@@ -20,7 +28,7 @@ export default function SocialMediaContentStrategistPage() {
     }
   };
 
-    // --- Logika Flash Sale ---
+    // --- Logika Flash Sale -- -
     const flashSaleEndDate = new Date("2026-04-13T23:59:59");
     const isFlashSaleActive = new Date() < flashSaleEndDate;
     // ------------------------
@@ -318,6 +326,51 @@ export default function SocialMediaContentStrategistPage() {
           stars: 5,
       },
   ];
+
+  const ceritaMereka = [
+    {
+        name: "Atania Difany",
+        status: "Dulu Ditolak Berkali-kali, Akhirnya Sekarang Keterima di Brand Skincare Nasional",
+        image: "/atania.jpeg",
+        link: "https://www.linkedin.com/in/akmal-lingga-911b42231/",
+        badge: "Alumni WCL Batch 1"
+    },
+    {
+        name: "Cindy",
+        status: "Mahasiswa",
+        image: "/atania.jpeg",
+        link: "https://www.linkedin.com/in/cindy-claudia-45134a213/",
+        badge: "Alumni WCL Batch 1"
+    },
+    {
+        name: "Dayinta",
+        status: "Mahasiswa",
+        image: "/atania.jpeg",
+        link: "https://www.linkedin.com/in/dayinta-pramessanti-4a01b52a5/",
+        badge: "Alumni WCL Batch 1"
+    },
+];
+
+const portfolio = [
+    {
+        title: "Final Project JogJamu",
+        description: "JogJamu merupakan usaha jamu yang didirikan di Yogyakarta pada tahun 2019 dengan resep turun temurun sejak 1950....",
+        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        link: "https://www.canva.com/design/DAF2Zz5yS9A/view"
+    },
+    {
+        title: "Menjagad Living",
+        description: "Memaparkan secara lengkap dan jelas mengenai proses internal dari Menjagad Living, mulai dari recruitment process,...",
+        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        link: "https://www.canva.com/design/DAF2Zz5yS9A/view"
+    },
+    {
+        title: "IMPRUV (Impruv Consulting...)",
+        description: "Analyze the process of recruitment, training & development, job analyst of Impruv. Impruv was founded to provide solutions t...",
+        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        link: "https://www.canva.com/design/DAF2Zz5yS9A/view"
+    },
+];
 
 
   // Schedule & Pricing
@@ -782,6 +835,77 @@ export default function SocialMediaContentStrategistPage() {
           </div>
         </div>
       </section>
+
+      {/* Cerita Mereka */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Cerita Mereka</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {ceritaMereka.map((cerita, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div className="relative w-full h-64 bg-gray-100">
+                  <img src={cerita.image} alt={cerita.name} className="w-full h-full object-cover" />
+                  {cerita.badge && (
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-white text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                        {cerita.badge}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h3 className="text-lg font-bold text-gray-900">{(cerita as any).name}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{(cerita as any).status}</p>
+                  <a href={(cerita as any).link} target="_blank" className="text-primary font-semibold hover:underline mt-auto">
+                    Lihat Cerita →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio */}
+        <section className="py-16 bg-gray-50">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2 text-left">PORTOFOLIO</h2>
+                <p className="text-gray-600 mb-12 left">Yuk, Intip Hasil Karya dari Para Alumni</p>
+                <Carousel
+                    opts={{
+                        align: "start",
+                    }}
+                    className="w-full"
+                    >
+                    <CarouselContent>
+                        {portfolio.map((item, index) => (
+                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                            <div className="p-1">
+                            <Card>
+                                <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                                <div className="relative w-full h-48 bg-gray-100">
+                                <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                            </div>
+                            <div className="p-6 flex flex-col flex-grow">
+                                <div className="flex-grow">
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                                    <p className="text-gray-600 mb-4">{item.description}</p>
+                                </div>
+                                <a href={item.link} target="_blank" className="text-primary font-semibold hover:underline">
+                                    Lihat Portofolio →
+                                </a>
+                            </div>
+                                </CardContent>
+                            </Card>
+                            </div>
+                        </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    
+                    <CarouselDots />
+                    </Carousel>
+            </div>
+        </section>
 
       {/* Schedule & Pricing */}
       <section id="pricing" className="py-16 bg-gray-50">
