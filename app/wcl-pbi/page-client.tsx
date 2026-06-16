@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useRef, useCallback } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -32,6 +33,198 @@ const challenges = [
     description: "Ragu untuk beralih karir atau memulai di bidang baru tanpa panduan.",
   },
 ];
+
+const alumni = [
+  {
+    name: "Atania Difany",
+    socialMedia: "@atania.difany",
+    role: "Social Media Specialist",
+    platform: "instagram" as const,
+    imageUrl: "/atania.jpeg",
+  },
+  {
+    name: "Cindy Claudia",
+    socialMedia: "@cindy.claudia",
+    role: "Content Creator",
+    platform: "instagram" as const,
+    imageUrl: "/cindy.jpg",
+  },
+  {
+    name: "Dayinta",
+    socialMedia: "@dayinta",
+    role: "Talent Acquisition",
+    platform: "instagram" as const,
+    imageUrl: "/dayinta.jpg",
+  },
+  {
+    name: "Novilia Ayu",
+    socialMedia: "@novilia.ayu",
+    role: "Digital Marketer",
+    platform: "instagram" as const,
+    imageUrl: "/novilia-ayu.jpeg",
+  },
+  {
+    name: "Retno Pratiwi",
+    socialMedia: "@retno.pratiwi",
+    role: "UI/UX Designer",
+    platform: "instagram" as const,
+    imageUrl: "/retno-pratiwi.jpg",
+  },
+];
+
+// Ukuran card per jarak dari center (index 0 = center, 1 = sebelah, dst)
+const SIZE_BY_ABS = [
+  { w: 260, h: 550 },  // center — lebih lebar
+  { w: 200, h: 470 },  // sebelah 1
+  { w: 180, h: 400 },  // sebelah 2
+  { w: 160, h: 340 },
+] as const;
+
+const OPACITY_BY_ABS = [1, 0.72, 0.5];
+const STAGE_W = 680;
+const STAGE_H = 560;
+const CX = STAGE_W / 2;
+const STEP = 180;
+
+function InstagramIcon({ size = 13 }: { size?: number }) {
+  return (
+    <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+      <circle cx="12" cy="12" r="4" />
+      <circle cx="17.5" cy="6.5" r="0.5" fill="currentColor" stroke="none" />
+    </svg>
+  );
+}
+
+function AlumniCarousel() {
+  const total = alumni.length;
+  const [active, setActive] = useState(Math.floor(total / 2));
+  const startXRef = useRef<number | null>(null);
+  const draggingRef = useRef(false);
+
+  const getRel = useCallback((idx: number) => {
+    let r = idx - active;
+    if (r > total / 2) r -= total;
+    if (r < -total / 2) r += total;
+    return r;
+  }, [active, total]);
+
+  const navigate = useCallback((dir: 1 | -1) => {
+    setActive((prev) => (prev + dir + total) % total);
+  }, [total]);
+
+  const handlePointerDown = (x: number) => {
+    startXRef.current = x;
+    draggingRef.current = true;
+  };
+
+  const handlePointerMove = (x: number) => {
+    if (!draggingRef.current || startXRef.current === null) return;
+    const diff = x - startXRef.current;
+    if (Math.abs(diff) > 45) {
+      navigate(diff < 0 ? 1 : -1);
+      startXRef.current = null;
+      draggingRef.current = false;
+    }
+  };
+
+  const handlePointerUp = () => {
+    draggingRef.current = false;
+  };
+
+  return (
+    <div>
+      {/* Stage */}
+      <div
+        className="relative overflow-hidden cursor-grab active:cursor-grabbing"
+        style={{ height: STAGE_H }}
+        onMouseDown={(e) => handlePointerDown(e.clientX)}
+        onMouseMove={(e) => handlePointerMove(e.clientX)}
+        onMouseUp={handlePointerUp}
+        onMouseLeave={handlePointerUp}
+        onTouchStart={(e) => handlePointerDown(e.touches[0].clientX)}
+        onTouchMove={(e) => handlePointerMove(e.touches[0].clientX)}
+        onTouchEnd={handlePointerUp}
+      >
+        {/* Inner container di-center secara horizontal */}
+        <div
+          className="absolute inset-y-0"
+          style={{ left: "50%", transform: "translateX(-50%)", width: STAGE_W }}
+        >
+          {alumni.map((person, i) => {
+            const rel = getRel(i);
+            const absRel = Math.abs(rel);
+
+            if (absRel > 3) return null;
+
+            const { w, h } = SIZE_BY_ABS[absRel];
+            const xPos = CX + rel * STEP - w / 2;
+            const yPos = STAGE_H / 2 - h / 2;
+            const opacity = OPACITY_BY_ABS[absRel];
+            const zIndex = 10 - absRel;
+            const isCenter = rel === 0;
+
+            return (
+              <div
+                key={person.name}
+                className="absolute rounded-2xl overflow-hidden border border-gray-100"
+                style={{
+                  width: w,
+                  height: h,
+                  transform: `translate(${xPos}px, ${yPos}px)`,
+                  opacity,
+                  zIndex,
+                  boxShadow: isCenter ? "0 8px 32px rgba(0,0,0,0.15)" : "none",
+                  transition: "transform 0.45s cubic-bezier(0.34,1.05,0.64,1), opacity 0.45s ease, width 0.45s ease, height 0.45s ease",
+                  pointerEvents: "none",
+                }}
+              >
+                <Image
+                  src={person.imageUrl}
+                  alt={person.name}
+                  fill
+                  className="object-cover object-top"
+                  draggable={false}
+                />
+                {/* Overlay info */}
+                <div
+                  className="absolute bottom-0 left-0 right-0 px-3 pb-4"
+                  style={{
+                    paddingTop: 40,
+                    background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)",
+                  }}
+                >
+                  <p className="text-white text-sm font-medium leading-tight mb-0.5">{person.name}</p>
+                  <p className="text-white/75 text-xs mb-1.5">{person.role}</p>
+                  <div className="flex items-center gap-1 text-white/70 text-xs">
+                    <InstagramIcon size={13} />
+                    <span>{person.socialMedia}</span>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+
+      {/* Dots */}
+      <div className="flex justify-center gap-1.5 mt-4">
+        {alumni.map((person, i) => (
+          <button
+            key={person.name}
+            onClick={() => setActive(i)}
+            aria-label={`Lihat alumni ${person.name}`}
+            className="h-1.5 rounded-full transition-all duration-300"
+            style={{
+              width: i === active ? 16 : 6,
+              background: i === active ? "rgb(17 24 39)" : "rgb(209 213 219)",
+            }}
+          />
+        ))}
+      </div>
+    </div>
+  );
+}
 
 export default function WCLPBIPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
@@ -70,7 +263,7 @@ const handleCardClick = () => {
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
             <div className="lg:col-span-6 text-left">
               <h1 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-4xl">
-                Women's <span className="text-primary">Career Lab</span>
+                Women\'s <span className="text-primary">Career Lab</span>
               </h1>
               <p className="mt-4 text-gray-600 sm:text-l max-w-lg">
                 Progam upskilling yang membantu perempuan membangun real-portfolio pertama dan daya saing karir sejak awal tanpa seleksi💪
@@ -127,10 +320,10 @@ const handleCardClick = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 lg:gap-16 items-center">
             <div className="text-left">
-              <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+              <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-4xl">
                 Tantangan <span className="text-primary">Perempuan Hari Ini</span>
               </h2>
-              <p className="mt-4 text-lg text-gray-600 max-w-xl">
+              <p className="mt-4 text-gray-600 sm:text-l max-w-lg">
                 Kamu rajin belajar, aktif di kampus — tapi pas mau apply kerja, tiba-tiba ngerasa nggak cukup. CV kosong, portfolio nol, dan nggak tau harus mulai dari mana. Kalau kamu ngerasa ini, kamu nggak sendirian. WCL ada untuk itu.
               </p>
             </div>
@@ -138,10 +331,10 @@ const handleCardClick = () => {
             <div className="relative mt-12 lg:mt-0 h-80 flex items-center justify-center">
               <>
               <style>{`
-    @keyframes hint-bounce {
-      0%, 100% { transform: rotate(0deg) translateY(0px); }
-      50% { transform: rotate(0deg) translateY(-10px); }
-    }
+                @keyframes hint-bounce {
+                  0%, 100% { transform: rotate(0deg) translateY(0px); }
+                  50% { transform: rotate(0deg) translateY(-10px); }
+              }
   `}</style>
               </>
               {cards.map((card, index) => {
@@ -256,31 +449,68 @@ const handleCardClick = () => {
             <h2 className="text-3xl font-bold text-gray-900">Pilih bidangmu</h2>
             <p className="text-lg text-gray-600 mt-4 mb-12">Klik untuk lihat kurikulum, jadwal, dan harga lengkap</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform">
+                <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
                         <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span>
-                        <CardTitle className="text-2xl font-bold pt-4">Social Media & Content Strategist</CardTitle>
-                        <CardDescription className="text-base text-gray-600">2-3 bulan · project-based</CardDescription>
+                        <CardTitle className="text-2xl font-bold pt-4">Social Media Specialist</CardTitle>
+                        <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
                     </CardHeader>
+                    <CardContent className="flex-grow">
+                        <div className="flex items-center">
+                            <div className="flex -space-x-3 overflow-hidden">
+                                <Avatar className="inline-block h-6 w-6 rounded-full ring-2 ring-white">
+                                    <AvatarImage src="/akmal.jpg" alt="User 1" className="object-cover" />
+                                    <AvatarFallback>U1</AvatarFallback>
+                                </Avatar>
+                                <Avatar className="inline-block h-6 w-6 rounded-full ring-2 ring-white">
+                                    <AvatarImage src="/aliffa.jpg" alt="User 2" className="object-cover" />
+                                    <AvatarFallback>U2</AvatarFallback>
+                                </Avatar>
+                                <Avatar className="inline-block h-6 w-6 rounded-full ring-2 ring-white">
+                                    <AvatarImage src="/atania.jpeg" alt="User 3" className="object-cover" />
+                                    <AvatarFallback>U3</AvatarFallback>
+                                </Avatar>
+                            </div>
+                            <p className="ml-4 text-sm font-medium text-gray-500">36+ Students Enrolled</p>
+                        </div>
+                    </CardContent>
                     <CardFooter>
                         <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                     </CardFooter>
                 </Card>
-                <Card className="bg-gray-100 border-gray-200 text-left opacity-80">
+
+                <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
-                        <span className="px-3 py-1 text-sm bg-gray-500 text-white rounded-full font-semibold self-start">Segera hadir</span>
-                        <CardTitle className="text-2xl font-bold pt-4 text-gray-500">HR & Talent Acquisition</CardTitle>
-                        <CardDescription className="text-base text-gray-500">Coming soon</CardDescription>
+                        <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
+                        <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
+                        <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
                     </CardHeader>
-                    <CardFooter>
-                        <span className="flex items-center font-bold text-gray-400 cursor-not-allowed">
-                            Notify me <ArrowRight className="w-5 h-5 ml-2" />
-                        </span>
+                    
+                    <CardFooter className="mt-auto">
+                        <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
+                            Lihat program <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
                     </CardFooter>
                 </Card>
-                <Card className="bg-gray-100 border-gray-200 text-left opacity-80">
+
+                <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
+                    <CardHeader>
+                        <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
+                        <CardTitle className="text-2xl font-bold pt-4">Talent Acquisition</CardTitle>
+                        <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
+                    </CardHeader>
+                    
+                    <CardFooter className="mt-auto">
+                        <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
+                            Lihat program <ArrowRight className="w-5 h-5 ml-2" />
+                        </Link>
+                    </CardFooter>
+                </Card>
+                
+                  {/* Card Coming Soon */}
+                {/* <Card className="bg-gray-100 border-gray-200 text-left opacity-80">
                      <CardHeader>
                         <span className="px-3 py-1 text-sm bg-gray-500 text-white rounded-full font-semibold self-start">Segera hadir</span>
                         <CardTitle className="text-2xl font-bold pt-4 text-gray-500">Bidang lainnya</CardTitle>
@@ -291,62 +521,20 @@ const handleCardClick = () => {
                             Notify me <ArrowRight className="w-5 h-5 ml-2" />
                         </span>
                     </CardFooter>
-                </Card>
+                </Card> */}
             </div>
         </div>
       </section>
 
-      {/* Cerita mereka — alumni */}
-      <section id="cerita-alumni" className="py-16 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12">Perjalanan nyata dari alumni WCL</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <Card className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col text-center">
-                    <CardContent className="p-6 flex flex-col items-center gap-4 flex-grow">
-                        <Avatar className="w-24 h-24 border-4 border-primary">
-                            <AvatarImage src="/atania.jpeg" alt="Atania Difany" />
-                            <AvatarFallback>AD</AvatarFallback>
-                        </Avatar>
-                        <p className="text-xl font-bold text-gray-900">Atania Difany</p>
-                        <blockquote className="italic text-gray-600 flex-grow">"Dulu ditolak berkali-kali, sekarang akhirnya diterima di brand skincare nasional."</blockquote>
-                    </CardContent>
-                    <CardFooter className="p-4 bg-gray-50">
-                         <a href="#" className="flex items-center font-semibold text-primary hover:underline w-full justify-center">
-                            Lihat cerita <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                    </CardFooter>
-                </Card>
-                <Card className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col text-center">
-                    <CardContent className="p-6 flex flex-col items-center gap-4 flex-grow">
-                        <Avatar className="w-24 h-24 border-4 border-primary">
-                            <AvatarImage src="/cindy.jpg" alt="Cindy Claudia" />
-                            <AvatarFallback>CC</AvatarFallback>
-                        </Avatar>
-                        <p className="text-xl font-bold text-gray-900">Cindy Claudia</p>
-                        <blockquote className="italic text-gray-600 flex-grow">"Ilmunya daging banget! Aku jadi punya bekal portfolio buat apply kerja nanti."</blockquote>
-                    </CardContent>
-                    <CardFooter className="p-4 bg-gray-50">
-                         <a href="#" className="flex items-center font-semibold text-primary hover:underline w-full justify-center">
-                            Lihat cerita <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                    </CardFooter>
-                </Card>
-                <Card className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col text-center">
-                    <CardContent className="p-6 flex flex-col items-center gap-4 flex-grow">
-                        <Avatar className="w-24 h-24 border-4 border-primary">
-                            <AvatarImage src="/dayinta.jpg" alt="Dayinta" />
-                            <AvatarFallback>D</AvatarFallback>
-                        </Avatar>
-                        <p className="text-xl font-bold text-gray-900">Dayinta</p>
-                        <blockquote className="italic text-gray-600 flex-grow">"Nggak cuma teori, tapi beneran praktik langsung di UMKM. Pengalaman yang berharga banget."</blockquote>
-                    </CardContent>
-                    <CardFooter className="p-4 bg-gray-50">
-                         <a href="#" className="flex items-center font-semibold text-primary hover:underline w-full justify-center">
-                            Lihat cerita <ArrowRight className="w-4 h-4 ml-2" />
-                        </a>
-                    </CardFooter>
-                </Card>
-            </div>
+      
+       {/* Cerita Alumni — carousel tumpukan */}
+       <section id="cerita-alumni" className="py-20 bg-gray-50 select-none">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-4">
+            <h2 className="text-3xl font-bold text-gray-900">Cerita Mereka</h2>
+            <p className="text-lg text-gray-600 mt-2 mb-12">Perjalanan nyata dari alumni WCL</p>
+          </div>
+          <AlumniCarousel />
         </div>
       </section>
 
