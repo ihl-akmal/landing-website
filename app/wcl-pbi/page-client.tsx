@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef, useCallback } from "react";
+import { useState, useRef, useCallback, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Navbar from "@/components/Navbar";
@@ -9,28 +9,33 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Heart, Briefcase, Users, Award, Shield, FileText, FolderOpen, HelpCircle, RefreshCw } from "lucide-react";
+import { ArrowRight, Heart, Briefcase, Users, Award, Shield, FileText, FolderOpen, HeartCrack } from "lucide-react";
 
 const challenges = [
   {
-    icon: <FileText className="w-8 h-8 text-pink-200" />,
-    title: "“CV-ku masih kosong”",
-    description: "Merasa minder karena belum punya pengalaman kerja untuk dicantumkan di CV.",
+    icon: <Briefcase className="w-8 h-8 text-pink-200" />,
+    title: "“Sulitnya dapat magang dan peluang kerja”",
+    description: "Persaingan yang semakin ketat, sedangkan perusahaan mencari kandidat yang cukup matang.",
   },
   {
     icon: <FolderOpen className="w-8 h-8 text-pink-200" />,
-    title: "“Nggak ada portofolio”",
-    description: "Kesulitan menunjukkan keahlian karena tidak memiliki hasil kerja nyata untuk ditampilkan.",
+    title: "“Belum punya portfolio”",
+    description: "Pingin punya portfolio pertama, tapi balik lagi ke persaingan yang ketat buat dapetin itu.",
   },
   {
-    icon: <HelpCircle className="w-8 h-8 text-pink-200" />,
-    title: "“Salah jurusan, bisa gak?”",
-    description: "Khawatir tidak bisa bersaing karena latar belakang pendidikan yang tidak relevan.",
+    icon: <Award className="w-8 h-8 text-pink-200" />,
+    title: "“Degree inflation”",
+    description: "IPK bagus, gelar S1, tapi recruiter tetap nanya portfolio lagi.",
   },
   {
-    icon: <RefreshCw className="w-8 h-8 text-pink-200" />,
-    title: "“Takut memulai dari nol”",
-    description: "Ragu untuk beralih karir atau memulai di bidang baru tanpa panduan.",
+    icon: <Users className="w-8 h-8 text-pink-200" />,
+    title: "“Ngga tau mulai darimana”",
+    description: "Pingin mulai tapi bingung dari mana, sama siapa, dan takut salah jalan. Sampe akhirnya nggak jalan-jalan.",
+  },
+  {
+    icon: <HeartCrack className="w-8 h-8 text-pink-200" />,
+    title: "“Ngerasa tertinggal dari teman”",
+    description: "Lihat teman sudah dapat internship/kerja, tiba-tiba muncul rasa minder dan mulai mempertanyakan kemampuan diri sendiri.",
   },
 ];
 
@@ -40,51 +45,63 @@ const alumni = [
     socialMedia: "@atania.difany",
     role: "Social Media Specialist",
     platform: "instagram" as const,
-    imageUrl: "/atania.jpeg",
+    imageUrl: "/testi1.png",
   },
   {
     name: "Cindy Claudia",
     socialMedia: "@cindy.claudia",
     role: "Content Creator",
     platform: "instagram" as const,
-    imageUrl: "/cindy.jpg",
+    imageUrl: "/testi2.png",
   },
   {
     name: "Dayinta",
     socialMedia: "@dayinta",
     role: "Talent Acquisition",
     platform: "instagram" as const,
-    imageUrl: "/dayinta.jpg",
+    imageUrl: "/testi3.png",
   },
   {
     name: "Novilia Ayu",
     socialMedia: "@novilia.ayu",
     role: "Digital Marketer",
     platform: "instagram" as const,
-    imageUrl: "/novilia-ayu.jpeg",
+    imageUrl: "/testi2.png",
   },
   {
     name: "Retno Pratiwi",
     socialMedia: "@retno.pratiwi",
     role: "UI/UX Designer",
     platform: "instagram" as const,
-    imageUrl: "/retno-pratiwi.jpg",
+    imageUrl: "/testi3.png",
   },
 ];
 
 // Ukuran card per jarak dari center (index 0 = center, 1 = sebelah, dst)
-const SIZE_BY_ABS = [
-  { w: 260, h: 550 },  // center — lebih lebar
-  { w: 200, h: 470 },  // sebelah 1
-  { w: 180, h: 400 },  // sebelah 2
-  { w: 160, h: 340 },
-] as const;
+// const SIZE_BY_ABS = [
+//   { w: 260, h: 550 },  // center — lebih lebar
+//   { w: 200, h: 470 },  // sebelah 1
+//   { w: 180, h: 400 },  // sebelah 2
+//   { w: 160, h: 340 },
+// ] as const;
 
-const OPACITY_BY_ABS = [1, 0.72, 0.5];
-const STAGE_W = 680;
-const STAGE_H = 560;
-const CX = STAGE_W / 2;
-const STEP = 180;
+// const OPACITY_BY_ABS = [1, 0.72, 0.5];
+// const STAGE_W = 680;
+// const STAGE_H = 560;
+// const CX = STAGE_W / 2;
+// const STEP = 180;
+
+function useIsMobile() {
+  const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    const check = () => setIsMobile(window.innerWidth < 768);
+    check();
+    window.addEventListener("resize", check);
+    return () => window.removeEventListener("resize", check);
+  }, []);
+  return isMobile;
+}
+
 
 function InstagramIcon({ size = 13 }: { size?: number }) {
   return (
@@ -97,6 +114,26 @@ function InstagramIcon({ size = 13 }: { size?: number }) {
 }
 
 function AlumniCarousel() {
+  const isMobile = useIsMobile();
+  const SIZE_BY_ABS = isMobile
+    ? [
+        { w: 150, h: 420 },
+        { w: 120, h: 360 },
+        { w: 105, h: 300 },
+        { w: 90,  h: 250 },
+      ]
+    : [
+        { w: 260, h: 550 },
+        { w: 200, h: 470 },
+        { w: 180, h: 400 },
+        { w: 160, h: 340 },
+      ];
+
+  const OPACITY_BY_ABS = [1, 0.88, 0.72, 0.5];
+  const STAGE_W = 680;
+  const CX = STAGE_W / 2;
+  const STEP = isMobile ? 80 : 140;
+  const stageH = isMobile ? 440 : 560;
   const total = alumni.length;
   const [active, setActive] = useState(Math.floor(total / 2));
   const startXRef = useRef<number | null>(null);
@@ -137,7 +174,7 @@ function AlumniCarousel() {
       {/* Stage */}
       <div
         className="relative overflow-hidden cursor-grab active:cursor-grabbing"
-        style={{ height: STAGE_H }}
+        style={{ height: stageH }}
         onMouseDown={(e) => handlePointerDown(e.clientX)}
         onMouseMove={(e) => handlePointerMove(e.clientX)}
         onMouseUp={handlePointerUp}
@@ -159,7 +196,7 @@ function AlumniCarousel() {
 
             const { w, h } = SIZE_BY_ABS[absRel];
             const xPos = CX + rel * STEP - w / 2;
-            const yPos = STAGE_H / 2 - h / 2;
+            const yPos = stageH / 2 - h / 2;
             const opacity = OPACITY_BY_ABS[absRel];
             const zIndex = 10 - absRel;
             const isCenter = rel === 0;
@@ -217,7 +254,7 @@ function AlumniCarousel() {
             className="h-1.5 rounded-full transition-all duration-300"
             style={{
               width: i === active ? 16 : 6,
-              background: i === active ? "rgb(17 24 39)" : "rgb(209 213 219)",
+              background: i === active ? "#cb3689" : "rgb(209 213 219)",
             }}
           />
         ))}
@@ -263,7 +300,7 @@ const handleCardClick = () => {
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
             <div className="lg:col-span-6 text-left">
               <h1 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-4xl">
-                Women\'s <span className="text-primary">Career Lab</span>
+                Women's <span className="text-primary">Career Lab</span>
               </h1>
               <p className="mt-4 text-gray-600 sm:text-l max-w-lg">
                 Progam upskilling yang membantu perempuan membangun real-portfolio pertama dan daya saing karir sejak awal tanpa seleksi💪
@@ -279,10 +316,10 @@ const handleCardClick = () => {
             </div>
             <div className="lg:col-span-6 mt-12 lg:mt-0 relative">
               <div className="relative mx-auto w-full max-w-md lg:max-w-xl">
-                <div className="absolute inset-0 bg-pink-50 rounded-3xl transform -rotate-3 scale-105"></div>
+                <div className="absolute inset-0 bg-pink-100 rounded-3xl transform -rotate-3 scale-105"></div>
                 <img
-                  src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Women collaborating in a meeting"
+                  src="/hero-wcl.png"
+                  alt="Women's Career Lab"
                   className="relative rounded-2xl shadow-lg w-full h-auto object-cover"
                 />
               </div>
@@ -319,12 +356,12 @@ const handleCardClick = () => {
       <section className="py-20 bg-white overflow-hidden">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 lg:gap-16 items-center">
-            <div className="text-left">
+            <div className="text-left md:text-center lg:text-left">
               <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-4xl">
                 Tantangan <span className="text-primary">Perempuan Hari Ini</span>
               </h2>
-              <p className="mt-4 text-gray-600 sm:text-l max-w-lg">
-                Kamu rajin belajar, aktif di kampus — tapi pas mau apply kerja, tiba-tiba ngerasa nggak cukup. CV kosong, portfolio nol, dan nggak tau harus mulai dari mana. Kalau kamu ngerasa ini, kamu nggak sendirian. WCL ada untuk itu.
+              <p className="mt-4 text-gray-600 sm:text-l max-w-lg md:mx-auto lg:mx-0">
+              Sampai sekarang, kita masih terjebak dalam lingkaran yang berputar disitu-situ aja. Tap kartu satu per satu, dan lihat apakah kamu juga merasakannya.
               </p>
             </div>
 
@@ -393,7 +430,8 @@ const handleCardClick = () => {
       {/* Kenapa WCL beda Section */}
       <section className="py-16 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Bukan sekadar kelas — ini yang bikin WCL berbeda</h2>
+            <h2 className="text-3xl font-bold text-primary text-center">Say Goodbye <span className="text-gray-800">untuk Semua Masalah Itu </span></h2> 
+            <p className="text-lg text-gray-600 mt-4 mb-12 text-center">Melalui Women's Career Lab (WCL), dari kamu yang stuck menjadi lebih percaya diri.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card className="p-6 bg-white border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
                   <div className="flex items-start gap-6">
@@ -402,7 +440,7 @@ const handleCardClick = () => {
                       </div>
                       <div>
                           <h3 className="text-xl font-bold">Women-centric learning</h3>
-                          <p className="text-gray-600 mt-2">Dirancang memahami cara belajar dan tantangan perempuan — bukan kurikulum generik.</p>
+                          <p className="text-gray-600 mt-2">Dirancang memahami cara belajar dan tantangan perempuan, bukan kurikulum generik.</p>
                       </div>
                   </div>
                 </Card>
@@ -412,7 +450,7 @@ const handleCardClick = () => {
                           <Briefcase className="w-8 h-8 text-primary" />
                       </div>
                       <div>
-                          <h3 className="text-xl font-bold">Praktik nyata, bukan simulasi</h3>
+                          <h3 className="text-xl font-bold">Praktik nyata, bukan dummy</h3>
                           <p className="text-gray-600 mt-2">Kerja langsung di UMKM dan agensi sungguhan. Portfolio yang dibawa pulang itu asli.</p>
                       </div>
                   </div>
@@ -423,8 +461,8 @@ const handleCardClick = () => {
                           <Users className="w-8 h-8 text-primary" />
                       </div>
                       <div>
-                          <h3 className="text-xl font-bold">Mentor praktisi industri</h3>
-                          <p className="text-gray-600 mt-2">Bukan teori semata — mentor WCL masih aktif bekerja di bidangnya.</p>
+                          <h3 className="text-xl font-bold">Komunitas perempuan yang saling support</h3>
+                          <p className="text-gray-600 mt-2">Belajar bareng perempuan yang ada di titik yang sama, nggak lagi ngerasa jalan sendiri atau tertinggal.</p>
                       </div>
                   </div>
                 </Card>
@@ -435,7 +473,7 @@ const handleCardClick = () => {
                       </div>
                       <div>
                           <h3 className="text-xl font-bold">Sertifikat divalidasi 3 pihak</h3>
-                          <p className="text-gray-600 mt-2">Platform, industry advisor, dan partner UMKM — bukan sekadar tanda hadir.</p>
+                          <p className="text-gray-600 mt-2">Sertifikat yang ditandatangani oleh Platform, industry advisor, dan partner UMKM sebagai bukti bahwa kamu benar-benar sudah menyelesaikan program dengan nyata.</p>
                       </div>
                   </div>
                 </Card>
@@ -452,27 +490,12 @@ const handleCardClick = () => {
                 <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
                         <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span>
+                        <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 3 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Social Media Specialist</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow">
-                        <div className="flex items-center">
-                            <div className="flex -space-x-3 overflow-hidden">
-                                <Avatar className="inline-block h-6 w-6 rounded-full ring-2 ring-white">
-                                    <AvatarImage src="/akmal.jpg" alt="User 1" className="object-cover" />
-                                    <AvatarFallback>U1</AvatarFallback>
-                                </Avatar>
-                                <Avatar className="inline-block h-6 w-6 rounded-full ring-2 ring-white">
-                                    <AvatarImage src="/aliffa.jpg" alt="User 2" className="object-cover" />
-                                    <AvatarFallback>U2</AvatarFallback>
-                                </Avatar>
-                                <Avatar className="inline-block h-6 w-6 rounded-full ring-2 ring-white">
-                                    <AvatarImage src="/atania.jpeg" alt="User 3" className="object-cover" />
-                                    <AvatarFallback>U3</AvatarFallback>
-                                </Avatar>
-                            </div>
-                            <p className="ml-4 text-sm font-medium text-gray-500">36+ Students Enrolled</p>
-                        </div>
+                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
                     </CardContent>
                     <CardFooter>
                         <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
@@ -484,10 +507,13 @@ const handleCardClick = () => {
                 <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
                         <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
+                        <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
                     </CardHeader>
-                    
+                    <CardContent className="mt-auto">
+                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
+                    </CardContent>
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
@@ -498,10 +524,13 @@ const handleCardClick = () => {
                 <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
                         <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
+                        <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Talent Acquisition</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
                     </CardHeader>
-                    
+                    <CardContent className="mt-auto">
+                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
+                    </CardContent>
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
@@ -528,7 +557,60 @@ const handleCardClick = () => {
 
       
        {/* Cerita Alumni — carousel tumpukan */}
-       <section id="cerita-alumni" className="py-20 bg-gray-50 select-none">
+       <section id="cerita-alumni" className="py-20 relative overflow-hidden bg-gradient-to-br from-white via-pink-50 to-rose-50 select-none">
+         {/* Background Glow Kiri */}
+              <div
+                className="
+                  absolute
+                  -left-32
+                  top-20
+                  w-[400px]
+                  h-[400px]
+                  rounded-full
+                  bg-[#CB3689]/10
+                  blur-[120px]
+                  pointer-events-none
+                "
+              />
+              {/* Background Glow Kanan */}
+  <div
+    className="
+      absolute
+      -right-32
+      bottom-20
+      w-[400px]
+      h-[400px]
+      rounded-full
+      bg-[#CB3689]/10
+      blur-[120px]
+      pointer-events-none
+    "
+  />
+  {/* Glow Tengah */}
+  <div
+    className="
+      absolute
+      left-1/2
+      top-1/2
+      -translate-x-1/2
+      -translate-y-1/2
+      w-[700px]
+      h-[500px]
+      rounded-full
+      bg-[#CB3689]/15
+      blur-[50px]
+      pointer-events-none
+    "
+  />
+  {/* Dot Pattern */}
+  <div
+    className="absolute inset-0 opacity-[0.03] pointer-events-none"
+    style={{
+      backgroundImage:
+        "radial-gradient(#CB3689 1px, transparent 1px)",
+      backgroundSize: "24px 24px",
+    }}
+  />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
             <h2 className="text-3xl font-bold text-gray-900">Cerita Mereka</h2>
