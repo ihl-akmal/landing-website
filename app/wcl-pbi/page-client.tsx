@@ -43,21 +43,21 @@ const alumni = [
   {
     name: "Atania Difany",
     socialMedia: "@atania.difany",
-    role: "Social Media Specialist",
+    role: "Mahasiswa",
     platform: "instagram" as const,
     imageUrl: "/testi1.png",
   },
   {
     name: "Cindy Claudia",
     socialMedia: "@cindy.claudia",
-    role: "Content Creator",
+    role: "Fresh Graduate",
     platform: "instagram" as const,
     imageUrl: "/testi2.png",
   },
   {
     name: "Dayinta",
     socialMedia: "@dayinta",
-    role: "Talent Acquisition",
+    role: "IRT",
     platform: "instagram" as const,
     imageUrl: "/testi3.png",
   },
@@ -204,7 +204,7 @@ function AlumniCarousel() {
             return (
               <div
                 key={person.name}
-                className="absolute rounded-2xl overflow-hidden border border-gray-100"
+                className="absolute rounded-2xl overflow-hidden "
                 style={{
                   width: w,
                   height: h,
@@ -234,8 +234,8 @@ function AlumniCarousel() {
                   <p className="text-white text-sm font-medium leading-tight mb-0.5">{person.name}</p>
                   <p className="text-white/75 text-xs mb-1.5">{person.role}</p>
                   <div className="flex items-center gap-1 text-white/70 text-xs">
-                    <InstagramIcon size={13} />
-                    <span>{person.socialMedia}</span>
+                    {/* <InstagramIcon size={13} />
+                    <span>{person.socialMedia}</span> */}
                   </div>
                 </div>
               </div>
@@ -285,9 +285,9 @@ const handleCardClick = () => {
 
   const faqs = [
     { question: "Apakah ada seleksi untuk masuk?", answer: "Tidak ada seleksi. Namun, untuk menjaga kualitas program, kuota kami terbatas dan berdasarkan siapa cepat dia dapat." },
-    { question: "Program ini cocok untuk siapa?", answer: "Mahasiswa, fresh graduate, atau siapa pun yang ingin memulai karir di bidang digital tetapi tidak memiliki pengalaman atau portofolio." },
-    { question: "Kalau sibuk kuliah atau kerja, masih bisa ikut?", answer: "Tentu saja! Program ini dirancang fleksibel dengan sesi malam hari dan rekaman yang tersedia, sehingga tidak akan mengganggu jadwal utama Anda." },
-    { question: "Apa yang didapat setelah selesai program?", answer: "Anda akan memiliki portofolio nyata, sertifikat yang divalidasi oleh industri, dan keterampilan praktis yang siap digunakan untuk memulai karir Anda." },
+    { question: "Program ini cocok untuk siapa?", answer: "Mahasiswa, fresh graduate, IRT atau siapa pun yang ingin memulai karir di bidang digital tetapi tidak memiliki pengalaman atau portofolio." },
+    { question: "Apa yang didapat setelah selesai program?", answer: "Kamu akan memiliki portofolio nyata, sertifikat yang divalidasi oleh industri, dan keterampilan praktis yang siap digunakan untuk memulai karirmu." },
+    { question: "Bagaimana aku dapat melihat informasi lanjutan seperti mentor, jadwal dan kurikulum?", answer: "Kamu bisa klik role/bidang WCL untuk informasi lebih lengkapnya," },
   ];
 
   return (
@@ -310,7 +310,7 @@ const handleCardClick = () => {
                   Pilih Bidangmu
                 </a>
                 <a href="#cerita-alumni" className="w-full sm:w-auto bg-white/10 text-primary backdrop-blur-md border border-primary/40 px-8 py-3.5 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 flex justify-center gap-2">
-                  <span>▶</span> Lihat Cerita Alumni
+                  <span>▶</span> Lihat Alumni
                 </a>
               </div>
             </div>
@@ -337,16 +337,16 @@ const handleCardClick = () => {
                 <p className="text-base md:text-lg text-gray-600 mt-2">sudah berjalan</p>
               </div>
               <div>
-                <p className="text-2xl md:text-4xl font-bold text-primary">36+</p>
-                <p className="text-base md:text-lg text-gray-600 mt-2">alumni perempuan</p>
+                <p className="text-2xl md:text-4xl font-bold text-primary">35+</p>
+                <p className="text-base md:text-lg text-gray-600 mt-2">perempuan bergabung</p>
               </div>
               <div>
                 <p className="text-2xl md:text-4xl font-bold text-primary">87%</p>
                 <p className="text-base md:text-lg text-gray-600 mt-2">completion rate</p>
               </div>
               <div>
-                <p className="text-2xl md:text-4xl font-bold text-primary">4.6/5</p>
-                <p className="text-base md:text-lg text-gray-600 mt-2">rating alumni</p>
+                <p className="text-2xl md:text-4xl font-bold text-primary">5/5</p>
+                <p className="text-base md:text-lg text-gray-600 mt-2">rating materi</p>
               </div>
           </div>
         </div>
@@ -431,7 +431,7 @@ const handleCardClick = () => {
       <section className="py-16 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold text-primary text-center">Say Goodbye <span className="text-gray-800">untuk Semua Masalah Itu </span></h2> 
-            <p className="text-lg text-gray-600 mt-4 mb-12 text-center">Melalui Women's Career Lab (WCL), dari kamu yang stuck menjadi lebih percaya diri.</p>
+            <p className="text-base text-gray-600 mt-4 mb-12 text-center">Melalui Women's Career Lab (WCL), ubah stuck-mu jadi lebih percaya diri.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card className="p-6 bg-white border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
                   <div className="flex items-start gap-6">
@@ -485,14 +485,14 @@ const handleCardClick = () => {
       <section id="pilih-bidang" className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-gray-900">Pilih bidangmu</h2>
-            <p className="text-lg text-gray-600 mt-4 mb-12">Klik untuk lihat kurikulum, jadwal, dan harga lengkap</p>
+            <p className="text-base text-gray-600 mt-4 mb-12">Klik untuk lihat kurikulum, jadwal, dan harga lengkap</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
                         <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 3 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Social Media Specialist</CardTitle>
-                        <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
+                        <CardDescription className="text-base text-gray-600">3 bulan · Full Online </CardDescription>
                     </CardHeader>
                     <CardContent className="flex-grow">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
@@ -509,7 +509,7 @@ const handleCardClick = () => {
                         <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
-                        <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
+                        <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
                     </CardHeader>
                     <CardContent className="mt-auto">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
@@ -526,10 +526,10 @@ const handleCardClick = () => {
                         <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Talent Acquisition</CardTitle>
-                        <CardDescription className="text-base text-gray-600">3 bulan · Online · Magang di UMKM</CardDescription>
+                        <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
                     </CardHeader>
                     <CardContent className="mt-auto">
-                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
+                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 10 peserta/batch</p>
                     </CardContent>
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
@@ -613,8 +613,8 @@ const handleCardClick = () => {
   />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-4">
-            <h2 className="text-3xl font-bold text-gray-900">Cerita Mereka</h2>
-            <p className="text-lg text-gray-600 mt-2 mb-12">Perjalanan nyata dari alumni WCL</p>
+            <h2 className="text-3xl font-bold text-gray-900">Meet <span className="text-primary">WCL Sisters👑</span></h2>
+            <p className="text-base text-gray-600 mt-2 mb-12 max-w-2xl mx-auto">Barisan perempuan yang dulunya ragu dan belum punya apa-apa. Sekarang punya portfolio nyata dan siap melangkah.</p>
           </div>
           <AlumniCarousel />
         </div>
@@ -641,16 +641,7 @@ const handleCardClick = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gray-50 py-16">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">Siap memulai perjalananmu?</h2>
-            <p className="text-lg text-gray-600 mt-4 max-w-2xl mx-auto">Daftar waiting list dan jadilah yang pertama tahu saat batch berikutnya dibuka.</p>
-            <Button size="lg" asChild className="bg-primary text-white font-bold text-lg px-8 py-7 mt-8 hover:shadow-xl transition-shadow">
-              <a href="#">Daftar waiting list</a>
-            </Button>
-        </div>
-      </section>
+     
 
       <Footer />
     </div>
