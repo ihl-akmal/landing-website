@@ -329,46 +329,48 @@ export default function SocialMediaContentStrategistPage() {
 
   const ceritaMereka = [
     {
+      name: "Naufa Zelda Aurelia",
+      status: "After Lulus WCL, Langsung Dipercaya Jadi Salah Satu PIC Sosmed Event Kampus dan Berhasil Raih 250+ Peserta",
+      image: "/naufazelda.jpeg",
+      link: "https://www.linkedin.com/in/dayinta-pramessanti-4a01b52a5/",
+      badge: "Alumni WCL Batch 1"
+  },
+  {
+    name: "Mutiara Mathari",
+    status: "Dari IRT Penuh Waktu, Sekarang Dipercaya Pegang 2 Remote Jobs",
+    image: "/mutiara-mathari.jpeg",
+    link: "https://www.linkedin.com/in/cindy-claudia-45134a213/",
+    badge: "Alumni WCL Batch 1"
+},
+    {
         name: "Atania Difany",
-        status: "Dulu Ditolak Berkali-kali, Akhirnya Sekarang Keterima di Brand Skincare Nasional",
+        status: "Dulu Ditolak Berkali-kali, Akhirnya Sekarang Keterima Freelance Content Creator di Brand Skincare Nasional",
         image: "/atania.jpeg",
         link: "https://www.linkedin.com/in/akmal-lingga-911b42231/",
         badge: "Alumni WCL Batch 1"
     },
-    {
-        name: "Cindy",
-        status: "Mahasiswa",
-        image: "/atania.jpeg",
-        link: "https://www.linkedin.com/in/cindy-claudia-45134a213/",
-        badge: "Alumni WCL Batch 1"
-    },
-    {
-        name: "Dayinta",
-        status: "Mahasiswa",
-        image: "/atania.jpeg",
-        link: "https://www.linkedin.com/in/dayinta-pramessanti-4a01b52a5/",
-        badge: "Alumni WCL Batch 1"
-    },
+    
+    
 ];
 
 const portfolio = [
     {
-        title: "Final Project JogJamu",
-        description: "JogJamu merupakan usaha jamu yang didirikan di Yogyakarta pada tahun 2019 dengan resep turun temurun sejak 1950....",
-        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: "https://www.canva.com/design/DAF2Zz5yS9A/view"
+        title: "Kahfi Education",
+        description: "Startup bimbingan belajar mengaji berbasis hybrid yang menghadirkan pembelajaran Al-Qur’an secara menyenangkan, interaktif, dan bermakna. ",
+        image: "/finalproject1.jpg",
+        link: "https://drive.google.com/file/d/1ExjfDVH7Sv2wzuUG9ClLXmlmzNxWQSBy/view?usp=drive_open"
     },
     {
-        title: "Menjagad Living",
-        description: "Memaparkan secara lengkap dan jelas mengenai proses internal dari Menjagad Living, mulai dari recruitment process,...",
-        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: "https://www.canva.com/design/DAF2Zz5yS9A/view"
+        title: "Sarilaw Office",
+        description: "Konsultan hukum & auditor hukum professional yang berbasis di Bali dan telah berdiri sejak tahun 1991.",
+        image: "/finalproject2.jpg",
+        link: "https://drive.google.com/file/d/17QGM3oidtISToTs_bzltd4BQAy7N9Ea5/view"
     },
     {
-        title: "IMPRUV (Impruv Consulting...)",
-        description: "Analyze the process of recruitment, training & development, job analyst of Impruv. Impruv was founded to provide solutions t...",
-        image: "https://images.unsplash.com/photo-1558591710-4b4a1ae0f04d?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        link: "https://www.canva.com/design/DAF2Zz5yS9A/view"
+        title: "Ruang Eksplorasi",
+        description: "Startup yang bergerak di bidang kesehatan mental yang membantu profesional muda menghadapi burnout atau tekanan hidup.",
+        image: "/finalproject3.jpg",
+        link: "https://drive.google.com/file/d/1K9LIqlkLyCv-tMONoEYkhKX0IU6d-968/view"
     },
 ];
 
@@ -761,7 +763,7 @@ const portfolio = [
       </section>
 
       {/* Jadwal Pembelajaran */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-left">Jadwal Pembelajaran</h2>
@@ -784,7 +786,7 @@ const portfolio = [
       </section>
 
       {/* Timeline */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Program Phase</h2>
           <div className="space-y-6">
@@ -806,40 +808,13 @@ const portfolio = [
         </div>
       </section>
 
-      {/* Learning Story */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Learning Stories</h2>
-          <div className="grid md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
-                <div className="p-6 flex-grow">
-                  <div className="flex items-center mb-4">
-                    {/* <img className="h-12 w-12 rounded-full object-cover mr-4" src={testimonial.avatar} alt={testimonial.name} /> */}
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900">{testimonial.name}</h3>
-                      <p className="text-sm text-gray-500">{testimonial.role}</p>
-                    </div>
-                  </div>
-                  <p className="text-gray-600 mb-4">{testimonial.content}</p>
-                </div>
-                <div className="bg-gray-100 p-4 flex justify-end items-center">
-                    <div className="flex items-center">
-                        {[...Array(testimonial.stars)].map((_, i) => (
-                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
-                        ))}
-                    </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      
 
       {/* Cerita Mereka */}
       <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Cerita Mereka</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Cerita Transformasi Mereka</h2>
+          <p className="text-gray-600 mb-12 text-center">Karena perubahan nyata tidak harus sesuatu yang dramatis.</p>
           <div className="grid md:grid-cols-3 gap-8">
             {ceritaMereka.map((cerita, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
@@ -867,10 +842,10 @@ const portfolio = [
       </section>
 
       {/* Portfolio */}
-        <section className="py-16 bg-gray-50">
+        <section className="py-16 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2 text-left">PORTOFOLIO</h2>
-                <p className="text-gray-600 mb-12 left">Yuk, Intip Hasil Karya dari Para Alumni</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">PORTOFOLIO</h2>
+                <p className="text-gray-600 mb-12 text-center">Yuk, lihat real-project dari para alumni.</p>
                 <Carousel
                     opts={{
                         align: "start",
@@ -906,6 +881,36 @@ const portfolio = [
                     </Carousel>
             </div>
         </section>
+
+      {/* Learning Story */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Apa Kata Alumni WCL?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div className="p-6 flex-grow">
+                  <div className="flex items-center mb-4">
+                    {/* <img className="h-12 w-12 rounded-full object-cover mr-4" src={testimonial.avatar} alt={testimonial.name} /> */}
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-900">{testimonial.name}</h3>
+                      <p className="text-sm text-gray-500">{testimonial.role}</p>
+                    </div>
+                  </div>
+                  <p className="text-gray-600 mb-4">{testimonial.content}</p>
+                </div>
+                <div className="bg-gray-100 p-4 flex justify-end items-center">
+                    <div className="flex items-center">
+                        {[...Array(testimonial.stars)].map((_, i) => (
+                            <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                        ))}
+                    </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Schedule & Pricing */}
       <section id="pricing" className="py-16 bg-gray-50">
