@@ -16,7 +16,7 @@ import {
 } from "@/components/ui/carousel"
 
 
-export default function SocialMediaContentStrategistPage() {
+export default function ContentCreatorPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
   const [activePackage, setActivePackage] = useState<"fast-track" | "career-ready">("fast-track")
 

@@ -439,8 +439,8 @@ const handleCardClick = () => {
                           <Heart className="w-8 h-8 text-primary" />
                       </div>
                       <div>
-                          <h3 className="text-xl font-bold">Women-centric learning</h3>
-                          <p className="text-gray-600 mt-2">Dirancang memahami cara belajar dan tantangan perempuan, bukan kurikulum generik.</p>
+                          <h3 className="text-xl font-bold">Small-Cohort learning</h3>
+                          <p className="text-gray-600 mt-2">Belajar dalam kelompok kecil agar setiap perempuan mendapat ruang untuk bertanya, berdiskusi, dan berkembang.</p>
                       </div>
                   </div>
                 </Card>
@@ -515,7 +515,7 @@ const handleCardClick = () => {
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
                     </CardContent>
                     <CardFooter className="mt-auto">
-                        <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
+                        <Link href="/wcl-pbi/content-creator" className="flex items-center font-bold text-primary hover:underline">
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                     </CardFooter>
