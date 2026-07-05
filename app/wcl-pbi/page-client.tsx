@@ -159,7 +159,7 @@ function AlumniCarousel() {
     if (!draggingRef.current || startXRef.current === null) return;
     const diff = x - startXRef.current;
     if (Math.abs(diff) > 45) {
-      navigate(diff < 0 ? 1 : -1);
+      navigate(diff < 0 ? -1 : 1);
       startXRef.current = null;
       draggingRef.current = false;
     }
