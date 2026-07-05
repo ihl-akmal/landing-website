@@ -209,10 +209,11 @@ function AlumniCarousel() {
                   width: w,
                   height: h,
                   transform: `translate(${xPos}px, ${yPos}px)`,
-                  opacity,
+                  // opacity,
                   zIndex,
-                  boxShadow: isCenter ? "0 8px 32px rgba(0,0,0,0.15)" : "none",
+                  boxShadow: isCenter ? "0 2px 8px rgba(0,0,0,0.08)" : "none",
                   transition: "transform 0.45s cubic-bezier(0.34,1.05,0.64,1), opacity 0.45s ease, width 0.45s ease, height 0.45s ease",
+                  
                   pointerEvents: "none",
                 }}
               >
@@ -231,8 +232,8 @@ function AlumniCarousel() {
                     background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)",
                   }}
                 >
-                  <p className="text-white text-sm font-medium leading-tight mb-0.5">{person.name}</p>
-                  <p className="text-white/75 text-xs mb-1.5">{person.role}</p>
+                  <p className="text-white font-medium leading-tight mb-0.5" style={{ fontSize: isMobile ? 11 : 13 }}>{person.name}</p>
+                  <p className="text-white/75 mb-1.5" style={{ fontSize: isMobile ? 10 : 11 }}>{person.role}</p>
                   <div className="flex items-center gap-1 text-white/70 text-xs">
                     {/* <InstagramIcon size={13} />
                     <span>{person.socialMedia}</span> */}
