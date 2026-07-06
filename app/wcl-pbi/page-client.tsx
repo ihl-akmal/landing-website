@@ -159,7 +159,7 @@ function AlumniCarousel() {
     if (!draggingRef.current || startXRef.current === null) return;
     const diff = x - startXRef.current;
     if (Math.abs(diff) > 45) {
-      navigate(diff < 0 ? -1 : 1);
+      navigate(diff < 0 ? 1 : -1);
       startXRef.current = null;
       draggingRef.current = false;
     }
@@ -486,7 +486,7 @@ const handleCardClick = () => {
       <section id="pilih-bidang" className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-gray-900">Pilih bidangmu</h2>
-            <p className="text-base text-gray-600 mt-4 mb-12">Klik untuk lihat kurikulum, jadwal, dan harga lengkap</p>
+            <p className="text-base text-gray-600 mt-4 mb-12">Klik untuk lihat kurikulum, mentor, jadwal, dan learning journey.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
@@ -526,11 +526,11 @@ const handleCardClick = () => {
                     <CardHeader>
                         <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
-                        <CardTitle className="text-2xl font-bold pt-4">Talent Acquisition</CardTitle>
+                        <CardTitle className="text-2xl font-bold pt-4">HR Learning & Development</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
                     </CardHeader>
                     <CardContent className="mt-auto">
-                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 10 peserta/batch</p>
+                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 5 peserta/batch</p>
                     </CardContent>
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
