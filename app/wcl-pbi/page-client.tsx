@@ -507,7 +507,7 @@ const handleCardClick = () => {
 
                 <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
-                        <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">Tersedia</span>
+                        <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 3 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
