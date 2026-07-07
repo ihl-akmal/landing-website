@@ -2,6 +2,14 @@ import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
+
+// Redirect sertifikat subdomain ke Vercel Blob
+if (request.headers.get('host') === 'sertifikat.grazedu.web.id') {
+  const path = request.nextUrl.pathname
+  const blobBaseUrl = 'https://gevwyt8rj7c5q78a.public.blob.vercel-storage.com'
+  return NextResponse.redirect(`${blobBaseUrl}${path}`, 301)
+}
+
   const isLoginPage = request.nextUrl.pathname === '/admin/login';
   const isAdminRoute = request.nextUrl.pathname.startsWith('/admin');
   
@@ -19,12 +27,7 @@ export function middleware(request: NextRequest) {
     }
   }
 
-  // Redirect sertifikat subdomain ke Vercel Blob
-if (request.headers.get('host') === 'sertifikat.grazedu.web.id') {
-  const path = request.nextUrl.pathname
-  const blobBaseUrl = 'https://gevwyt8rj7c5q78a.public.blob.vercel-storage.com'
-  return NextResponse.redirect(`${blobBaseUrl}${path}`, 301)
-}
+
   
   // Redirect root /admin to /admin/kelas
   if (request.nextUrl.pathname === '/admin') {
