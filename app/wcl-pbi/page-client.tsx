@@ -499,7 +499,7 @@ const handleCardClick = () => {
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
                     </CardContent>
                     <CardFooter>
-                        <Link href="/wcl-pbi/socmed-strategist" className="flex items-center font-bold text-primary hover:underline">
+                        <Link href="/wcl-pbi/socmed-specialist" className="flex items-center font-bold text-primary hover:underline">
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                     </CardFooter>
@@ -507,8 +507,8 @@ const handleCardClick = () => {
 
                 <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
-                        <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
-                        <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
+                        <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">Tersedia</span>
+                        <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 3 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
                     </CardHeader>
@@ -522,7 +522,7 @@ const handleCardClick = () => {
                     </CardFooter>
                 </Card>
 
-                <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
+                {/* <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
                         <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
@@ -537,13 +537,13 @@ const handleCardClick = () => {
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                     </CardFooter>
-                </Card>
+                </Card> */}
                 
                   {/* Card Coming Soon */}
-                {/* <Card className="bg-gray-100 border-gray-200 text-left opacity-80">
+                <Card className="bg-gray-100 border-gray-200 text-left opacity-80">
                      <CardHeader>
                         <span className="px-3 py-1 text-sm bg-gray-500 text-white rounded-full font-semibold self-start">Segera hadir</span>
-                        <CardTitle className="text-2xl font-bold pt-4 text-gray-500">Bidang lainnya</CardTitle>
+                        <CardTitle className="text-2xl font-bold pt-4 text-gray-500">HR Learning & Development</CardTitle>
                         <CardDescription className="text-base text-gray-500">Coming soon</CardDescription>
                     </CardHeader>
                     <CardFooter>
@@ -551,7 +551,7 @@ const handleCardClick = () => {
                             Notify me <ArrowRight className="w-5 h-5 ml-2" />
                         </span>
                     </CardFooter>
-                </Card> */}
+                </Card>
             </div>
         </div>
       </section>

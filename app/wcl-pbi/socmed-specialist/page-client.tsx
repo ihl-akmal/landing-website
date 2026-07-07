@@ -227,8 +227,8 @@ export default function SocialMediaContentStrategistPage() {
       company: "CGI Creative Lab",
       image:
         "/rachel-cgi.jpg",
-      bio: "9+ tahun pengalaman di industri kreatif yang akan membimbing peserta menguasai strategi sosial media dan konten dari sudut pandang praktisi agensi.",
-      specialties: ["Social Media Strategy", "Meta Business Suite","Content Creation"],
+      bio: "9+ tahun pengalaman di industri kreatif yang akan membimbing peserta menguasai strategi sosial media dari sudut pandang praktisi agensi.",
+      specialties: ["Digital Marketing","Social Media Strategy","Social Media Analysis", "Meta Business Suite"],
       label: "Expert Mentor"
     },
     // {
@@ -388,22 +388,16 @@ const portfolio = [
       price: "Rp 329.000",
       weeklyPrice: "Sekitar 46rb/minggu",
       duration: "1 bulan pembelajaran",
-      href: "https://grazedu.myr.id/pl/fast-track-womens-career-lab-socmed-strategist/",
+      href: "https://grazedu.myr.id/pl/fast-track-wcl-socmed-specialist",
       color: "from-pink-400 to-pink-600",
       benefits: [
         "4x sesi intensif",
         "Akses kelas & recording material",
         "Materi pre-learning",
         "Community group support",
-        "Feedback tugas",
         "Mini portfolio-project",
         "Sertifikat Penyelesaian penyelesaian program",
-        <>
-          300 kredit{" "}
-              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
-                AI Smart Prompt Premium
-              </a>
-        </>,
+       
         
       ],
     },
@@ -414,7 +408,7 @@ const portfolio = [
       weeklyPrice: "Sekitar 38rb/minggu",
       duration: "3 bulan pembelajaran",
       href: isFlashSaleActive 
-            ? "https://grazedu.myr.id/pl/career-ready-womens-career-lab-socmed-strategist/"
+            ? "https://grazedu.myr.id/pl/career-ready-wcl-socmed-specialist"
             : "https://grazedu.myr.id/pl/career-ready-wcl-socmed-strategist", // Link dinamis
       isPopular: true,
       color: "from-primary to-primary-light",
@@ -422,10 +416,10 @@ const portfolio = [
         "7x sesi intensif",  
         "Akses kelas & recording",
         "Materi pre-learning",
-        "Feedback tugas",
         "Community group support",
         "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
-        <>+Magang <strong>2 bulan</strong> di agensi kreatif/UMKM</>,
+        <><strong>+Feedback tugas di setiap sesi intensif</strong></>, 
+        <><strong>+Magang 2 bulan di agensi kreatif/UMKM</strong></>,
         <><strong>+E-course: Interview Strategy & Linkedin Optimization</strong></>, 
         <><strong>+Konsultasi karir private dengan Career Mentor</strong></>, 
       ],
@@ -448,6 +442,11 @@ const portfolio = [
       question: "Siapa yang layak untuk ikut program ini?",
       answer:
         "Fresh graduate maupun mahasiswa yang masih kesulitan dapatin portfolio pertamanya, serta IRT yang telah lama jeda karir yang ingin reskilling.",
+    },
+    {
+      question: "Apakah WCL terbuka untuk teman-teman dengan kebutuhan khusus (disabilitas)?",
+      answer:
+        "Terbuka ya. WCL didesain agar inklusif, termasuk untuk teman-teman dengan kebutuhan khusus. Kalau kamu butuh penyesuaian tertentu silahkan nanti setelah melakukan pendaftaran dapat menghubungi tim Grazedu agar kami dapat menyiapkan yang terbaik untuk kamu.",
     },
     {
       question: "Apakah untuk mengikuti program ini benar tanpa seleksi?",
