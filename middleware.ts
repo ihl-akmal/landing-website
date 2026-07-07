@@ -19,6 +19,13 @@ export function middleware(request: NextRequest) {
     }
   }
 
+  // Redirect sertifikat subdomain ke Vercel Blob
+if (request.headers.get('host') === 'sertifikat.grazedu.web.id') {
+  const path = request.nextUrl.pathname
+  const blobBaseUrl = 'https://https://vv1csqxmgowilodd.private.blob.vercel-storage.com.public.blob.vercel-storage.com'
+  return NextResponse.redirect(`${blobBaseUrl}${path}`, 301)
+}
+  
   // Redirect root /admin to /admin/kelas
   if (request.nextUrl.pathname === '/admin') {
     const url = request.nextUrl.clone();
@@ -32,5 +39,6 @@ export function middleware(request: NextRequest) {
 export const config = {
   matcher: [
     '/admin/:path*',
+    '/:path*',
   ],
 };
