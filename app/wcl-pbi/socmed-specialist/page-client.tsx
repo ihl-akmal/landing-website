@@ -5,7 +5,15 @@ import Footer from "@/components/Footer"
 import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
 import { ChevronDown, Heart, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
-
+import { Card, CardContent } from "@/components/ui/card"
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+  CarouselDots
+} from "@/components/ui/carousel"
 
 
 export default function SocialMediaContentStrategistPage() {
@@ -20,8 +28,8 @@ export default function SocialMediaContentStrategistPage() {
     }
   };
 
-    // --- Logika Flash Sale ---
-    const flashSaleEndDate = new Date("2026-04-13T23:59:59");
+    // --- Logika Flash Sale -- -
+    const flashSaleEndDate = new Date("2026-07-17T23:59:59");
     const isFlashSaleActive = new Date() < flashSaleEndDate;
     // ------------------------
 
@@ -29,28 +37,34 @@ export default function SocialMediaContentStrategistPage() {
   const curriculum = [
     {
       week: 1,
-      title: "The Strategist's Mindset",
-      topics: ["Career-Path Social Media","Fundamental Berpikir Strategis", "Peran Social Media untuk Bisnis", "Social Media Marketing Fundamental", "Memahami Target Market & STP (Segmenting, Targeting, Positioning)", "Competitor Benchmarking"],
+      title: "Fundamental of Social Media Marketing",
+      topics: [
+        "Social Media Marketing Funnel", 
+         "Memahami Target Market & STP (Segmenting, Targeting, Positioning)", 
+         "Competitor Benchmarking",
+         "Audiens Persona Map"
+        ],
       hours: 8,
     },
     {
       week: 2,
-      title: "Social Media & Content Architecture",
+      title: "Channel Optimization & Community Management",
       topics: [
-        "Content Pillar & Categories",
-        "Content Management: Content Brief, Content Calendar",
-        "Project Management Tools",
+        "Memahami Karakterstik Sosial Media: Instagram, Facebook, Tiktok",
+        "Seni Merespon Pesan Masuk (DM) Secara Taktis ",
+        "Tone of Voice dalam Berkomunikasi dengan Audiens",
+        "Menetapkan Batas Waktu Respons (SLA)",
       ],
       hours: 8,
     },
     {
       week: 3,
-      title: "Content Creation",
+      title: "Content Architecture & Workflow",
       topics: [
-        "Content Production Workflow",
-        "The Hook & Copywriting Formula",
-        "Visual Branding with Canva", 
-        "AI Assistance: Text & Image Generation"],
+        "Content Pillar & Categories",
+        "Menyusun Content Planning & Calendar",
+        "Creative Briefing: Membuat dokumen panduan instruksi kerja yang detail untuk tim sosmed", 
+        "Project Management Tools: Spreadsheet vs Kanban Board"],
       hours: 8,
     },
     {
@@ -58,8 +72,8 @@ export default function SocialMediaContentStrategistPage() {
       title: "Social Media Reporting",
       topics: [
         "Social Media Metric",
-        "Analisis Data & Pembuatan Reporting with AI",
-        "Communication with Stakeholders: Strategi menyajikan laporan performa (insight) kepada atasan atau klien secara meyakinkan",
+        "Analisis Data Performa Sosial Media",
+        "Teknik Visualisasi Data Laporan: Mengubah kumpulan angka mentah menjadi laporan visual yang mudah dipahami untuk disampaikan kepada atasan atau klien.",
         ],
       hours: 8,
       // Simulasi Week yang digembok untuk Fast-Track
@@ -69,7 +83,7 @@ export default function SocialMediaContentStrategistPage() {
       title: "Meta Business Ecosystem",
       topics: [
         "Mengenal Dapur Meta: Meta Business Suite vs Meta Business Portfolio",
-        "Integrasi Ekosistem Bisnis: ",
+        "Integrasi Ekosistem Bisnis:Menghubungkan FB page, IG Professional, dan WA Business ",
         "Manajemen Tim & Keamanan Aset",
         "Fitur Unified Inbox & Komunikasi",
 
@@ -79,7 +93,7 @@ export default function SocialMediaContentStrategistPage() {
     },
     {
       week: 6,
-      title: "Social Media Advertising & Campaign Architecture",
+      title: "Social Media Advertising ",
       topics: [
         "Pengenalan Social Media Advertising",
         "Menentukan Campaign Objective",
@@ -91,12 +105,12 @@ export default function SocialMediaContentStrategistPage() {
     },
     {
       week: 7,
-      title: "Creative Strategy & Growth Performance",
+      title: "Portfolio Building",
       topics: [
-        "Membuat Materi Iklan Kreatif dengan AI",
-        "Benchmarking dengan Meta Ads Library",
-        "Cara Membaca Data di Ads Manager",
-        "Evaluasi & Scaling Sederhana", 
+        "Project Documentation: Merangkum proses pengerjaan project mulai dari research, planning, publishing, hingga performance analysis menjadi satu portfolio yang terstruktur.",
+        "Struktur Portfolio: Menyusun project ke dalam portfolio yang menarik dan relevan untuk recruiter. ",
+        "Personal Branding: Optimasi Linkedin & Social Media Profile",
+       
       ],
       hours: 8,
       isPremiumWeek: true,
@@ -213,20 +227,20 @@ export default function SocialMediaContentStrategistPage() {
       company: "CGI Creative Lab",
       image:
         "/rachel-cgi.jpg",
-      bio: "9+ tahun pengalaman di industri kreatif yang akan membimbing peserta menguasai strategi sosial media dan konten dari sudut pandang praktisi agensi.",
-      specialties: ["Social Media Strategy", "Meta Business Suite","Content Creation"],
-      label: "Expert mentor"
+      bio: "9+ tahun pengalaman di industri kreatif yang akan membimbing peserta menguasai strategi sosial media dari sudut pandang praktisi agensi.",
+      specialties: ["Digital Marketing","Social Media Strategy","Social Media Analysis", "Meta Business Suite"],
+      label: "Expert Mentor"
     },
-    {
-      name: "Novilia Ayu Kusuma,S.Psi., CHRP.",
-      title: "HR Practitioner",
-      // company: "Shopee Indonesia",
-      image:
-        "/novilia-ayu.jpg",
-      bio: "14+ tahun berpengalaman dalam talent management yang berperan dalam pengembangan potensi serta kesiapan karir profesional peserta.",
-      specialties: ["Career Counseling & Coaching", "Linkedin & Resume Optimization","Interview Strategy"],
-      label: "Career Mentor"
-    },
+    // {
+    //   name: "Novilia Ayu Kusuma,S.Psi., CHRP.",
+    //   title: "HR Practitioner",
+    //   // company: "Shopee Indonesia",
+    //   image:
+    //     "/novilia-ayu.jpg",
+    //   bio: "14+ tahun berpengalaman dalam talent management yang berperan dalam pengembangan potensi serta kesiapan karir profesional peserta.",
+    //   specialties: ["Career Counseling & Coaching", "Linkedin & Resume Optimization","Interview Strategy"],
+    //   label: "Career Mentor"
+    // },
     {
       name: "Retno Pratiwi,S.Psi.,M.H.,CHRP.",
       title: "HR Practitioner",
@@ -235,21 +249,21 @@ export default function SocialMediaContentStrategistPage() {
         "/retno-pratiwi.jpg",
       bio: "8+ tahun berpengalaman di bidang rekrutmen yang berperan dalam memvalidasi kurikulum program agar tetap relevan dan sesuai dengan standar kebutuhan industri terkini.",
       specialties: ["Career Counseling & Coaching", "Career Strategy", "Konsultan SDM"],
-      label: "Industry Advisor"
+      label: "Career Mentor & Industry Advisor"
     },
   ]
 
   // Jadwal Pembelajaran
   const scheduleData = [
-    { label: "Durasi", value: "2-3 bulan" },
+    { label: "Durasi", value: "3 bulan" },
     { label: "Frekuensi belajar", value: "1x per minggu" },
     { label: "Waktu kelas", value: "Setiap Jumat malam 19.30-21.30 WIB" },
-    { label: "Mulai belajar", value: "Jumat, 24 Apil 2026" },
+    { label: "Mulai belajar", value: "Jumat, 7 Agustus 2026" },
     { label: "Periode belajar", 
       value: (
         <ul className="list-disc list-inside">
-          <li>Fast track: April-Juni 2026</li>
-          <li>Career-Ready: April-Juli 2026</li>
+          <li>Fast track: Agustus-September 2026</li>
+          <li>Career-Ready: Agustus-November 2026</li>
         </ul>
       ),
      },
@@ -260,7 +274,7 @@ export default function SocialMediaContentStrategistPage() {
     {
       week: 1,
       title: "Registration",
-      description: "Periode pendaftaran untuk mengamankan seat batch 2.",
+      description: "Periode pendaftaran untuk mengamankan seat.",
     },
     {
       week: 2,
@@ -319,66 +333,95 @@ export default function SocialMediaContentStrategistPage() {
       },
   ];
 
+  const ceritaMereka = [
+    {
+      name: "Atania Difany",
+      status: "Dulu Ditolak Berkali-kali, Akhirnya Sekarang Keterima Freelance Content Creator di Brand Skincare Nasional",
+      image: "/atania.jpeg",
+      link: "https://www.instagram.com/p/DZhdTcIERY7/?igsh=MXBpcHV0MDJuemw4NQ==",
+      badge: "Alumni WCL Batch 1"
+},
+    {
+      name: "Naufa Zelda Aurelia",
+      status: "After Lulus WCL, Langsung Dipercaya Jadi Salah Satu PIC Sosmed Event Kampus dan Berhasil Raih 250+ Peserta",
+      image: "/naufazelda.jpeg",
+      link: "https://www.instagram.com/p/DZ9y2RrEQZB/?igsh=MTU1eWNiM2V6ejFscg==",
+      badge: "Alumni WCL Batch 1"
+  },
+  {
+    name: "Mutiara Mathari",
+    status: "Dari IRT Penuh Waktu, Sekarang Dipercaya Pegang 2 Remote Jobs",
+    image: "/mutiara-mathari.jpeg",
+    link: "https://www.instagram.com/p/DaAXLl8EeJ6/?igsh=MWJvejZleGwyZzdiaA==",
+    badge: "Alumni WCL Batch 1"
+},
+    
+    
+];
+
+const portfolio = [
+    {
+        title: "Kahfi Education",
+        description: "Startup bimbingan belajar mengaji berbasis hybrid yang menghadirkan pembelajaran Al-Qur’an secara menyenangkan, interaktif, dan bermakna. ",
+        image: "/finalproject1.jpg",
+        link: "https://drive.google.com/file/d/1ExjfDVH7Sv2wzuUG9ClLXmlmzNxWQSBy/view?usp=drive_open"
+    },
+    {
+        title: "Sarilaw Office",
+        description: "Konsultan hukum & auditor hukum professional yang berbasis di Bali dan telah berdiri sejak tahun 1991.",
+        image: "/finalproject2.jpg",
+        link: "https://drive.google.com/file/d/17QGM3oidtISToTs_bzltd4BQAy7N9Ea5/view"
+    },
+    {
+        title: "Ruang Eksplorasi",
+        description: "Startup yang bergerak di bidang kesehatan mental yang membantu profesional muda menghadapi burnout atau tekanan hidup.",
+        image: "/finalproject3.jpg",
+        link: "https://drive.google.com/file/d/1K9LIqlkLyCv-tMONoEYkhKX0IU6d-968/view"
+    },
+];
+
 
   // Schedule & Pricing
   const pricingPackages = [
     {
       name: "Fast-track",
-      price: "Rp 299.000",
+      price: "Rp 329.000",
       weeklyPrice: "Sekitar 46rb/minggu",
-      duration: "2 bulan pembelajaran",
-      href: "https://grazedu.myr.id/pl/fast-track-womens-career-lab-socmed-strategist/",
+      duration: "1 bulan pembelajaran",
+      href: "https://grazedu.myr.id/pl/fast-track-wcl-socmed-specialist",
       color: "from-pink-400 to-pink-600",
       benefits: [
         "4x sesi intensif",
-        "Magang 1 bulan di agensi kreatif/UMKM",
-        
         "Akses kelas & recording material",
         "Materi pre-learning",
-        "Feedback tugas",
-        "Community group (fun games)",
-        "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
-        <>
-          300 kredit{" "}
-              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
-                AI Smart Prompt Premium
-              </a>
-        </>,
+        "Community group support",
+        "Mini portfolio-project",
+        "Sertifikat Penyelesaian penyelesaian program",
+       
         
       ],
     },
     {
       name: "Career-Ready",
-      price: isFlashSaleActive ? "Rp 459.000" : "Rp 499.000", // Harga dinamis
-      originalPrice: isFlashSaleActive ? "Rp 579.000" : "Rp 579.000", // Harga coret dinamis
+      price: isFlashSaleActive ? "Rp 549.000" : "Rp 549.000", // Harga dinamis
+      originalPrice: isFlashSaleActive ? "Rp 599.000" : "Rp 599.000", // Harga coret dinamis
       weeklyPrice: "Sekitar 38rb/minggu",
       duration: "3 bulan pembelajaran",
       href: isFlashSaleActive 
-            ? "https://grazedu.myr.id/pl/career-ready-womens-career-lab-socmed-strategist/"
+            ? "https://grazedu.myr.id/pl/career-ready-wcl-socmed-specialist"
             : "https://grazedu.myr.id/pl/career-ready-wcl-socmed-strategist", // Link dinamis
       isPopular: true,
       color: "from-primary to-primary-light",
       benefits: [
-        "7x sesi intensif",
-        <>Magang <strong>2 bulan</strong> di agensi kreatif/UMKM</>,
-        
+        "7x sesi intensif",  
         "Akses kelas & recording",
         "Materi pre-learning",
-        "Feedback tugas",
-        "Community group (fun games)",
-        
+        "Community group support",
         "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
-        <>
-          450 kredit{" "}
-              <a href="https://prompthink.vercel.app" className="underline" target="_blank">
-                AI Smart Prompt Premium
-              </a>
-        </>,
-        <><strong>+Konsultasi karir private dengan Career Mentor</strong></>,
-        <><strong>+Career Class: CV, Interview Strategy, Linkedin Optimization</strong></>,
-        <><strong>+Sweet merchandise</strong></>,
-        <><strong>+Recommendation Letter</strong></>,
-      
+        <><strong>+Feedback tugas di setiap sesi intensif</strong></>, 
+        <><strong>+Magang 2 bulan di agensi kreatif/UMKM</strong></>,
+        <><strong>+E-course: Interview Strategy & Linkedin Optimization</strong></>, 
+        <><strong>+Konsultasi karir private dengan Career Mentor</strong></>, 
       ],
     },
   ]
@@ -399,6 +442,11 @@ export default function SocialMediaContentStrategistPage() {
       question: "Siapa yang layak untuk ikut program ini?",
       answer:
         "Fresh graduate maupun mahasiswa yang masih kesulitan dapatin portfolio pertamanya, serta IRT yang telah lama jeda karir yang ingin reskilling.",
+    },
+    {
+      question: "Apakah WCL terbuka untuk teman-teman dengan kebutuhan khusus (disabilitas)?",
+      answer:
+        "Terbuka ya. WCL didesain agar inklusif, termasuk untuk teman-teman dengan kebutuhan khusus. Kalau kamu butuh penyesuaian tertentu silahkan nanti setelah melakukan pendaftaran dapat menghubungi tim Grazedu agar kami dapat menyiapkan yang terbaik untuk kamu.",
     },
     {
       question: "Apakah untuk mengikuti program ini benar tanpa seleksi?",
@@ -465,7 +513,7 @@ export default function SocialMediaContentStrategistPage() {
               WCL-PBI
             </a>
             <span>•</span>
-            <span className="text-white font-extrabold">Social Media & Content Strategist</span>
+            <span className="text-white font-extrabold">Social Media Specialist</span>
           </div>
 
           {/* Title & Meta */}
@@ -474,7 +522,7 @@ export default function SocialMediaContentStrategistPage() {
               Bangun Real-Portfolio Pertamamu Tanpa Seleksi!
             </h1>
             <p className="text-lg text-white mb-8 leading-relaxed">
-              Mulai karir Social Media & Content Strategist dengan pengalaman nyata bekerja langsung dengan UMKM partner. Dapatkan basic experiences dan portfolio sebagai bekal masuk dunia industri.
+              Mulai karir Social Media Specialist dengan pengalaman nyata bekerja langsung dengan UMKM partner. Dapatkan basic experiences dan portfolio sebagai bekal masuk dunia industri.
             </p>
             <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
@@ -483,7 +531,7 @@ export default function SocialMediaContentStrategistPage() {
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                <span>2-3 Bulan</span>
+                <span>3 Bulan</span>
               </div>
             </div>
           </div>
@@ -506,17 +554,17 @@ export default function SocialMediaContentStrategistPage() {
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Tentang Program</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
             <p>
-              Women's Career Lab - Project Based Internship Social Media & Content Strategist adalah program yang dirancang untuk memberdayakan perempuan muda yang ingin
-              mengembangkan karir di industri digital marketing. 
+              Women's Career Lab (WCL) - Project Based Internship Social Media Specialist adalah program yang dirancang untuk memberdayakan perempuan muda yang ingin
+              mengembangkan karir di industri digital marketing. <span className="underline">Bidang WCL ini merupakan percabangan dari Social Media & Content Strategist yang telah berjalan 2 batch sebelumnya.</span>
             </p>
             <p>
-            Program ini mengkombinasikan pendekatan belajar women-centric dan teori fundamental dengan hands-on practical experience bekerja langsung dengan Mitra Magang (Agensi Kreatif dan UMKM/Startup). Cocok untuk kamu yang passionate tentang social media
+             Program ini mengkombinasikan pendekatan belajar women-centric dan teori fundamental dengan hands-on practical experience bekerja langsung dengan Mitra Magang (Agensi Kreatif dan UMKM/Startup). Cocok untuk kamu yang passionate tentang social media
             tapi belum punya pengalaman dan portfolio.
             </p>
             <p>Terdapat 2 tipe pembelajaran yang bisa kamu pilih:</p>
             <ul className="list-disc list-inside pl-5">
-              <li>Fast-track (2 bulan): 4 sesi pembelajaran intensif + 1 bulan praktik.</li>
-              <li>Career Ready (3 bulan): 7 sesi pembelajaran intensif + 2 bulan praktik.</li>
+              <li>Fast-track (1 bulan): 4 sesi pembelajaran intensif + mini project.</li>
+              <li>Career Ready (3 bulan): 7 sesi pembelajaran intensif + 2 bulan magang.</li>
             </ul>
           </div>
         </div>
@@ -669,7 +717,7 @@ export default function SocialMediaContentStrategistPage() {
       <section className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors & Advisor</h2>
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 gap-8">
             {mentors.map((mentor, index) => (
               <div
                 key={index}
@@ -708,14 +756,14 @@ export default function SocialMediaContentStrategistPage() {
       </section>
 
       {/* Jadwal Pembelajaran */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w mx-auto">
             <h2 className="text-3xl font-bold text-gray-900 mb-8 text-left">Jadwal Pembelajaran</h2>
             <div className="border border-gray-200 rounded-xl overflow-hidden shadow-lg">
               <div className="bg-primary text-white p-6 text-center">
-                <h3 className="text-2xl font-bold">Social Media & Content Strategist</h3>
-                <p className="opacity-90">Jadwal Batch 2 Tahun 2026</p>
+                <h3 className="text-2xl font-bold">Social Media Specialist</h3>
+                <p className="opacity-90">Jadwal Batch 3 Tahun 2026</p>
               </div>
               <div className="divide-y divide-gray-200">
                 {scheduleData.map((row, index) => (
@@ -731,7 +779,7 @@ export default function SocialMediaContentStrategistPage() {
       </section>
 
       {/* Timeline */}
-      <section className="py-16 bg-white">
+      <section className="py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12">Program Phase</h2>
           <div className="space-y-6">
@@ -753,10 +801,84 @@ export default function SocialMediaContentStrategistPage() {
         </div>
       </section>
 
-      {/* Learning Story */}
-      <section className="py-16 bg-gray-50">
+      
+
+      {/* Cerita Mereka */}
+      <section className="py-16 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Learning Stories</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Cerita Transformasi Mereka</h2>
+          <p className="text-gray-600 mb-12 text-center">Dari yang pernah ditolak, sampai bisa dipercaya, dan mampu buktikan multi-peran yang luar biasa. </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {ceritaMereka.map((cerita, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div className="relative w-full h-64 bg-gray-100">
+                  <img src={cerita.image} alt={cerita.name} className="w-full h-full object-cover" />
+                  {cerita.badge && (
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-white text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                        {cerita.badge}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h3 className="text-lg font-bold text-gray-900">{(cerita as any).name}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{(cerita as any).status}</p>
+                  <a href={(cerita as any).link} target="_blank" className="text-primary font-semibold hover:underline mt-auto">
+                    Lihat Cerita →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio */}
+        <section className="py-16 bg-white">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">PORTOFOLIO</h2>
+                <p className="text-gray-600 mb-12 text-center">Yuk, lihat real-project dari para alumni.</p>
+                <Carousel
+                    opts={{
+                        align: "start",
+                    }}
+                    className="w-full"
+                    >
+                    <CarouselContent>
+                        {portfolio.map((item, index) => (
+                        <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                            <div className="p-1">
+                            <Card>
+                                <CardContent className="flex flex-col aspect-square items-center justify-center p-6">
+                                <div className="relative w-full h-48 bg-gray-100">
+                                <img src={item.image} alt={item.title} className="w-full h-full object-cover" />
+                            </div>
+                            <div className="p-6 flex flex-col flex-grow">
+                                <div className="flex-grow">
+                                    <h3 className="text-lg font-bold text-gray-900 mb-2">{item.title}</h3>
+                                    <p className="text-gray-600 mb-4">{item.description}</p>
+                                </div>
+                                <a href={item.link} target="_blank" className="text-primary font-semibold hover:underline">
+                                    Lihat Portofolio →
+                                </a>
+                            </div>
+                                </CardContent>
+                            </Card>
+                            </div>
+                        </CarouselItem>
+                        ))}
+                    </CarouselContent>
+                    
+                    <CarouselDots />
+                    </Carousel>
+            </div>
+        </section>
+
+      {/* Learning Story */}
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Apa Kata Alumni WCL?</h2>
           <div className="grid md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
@@ -787,7 +909,7 @@ export default function SocialMediaContentStrategistPage() {
       <section id="pricing" className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Biaya Program</h2>
-          <p className="text-gray-600 mb-12">Limited Spots! Pendaftaran terakhir 19 April 2026</p>
+          <p className="text-gray-600 mb-12">Pendaftaran terakhir 24 Juli 2026 atau saat seat sudah penuh.</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {pricingPackages.map((pkg, index) => (
@@ -801,7 +923,7 @@ export default function SocialMediaContentStrategistPage() {
               >
                 {pkg.isPopular && isFlashSaleActive ? (
                     <CountdownTimer 
-                        targetDate="2026-04-13T23:59:59"
+                        targetDate="2026-07-17T23:59:59"
                         className="bg-primary text-white text-center py-2 text-sm font-semibold"
                     />
                   ) : pkg.isPopular ? (
@@ -817,8 +939,9 @@ export default function SocialMediaContentStrategistPage() {
                   <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
                   <div className="mb-1">
                     {(pkg as any).originalPrice && (
-                      <p className="text-base text-gray-400 line-through">
-                        {(pkg as any).originalPrice}
+                      <p className="text-sm text-gray-400">
+                        <span className="line-through">{(pkg as any).originalPrice}</span>
+                        <span>(harga normal setelah flash sale)</span>
                       </p>
                     )}
                     <div className="flex items-baseline gap-2">
@@ -831,9 +954,9 @@ export default function SocialMediaContentStrategistPage() {
                   <p className="text-gray-600 mb-6 text-sm">{pkg.duration}</p>
 
                   <a 
-                    href={undefined}
+                    href={pkg.href}
                     target="_blank"
-                    className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 opacity-50 cursor-not-allowed pointer-events-none ${
+                    className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200  ${
                       pkg.isPopular
                         ? "bg-primary text-white hover:shadow-lg"
                         : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
@@ -858,18 +981,18 @@ export default function SocialMediaContentStrategistPage() {
       </section>
 
       {/* Waiting List Section */}
-      <section className="bg-gray-50 py-12">
+      {/* <section className="bg-gray-50 py-12">
   <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
     <div className="bg-primary rounded-2xl shadow-lg p-8 flex flex-col sm:flex-row items-center gap-6">
       
-      {/* Icon */}
+      
       <div className="flex-shrink-0 bg-white/20 rounded-full p-4">
         <svg xmlns="http://www.w3.org/2000/svg" className="h-10 w-10 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       </div>
 
-      {/* Text */}
+      
       <div className="flex-1 text-center sm:text-left">
         <h2 className="text-2xl font-bold text-white mt-1">Pendaftaran sudah ditutup.</h2>
         <p className="text-white/80 mt-1 text-sm">
@@ -877,7 +1000,7 @@ export default function SocialMediaContentStrategistPage() {
         </p>
       </div>
 
-      {/* CTA */}
+     
       <div className="flex-shrink-0">
         
          <a href="https://forms.gle/NqtDi6WBuKEhCRgV7" target="_blank" className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-xl font-semibold shadow hover:shadow-md hover:scale-105 transition-all duration-200 whitespace-nowrap">
@@ -887,7 +1010,7 @@ export default function SocialMediaContentStrategistPage() {
 
     </div>
   </div>
-</section>
+</section> */}
 
       {/* FAQ */}
       <section className="py-16 bg-white">

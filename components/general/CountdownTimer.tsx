@@ -36,6 +36,7 @@ const CountdownTimer = ({ targetDate, className }: CountdownTimerProps) => {
     // This ensures the countdown only renders on the client-side,
     // preventing Next.js hydration mismatch errors.
     setIsClient(true);
+    console.log('targetDate:', targetDate, 'diff:', +new Date(targetDate) - +new Date());
 
     const timer = setInterval(() => {
       setTimeLeft(calculateTimeLeft());
@@ -58,7 +59,7 @@ const CountdownTimer = ({ targetDate, className }: CountdownTimerProps) => {
         <div className='flex items-center justify-center gap-2 tracking-wider'>
             <span>Flash Sale Berakhir:</span>
             <span className="font-bold tabular-nums">
-                {String(timeLeft.days).padStart(2)} h : {String(timeLeft.hours).padStart(2)} j : {String(timeLeft.minutes).padStart(2, '0')} m : {String(timeLeft.seconds).padStart(2, '0')} d
+                {String(timeLeft.days).padStart(2)} d : {String(timeLeft.hours).padStart(2)} h : {String(timeLeft.minutes).padStart(2, '0')} m : {String(timeLeft.seconds).padStart(2, '0')} s
             </span>
         </div>
       ) : (

@@ -58,7 +58,7 @@ const Navbar = () => {
                                   <Link href="/kelas">Short Class</Link>
                                 </DropdownMenuItem>
                                 <DropdownMenuItem asChild>
-                                  <Link href="/wcl-pbi/socmed-strategist">Women's Career Lab</Link>
+                                  <Link href="/wcl-pbi/">Women's Career Lab</Link>
                                 </DropdownMenuItem>
                               </DropdownMenuContent>
                             </DropdownMenu>
@@ -113,7 +113,7 @@ const Navbar = () => {
                   Short Class
                 </a>
                 <a
-                  href="/wcl-pbi/socmed-strategist"
+                  href="/wcl-pbi/"
                   onClick={() => setIsOpen(false)}
                   className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
                 >
