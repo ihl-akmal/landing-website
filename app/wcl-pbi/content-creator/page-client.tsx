@@ -213,8 +213,18 @@ export default function ContentCreatorPage() {
           company: "Supercool Studio Bali",
           image:
             "/calista.jpg",
-          bio: "4+ tahun pengalaman di industri kreatif yang akan membimbing kamu mempelajari content creation dari sudut pandang agensi/korporat.",
+          bio: "4+ tahun pengalaman di industri kreatif yang akan membimbing kamu mempelajari content creation dari sudut pandang agensi.",
           specialties: ["Content Writing","Content Creation","Creative Design","Copywriting","Videography"],
+          label: "Expert Mentor"
+        },
+        {
+          name: "Immanuella Devina",
+          title: "Social Media Officer",
+          company: "Perusahaan Media Cetak & Digital Nasional",
+          image:
+            "/devina.png",
+          bio: "3+ tahun pengalaman dalam produksi konten dan social media campaign yang akan membimbing kamu dari sudut pandang korporat.",
+          specialties: ["Content Creation","Storytelling","Video Scripting", "Voice-Over"],
           label: "Expert Mentor"
         },
         // {
@@ -703,7 +713,7 @@ export default function ContentCreatorPage() {
           <section className="py-16 bg-gray-50">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors & Advisor</h2>
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid md:grid-cols-3 gap-8">
                 {mentors.map((mentor, index) => (
                   <div
                     key={index}
