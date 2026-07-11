@@ -7,7 +7,7 @@ export function middleware(request: NextRequest) {
 if (request.headers.get('host') === 'sertifikat.grazedu.web.id') {
   const path = request.nextUrl.pathname
   const blobBaseUrl = 'https://gevwyt8rj7c5q78a.public.blob.vercel-storage.com'
-  return NextResponse.redirect(`${blobBaseUrl}${path}`, 301)
+  return NextResponse.rewrite(`${blobBaseUrl}${path}`)
 }
 
   const isLoginPage = request.nextUrl.pathname === '/admin/login';
