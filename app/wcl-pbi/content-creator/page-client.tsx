@@ -400,7 +400,7 @@ export default function ContentCreatorPage() {
         {
           name: "Career-Ready",
           price: isFlashSaleActive ? "Rp 549.000" : "Rp 549.000", // Harga dinamis
-          originalPrice: isFlashSaleActive ? "Rp 599.000" : "Rp 599.000", // Harga coret dinamis
+          originalPrice: isFlashSaleActive ? "Rp 699.000" : "Rp 699.000", // Harga coret dinamis
           weeklyPrice: "Sekitar 38rb/minggu",
           duration: "3 bulan pembelajaran",
           href: isFlashSaleActive 
@@ -515,7 +515,7 @@ export default function ContentCreatorPage() {
               {/* Title & Meta */}
               <div className="mb-10 max-w-3xl">
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 leading-tight">
-                  Bangun Real-Portfolio Pertamamu Tanpa Seleksi!
+                  Bangun Real-Portfolio Pertama Content Creator Tanpa Seleksi!
                 </h1>
                 <p className="text-lg text-white mb-8 leading-relaxed">
                   Mulai karir Content Creator dengan pengalaman nyata bekerja langsung dengan UMKM partner. Dapatkan basic experiences dan portfolio sebagai bekal masuk dunia industri.
@@ -937,7 +937,7 @@ export default function ContentCreatorPage() {
                         {(pkg as any).originalPrice && (
                           <p className="text-sm text-gray-400">
                             <span className="line-through">{(pkg as any).originalPrice}</span>
-                            <span>(harga normal setelah flash sale)</span>
+                            {/* <span>(harga normal setelah flash sale)</span> */}
                           </p>
                         )}
                         <div className="flex items-baseline gap-2">
