@@ -495,9 +495,9 @@ const handleCardClick = () => {
                         <CardTitle className="text-2xl font-bold pt-4">Social Media Specialist</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online </CardDescription>
                     </CardHeader>
-                    <CardContent className="flex-grow">
+                    {/* <CardContent className="flex-grow">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
-                    </CardContent>
+                    </CardContent> */}
                     <CardFooter>
                         <Link href="/wcl-pbi/socmed-specialist" className="flex items-center font-bold text-primary hover:underline">
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
@@ -512,9 +512,9 @@ const handleCardClick = () => {
                         <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
                     </CardHeader>
-                    <CardContent className="mt-auto">
+                    {/* <CardContent className="mt-auto">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
-                    </CardContent>
+                    </CardContent> */}
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/content-creator" className="flex items-center font-bold text-primary hover:underline">
                             Lihat program <ArrowRight className="w-5 h-5 ml-2" />
