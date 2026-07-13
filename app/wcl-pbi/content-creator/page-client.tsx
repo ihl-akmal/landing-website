@@ -927,7 +927,7 @@ export default function ContentCreatorPage() {
                   >
                     {pkg.isPopular && isFlashSaleActive ? (
                         <CountdownTimer 
-                            targetDate="2026-07-17T23:59:59"
+                            targetDate="2026-07-20T23:59:59"
                             className="bg-primary text-white text-center py-2 text-sm font-semibold"
                         />
                       ) : pkg.isPopular ? (
