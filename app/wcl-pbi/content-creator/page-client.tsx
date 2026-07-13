@@ -6,6 +6,7 @@ import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
 import { ChevronDown, Heart, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
+import Certificate from "@/components/Certificate"
 import {
   Carousel,
   CarouselContent,
@@ -392,7 +393,7 @@ export default function ContentCreatorPage() {
             "Materi pre-learning",
             "Community group support",
             "Mini portfolio-project",
-            "Sertifikat Penyelesaian penyelesaian program",
+            "Sertifikat Penyelesaian penyelesaian program (hanya ttd Grazedu)",
            
             
           ],
@@ -430,9 +431,14 @@ export default function ContentCreatorPage() {
             "Karena program ini dirancang sebagai ruang belajar terkurasi dan berpendampingan, bukan magang massal. Biaya digunakan untuk memastikan kualitas materi, pendampingan mentor, kurasi UMKM, validasi sertifikat, serta pengalaman praktik yang nyata, agar peserta benar-benar belajar, bertumbuh, dan pulang dengan skill serta portofolio yang bernilai.",
         },
         {
+          question: "Apa yang membedakan Women's Career Lab (WCL) dengan program upskilling atau bootcamp lain?",
+          answer:
+            "WCL dirancang dengan pendekatan women-centric, dari cara mengajar, ritme, sampai dukungan solid sesama perempuan didalamnya. Kamu juga mendapatkan pembekalan materi dasar + internship placement untuk implementasi, sehingga menghemat waktu dan energi kamu dalam membangun portfolio pertama.",
+        },
+        {
           question: "Apa outcome dari program ini?",
           answer:
-            "Membantu kamu untuk punya portfolio pertama di bidang social media. Dari portfolio pertama ini, akan sangat berguna untuk kamu menjemput opportunity baru setelahnya.",
+            "Membantu kamu untuk punya portfolio pertama di bidang content creator. Dari portfolio pertama ini, akan sangat berguna untuk kamu menjemput opportunity baru setelahnya.",
         },
         {
           question: "Siapa yang layak untuk ikut program ini?",
@@ -900,6 +906,8 @@ export default function ContentCreatorPage() {
               </div>
             </div>
           </section>
+
+          <Certificate />
     
           {/* Schedule & Pricing */}
           <section id="pricing" className="py-16 bg-gray-50">
@@ -928,7 +936,7 @@ export default function ContentCreatorPage() {
                         </div>
                     ) : (
                     <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
-                            Opsi belajar kilat & hemat
+                            Opsi belajar kilat & hemat (Terbatas untuk 5 orang)
                         </div>
                     )}
                     <div className="p-8">
