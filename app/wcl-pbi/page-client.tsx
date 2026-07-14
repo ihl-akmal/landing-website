@@ -301,10 +301,10 @@ const handleCardClick = () => {
           <div className="lg:grid lg:grid-cols-12 lg:gap-8 items-center">
             <div className="lg:col-span-6 text-left">
               <h1 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-4xl">
-                Women's <span className="text-primary">Career Lab</span>
+              Semua lowongan minta experience. <span className="text-primary">Tapi kalau portfolio pertama aja belum punya, gimana mau mulai?</span>
               </h1>
               <p className="mt-4 text-gray-600 sm:text-l max-w-lg">
-                Progam upskilling yang membantu perempuan membangun real-portfolio pertama dan daya saing karir sejak awal tanpa seleksi💪
+              Women's Career Lab hadir untuk perempuan yang mau mulai dari titik 0: belajar langsung, praktik nyata, dan pulang bawa portfolio pertama💪
               </p>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
                 <a href="#pilih-bidang" className="w-full sm:w-auto bg-gradient-to-r from-primary to-pink-600 text-white px-8 py-3.5 rounded-lg font-bold hover:shadow-lg transition-all duration-300 flex justify-center">
@@ -495,12 +495,23 @@ const handleCardClick = () => {
                         <CardTitle className="text-2xl font-bold pt-4">Social Media Specialist</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online </CardDescription>
                     </CardHeader>
+                    <CardContent className="flex-grow">
+                    <span className="inline-block px-2 py-0.5 text-xs font-semibold bg-primary text-white rounded-full mb-2">
+                          🔥 Flash Sale · Berakhir 20 Juli
+                      </span>
+
+                      <div className="flex items-center gap-2">
+                          <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
+                          <span className="text-lg font-bold text-primary">Rp 549.000</span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p>
+                  </CardContent>
                     {/* <CardContent className="flex-grow">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
                     </CardContent> */}
                     <CardFooter>
                         <Link href="/wcl-pbi/socmed-specialist" className="flex items-center font-bold text-primary hover:underline">
-                            Lihat program <ArrowRight className="w-5 h-5 ml-2" />
+                            Lihat Detail <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                     </CardFooter>
                 </Card>
@@ -512,12 +523,23 @@ const handleCardClick = () => {
                         <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
                     </CardHeader>
+                    <CardContent className="flex-grow">
+                    <span className="inline-block px-2 py-0.5 text-xs font-semibold bg-primary text-white rounded-full mb-2">
+                          🔥 Flash Sale · Berakhir 20 Juli
+                      </span>
+
+                      <div className="flex items-center gap-2">
+                          <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
+                          <span className="text-lg font-bold text-primary">Rp 549.000</span>
+                      </div>
+                      <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p>
+                  </CardContent>
                     {/* <CardContent className="mt-auto">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
                     </CardContent> */}
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/content-creator" className="flex items-center font-bold text-primary hover:underline">
-                            Lihat program <ArrowRight className="w-5 h-5 ml-2" />
+                            Lihat Detail <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                     </CardFooter>
                 </Card>

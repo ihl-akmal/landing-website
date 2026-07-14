@@ -525,15 +525,15 @@ const portfolio = [
           {/* Title & Meta */}
           <div className="mb-10 max-w-3xl">
             <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 leading-tight">
-              Bangun Real-Portfolio Pertama Social Media Tanpa Seleksi!
+            Mau Jadi Social Media Specialist Tapi Belum Punya Portfolio? Mulai dari Sini.
             </h1>
             <p className="text-lg text-white mb-8 leading-relaxed">
-              Mulai karir Social Media Specialist dengan pengalaman nyata bekerja langsung dengan UMKM partner. Dapatkan basic experiences dan portfolio sebagai bekal masuk dunia industri.
+              Mulai karir Social Media Specialist dengan pengalaman nyata bekerja langsung dengan UMKM partner. Bangun portfolio pertama sebagai bekal masuk dunia industri.
             </p>
             <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Users className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                <span>Limited Spots</span>
+                <span>Hanya 20 seat</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
@@ -917,7 +917,7 @@ const portfolio = [
       <section id="pricing" className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-4">Biaya Program</h2>
-          <p className="text-gray-600 mb-12">Pendaftaran terakhir 24 Juli 2026 atau saat seat sudah penuh.</p>
+          <p className="text-gray-600 mb-12">Pilih sesuai waktu dan tujuanmu, belajar intensif 1 bulan atau langsung pengalaman magang nyata 3 bulan.</p>
 
           <div className="grid md:grid-cols-2 gap-8">
             {pricingPackages.map((pkg, index) => (
@@ -970,7 +970,7 @@ const portfolio = [
                         : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
                     }`}
                   >
-                    Daftar Paket Ini
+                    Amanin Seat Sekarang
                   </a>
 
                   <div className="space-y-4">
