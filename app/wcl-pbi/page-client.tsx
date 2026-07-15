@@ -556,7 +556,7 @@ const handleCardClick = () => {
       </section>
 
       {/* Cerita Mereka */}
-      <section className="py-16 bg-gray-50">
+      <section id="cerita-alumni" className="py-16 bg-gray-50">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Cerita Transformasi Mereka</h2>
           <p className="text-gray-600 mb-12 text-center">Dari yang pernah ditolak, sampai bisa dipercaya, dan mampu buktikan multi-peran yang luar biasa. </p>
