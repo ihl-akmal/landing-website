@@ -9,7 +9,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from "@/components/ui/card";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { ArrowRight, Heart, Briefcase, Users, Award, Shield, FileText, FolderOpen, HeartCrack } from "lucide-react";
+import { ArrowRight, Heart, Briefcase, Users, Award, Shield, FileText, FolderOpen, HeartCrack, Star, HelpCircle } from "lucide-react";
 
 const challenges = [
   {
@@ -75,6 +75,56 @@ const alumni = [
     platform: "instagram" as const,
     imageUrl: "/alumni-atania.jpg",
   },
+];
+
+const testimonials = [
+  {
+      name: "Naufa Zelda Aurelia",
+      role: "Mahasiswa",
+      avatar: "/path-to-avatar-1.jpg",
+      content: "JUJURRRR aku bener-bener dapet ilmu baru pas sesi ini. Jadi kaya, 'oh selama ini kita scroll tuh di belakang layarnya kayak gini ya wkwk'. Sukses terus untuk tim Grazedu, and hopefully see you in the next amazing classs🤪✌",
+      stars: 5,
+  },
+  {
+      name: "Nina Widiya Nengsih",
+      role: "Mahasiswa",
+      avatar: "/path-to-avatar-2.jpg",
+      content: "Aku jadi paham kalo visual brand tentang warna, font itu penting banget buat brand kita padahal dulu aku ngasal trs 😭😭",
+      stars: 5,
+  },
+  {
+      name: "Khoiru Nisa",
+      role: "Mahasiswa",
+      avatar: "/path-to-avatar-3.jpg",
+      content: "Banyaakk banget ilmunya! Aku kira bidang ini tuh cuma sekadar bikin konten, tapi ternyata semua hal itu ada ilmunya. So far aku suka dengan program Grazedu yang ini, karena emang menarik dan sangat-sangat berguna. Thank you untuk semua yang terlibat dalam program ini, kalian beneran keren! <3",
+      stars: 5,
+  },
+];
+
+const ceritaMereka = [
+  {
+    name: "Atania Difany",
+    status: "Dulu Ditolak Berkali-kali, Akhirnya Sekarang Keterima Freelance Content Creator di Brand Skincare Nasional",
+    image: "/atania.jpeg",
+    link: "https://www.instagram.com/p/DZhdTcIERY7/?igsh=MXBpcHV0MDJuemw4NQ==",
+    badge: "Alumni WCL Batch 1"
+},
+  {
+    name: "Naufa Zelda Aurelia",
+    status: "After Lulus WCL, Langsung Dipercaya Jadi Salah Satu PIC Sosmed Event Kampus dan Berhasil Raih 250+ Peserta",
+    image: "/naufazelda.jpeg",
+    link: "https://www.instagram.com/p/DZ9y2RrEQZB/?igsh=MTU1eWNiM2V6ejFscg==",
+    badge: "Alumni WCL Batch 1"
+},
+{
+  name: "Mutiara Mathari",
+  status: "Dari IRT Penuh Waktu, Sekarang Dipercaya Pegang 2 Remote Jobs",
+  image: "/mutiara-mathari.jpeg",
+  link: "https://www.instagram.com/p/DaAXLl8EeJ6/?igsh=MWJvejZleGwyZzdiaA==",
+  badge: "Alumni WCL Batch 1"
+},
+  
+  
 ];
 
 // Ukuran card per jarak dari center (index 0 = center, 1 = sebelah, dst)
@@ -285,10 +335,21 @@ const handleCardClick = () => {
 };
 
   const faqs = [
-    { question: "Apakah ada seleksi untuk masuk?", answer: "Tidak ada seleksi. Namun, untuk menjaga kualitas program, kuota kami terbatas dan berdasarkan siapa cepat dia dapat." },
+    { question: "Apakah ada seleksi untuk ikut program?", answer: "Tidak ada seleksi. Namun, untuk menjaga kualitas program, kuota kami terbatas dan berdasarkan siapa cepat dia dapat." },
+    {
+      question: "Kenapa program ini berbayar?",
+      answer:
+        "Karena program ini dirancang sebagai ruang belajar terkurasi dan berpendampingan, bukan magang massal. Biaya digunakan untuk memastikan kualitas materi, pendampingan mentor, kurasi UMKM, validasi sertifikat, serta pengalaman praktik yang nyata, agar peserta benar-benar belajar, bertumbuh, dan pulang dengan skill serta portofolio yang bernilai.",
+    },
+    {
+      question: "Apa yang membedakan Women's Career Lab (WCL) dengan program upskilling atau bootcamp lain?",
+      answer:
+        "WCL dirancang dengan pendekatan women-centric, dari cara mengajar, ritme, sampai dukungan solid sesama perempuan didalamnya. Kamu juga mendapatkan pembekalan materi dasar + internship placement untuk implementasi, sehingga menghemat waktu dan energi kamu dalam membangun portfolio pertama.",
+    },
     { question: "Program ini cocok untuk siapa?", answer: "Mahasiswa, fresh graduate, IRT atau siapa pun yang ingin memulai karir di bidang digital tetapi tidak memiliki pengalaman atau portofolio." },
     { question: "Apa yang didapat setelah selesai program?", answer: "Kamu akan memiliki portofolio nyata, sertifikat yang divalidasi oleh industri, dan keterampilan praktis yang siap digunakan untuk memulai karirmu." },
     { question: "Bagaimana aku dapat melihat informasi lanjutan seperti mentor, jadwal dan kurikulum?", answer: "Kamu bisa klik role/bidang WCL untuk informasi lebih lengkapnya," },
+    
   ];
 
   return (
@@ -304,8 +365,23 @@ const handleCardClick = () => {
               Semua lowongan minta experience. <span className="text-primary">Tapi kalau portfolio pertama aja belum punya, gimana mau mulai?</span>
               </h1>
               <p className="mt-4 text-gray-600 sm:text-l max-w-lg">
-              Women's Career Lab hadir untuk perempuan yang mau mulai dari titik 0: belajar langsung, praktik nyata, dan pulang bawa portfolio pertama💪
+              Women's Career Lab hadir untuk perempuan yang mau mulai dari titik 0: belajar langsung, praktik nyata, dan pulang bawa portfolio pertama💪. Tanpa Seleksi!
               </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                <div className="flex items-center gap-1.5 bg-pink-50 border border-pink-100 rounded-full px-3 py-1">
+                  <span className="text-primary font-bold text-sm">2 batch</span>
+                  <span className="text-gray-600 text-xs">berjalan</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-pink-50 border border-pink-100 rounded-full px-3 py-1">
+                  <span className="text-primary font-bold text-sm">35+</span>
+                  <span className="text-gray-600 text-xs">perempuan bergabung</span>
+                </div>
+                <div className="flex items-center gap-1.5 bg-pink-50 border border-pink-100 rounded-full px-3 py-1">
+                  <span className="text-primary font-bold text-sm">87%</span>
+                  <span className="text-gray-600 text-xs">completion rate</span>
+                </div>
+                
+              </div>
               <div className="mt-8 flex flex-col items-start gap-4 sm:flex-row">
                 <a href="#pilih-bidang" className="w-full sm:w-auto bg-gradient-to-r from-primary to-pink-600 text-white px-8 py-3.5 rounded-lg font-bold hover:shadow-lg transition-all duration-300 flex justify-center">
                   Pilih Bidangmu
@@ -329,110 +405,11 @@ const handleCardClick = () => {
         </div>
       </section>
 
-      {/* Social Proof Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-              <div>
-                <p className="text-2xl md:text-4xl font-bold text-primary">2 batch</p>
-                <p className="text-base md:text-lg text-gray-600 mt-2">sudah berjalan</p>
-              </div>
-              <div>
-                <p className="text-2xl md:text-4xl font-bold text-primary">35+</p>
-                <p className="text-base md:text-lg text-gray-600 mt-2">perempuan bergabung</p>
-              </div>
-              <div>
-                <p className="text-2xl md:text-4xl font-bold text-primary">87%</p>
-                <p className="text-base md:text-lg text-gray-600 mt-2">completion rate</p>
-              </div>
-              <div>
-                <p className="text-2xl md:text-4xl font-bold text-primary">5/5</p>
-                <p className="text-base md:text-lg text-gray-600 mt-2">rating materi</p>
-              </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Masalah yang diselesaikan Section */}
-      <section className="py-20 bg-white overflow-hidden">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 lg:gap-16 items-center">
-            <div className="text-left md:text-center lg:text-left">
-              <h2 className="text-2xl font-bold tracking-tight text-gray-800 sm:text-4xl">
-                Tantangan <span className="text-primary">Perempuan Hari Ini</span>
-              </h2>
-              <p className="mt-4 text-gray-600 sm:text-l max-w-lg md:mx-auto lg:mx-0">
-              Sampai sekarang, kita masih terjebak dalam lingkaran yang berputar disitu-situ aja. Tap kartu satu per satu, dan lihat apakah kamu juga merasakannya.
-              </p>
-            </div>
-
-            <div className="relative mt-12 lg:mt-0 h-80 flex items-center justify-center">
-              <>
-              <style>{`
-                @keyframes hint-bounce {
-                  0%, 100% { transform: rotate(0deg) translateY(0px); }
-                  50% { transform: rotate(0deg) translateY(-10px); }
-              }
-  `}</style>
-              </>
-              {cards.map((card, index) => {
-                const isThisAnimating = animatingIndex !== null && index === 0;
-
-                return (
-                  <div
-                  key={card.title}
-                  className="absolute w-full max-w-sm cursor-pointer"
-                  style={{
-                    zIndex: cards.length - index,
-                    transform: isThisAnimating
-                      ? 'translateX(105%) translateY(-30%) rotate(25deg) scale(0.8)'
-                      : `rotate(${index === 0 ? 0 : index * 4}deg)`,
-                    opacity: isThisAnimating ? 0 : 1,
-                    transition: 'transform 480ms cubic-bezier(0.4, 0, 1, 1), opacity 380ms ease',
-                    animation: index === 0 ? 'hint-bounce 0.6s ease-in-out 1s 2' : 'none', // ← tambah ini
-                  }}
-                  onClick={handleCardClick}
-                  >
-                    {/* Card dengan gradient + depth */}
-                    <div className="relative rounded-2xl overflow-hidden shadow-xl">
-                      {/* Background gradient */}
-                      <div className="absolute inset-0 bg-primary rounded-2xl" 
-                      style={{ boxShadow: 'inset 0 1px 0 rgba(255,255,255,0.25), inset 0 -1px 0 rgba(0,0,0,0.1)' }} />
-                      
-                      {/* Subtle texture overlay */}
-                      {/* <div className="absolute inset-0 bg-white/5 backdrop-blur-[1px]" /> */}
-
-                      {/* Highlight rim atas */}
-                      {/* <div className="absolute top-0 left-0 right-0 h-px " /> */}
-
-                      {/* Content */}
-                      <div className="relative p-6">
-                        <div className="flex flex-row items-center gap-3 mb-4">
-                          <div className="p-2.5 bg-white/15 rounded-xl shadow-inner">
-                            {card.icon}
-                          </div>
-                          <h3 className="text-lg font-bold text-white leading-snug">
-                            {card.title}
-                          </h3>
-                        </div>
-                        <p className="text-white/80 text-sm leading-relaxed">
-                          {card.description}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </div>
-</section>
-
       {/* Kenapa WCL beda Section */}
       <section className="py-16 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-primary text-center">Say Goodbye <span className="text-gray-800">untuk Semua Masalah Itu </span></h2> 
-            <p className="text-base text-gray-600 mt-4 mb-12 text-center">Melalui Women's Career Lab (WCL), ubah stuck-mu jadi lebih percaya diri.</p>
+            <h2 className="text-3xl font-bold text-gray-800 text-center">Pendekatan <span className="text-primary">Women-Centric + Praktik Nyata</span></h2> 
+            <p className="text-base text-gray-600 mt-4 mb-12 text-center">Mulai dari cara mengajar, ritme, hingga lingkungan yang saling supportif no judgement.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card className="p-6 bg-white border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
                   <div className="flex items-start gap-6">
@@ -484,7 +461,7 @@ const handleCardClick = () => {
 
       {/* Pilih bidangmu Section */}
       <section id="pilih-bidang" className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-left">
             <h2 className="text-3xl font-bold text-gray-900">Pilih bidangmu</h2>
             <p className="text-base text-gray-600 mt-4 mb-12">Klik untuk lihat kurikulum, mentor, jadwal, dan learning journey.</p>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -578,10 +555,99 @@ const handleCardClick = () => {
         </div>
       </section>
 
+      {/* Cerita Mereka */}
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Cerita Transformasi Mereka</h2>
+          <p className="text-gray-600 mb-12 text-center">Dari yang pernah ditolak, sampai bisa dipercaya, dan mampu buktikan multi-peran yang luar biasa. </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {ceritaMereka.map((cerita, index) => (
+              <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                <div className="relative w-full h-64 bg-gray-100">
+                  <img src={cerita.image} alt={cerita.name} className="w-full h-full object-cover" />
+                  {cerita.badge && (
+                    <div className="absolute top-4 left-4">
+                      <span className="bg-white text-primary text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                        {cerita.badge}
+                      </span>
+                    </div>
+                  )}
+                </div>
+                <div className="p-6 flex-grow flex flex-col">
+                  <h3 className="text-lg font-bold text-gray-900">{(cerita as any).name}</h3>
+                  <p className="text-sm text-gray-500 mb-4">{(cerita as any).status}</p>
+                  <a href={(cerita as any).link} target="_blank" className="text-primary font-semibold hover:underline mt-auto">
+                    Lihat Cerita →
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+      
+      {/* Learning Story */}
+            <section className="py-16 bg-gray-50">
+              <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Apa Kata Mereka?</h2>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {testimonials.map((testimonial, index) => (
+                    <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
+                      <div className="p-6 flex-grow">
+                        <div className="flex items-center mb-4">
+                          {/* <img className="h-12 w-12 rounded-full object-cover mr-4" src={testimonial.avatar} alt={testimonial.name} /> */}
+                          <div>
+                            <h3 className="text-lg font-bold text-gray-900">{testimonial.name}</h3>
+                            <p className="text-sm text-gray-500">{testimonial.role}</p>
+                          </div>
+                        </div>
+                        <p className="text-gray-600 mb-4">{testimonial.content}</p>
+                      </div>
+                      <div className="bg-gray-100 p-4 flex justify-end items-center">
+                          <div className="flex items-center">
+                              {[...Array(testimonial.stars)].map((_, i) => (
+                                  <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
+                              ))}
+                          </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </section>
+
+            
+
+      {/* Social Proof Section */}
+      {/* <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+              <div>
+                <p className="text-2xl md:text-4xl font-bold text-primary">2 batch</p>
+                <p className="text-base md:text-lg text-gray-600 mt-2">sudah berjalan</p>
+              </div>
+              <div>
+                <p className="text-2xl md:text-4xl font-bold text-primary">35+</p>
+                <p className="text-base md:text-lg text-gray-600 mt-2">perempuan bergabung</p>
+              </div>
+              <div>
+                <p className="text-2xl md:text-4xl font-bold text-primary">87%</p>
+                <p className="text-base md:text-lg text-gray-600 mt-2">completion rate</p>
+              </div>
+              <div>
+                <p className="text-2xl md:text-4xl font-bold text-primary">5/5</p>
+                <p className="text-base md:text-lg text-gray-600 mt-2">rating materi</p>
+              </div>
+          </div>
+        </div>
+      </section> */}
+
+      
+
       
        {/* Cerita Alumni — carousel tumpukan */}
-       <section id="cerita-alumni" className="py-20 relative overflow-hidden bg-gradient-to-br from-white via-pink-50 to-rose-50 select-none">
-         {/* Background Glow Kiri */}
+       {/* <section id="cerita-alumni" className="py-20 relative overflow-hidden bg-gradient-to-br from-white via-pink-50 to-rose-50 select-none">
+         
               <div
                 className="
                   absolute
@@ -595,53 +661,53 @@ const handleCardClick = () => {
                   pointer-events-none
                 "
               />
-              {/* Background Glow Kanan */}
-  <div
-    className="
-      absolute
-      -right-32
-      bottom-20
-      w-[400px]
-      h-[400px]
-      rounded-full
-      bg-[#CB3689]/10
-      blur-[120px]
-      pointer-events-none
-    "
-  />
-  {/* Glow Tengah */}
-  <div
-    className="
-      absolute
-      left-1/2
-      top-1/2
-      -translate-x-1/2
-      -translate-y-1/2
-      w-[700px]
-      h-[500px]
-      rounded-full
-      bg-[#CB3689]/15
-      blur-[50px]
-      pointer-events-none
-    "
-  />
-  {/* Dot Pattern */}
-  <div
-    className="absolute inset-0 opacity-[0.03] pointer-events-none"
-    style={{
-      backgroundImage:
-        "radial-gradient(#CB3689 1px, transparent 1px)",
-      backgroundSize: "24px 24px",
-    }}
-  />
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-4">
-            <h2 className="text-3xl font-bold text-gray-900">Meet <span className="text-primary">WCL Sisters👑</span></h2>
-            <p className="text-base text-gray-600 mt-2 mb-12 max-w-2xl mx-auto">Barisan perempuan yang dulunya ragu dan belum punya apa-apa. Sekarang punya portfolio nyata dan siap melangkah.</p>
-          </div>
-          <AlumniCarousel />
-        </div>
-      </section>
+              
+            <div
+              className="
+                absolute
+                -right-32
+                bottom-20
+                w-[400px]
+                h-[400px]
+                rounded-full
+                bg-[#CB3689]/10
+                blur-[120px]
+                pointer-events-none
+              "
+            />
+            
+            <div
+              className="
+                absolute
+                left-1/2
+                top-1/2
+                -translate-x-1/2
+                -translate-y-1/2
+                w-[700px]
+                h-[500px]
+                rounded-full
+                bg-[#CB3689]/15
+                blur-[50px]
+                pointer-events-none
+              "
+            />
+            
+            <div
+              className="absolute inset-0 opacity-[0.03] pointer-events-none"
+              style={{
+                backgroundImage:
+                  "radial-gradient(#CB3689 1px, transparent 1px)",
+                backgroundSize: "24px 24px",
+              }}
+            />
+                  <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+                    <div className="text-center mb-4">
+                      <h2 className="text-3xl font-bold text-gray-900">Meet <span className="text-primary">WCL Sisters👑</span></h2>
+                      <p className="text-base text-gray-600 mt-2 mb-12 max-w-2xl mx-auto">Barisan perempuan yang dulunya ragu dan belum punya apa-apa. Sekarang punya portfolio nyata dan siap melangkah.</p>
+                    </div>
+                    <AlumniCarousel />
+                  </div>
+      </section> */}
 
       {/* FAQ Section */}
       <section className="py-16 bg-white">
@@ -664,7 +730,36 @@ const handleCardClick = () => {
         </div>
       </section>
 
+      {/* Waiting List Section */}
+      <section className="bg-gray-100 py-12">
+  <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="bg-primary rounded-2xl shadow-lg p-8 flex flex-col sm:flex-row items-center gap-6">
+      
+      
+      <div className="flex-shrink-0 bg-white/20 rounded-full p-4">
+        <HelpCircle className="h-10 w-10 text-white" />
+
+      </div>
+
+      
+      <div className="flex-1 text-center sm:text-left">
+        <h2 className="text-xl font-bold text-white mt-1">Belum Cukup Yakin Ingin Memilih Bidang yang Mana?</h2>
+        <p className="text-white mt-1 text-sm">
+          Konsultasi GRATIS sekarang dengan tim Grazedu 🤍
+        </p>
+      </div>
+
      
+      <div className="flex-shrink-0">
+        
+         <a href="https://api.whatsapp.com/send?phone=6282340622274&text=Halo%20kak%2C%20saya%20mau%20konsultasi%20untuk%20program%20Women's%20Career%20Lab" target="_blank" className="inline-flex items-center gap-2 bg-white text-primary px-6 py-3 rounded-xl font-semibold shadow hover:shadow-md hover:scale-105 transition-all duration-200 whitespace-nowrap">
+          Konsultasi Sekarang
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
 
       <Footer />
     </div>

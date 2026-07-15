@@ -806,7 +806,7 @@ export default function ContentCreatorPage() {
           
     
           {/* Cerita Mereka */}
-          <section className="py-16 bg-white">
+          {/* <section className="py-16 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Cerita Transformasi Mereka</h2>
               <p className="text-gray-600 mb-12 text-center">Dari yang pernah ditolak, sampai bisa dipercaya, dan mampu buktikan multi-peran yang luar biasa. </p>
@@ -834,10 +834,10 @@ export default function ContentCreatorPage() {
                 ))}
               </div>
             </div>
-          </section>
+          </section> */}
     
           {/* Portfolio */}
-            <section className="py-16 bg-white">
+            <section className="py-16 bg-gray-50">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">PORTOFOLIO</h2>
                     <p className="text-gray-600 mb-12 text-center">Yuk, lihat real-project dari para alumni.</p>
@@ -878,7 +878,7 @@ export default function ContentCreatorPage() {
             </section>
     
           {/* Learning Story */}
-          <section className="py-16 bg-white">
+          {/* <section className="py-16 bg-white">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Apa Kata Alumni WCL?</h2>
               <div className="grid md:grid-cols-3 gap-8">
@@ -886,7 +886,7 @@ export default function ContentCreatorPage() {
                   <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden flex flex-col">
                     <div className="p-6 flex-grow">
                       <div className="flex items-center mb-4">
-                        {/* <img className="h-12 w-12 rounded-full object-cover mr-4" src={testimonial.avatar} alt={testimonial.name} /> */}
+                        
                         <div>
                           <h3 className="text-lg font-bold text-gray-900">{testimonial.name}</h3>
                           <p className="text-sm text-gray-500">{testimonial.role}</p>
@@ -905,7 +905,7 @@ export default function ContentCreatorPage() {
                 ))}
               </div>
             </div>
-          </section>
+          </section> */}
 
           <Certificate />
     
@@ -968,6 +968,7 @@ export default function ContentCreatorPage() {
                       >
                         Amanin Seat Sekarang
                       </a>
+                      
     
                       <div className="space-y-4">
                         {pkg.benefits.map((benefit, idx) => (
