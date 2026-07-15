@@ -408,7 +408,7 @@ const handleCardClick = () => {
       {/* Kenapa WCL beda Section */}
       <section className="py-16 bg-gray-50">
           <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold text-gray-800 text-center">Pendekatan <span className="text-primary">Women-Centric + Praktik Nyata</span></h2> 
+            <h2 className="text-3xl font-bold text-gray-800 text-center">Pendekatan <span className="text-primary"> Women-Centric & Real Project</span></h2> 
             <p className="text-base text-gray-600 mt-4 mb-12 text-center">Mulai dari cara mengajar, ritme, hingga lingkungan yang saling supportif no judgement.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <Card className="p-6 bg-white border-gray-200 shadow-sm hover:shadow-lg transition-shadow">
