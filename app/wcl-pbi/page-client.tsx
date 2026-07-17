@@ -491,7 +491,7 @@ const handleCardClick = () => {
                           <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
                           <span className="text-lg font-bold text-primary">Rp 549.000</span>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p>
+                      {/* <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p> */}
                   </CardContent>
                     {/* <CardContent className="flex-grow">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
@@ -519,7 +519,7 @@ const handleCardClick = () => {
                           <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
                           <span className="text-lg font-bold text-primary">Rp 549.000</span>
                       </div>
-                      <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p>
+                      {/* <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p> */}
                   </CardContent>
                     {/* <CardContent className="mt-auto">
                       <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
