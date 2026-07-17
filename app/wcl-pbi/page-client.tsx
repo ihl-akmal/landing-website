@@ -335,17 +335,27 @@ const handleCardClick = () => {
 };
 
   const faqs = [
-    { question: "Apakah ada seleksi untuk ikut program?", answer: "Tidak ada seleksi. Namun, untuk menjaga kualitas program, kuota kami terbatas dan berdasarkan siapa cepat dia dapat." },
     {
       question: "Kenapa program ini berbayar?",
       answer:
         "Karena program ini dirancang sebagai ruang belajar terkurasi dan berpendampingan, bukan magang massal. Biaya digunakan untuk memastikan kualitas materi, pendampingan mentor, kurasi UMKM, validasi sertifikat, serta pengalaman praktik yang nyata, agar peserta benar-benar belajar, bertumbuh, dan pulang dengan skill serta portofolio yang bernilai.",
     },
     {
+      question: "Bagaimana konsep pembelajaran Women's Career Lab?",
+      answer:
+        "Pada tahap awal kamu akan mendapatkan kelas intensif sebagai pembekalan materi dasar. Kemudian kamu akan mengerjakan tugas yang diberikan tiap minggunya untuk mengasah kemampuan. Setelah kemampuan terasah, ilmu dasar sudah dipelajari, maka tahap berikutnya yaitu mengeimplementasikan ilmu tersebut di real-project dalam bentuk online internship dengan UMKM atau agency. Disinilah kamu akan belajar untuk merasakan dunia kerja yang sessunguhnya.",
+    },
+    {
+      question: "Apakah nanti saat implementasi di UMKM/agency, harus mencari sendiri?",
+      answer:
+        "Kamu tidak perlu melakukan itu. Karena Grazedu telah menyediakan mitra magang yang telah terkurasi. Kamu cukup maksimalkan diri saat sesi intensif. Penempatan kamu di umkm nanti akan dinilai berdasarkan kecocokan peminatan serta kebutuhan. Intinya kamu sudah pasti akan dapat kesempatan implementasi berupa magang.",
+    },
+    {
       question: "Apa yang membedakan Women's Career Lab (WCL) dengan program upskilling atau bootcamp lain?",
       answer:
         "WCL dirancang dengan pendekatan women-centric, dari cara mengajar, ritme, sampai dukungan solid sesama perempuan didalamnya. Kamu juga mendapatkan pembekalan materi dasar + internship placement untuk implementasi, sehingga menghemat waktu dan energi kamu dalam membangun portfolio pertama.",
     },
+    { question: "Apakah ada seleksi untuk ikut program?", answer: "Tidak ada seleksi. Namun, untuk menjaga kualitas program, kuota kami terbatas dan berdasarkan siapa cepat dia dapat." },
     { question: "Program ini cocok untuk siapa?", answer: "Mahasiswa, fresh graduate, IRT atau siapa pun yang ingin memulai karir di bidang digital tetapi tidak memiliki pengalaman atau portofolio." },
     { question: "Apa yang didapat setelah selesai program?", answer: "Kamu akan memiliki portofolio nyata, sertifikat yang divalidasi oleh industri, dan keterampilan praktis yang siap digunakan untuk memulai karirmu." },
     { question: "Bagaimana aku dapat melihat informasi lanjutan seperti mentor, jadwal dan kurikulum?", answer: "Kamu bisa klik role/bidang WCL untuk informasi lebih lengkapnya," },
