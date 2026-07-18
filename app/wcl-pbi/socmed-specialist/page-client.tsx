@@ -30,7 +30,7 @@ export default function SocialMediaContentStrategistPage() {
   };
 
     // --- Logika Flash Sale -- -
-    const flashSaleEndDate = new Date("2026-07-17T23:59:59");
+    const flashSaleEndDate = new Date("2026-07-20T23:59:59");
     const isFlashSaleActive = new Date() < flashSaleEndDate;
     // ------------------------
 
@@ -410,7 +410,7 @@ const portfolio = [
       duration: "3 bulan pembelajaran",
       href: isFlashSaleActive 
             ? "https://grazedu.myr.id/pl/career-ready-wcl-socmed-specialist"
-            : "https://grazedu.myr.id/pl/career-ready-wcl-socmed-strategist", // Link dinamis
+            : "https://grazedu.myr.id/pl/career-ready-wcl-socmed-specialist", // Link dinamis
       isPopular: true,
       color: "from-primary to-primary-light",
       benefits: [
