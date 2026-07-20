@@ -387,17 +387,17 @@ const portfolio = [
     {
       name: "Fast-track",
       price: "Rp 329.000",
-      weeklyPrice: "Sekitar 46rb/minggu",
+      weeklyPrice: "Sekitar 10rb'an per hari",
       duration: "1 bulan pembelajaran",
       href: "https://grazedu.myr.id/pl/fast-track-wcl-socmed-specialist",
       color: "from-pink-400 to-pink-600",
       benefits: [
-        "4x sesi intensif",
-        "Akses kelas & recording material",
-        "Materi pre-learning",
-        "Community group support",
-        "Mini portfolio-project",
-        "Sertifikat Penyelesaian penyelesaian program (hanya ttd Grazedu)",
+        "4x sesi intensif bareng praktisi industri",
+            "Akses kelas & recording selamanya",
+            "Materi pre-learning",
+            "Community support sesama perempuan: no pressure & safe space",
+            "Mini portfolio-project",
+            "Sertifikat Penyelesaian penyelesaian program (hanya ttd platform)",
        
         
       ],
@@ -406,7 +406,7 @@ const portfolio = [
       name: "Career-Ready",
       price: isFlashSaleActive ? "Rp 549.000" : "Rp 549.000", // Harga dinamis
       originalPrice: isFlashSaleActive ? "Rp 699.000" : "Rp 699.000", // Harga coret dinamis
-      weeklyPrice: "Sekitar 38rb/minggu",
+      weeklyPrice: "Lebih hemat! Sekitar 6 ribuan/hari",
       duration: "3 bulan pembelajaran",
       href: isFlashSaleActive 
             ? "https://grazedu.myr.id/pl/career-ready-wcl-socmed-specialist"
@@ -414,15 +414,15 @@ const portfolio = [
       isPopular: true,
       color: "from-primary to-primary-light",
       benefits: [
-        "7x sesi intensif",  
-        "Akses kelas & recording",
-        "Materi pre-learning",
-        "Community group support",
-        "Sertifikat Penyelesaian berbasis 3 Pilar (Platform + Industry Advisor + Partner UMKM)",
-        <><strong>+Feedback tugas di setiap sesi intensif</strong></>, 
-        <><strong>+Magang 2 bulan di agensi kreatif/UMKM</strong></>,
-        <><strong>+E-course: Interview Strategy & Linkedin Optimization</strong></>, 
-        <><strong>+Konsultasi karir private dengan Career Mentor</strong></>, 
+        "7x sesi intensif bareng praktisi industri",  
+            "Akses kelas & recording selamanya",
+            "Materi pre-learning",
+            "Community support sesama perempuan: no pressure & safe space.",
+            "Pulang bawa sertifikat yang ditandatangani 3 pihak: Platform, HR Practitioner, dan Mitra Magang",
+            <><strong>+Feedback setiap tugas untuk improve skill</strong></>, 
+            <><strong>+Praktik nyata magang 2 bulan di agensi kreatif/UMKM</strong></>,
+            <><strong>+Siap interview dengan e-course Interview Strategy & LinkedIn Optimization</strong></>, 
+            <><strong>+Konsultasi arah karir 1-on-1 dengan Career Mentor</strong></>, 
       ],
     },
   ]
@@ -533,7 +533,7 @@ const portfolio = [
             <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Users className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                <span>Limited Spots</span>
+                <span>Seat Terbatas</span>
               </div>
               <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                 <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
@@ -559,18 +559,16 @@ const portfolio = [
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-8">Tentang Program</h2>
           <div className="space-y-4 text-gray-700 leading-relaxed">
-            <p>
-              Women's Career Lab (WCL) - Project Based Internship Social Media Specialist adalah program yang dirancang untuk memberdayakan perempuan muda yang ingin
-              mengembangkan karir di industri digital marketing. <span className="underline">Bidang WCL ini merupakan percabangan dari Social Media & Content Strategist yang telah berjalan 2 batch sebelumnya.</span>
-            </p>
-            <p>
-             Program ini mengkombinasikan pendekatan belajar women-centric dan teori fundamental dengan hands-on practical experience bekerja langsung dengan Mitra Magang (Agensi Kreatif dan UMKM/Startup). Cocok untuk kamu yang passionate tentang social media
-            tapi belum punya pengalaman dan portfolio.
-            </p>
+          <p>
+          Bangun portfolio pertama, kerjakan real project, dan kuasai skill yang dibutuhkan industri melalui Women's Career Lab (WCL).
+                </p>
+                <p>
+                WCL dirancang untuk perempuan yang ingin belajar lewat studi kasus hingga project-based internship bersama UMKM dan agensi kreatif, <span className="font-bold">tanpa harus terus menghabiskan waktu apply CV sana-sini hanya untuk mendapatkan pengalaman pertama.</span>
+                </p>
             <p>Terdapat 2 tipe pembelajaran yang bisa kamu pilih:</p>
             <ul className="list-disc list-inside pl-5">
               <li>Fast-track (1 bulan): 4 sesi pembelajaran intensif + mini project.</li>
-              <li>Career Ready (3 bulan): 7 sesi pembelajaran intensif + 2 bulan magang.</li>
+              <li>Career Ready (3 bulan): 7 sesi pembelajaran intensif + 2 bulan magang bersama partner UMKM/agensi kreatif.</li>
             </ul>
           </div>
         </div>
@@ -843,8 +841,8 @@ const portfolio = [
       {/* Portfolio */}
         <section className="py-16 bg-gray-50">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">PORTOFOLIO</h2>
-                <p className="text-gray-600 mb-12 text-center">Yuk, lihat real-project dari para alumni.</p>
+                <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Real Project dengan UMKM</h2>
+                <p className="text-gray-600 mb-12 text-center">Hasil kerja nyata yang bisa dibawa ke meja recruiter.</p>
                 <Carousel
                     opts={{
                         align: "start",
@@ -959,7 +957,7 @@ const portfolio = [
                      
                     </div>
                   </div>
-                  <p className="text-gray-600 mb-6 text-sm">{pkg.duration}</p>
+                  <p className="text-gray-600 mb-6 text-sm">{pkg.weeklyPrice}</p>
 
                   <a 
                     href={pkg.href}
@@ -985,6 +983,14 @@ const portfolio = [
               </div>
             ))}
           </div>
+          {/* <div className="mt-10 text-center space-y-2">
+                <p className="text-sm text-gray-500">
+                  💳 NOTE: Tersedia skema pembayaran bertahap 2x tanpa bunga untuk Career-Ready. <span className="font-semibold text-gray-700">Pembayaran awal: Rp 299.000.</span> 
+                </p>
+                <p className="text-sm text-primary font-medium">
+                  <a href="">[Klik disini]</a>
+                </p>
+          </div> */}
         </div>
       </section>
 
