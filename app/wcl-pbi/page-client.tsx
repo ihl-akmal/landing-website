@@ -484,18 +484,18 @@ const handleCardClick = () => {
                     </CardHeader>
                     <CardContent className="flex-grow">
                     <span className="inline-block px-2 py-0.5 text-xs font-semibold bg-primary text-white rounded-full mb-2">
-                          🔥 Flash Sale · Berakhir 20 Juli
+                          🔥 Tutup 24 Juli 2026
                       </span>
 
                       <div className="flex items-center gap-2">
                           <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
-                          <span className="text-lg font-bold text-primary">Rp 549.000</span>
+                          <span className="text-lg font-bold text-primary">Rp 599.000</span>
                       </div>
                       {/* <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p> */}
                   </CardContent>
-                    {/* <CardContent className="flex-grow">
-                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
-                    </CardContent> */}
+                    <CardContent className="flex-grow">
+                      <p className="text-xs font-medium text-gray-500">Tersedia skema pembayaran bertahap 2x tanpa bunga — DP <span className="font-bold">Rp 300.000.</span></p>
+                    </CardContent>
                     <CardFooter>
                         <Link href="/wcl-pbi/socmed-specialist" className="flex items-center font-bold text-primary hover:underline">
                             Lihat Detail <ArrowRight className="w-5 h-5 ml-2" />
@@ -512,18 +512,18 @@ const handleCardClick = () => {
                     </CardHeader>
                     <CardContent className="flex-grow">
                     <span className="inline-block px-2 py-0.5 text-xs font-semibold bg-primary text-white rounded-full mb-2">
-                          🔥 Flash Sale · Berakhir 20 Juli
+                          🔥 Tutup 24 Juli 2026
                       </span>
 
                       <div className="flex items-center gap-2">
                           <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
-                          <span className="text-lg font-bold text-primary">Rp 549.000</span>
+                          <span className="text-lg font-bold text-primary">Rp 599.000</span>
                       </div>
                       {/* <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p> */}
                   </CardContent>
-                    {/* <CardContent className="mt-auto">
-                      <p className="text-sm font-medium text-gray-500">Kuota terbatas · 20 peserta/batch</p>
-                    </CardContent> */}
+                    <CardContent className="mt-auto">
+                      <p className="text-xs font-medium text-gray-500">Tersedia skema pembayaran bertahap 2x tanpa bunga — DP <span className="font-bold">Rp 300.000.</span></p>
+                    </CardContent>
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/content-creator" className="flex items-center font-bold text-primary hover:underline">
                             Lihat Detail <ArrowRight className="w-5 h-5 ml-2" />

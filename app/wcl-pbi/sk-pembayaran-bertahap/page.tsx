@@ -37,9 +37,10 @@ export default function SkCommitmentFeePage() {
 
             <div>
               <h2 className="text-2xl font-bold text-gray-800 mb-4 font-poppins">2. Skema Pembayaran</h2>
+              <p className="font-bold">Biaya program keseluruhan senilai Rp599.000 yang dapat dibayar melalui 2 tahap:</p>
               <ul className="list-disc pl-6 space-y-3">
-                <li>Tahap 1: Sebesar Rp275.000 saat pendaftaran</li>
-                <li>Tahap 2: Sebesar Rp274.000 sebelum fase magang dimulai (Perkiraan akhir September).</li>
+                <li>Tahap 1: Sebesar Rp300.000 saat pendaftaran</li>
+                <li>Tahap 2: Sebesar Rp299.000 sebelum fase real-project intenship dimulai (Perkiraan akhir September).</li>
                 
                   
         
@@ -52,12 +53,12 @@ export default function SkCommitmentFeePage() {
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Seat batch 3 resmi diamankan.</li>
                 <li>Akses 7x sesi intensif.</li>
-                <li>Akses e-course: Interview Strategy & Linkedin Optimization.</li>
                 <li>Feedback tugas selama sesi intensif.</li>
               </ul>
               <p className="mt-4 font-bold">Setelah tahap 2 dibayarkan:</p>
               <ul className="list-disc pl-6 mt-2 space-y-2">
-                <li>Akses fase magang/placement di UMKM/Agency partner</li>
+                <li>Akses real-project internship di UMKM/Agency partner</li>
+                <li>Akses e-course: Interview Strategy & Linkedin Optimization.</li>
                 <li>Sertifikat penyelesaian program 3 pilar validation (Platform + HR Practitioner + Partner UMKM) dengan syarat tetap menyelesaikan program hingga akhir.</li>
                 <li>Konsultasi karir 1-on-1 dengan Career Mentor</li>
               </ul>
@@ -78,7 +79,7 @@ export default function SkCommitmentFeePage() {
               <h2 className="text-2xl font-bold text-gray-800 mb-4 font-poppins">5. Ketentuan Pembatalan</h2>
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Pembayaran tahap 1 yang sudah dibayarkan tidak dapat dikembalikan dalam kondisi apapun.</li>
-                <li>Apabila peserta tidak melunasi tahap 2 sesuai batas waktu, peserta tidak mendapat akses placement magang, sertifikat, dan konsultasi karir.</li>
+                <li>Apabila peserta tidak melunasi tahap 2 sesuai batas waktu, peserta tidak mendapat hak/akses real project internship, akses e-course, sertifkat penyelesaian program, dan konsultasi karir 1-on-1.</li>
                 <li>Grazedu berhak memberikan seat placement kepada peserta lain apabila pelunasan tidak dilakukan tepat waktu.</li>
               </ul>
             </div>
@@ -90,6 +91,7 @@ export default function SkCommitmentFeePage() {
                 <li>Setelah pembayaran berhasil, cek email untuk panduan informasi berikutnya.</li>
               </ul>
             </div>
+            <p>*Apabila telah membaca SK, silahkan kembali ke form pembayaran dan centang "Saya setuju dengan Syarat dan Ketentuan"</p>
           </div>
         </div>
       </section>

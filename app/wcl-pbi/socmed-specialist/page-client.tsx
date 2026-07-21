@@ -404,7 +404,7 @@ const portfolio = [
     },
     {
       name: "Career-Ready",
-      price: isFlashSaleActive ? "Rp 549.000" : "Rp 549.000", // Harga dinamis
+      price: isFlashSaleActive ? "Rp 599.000" : "Rp 599.000", // Harga dinamis
       originalPrice: isFlashSaleActive ? "Rp 699.000" : "Rp 699.000", // Harga coret dinamis
       weeklyPrice: "Lebih hemat! Sekitar 6 ribuan/hari",
       duration: "3 bulan pembelajaran",
@@ -983,14 +983,14 @@ const portfolio = [
               </div>
             ))}
           </div>
-          {/* <div className="mt-10 text-center space-y-2">
+          <div className="mt-10 text-center space-y-2">
                 <p className="text-sm text-gray-500">
-                  💳 NOTE: Tersedia skema pembayaran bertahap 2x tanpa bunga untuk Career-Ready. <span className="font-semibold text-gray-700">Pembayaran awal: Rp 299.000.</span> 
+                  💳 NOTE: Tersedia skema pembayaran bertahap 2x tanpa bunga untuk Career-Ready. <span className="font-semibold text-gray-700">Pembayaran awal: Rp 300.000.</span> 
                 </p>
                 <p className="text-sm text-primary font-medium">
-                  <a href="">[Klik disini]</a>
+                  <a href="https://grazedu.myr.id/pl/pembayaran-awal-womens-career-lab-batch-3" target="_blank">[Klik disini]</a>
                 </p>
-          </div> */}
+          </div>
         </div>
       </section>
 
