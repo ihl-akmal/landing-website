@@ -958,10 +958,10 @@ export default function ContentCreatorPage() {
                       <a 
                         href={pkg.href}
                         target="_blank"
-                        className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200  ${
+                        className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 opacity-50 cursor-not-allowed pointer-events-none  ${
                           pkg.isPopular
                             ? "bg-primary text-white hover:shadow-lg"
-                            : "border-2 border-primary text-primary hover:bg-primary hover:text-white"
+                            : "border-2 border-primary text-primary hover:bg-primary hover:text-white "
                         }`}
                       >
                         Amanin Seat Sekarang
@@ -981,18 +981,18 @@ export default function ContentCreatorPage() {
                 ))}
               </div>
               <div className="mt-10 text-center space-y-2">
-                <p className="text-sm text-gray-500">
+                {/* <p className="text-sm text-gray-500">
                   💳 NOTE: Tersedia skema pembayaran bertahap 2x tanpa bunga untuk Career-Ready. <span className="font-semibold text-gray-700">Pembayaran awal: Rp 300.000.</span> 
-                </p>
-                <p className="text-sm text-primary font-medium">
+                </p> */}
+                {/* <p className="text-sm text-primary font-medium">
                   <a href="https://grazedu.myr.id/pl/pembayaran-awal-womens-career-lab-batch-3" target="_blank">[Klik disini]</a>
-                </p>
+                </p> */}
               </div>
             </div>
           </section>
     
           {/* Waiting List Section */}
-          {/* <section className="bg-gray-50 py-12">
+          <section className="bg-gray-50 py-12">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-primary rounded-2xl shadow-lg p-8 flex flex-col sm:flex-row items-center gap-6">
           
@@ -1021,7 +1021,7 @@ export default function ContentCreatorPage() {
     
         </div>
       </div>
-    </section> */}
+    </section>
     
           {/* FAQ */}
           <section className="py-16 bg-white">

@@ -477,11 +477,12 @@ const handleCardClick = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             
             <Card className="relative bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
-                <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">
+                {/* <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">
                 ⚠️ Tutup hari ini, 23:59 WIB
-               </div>
+               </div> */}
                     <CardHeader>
-                        <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span>
+                        {/* <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span> */}
+                        <span className="px-3 py-1 text-sm bg-gray-700 text-white rounded-full font-semibold self-start">Ditutup </span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 3 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">Content Creator</CardTitle>
                         <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
@@ -496,9 +497,9 @@ const handleCardClick = () => {
                       <p className="text-xs text-red-600 font-medium mt-1">*Batch berikutnya baru dibuka 2027.</p>
                       {/* <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p> */}
                   </CardContent>
-                    <CardContent className="mt-auto">
+                    {/* <CardContent className="mt-auto">
                       <p className="text-xs font-medium text-gray-500">Tersedia skema pembayaran bertahap 2x tanpa bunga — DP <span className="font-bold">Rp 300.000.</span></p>
-                    </CardContent>
+                    </CardContent> */}
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/content-creator" className="flex items-center font-bold text-primary hover:underline">
                             Lihat Detail <ArrowRight className="w-5 h-5 ml-2" />
@@ -508,12 +509,13 @@ const handleCardClick = () => {
             
             <Card className="relative bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
             {/* Ribbon urgency — satu-satunya sinyal merah di card ini */}
-            <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">
+            {/* <div className="absolute -top-3 -right-3 bg-red-600 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md z-10">
                 ⚠️ Tutup hari ini, 23:59 WIB
-            </div>
+            </div> */}
 
             <CardHeader>
-                <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span>
+                {/* <span className="px-3 py-1 text-sm bg-primary text-white rounded-full font-semibold self-start">Tersedia</span> */}
+                <span className="px-3 py-1 text-sm bg-gray-700 text-white rounded-full font-semibold self-start">Ditutup </span>
                 <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 3 - Juli 2026</span>
                 <CardTitle className="text-2xl font-bold pt-4">Social Media Specialist</CardTitle>
                 <CardDescription className="text-base text-gray-600">3 bulan · Full Online</CardDescription>
@@ -527,9 +529,9 @@ const handleCardClick = () => {
                 <p className="text-xs text-red-600 font-medium mt-1">*Batch berikutnya baru dibuka 2027.</p>
             </CardContent>
 
-            <CardContent className="flex-grow">
+            {/* <CardContent className="flex-grow">
                 <p className="text-xs font-medium text-gray-500">Tersedia skema pembayaran bertahap 2x tanpa bunga — DP <span className="font-bold">Rp 300.000.</span></p>
-            </CardContent>
+            </CardContent> */}
 
             <CardFooter>
                 <Link href="/wcl-pbi/socmed-specialist" className="flex items-center font-bold text-primary hover:underline">
