@@ -59,7 +59,7 @@ export default function SkCommitmentFeePage() {
               <ul className="list-disc pl-6 mt-2 space-y-2">
                 <li>Akses real-project internship di UMKM/Agency partner</li>
                 <li>Akses e-course: Interview Strategy & Linkedin Optimization.</li>
-                <li>Sertifikat penyelesaian program 3 pilar validation (Platform + HR Practitioner + Partner UMKM) dengan syarat tetap menyelesaikan program hingga akhir.</li>
+                <li>Sertifikat penyelesaian program 3 pilar validation (Platform + HR Practitioner + Partner UMKM) dengan <b>syarat tetap menyelesaikan program hingga akhir.</b></li>
                 <li>Konsultasi karir 1-on-1 dengan Career Mentor</li>
               </ul>
             </div>
