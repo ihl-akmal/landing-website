@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
-import { ChevronDown, Heart, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
+import { ChevronDown, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
 import { Card, CardContent } from "@/components/ui/card"
 import Certificate from "@/components/Certificate"
 import {
@@ -19,7 +19,7 @@ import {
 
 export default function LnDPage() {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
-  const [activePackage, setActivePackage] = useState<"fast-track" | "career-ready">("fast-track")
+  // const [activePackage, setActivePackage] = useState<"fast-track" | "career-ready">("fast-track")
 
   const handleScroll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>, targetId: string) => {
     e.preventDefault();
@@ -38,87 +38,64 @@ export default function LnDPage() {
       const curriculum = [
         {
           week: 1,
-          title: "Content Creation Fundamental",
+          title: "Fundamental of Learning Development",
           topics: [
-            "Social Media Ecosystem", 
-            "Platform Ecosystem: Memahami perbedaan perilaku audiens di berbagai platform sosmed",
-            "Defining The Niche & USP (Unique Selling Point)", 
-             "Content Pillars",
+            "Mengenal Profesi & Career Path di Bidang HR Learning & Development", 
+            "Business Mindset dalam L&D: Mengapa Perusahaan Berinvestasi pada Learning",
+            "End-to-end Learning Development Process", 
+            "Deliverables of Learning Development: TNA Report, Learning Blueprint, Session Plan dst",
             ],
           hours: 8,
         },
         {
           week: 2,
-          title: "Workflow & Production System",
+          title: "Training Need Analysis",
           topics: [
-            "Content Workflow Step",
-            "Role Ecosystem",
-            "Revision & Feedback Handling",
-            "Brand Guideline Compliance",
-            "Project Management Tools: Spreadsheet vs Kanban Board",
+            "Business Problem vs Learning Problem: Membedakan permasalahan bisnis dengan permasalahan kompetensi yang dapat diselesaikan melalui pembelajaran",
+            "Competency Gap Analysis",
+            "Training Need Analysis",
+            "Data Collection",
+            "Prioritizing Learning Needs: Menentukan prioritas kompetensi yang perlu dikembangkan berdasarkan dampaknya terhadap tujuan bisnis.",
           ],
           hours: 8,
         },
         {
           week: 3,
-          title: "Copywriting & Storytelling",
+          title: "Curriculum Design & Learning Journey",
           topics: [
-            "The Anatomy of Hook",
-            "Storytelling Framework",
-            "Brand Voice Consistency", 
-            "Social SEO: Teknik riset kata kunci dan optimasi judul/deskripsi agar konten mudah ditemukan."],
+            "Adult Learning Principles",
+            "Learning Objective & Outcomes",
+            "Curriculum Planning", 
+            "Learning Journey",
+            "Memilih Metode Pembelajaran",
+          ],
           hours: 8,
         },
         {
           week: 4,
-          title: "Content Design",
+          title: "Learning Content & Development",
           topics: [
-            "Basic Design Principles",
-            "Typography & Layouting: Menyusun teks dan elemen visual agar informasi mudah dibaca dan dipahami.",
-            "Brand Visual Consistency: Menyesuaikan warna, tipografi, dan elemen visual sesuai identitas brand.",
-            "Canva Essentials: Memanfaatkan fitur-fitur utama Canva untuk kebutuhan desain konten",
+            "Session Plan: Menyusun alur pembelajaran yang mencakup pembukaan, aktivitas inti, refleksi, dan penutup",
+            "Learning Activities: Merancang aktivitas pembelajaran",
+            "Assessment Design",
+            "Facilitator Guide & Training Evaluation",
           ],
           hours: 8,
           
         },
         {
           week: 5,
-          title: "Video Production",
+          title: "Portfolio Building",
           topics: [
-            "Shooting Techniques",
-            "Mobile Editing Essensials: Teknik cutting, transisi, pacing video (cepat vs. lambat), dan sinkronisasi audio menggunakan CapCut.",
-            "Visual Asset Management: Cara mengatur file aset (foto/video) agar kerja tim/mandiri jadi rapi dan cepat.",
-            "Batch Production Strategy: Teknik memproduksi banyak konten dalam waktu singkat.",
+            "Project Documentation: Merangkum proses pengerjaan mulai dari Business Problem Analysis hingga Training Module menjadi satu learning project yang utuh.",
+            "Struktur Portfolio yang Memikat dan Kuat",
+            
             ],
           hours: 8,
-          isPremiumWeek: true, 
           // Simulasi Week yang digembok untuk Fast-Track
         },
         
-        {
-          week: 6,
-          title: "Content Analysis ",
-          topics: [
-            "Content Metrics",
-            "Data Driven Decision Making: Cara membaca analytics dashboard untuk menentukan konten apa yang perlu direplikasi atau dihentikan.",
-            "Distribution Strategy: Menentukan jadwal posting yang optimal berdasarkan data aktivitas audiens.",
-          ],
-          hours: 8,
-          isPremiumWeek: true, 
-        },
-        {
-          week: 7,
-          title: "Portfolio Building & Role Comparison",
-          topics: [
-            "Content Creator Career Path: Corporate, Agency, Freelance",
-            "Project Documentation: Merangkum proses pengerjaan project mulai dari research, planning, publishing, hingga performance analysis menjadi satu portfolio yang terstruktur.",
-            "Struktur Portfolio: Menyusun project ke dalam portfolio yang menarik dan relevan untuk recruiter. ",
-            "Personal Branding: Optimasi Linkedin & Social Media Profile",
-           
-          ],
-          hours: 8,
-          isPremiumWeek: true,
-        },
+        
         
       ]
     
@@ -126,24 +103,23 @@ export default function LnDPage() {
       const tools = [
         
         {
-          name: "Instagram",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg",
-          width: "w-14",
-          justImage: true
-        },
-        {
-          name: "Canva",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/Canva_logo.svg/3840px-Canva_logo.svg.png",
-          width: "w-20",
-          justImage: true
-        },
-        {
-          name: "Capcut",
-          logo: "https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Capcut-logo.svg/960px-Capcut-logo.svg.png?_=20250117193121",
+          name: "Google Docs",
+          logo: "/google-docs.svg",
           width: "w-21",
-          justImage: false,
-          // text: "NotebookLM",
-          fontStyle: "font-medium text-[16px] ml-2 text-[#5f6368]"
+          justImage: true
+        },
+        {
+          name: "Google Spreadsheet",
+          logo: "/google-spreadsheet.svg",
+          width: "w-21",
+          justImage: true
+        },
+        {
+          name: "Google Slides",
+          logo: "/google-slides.svg",
+          width: "w-21",
+          justImage: true,
+          
         },
         {
           name: "ChatGPT",
@@ -162,23 +138,9 @@ export default function LnDPage() {
           fontStyle: "font-normal text-[22px] ml-1.5 text-[#5f6368] tracking-tight"
         },
         
-        {
-          name: "Google Workspace",
-          logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5f/Google_Workspace_Logo.svg/960px-Google_Workspace_Logo.svg.png",
-          width: "w-21",
-          justImage: false,
-          // text: "Google\nWorkspace",
-          fontStyle: "font-normal text-[15px] leading-tight ml-2 text-[#5f6368] text-left"
-        },
         
-        {
-          name: "Trello",
-          logo: "https://upload.wikimedia.org/wikipedia/en/thumb/8/8c/Trello_logo.svg/250px-Trello_logo.svg.png?_=20210216184934",
-          width: "w-21",
-          justImage: false,
-          // text: "Trello",
-          fontStyle: "font-bold text-[20px] ml-2 text-[#0052CC]"
-        },
+        
+        
       ]
     
       // Learning Methods
@@ -575,68 +537,41 @@ export default function LnDPage() {
             <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-6">Kurikulum Pembelajaran</h2>
     
-              {/* Package Selector */}
-              <div className="flex bg-gray-100 p-1 rounded-xl w-fit mb-8 border border-gray-200">
-                <button
-                  onClick={() => setActivePackage("fast-track")}
-                  className={`px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 ${activePackage === "fast-track"
-                    ? "bg-primary text-white shadow-sm"
-                    : "text-gray-500 hover:text-gray-700"
-                    }`}
-                >
-                  Fast-Track
-                </button>
-                <button
-                  onClick={() => setActivePackage("career-ready")}
-                  className={`px-6 py-2.5 rounded-lg font-semibold text-sm transition-all duration-200 ${activePackage === "career-ready"
-                    ? "bg-primary text-white shadow-sm"
-                    : "text-gray-500 hover:text-gray-700"
-                    }`}
-                >
-                  Career-Ready
-                </button>
-              </div>
+              
     
               {/* Curriculum Cards */}
               <div className="space-y-4">
                 {curriculum.map((week, index) => {
-                  const isLocked = (week as any).isPremiumWeek && activePackage === "fast-track";
+                  const isLocked = false;
     
                   return (
                     <div
                       key={index}
-                      className={`bg-white rounded-xl border-2 overflow-hidden transition-all duration-300 ${isLocked ? "border-gray-200 opacity-60 bg-gray-50" : "border-gray-200 hover:border-primary"}`}
+                      className="bg-white rounded-xl border-2 border-gray-200 hover:border-primary overflow-hidden transition-all duration-300"
                     >
                       <button
-                        onClick={() => !isLocked && setOpenFaqIndex(openFaqIndex === index ? null : index)}
-                        className={`w-full px-6 py-5 flex items-center justify-between transition-colors ${isLocked ? "cursor-not-allowed" : "hover:bg-gray-50"}`}
+                        onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                        className="w-full px-6 py-5 flex items-center justify-between transition-colors hover:bg-gray-50"
                       >
                         <div className="text-left flex items-start gap-3">
-                          {isLocked && <Lock className="h-5 w-5 text-gray-500 mt-1 flex-shrink-0" />}{!isLocked && (week as any).isPremiumWeek && <span className="h-2 w-2 rounded-full bg-amber-500 mt-2 flex-shrink-0"></span>}
+                          {(week as any).isPremiumWeek && <span className="h-2 w-2 rounded-full bg-amber-500 mt-2 flex-shrink-0"></span>}
                           <div>
-                            <p className={`text-sm font-semibold mb-1 ${isLocked ? "text-gray-500" : "text-primary"}`}>Sesi {week.week}</p>
-                            <h3 className={`text-lg font-bold ${isLocked ? "text-gray-500" : "text-gray-900"}`}>{week.title}</h3>
+                            <p className="text-sm font-semibold mb-1 text-primary">Sesi {week.week}</p>
+                            <h3 className="text-lg font-bold text-gray-900">{week.title}</h3>
                           </div>
                         </div>
                         <div className="flex flex-col items-end gap-2">
-                          {isLocked && (
-                            <span className="inline-flex items-center text-[10px] font-bold text-gray-500 bg-gray-200 px-2 py-0.5 rounded-full uppercase tracking-widest whitespace-nowrap">
-                              Khusus Career-Ready
-                            </span>
-                          )}
-                          {!isLocked && (week as any).isPremiumWeek && (
+                          {(week as any).isPremiumWeek && (
                             <span className="inline-flex items-center gap-1 bg-gradient-to-r from-amber-100 to-amber-50 text-amber-700 text-[10px] font-bold px-2 py-0.5 rounded-full border border-amber-200 uppercase tracking-widest whitespace-nowrap shadow-sm mb-1">
                               ⭐ Include
                             </span>
                           )}
-                          {!isLocked && (
-                            <ChevronDown
-                              className={`h-5 w-5 flex-shrink-0 transition-transform duration-300 ${(week as any).isPremiumWeek ? "text-amber-500" : "text-primary"} ${openFaqIndex === index ? "transform rotate-180" : ""}`}
-                            />
-                          )}
+                          <ChevronDown
+                            className={`h-5 w-5 flex-shrink-0 transition-transform duration-300 ${(week as any).isPremiumWeek ? "text-amber-500" : "text-primary"} ${openFaqIndex === index ? "transform rotate-180" : ""}`}
+                          />
                         </div>
                       </button>
-                      {!isLocked && openFaqIndex === index && (
+                      {openFaqIndex === index && (
                         <div className="px-6 py-5 bg-gray-50 border-t-2 border-gray-200">
                           <div className="flex flex-col gap-4">
                             {week.topics.map((topicItem, idx) => (
