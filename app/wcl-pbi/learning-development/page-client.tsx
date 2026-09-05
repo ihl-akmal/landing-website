@@ -5,16 +5,8 @@ import Footer from "@/components/Footer"
 import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
 import { ChevronDown, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
-import { Card, CardContent } from "@/components/ui/card"
 import Certificate from "@/components/Certificate"
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-  CarouselDots
-} from "@/components/ui/carousel"
+
 
 
 export default function LnDPage() {
@@ -30,7 +22,7 @@ export default function LnDPage() {
   };
 
      // --- Logika Flash Sale -- -
-        const flashSaleEndDate = new Date("2026-07-20T23:59:59");
+        const flashSaleEndDate = new Date("2026-09-17T23:59:59");
         const isFlashSaleActive = new Date() < flashSaleEndDate;
         // ------------------------
     
@@ -171,35 +163,17 @@ export default function LnDPage() {
       // Mentors (2 people)
       const mentors = [
         {
-          name: "Calista Mataniari",
-          title: "Social Media Specialist",
-          company: "Supercool Studio Bali",
+          name: "Novilia Ayu Kusuma,S.Psi., CHRP.",
+          title: "HR Practitioner",
+          // company: "Shopee Indonesia",
           image:
-            "/calista.jpg",
-          bio: "4+ tahun pengalaman di industri kreatif yang akan membimbing kamu mempelajari content creation dari sudut pandang agensi.",
-          specialties: ["Content Writing","Content Creation","Creative Design","Copywriting","Videography"],
+            "/novilia-ayu.jpg",
+          bio: "14+ tahun berpengalaman dalam talent management yang berperan dalam pengembangan potensi serta kesiapan karir profesional peserta.",
+          specialties: ["Career Counseling & Coaching", "Linkedin & Resume Optimization","Interview Strategy"],
           label: "Expert Mentor"
         },
-        {
-          name: "Immanuella Devina",
-          title: "Social Media Officer",
-          company: "Perusahaan Media Cetak & Digital Nasional",
-          image:
-            "/devina.png",
-          bio: "3+ tahun pengalaman dalam produksi konten dan social media campaign yang akan membimbing kamu dari sudut pandang korporat.",
-          specialties: ["Content Creation","Storytelling","Video Scripting", "Voice-Over"],
-          label: "Expert Mentor"
-        },
-        // {
-        //   name: "Novilia Ayu Kusuma,S.Psi., CHRP.",
-        //   title: "HR Practitioner",
-        //   // company: "Shopee Indonesia",
-        //   image:
-        //     "/novilia-ayu.jpg",
-        //   bio: "14+ tahun berpengalaman dalam talent management yang berperan dalam pengembangan potensi serta kesiapan karir profesional peserta.",
-        //   specialties: ["Career Counseling & Coaching", "Linkedin & Resume Optimization","Interview Strategy"],
-        //   label: "Career Mentor"
-        // },
+        
+      
         {
           name: "Retno Pratiwi,S.Psi.,M.H.,CHRP.",
           title: "HR Practitioner",
@@ -208,24 +182,17 @@ export default function LnDPage() {
             "/retno-pratiwi.jpg",
           bio: "8+ tahun berpengalaman di bidang rekrutmen yang berperan dalam memvalidasi kurikulum program agar tetap relevan dan sesuai dengan standar kebutuhan industri terkini.",
           specialties: ["Career Counseling & Coaching", "Career Strategy", "Konsultan SDM"],
-          label: "Career Mentor & Industry Advisor"
+          label: "Career Mentor"
         },
       ]
     
       // Jadwal Pembelajaran
       const scheduleData = [
-        { label: "Durasi", value: "3 bulan" },
+        { label: "Durasi", value: "1 bulan" },
         { label: "Frekuensi belajar", value: "1x per minggu" },
-        { label: "Waktu kelas", value: "Setiap Jumat malam 19.30-21.30 WIB" },
-        { label: "Mulai belajar", value: "Jumat, 7 Agustus 2026" },
-        { label: "Periode belajar", 
-          value: (
-            <ul className="list-disc list-inside">
-              <li>Fast track: Agustus-September 2026</li>
-              <li>Career-Ready: Agustus-November 2026</li>
-            </ul>
-          ),
-         },
+        { label: "Waktu kelas", value: "Setiap Kamis malam 19.30-21.30 WIB" },
+        { label: "Mulai belajar", value: "Kamis, 8 Oktober 2026" },
+        
       ];
     
       // Timeline (Week by week)
@@ -238,32 +205,30 @@ export default function LnDPage() {
         {
           week: 2,
           title: "On-Boarding",
-          description: "Sesi pengenalan ekosistem belajar, serta penyelarasan ekspektasi antara peserta dan mentor.",
+          description: "Sesi pengenalan ekosistem belajar, tools, dan community rules agar setiap student dapat belajar dengan rasa aman. ",
         },
        
         {
           week: 3,
           title: "Sesi Pembelajaran Intensif",
-          description: "Rangkaian kelas interaktif yang berfokus pada pendalaman materi teknis social media.",
+          description: "Rangkaian kelas interaktif yang berfokus pada pendalaman materi.",
         },
         
         {
           week: 4,
-          title: "Initial Placement",
-          description: "Fase persiapan administratif dan pembekalan khusus sebelum peserta diterjunkan untuk menangani proyek nyata di Mitra Magang.",
+          title: "Capstone Project",
+          description: "Sesi mengimplementasikan materi yang telah dipelajari melalui study case project",
         },
-        
         {
           week: 5,
-          title: "Hands-on Practical Experience",
-          description: "Sesi mengimplementasikan materi yang telah dipelajari melalui praktik nyata di Mitra Magang.",
+          title: "Final Presentation & Graduation",
+          description: "Pemaparan hasil Capstone Project di-depan mentor untuk mendapatkan masukan improvement serta caremony penutupan program.",
         },
         {
-          week: 6,
-          title: "Final Presentation & Graduation",
-          description: "Pemaparan hasil kerja akhir sebagai bentuk validasi kompetensi, dilanjutkan dengan seremoni kelulusan dan pemberian sertifikat resmi.",
+          week: 5,
+          title: "Distribusi Sertifikat & 1-on-1 Career Consultation",
+          description: "Pemberian sertifikat completion bagi yang memenuhi standar kelulusan, diikuti dengan sesi konsultasi 1-on-1 dengan Career Mentor untuk mendapatkan guidance, peningkatan CV, maupun persiapan lainnya menuju dunia kerja.",
         },
-        
         
       ]
     
@@ -318,52 +283,16 @@ export default function LnDPage() {
         
     ];
     
-    const portfolio = [
-        {
-            title: "Kahfi Education",
-            description: "Startup bimbingan belajar mengaji berbasis hybrid yang menghadirkan pembelajaran Al-Qur’an secara menyenangkan, interaktif, dan bermakna. ",
-            image: "/finalproject1.jpg",
-            link: "https://drive.google.com/file/d/1ExjfDVH7Sv2wzuUG9ClLXmlmzNxWQSBy/view?usp=drive_open"
-        },
-        {
-            title: "Sarilaw Office",
-            description: "Konsultan hukum & auditor hukum professional yang berbasis di Bali dan telah berdiri sejak tahun 1991.",
-            image: "/finalproject2.jpg",
-            link: "https://drive.google.com/file/d/17QGM3oidtISToTs_bzltd4BQAy7N9Ea5/view"
-        },
-        {
-            title: "Ruang Eksplorasi",
-            description: "Startup yang bergerak di bidang kesehatan mental yang membantu profesional muda menghadapi burnout atau tekanan hidup.",
-            image: "/finalproject3.jpg",
-            link: "https://drive.google.com/file/d/1K9LIqlkLyCv-tMONoEYkhKX0IU6d-968/view"
-        },
-    ];
+   
     
     
       // Schedule & Pricing
       const pricingPackages = [
-        {
-          name: "Fast-track",
-          price: "Rp 329.000",
-          weeklyPrice: "Sekitar 10rb'an/hari",
-          duration: "1 bulan pembelajaran",
-          href: "https://grazedu.myr.id/pl/fast-track-wcl-content-creator",
-          color: "from-pink-400 to-pink-600",
-          benefits: [
-            "4x sesi intensif bareng praktisi industri",
-            "Akses kelas & recording selamanya",
-            "Materi pre-learning",
-            "Community support sesama perempuan: no pressure & safe space",
-            "Mini portfolio-project",
-            "Sertifikat Penyelesaian penyelesaian program (hanya ttd platform)",
-           
-            
-          ],
-        },
+        
         {
           name: "Career-Ready",
-          price: isFlashSaleActive ? "Rp 599.000" : "Rp 599.000", // Harga dinamis
-          originalPrice: isFlashSaleActive ? "Rp 699.000" : "Rp 699.000", // Harga coret dinamis
+          price: isFlashSaleActive ? "Rp 399.000" : "Rp 399.000", // Harga dinamis
+          originalPrice: isFlashSaleActive ? "Rp 599.000" : "Rp 459.000", // Harga coret dinamis
           weeklyPrice: "Lebih hemat! Sekitar 6 ribuan/hari",
           duration: "3 bulan pembelajaran",
           href: isFlashSaleActive 
@@ -372,15 +301,13 @@ export default function LnDPage() {
           isPopular: true,
           color: "from-primary to-primary-light",
           benefits: [
-            "7x sesi intensif bareng praktisi industri",  
+            "5x sesi intensif bareng Expert Mentor",  
             "Akses kelas & recording selamanya",
-            "Materi pre-learning",
+            "Industry case project untuk portfolio",
             "Community support sesama perempuan: no pressure & safe space.",
-            "Pulang bawa sertifikat yang ditandatangani 3 pihak: Platform, HR Practitioner, dan Mitra Magang",
-            <><strong>+Feedback setiap tugas untuk improve skill</strong></>, 
-            <><strong>+Praktik nyata magang 2 bulan di agensi kreatif/UMKM</strong></>,
-            <><strong>+Siap interview dengan e-course Interview Strategy & LinkedIn Optimization</strong></>, 
-            <><strong>+Konsultasi arah karir 1-on-1 dengan Career Mentor</strong></>, 
+            "Feedback setiap tugas untuk improve skill",
+            "Pendampingan karir 1-on-1 dengan Career Mentor",
+            "Sertifikat Completion",
           ],
         },
       ]
@@ -651,8 +578,8 @@ export default function LnDPage() {
           {/* Mentors */}
           <section className="py-16 bg-gray-50">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors & Advisor</h2>
-              <div className="grid md:grid-cols-3 gap-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors</h2>
+              <div className="grid md:grid-cols-2 gap-8">
                 {mentors.map((mentor, index) => (
                   <div
                     key={index}
@@ -770,7 +697,7 @@ export default function LnDPage() {
           </section> */}
     
           {/* Portfolio */}
-            <section className="py-16 bg-gray-50">
+            {/* <section className="py-16 bg-gray-50">
                 <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
                     <h2 className="text-3xl font-bold text-gray-900 mb-2 text-center">Real Project dengan UMKM</h2>
                     <p className="text-gray-600 mb-12 text-center"> Hasil kerja nyata yang bisa dibawa ke meja recruiter.</p>
@@ -808,7 +735,7 @@ export default function LnDPage() {
                         <CarouselDots />
                         </Carousel>
                 </div>
-            </section>
+            </section> */}
     
           {/* Learning Story */}
           {/* <section className="py-16 bg-white">
@@ -844,11 +771,11 @@ export default function LnDPage() {
     
           {/* Schedule & Pricing */}
           <section id="pricing" className="py-16 bg-gray-50">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">Biaya Program</h2>
-              <p className="text-gray-600 mb-12">Pilih sesuai waktu dan tujuanmu, belajar intensif 1 bulan atau langsung pengalaman magang nyata 3 bulan.</p>
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Biaya Program</h2>
+              <p className="text-gray-600 mb-12 text-center">Investasi sekali untuk jemput peluang berkali-kali.</p>
     
-              <div className="grid md:grid-cols-2 gap-8">
+              <div className="grid grid-cols-1 justify-items-center">
                 {pricingPackages.map((pkg, index) => (
                   <div
                     key={index}
@@ -860,19 +787,19 @@ export default function LnDPage() {
                   >
                     {pkg.isPopular && isFlashSaleActive ? (
                         <CountdownTimer 
-                            targetDate="2026-07-20T23:59:59"
+                            targetDate="2026-09-17T23:59:59"
                             className="bg-primary text-white text-center py-2 text-sm font-semibold"
                         />
                       ) : pkg.isPopular ? (
                         <div className="bg-primary text-white text-center py-2 text-sm font-semibold">
-                            MOST POPULAR
+                            FLASH SALE
                         </div>
                     ) : (
                     <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
                             Opsi belajar kilat & hemat (Terbatas untuk 5 orang)
                         </div>
                     )}
-                    <div className="p-8">
+                    <div className="p-8 w-full max-w-md">
                       <h3 className="text-2xl font-bold text-gray-900 mb-2">{pkg.name}</h3>
                       <div className="mb-1">
                         {(pkg as any).originalPrice && (
@@ -889,11 +816,11 @@ export default function LnDPage() {
                         </div>
                       </div>
                       <p className="text-gray-600 mb-6 text-sm">{pkg.weeklyPrice}</p>
-    
+                      {/* opacity-50 cursor-not-allowed pointer-events-none */}
                       <a 
                         href={pkg.href}
                         target="_blank"
-                        className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200 opacity-50 cursor-not-allowed pointer-events-none  ${
+                        className={`block text-center w-full py-3 rounded-lg font-semibold mb-8 transition-all duration-200   ${
                           pkg.isPopular
                             ? "bg-primary text-white hover:shadow-lg"
                             : "border-2 border-primary text-primary hover:bg-primary hover:text-white "
@@ -927,7 +854,7 @@ export default function LnDPage() {
           </section>
     
           {/* Waiting List Section */}
-          <section className="bg-gray-50 py-12">
+          {/* <section className="bg-gray-50 py-12">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="bg-primary rounded-2xl shadow-lg p-8 flex flex-col sm:flex-row items-center gap-6">
           
@@ -956,7 +883,7 @@ export default function LnDPage() {
     
         </div>
       </div>
-    </section>
+    </section> */}
     
           {/* FAQ */}
           <section className="py-16 bg-white">
