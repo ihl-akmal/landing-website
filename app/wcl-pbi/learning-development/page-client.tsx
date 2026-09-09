@@ -4,8 +4,9 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
-import { ChevronDown, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Lock, Star } from "lucide-react"
-import Certificate from "@/components/Certificate"
+import Image from "next/image";
+import { ChevronDown, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, CheckCircle2 } from "lucide-react"
+
 
 
 
@@ -29,7 +30,7 @@ export default function LnDPage() {
       // Kurikulum by Week
       const curriculum = [
         {
-          week: 1,
+          week: "Sesi 1",
           title: "Fundamental of Learning Development",
           topics: [
             "Mengenal Profesi & Career Path di Bidang HR Learning & Development", 
@@ -40,7 +41,7 @@ export default function LnDPage() {
           hours: 8,
         },
         {
-          week: 2,
+          week: "Sesi 2",
           title: "Training Need Analysis",
           topics: [
             "Business Problem vs Learning Problem: Membedakan permasalahan bisnis dengan permasalahan kompetensi yang dapat diselesaikan melalui pembelajaran",
@@ -52,7 +53,7 @@ export default function LnDPage() {
           hours: 8,
         },
         {
-          week: 3,
+          week: "Sesi 3",
           title: "Curriculum Design & Learning Journey",
           topics: [
             "Adult Learning Principles",
@@ -64,7 +65,7 @@ export default function LnDPage() {
           hours: 8,
         },
         {
-          week: 4,
+          week: "Sesi 4",
           title: "Learning Content & Development",
           topics: [
             "Session Plan: Menyusun alur pembelajaran yang mencakup pembukaan, aktivitas inti, refleksi, dan penutup",
@@ -76,18 +77,28 @@ export default function LnDPage() {
           
         },
         {
-          week: 5,
+          week: "Sesi 5",
           title: "Portfolio Building",
           topics: [
-            "Project Documentation: Merangkum proses pengerjaan mulai dari Business Problem Analysis hingga Training Module menjadi satu learning project yang utuh.",
-            "Struktur Portfolio yang Memikat dan Kuat",
+            "Cara Menyusun Struktur Portfolio yang Memikat dan Meyakinkan",
+            "Project Documentation: Belajar cara menampilkan hasil case study ke dalam format portfolio yang rapi, profesional, dan mudah dipahami oleh recruiter.",
+            
             
             ],
           hours: 8,
           // Simulasi Week yang digembok untuk Fast-Track
         },
-        
-        
+        {
+          week: "Capstone Project",
+          title: "Merancang Solusi Training dari Masalah Nyata di Lapangan",
+          topics: [
+            "Mengerjakan 1 project industry case secara end-to-end, mulai dari analisis masalah bisnis, merancang modul training, hingga menyusunnya jadi satu Case Study Report yang merangkum seluruh proses belajarmu.",
+            
+            
+            ],
+          hours: 8,
+          // Simulasi Week yang digembok untuk Fast-Track
+        },
         
       ]
     
@@ -168,20 +179,20 @@ export default function LnDPage() {
           // company: "Shopee Indonesia",
           image:
             "/novilia-ayu.jpg",
-          bio: "14+ tahun berpengalaman dalam talent management yang berperan dalam pengembangan potensi serta kesiapan karir profesional peserta.",
-          specialties: ["Career Counseling & Coaching", "Linkedin & Resume Optimization","Interview Strategy"],
+          bio: "14+ tahun berpengalaman dalam talent management & development yang akan membimbing kamu secara intensif.",
+          specialties: ["Human Capital Strategy", "Learning & Development", "Talent & Performance Management"],
           label: "Expert Mentor"
         },
         
       
         {
-          name: "Retno Pratiwi,S.Psi.,M.H.,CHRP.",
-          title: "HR Practitioner",
+          name: "Dinar Lathifah",
+          title: "GenZ Career Mentor & Top 20 LinkedIn Influencers Indonesia",
           // company: "Manufacture Industry",
           image:
-            "/retno-pratiwi.jpg",
-          bio: "8+ tahun berpengalaman di bidang rekrutmen yang berperan dalam memvalidasi kurikulum program agar tetap relevan dan sesuai dengan standar kebutuhan industri terkini.",
-          specialties: ["Career Counseling & Coaching", "Career Strategy", "Konsultan SDM"],
+            "/dinar-lathifah.jpg",
+          bio: "Career & People Development Practitioner dengan pengalaman mendampingi 5.000+ learners yang akan membantumu menyiapkan diri menuju dunia kerja.",
+          specialties: ["Career Counseling & Coaching", "Career Strategy", "Interview Strategy","CV Review"],
           label: "Career Mentor"
         },
       ]
@@ -190,8 +201,8 @@ export default function LnDPage() {
       const scheduleData = [
         { label: "Durasi", value: "1 bulan" },
         { label: "Frekuensi belajar", value: "1x per minggu" },
-        { label: "Waktu kelas", value: "Setiap Kamis malam 19.30-21.30 WIB" },
-        { label: "Mulai belajar", value: "Kamis, 8 Oktober 2026" },
+        { label: "Waktu kelas", value: "Setiap Rabu malam 19.30-21.30 WIB" },
+        { label: "Mulai belajar", value: "Rabu, 7 Oktober 2026" },
         
       ];
     
@@ -291,8 +302,8 @@ export default function LnDPage() {
         
         {
           name: "Career-Ready",
-          price: isFlashSaleActive ? "Rp 399.000" : "Rp 399.000", // Harga dinamis
-          originalPrice: isFlashSaleActive ? "Rp 599.000" : "Rp 459.000", // Harga coret dinamis
+          price: isFlashSaleActive ? "Rp 429.000" : "Rp 429.000", // Harga dinamis
+          originalPrice: isFlashSaleActive ? "Rp 549.000" : "Rp 499.000", // Harga coret dinamis
           weeklyPrice: "Lebih hemat! Sekitar 6 ribuan/hari",
           duration: "3 bulan pembelajaran",
           href: isFlashSaleActive 
@@ -410,19 +421,19 @@ export default function LnDPage() {
               {/* Title & Meta */}
               <div className="mb-10 max-w-3xl">
                 <h1 className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-white mb-6 leading-tight">
-                Mau Berkarir Sebagai HR Learning & Development Tapi Belum Punya?
+                Mau Berkarir Sebagai HR Learning & Development Tapi Belum Punya Skill dan Portfolionya?
                 </h1>
                 <p className="text-lg text-white mb-8 leading-relaxed">
-                  Mulai siapin karirmu sebagai HR Learning & Development melalui pembelajaran skill praktis yang ramah untuk pemula secara intensif disini.
+                Belajar intensif 5 sesi + studi kasus nyata dari industri. Pulang bawa 1 Case Study Report yang siap dipamerin sebagai portfolio pertamamu di bidang HR L&D.
                 </p>
                 <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
                   <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                     <Users className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                    <span>Intimate session 15 orang</span>
+                    <span>Intimate session 20 orang</span>
                   </div>
                   <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                     <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                    <span>1 Bulan</span>
+                    <span>5x sesi</span>
                   </div>
                 </div>
               </div>
@@ -445,16 +456,14 @@ export default function LnDPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Tentang Program</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-          Bangun portfolio pertama, kerjakan real project, dan kuasai skill yang dibutuhkan industri melalui Women's Career Lab (WCL).
+          Bangun portfolio pertama, kerjakan real project, dan kuasai skill yang dibutuhkan industri melalui bootcamp Women's Career Lab (WCL).
                 </p>
                 <p>
-                WCL dirancang untuk perempuan yang ingin belajar lewat studi kasus hingga project-based internship bersama UMKM dan agensi kreatif, <span className="font-bold">tanpa harus terus menghabiskan waktu apply CV sana-sini hanya untuk mendapatkan pengalaman pertama.</span>
+                Dalam 5 sesi intensif, kamu dipandu langsung menyelesaikan studi kasus dari industri. Mulai dari memahami permasalahan, menyusun analisis, sampai merumuskan solusi ala praktisi L&D. Hasil akhirnya kamu bawa pulang dalam bentuk laporan yang siap ditunjukin ke recruiter sebagai bukti kemampuanmu.
                 </p>
-            <p>Terdapat 2 tipe pembelajaran yang bisa kamu pilih:</p>
-            <ul className="list-disc list-inside pl-5">
-              <li>Fast-track (1 bulan): 4 sesi pembelajaran intensif + mini project.</li>
-              <li>Career Ready (3 bulan): 7 sesi pembelajaran intensif + 2 bulan magang bersama partner UMKM/agensi kreatif.</li>
-                </ul>
+                <p>
+                Dan yang paling penting kamu belajar bareng sesama perempuan lainnya di ruang yang safe dan saling mendukung.
+                </p>
               </div>
             </div>
           </section>
@@ -483,7 +492,7 @@ export default function LnDPage() {
                         <div className="text-left flex items-start gap-3">
                           {(week as any).isPremiumWeek && <span className="h-2 w-2 rounded-full bg-amber-500 mt-2 flex-shrink-0"></span>}
                           <div>
-                            <p className="text-sm font-semibold mb-1 text-primary">Sesi {week.week}</p>
+                            <p className="text-sm font-semibold mb-1 text-primary">{week.week}</p>
                             <h3 className="text-lg font-bold text-gray-900">{week.title}</h3>
                           </div>
                         </div>
@@ -578,8 +587,9 @@ export default function LnDPage() {
           {/* Mentors */}
           <section className="py-16 bg-gray-50">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-12">The Mentors</h2>
-              <div className="grid md:grid-cols-2 gap-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">The Mentors</h2>
+              <p className="text-gray-600 mb-12 text-left">Dibimbing langsung sama praktisi perempuan yang paham tantanganmu</p>
+              <div className="grid md:grid-cols-3 gap-8">
                 {mentors.map((mentor, index) => (
                   <div
                     key={index}
@@ -598,7 +608,7 @@ export default function LnDPage() {
                     <div className="p-6">
                       <h3 className="text-xl font-bold text-gray-900 mb-1">{mentor.name}</h3>
                       <p className="text-primary font-semibold mb-3">{mentor.title}</p>
-                      <p className="text-sm text-gray-600 mb-4">{mentor.company}</p>
+                      
                       <p className="text-gray-700 text-sm mb-4">{mentor.bio}</p>
                       <div className="flex flex-wrap gap-2">
                         {mentor.specialties.map((spec, idx) => (
@@ -619,13 +629,13 @@ export default function LnDPage() {
     
           {/* Jadwal Pembelajaran */}
           <section className="py-16 bg-gray-50">
-            <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <div className="max-w mx-auto">
                 <h2 className="text-3xl font-bold text-gray-900 mb-8 text-left">Jadwal Pembelajaran</h2>
                 <div className="border border-gray-200 rounded-xl overflow-hidden shadow-lg">
                   <div className="bg-primary text-white p-6 text-center">
-                    <h3 className="text-2xl font-bold">Content Creator</h3>
-                    <p className="opacity-90">Jadwal Batch 3 Tahun 2026</p>
+                    <h3 className="text-2xl font-bold">HR Learning & Development</h3>
+                    <p className="opacity-90">Oktober-November 2026</p>
                   </div>
                   <div className="divide-y divide-gray-200">
                     {scheduleData.map((row, index) => (
@@ -767,7 +777,45 @@ export default function LnDPage() {
             </div>
           </section> */}
 
-          <Certificate />
+          <section className="py-16 sm:py-24 bg-white">
+                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                  <div className="grid md:grid-cols-2 gap-12 items-center">
+                    <div className="space-y-4">
+                      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                        Sertifikat yang Tervalidasi
+                      </h2>
+                      <p className="text-gray-600 leading-relaxed">
+                        Sertifikat yang ditandatangani oleh Grazedu, mitra UMKM, dan Career Mentor sebagai bukti bahwa kamu telah benar-benar terverifikasi menyelesaikan program.
+                      </p>
+                      {/* Badge trust signals */}
+                      <div className="flex flex-wrap gap-3 pt-2">
+                        <div className="flex items-center gap-2 bg-primary text-white text-sm font-medium px-3 py-1.5 rounded-full">
+                          <CheckCircle2 className="w-4 h-4" />
+                          Ditandatangani 3 pihak
+                        </div>
+                        <div className="flex items-center gap-2 bg-primary text-white text-sm font-medium px-3 py-1.5 rounded-full">
+                          <CheckCircle2 className="w-4 h-4" />
+                          Bisa diverifikasi online
+                        </div>
+                        <div className="flex items-center gap-2 bg-primary text-white text-sm font-medium px-3 py-1.5 rounded-full">
+                          <CheckCircle2 className="w-4 h-4" />
+                          Diakui mitra UMKM
+                        </div>
+                      </div>
+                    </div>
+                    <div className="w-full">
+                      <div className="relative w-full aspect-[297/210] max-h-[380px] mx-auto rounded-lg shadow-2xl overflow-hidden">
+                        <Image
+                          src="/contoh-sertifikat.jpg"
+                          alt="Contoh Sertifikat"
+                          fill
+                          className="object-cover"
+                        />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </section>
     
           {/* Schedule & Pricing */}
           <section id="pricing" className="py-16 bg-gray-50">
@@ -809,13 +857,13 @@ export default function LnDPage() {
                           </p>
                         )}
                         <div className="flex items-baseline gap-2">
-                          <p className="text-2xl font-bold bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent">
+                          <p className="text-2xl font-bold bg-gradient-to-r from-primary to-pink-600 bg-clip-text text-transparent mb-6">
                             {pkg.price}
                           </p>
                          
                         </div>
                       </div>
-                      <p className="text-gray-600 mb-6 text-sm">{pkg.weeklyPrice}</p>
+                      {/* <p className="text-gray-600 mb-6 text-sm">{pkg.weeklyPrice}</p> */}
                       {/* opacity-50 cursor-not-allowed pointer-events-none */}
                       <a 
                         href={pkg.href}
