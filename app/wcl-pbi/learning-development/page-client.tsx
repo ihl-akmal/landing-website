@@ -331,33 +331,26 @@ export default function LnDPage() {
         {
           question: "Kenapa program ini berbayar?",
           answer:
-            "Karena program ini dirancang sebagai ruang belajar terkurasi dan berpendampingan, bukan magang massal. Biaya digunakan untuk memastikan kualitas materi, pendampingan mentor, kurasi UMKM, validasi sertifikat, serta pengalaman praktik yang nyata, agar peserta benar-benar belajar, bertumbuh, dan pulang dengan skill serta portofolio yang bernilai.",
+            "Karena program ini dirancang sebagai ruang belajar terkurasi dan berpendampingan. Biaya digunakan untuk memastikan kualitas materi, pendampingan mentor, validasi sertifikat, serta pengalaman project yang nyata, agar peserta benar-benar belajar, bertumbuh, dan pulang dengan skill serta portofolio yang bernilai.",
         },
         {
-          question: "Apa yang membedakan Women's Career Lab (WCL) dengan program upskilling atau bootcamp lain?",
+          question: "Apakah program ini betul diperuntukkan perempuan?",
           answer:
-            "WCL dirancang dengan pendekatan women-centric, dari cara mengajar, ritme, sampai dukungan solid sesama perempuan didalamnya. Kamu juga mendapatkan pembekalan materi dasar + internship placement untuk implementasi, sehingga menghemat waktu dan energi kamu dalam membangun portfolio pertama.",
+            "Yes, betul! Program dirancang khusus untuk perempuan, agar setiap perempuan memiliki kesempatan yang sama untuk berdaya melalui karir. ",
         },
         {
-          question: "Apa outcome dari program ini?",
+          question: "Apakah format Women's Career Lab (WCL) mirip seperti bootcamp? Jika iya, apa perbedaan dengan bootcamp lain?",
           answer:
-            "Membantu kamu untuk punya portfolio pertama di bidang content creator. Dari portfolio pertama ini, akan sangat berguna untuk kamu menjemput opportunity baru setelahnya.",
+            "Secara format, WCL mirip seperti bootacmp. Namun perbedaannya terletak pada jumlah peserta per batch yang dibuat intimate, pendekatan women-centric, dari cara mengajar, hingga ritme belajar.  Tujuannya biar kamu belajar di ruang yang lebih nyaman dan suportif, terutama kalau kamu baru mulai dari nol.",
         },
-        {
-          question: "Siapa yang layak untuk ikut program ini?",
-          answer:
-            "Fresh graduate maupun mahasiswa yang masih kesulitan dapatin portfolio pertamanya, serta IRT yang telah lama jeda karir yang ingin reskilling.",
-        },
+        
+        
         {
           question: "Apakah WCL terbuka untuk teman-teman dengan kebutuhan khusus (disabilitas)?",
           answer:
             "Terbuka ya. WCL didesain agar inklusif, termasuk untuk teman-teman dengan kebutuhan khusus. Kalau kamu butuh penyesuaian tertentu silahkan nanti setelah melakukan pendaftaran dapat menghubungi tim Grazedu agar kami dapat menyiapkan yang terbaik untuk kamu.",
         },
-        {
-          question: "Apakah untuk mengikuti program ini benar tanpa seleksi?",
-          answer:
-            "Iya betul, namun untuk menjaga kualitas program, kuota yang disediakan terbatas.",
-        },
+        
         {
           question: "Kebetulan aku punya pekerjaan/kuliah lain, kalau jadwalnya bentrok gimana?",
           answer:
@@ -370,25 +363,11 @@ export default function LnDPage() {
         },
     
         {
-          question: "Apakah materinya ramah untuk yang baru mengenal sosial media",
+          question: "Apakah materinya ramah untuk pemula?",
           answer:
             "Yaps, materinya telah di-desain ramah untuk pemula sehingga tidak menghalangi kamu untuk belajar.",
         },
-        {
-          question: "Apakah saat sesi praktik magang juga dilakukan secara online?",
-          answer:
-            "Betul banget! Semua sesi pembelajaran termasuk magang di mitra akan dilaksanakan secara online.",
-        },
-        {
-          question: "Sesi praktik magangnya ini nanti dipilihin atau bagaimana?",
-          answer:
-            "Kamu dapat menentukan sendiri sesuai minatmu berdasarkan mitra magang yang tersedia. Kamu tidak perlu repot apply CV berkali-kali dan menunggu lamaranmu diterima, karena di program ini kamu sudah pasti diterima.",
-        },
-        {
-          question: "Sertifikat penyelesaian berbasis 3 pilar itu maksudnya gimana kak?",
-          answer:
-            "Apabila kamu dinyatakan lulus pada program ini dengan standar yang telah ditetapkan, maka sertifikat penyelesaian yang akan kamu terima akan ditandatangani oleh platform (Grazedu), Industry Advisor, dan Mitra Magang. Tanda-tangan ketiganya menjadi validitas bahwa kamu benar-benar telah menyelesaikan program ini dan memiliki hasil kerja yang terbukti.",
-        },
+        
       ]
     
       return (
