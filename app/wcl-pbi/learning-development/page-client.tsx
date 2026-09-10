@@ -152,14 +152,14 @@ export default function LnDPage() {
           title: "Intimate Learning",
           icon: BookOpen,
           description:
-            "Pendekatan pembelajaran dengan jumlah peserta yang terbatas untuk menciptakan suasana lebih akrab dan memungkinkan diskusi lebih intensif.",
+            "Pendekatan pembelajaran dengan jumlah peserta yang terbatas untuk menciptakan suasana lebih dekat dan memungkinkan kamu untuk aktif tanpa merasa tenggalam.",
           color: "from-blue-400 to-blue-600",
         },
         {
           title: "Low Cognitive Load",
           icon: Gamepad2,
           description:
-            "Menyeimbangkan sesi belajar dengan melalui sesi fun games untuk menjaga kesehatan mental dan membangun engagement satu sama lain.",
+            "Ritme belajar yang ringan dan dirancang biar tetap seimbang dengan kesibukanmu sehari-hari.",
           color: "from-pink-400 to-pink-600",
         },
         {
@@ -179,9 +179,10 @@ export default function LnDPage() {
           // company: "Shopee Indonesia",
           image:
             "/novilia-ayu.jpg",
-          bio: "14+ tahun berpengalaman dalam talent management & development yang akan membimbing kamu secara intensif.",
+          bio: "14+ tahun berpengalaman dalam talent management & development yang akan membimbing kamu mendalami materi belajar secara intensif.",
           specialties: ["Human Capital Strategy", "Learning & Development", "Talent & Performance Management"],
-          label: "Expert Mentor"
+          label: "Expert Mentor",
+          imagePosition: "center 20%",
         },
         
       
@@ -192,8 +193,9 @@ export default function LnDPage() {
           image:
             "/dinar-lathifah.jpg",
           bio: "Career & People Development Practitioner dengan pengalaman mendampingi 5.000+ learners yang akan membantumu menyiapkan diri menuju dunia kerja.",
-          specialties: ["Career Counseling & Coaching", "Career Strategy", "Interview Strategy","CV Review"],
-          label: "Career Mentor"
+          specialties: ["Career Counseling & Coaching", "Interview Strategy","CV Review"],
+          label: "Career Mentor",
+          imagePosition: "center 20%",
         },
       ]
     
@@ -268,34 +270,35 @@ export default function LnDPage() {
           },
       ];
     
-      const ceritaMereka = [
-        {
-          name: "Atania Difany",
-          status: "Dulu Ditolak Berkali-kali, Akhirnya Sekarang Keterima Freelance Content Creator di Brand Skincare Nasional",
-          image: "/atania.jpeg",
-          link: "https://www.instagram.com/p/DZhdTcIERY7/?igsh=MXBpcHV0MDJuemw4NQ==",
-          badge: "Alumni WCL Batch 1"
-    },
-        {
-          name: "Naufa Zelda Aurelia",
-          status: "After Lulus WCL, Langsung Dipercaya Jadi Salah Satu PIC Sosmed Event Kampus dan Berhasil Raih 250+ Peserta",
-          image: "/naufazelda.jpeg",
-          link: "https://www.instagram.com/p/DZ9y2RrEQZB/?igsh=MTU1eWNiM2V6ejFscg==",
-          badge: "Alumni WCL Batch 1"
-      },
-      {
-        name: "Mutiara Mathari",
-        status: "Dari IRT Penuh Waktu, Sekarang Dipercaya Pegang 2 Remote Jobs",
-        image: "/mutiara-mathari.jpeg",
-        link: "https://www.instagram.com/p/DaAXLl8EeJ6/?igsh=MWJvejZleGwyZzdiaA==",
-        badge: "Alumni WCL Batch 1"
-    },
-        
-        
-    ];
+      
     
    
-    
+    const COMMUNITY_PHOTOS = [
+      {
+        src: "https://picsum.photos/seed/wcl1/400/500",
+        alt: "Sesi belajar WCL",
+        className: "w-[30%]",
+        aspect: "aspect-[4/5]",
+        rotate: -6,
+        z: 1,
+      },
+      {
+        src: "https://picsum.photos/seed/wcl2/500/350",
+        alt: "Sesi belajar WCL",
+        className: "w-[38%] -mx-2 sm:-mx-4 mb-[6%]",
+        aspect: "aspect-[3/2]",
+        rotate: 3,
+        z: 1,
+      },
+      {
+        src: "https://picsum.photos/seed/wcl3/400/500",
+        alt: "Sesi belajar WCL",
+        className: "w-[26%] self-start mt-[-5%]",
+        aspect: "aspect-[4/5]",
+        rotate: -3,
+        z: 2,
+      },
+    ];
     
       // Schedule & Pricing
       const pricingPackages = [
@@ -456,15 +459,35 @@ export default function LnDPage() {
               <h2 className="text-3xl font-bold text-gray-900 mb-8">Tentang Program</h2>
               <div className="space-y-4 text-gray-700 leading-relaxed">
               <p>
-          Bangun portfolio pertama, kerjakan real project, dan kuasai skill yang dibutuhkan industri melalui bootcamp Women's Career Lab (WCL).
+              Kuasai skill dasar HR Learning & Development lewat studi kasus industri nyata melalui Women's Career Lab (WCL).
                 </p>
                 <p>
-                Dalam 5 sesi intensif, kamu dipandu langsung menyelesaikan studi kasus dari industri. Mulai dari memahami permasalahan, menyusun analisis, sampai merumuskan solusi ala praktisi L&D. Hasil akhirnya kamu bawa pulang dalam bentuk laporan yang siap ditunjukin ke recruiter sebagai bukti kemampuanmu.
+                Kamu akan dipandu langsung sama Expert Mentor yang sudah berpengalaman belasan tahun di bidang ini. Outputnya kamu bawa pulang industry case project yang bisa kamu taruh di portfolio dan siap ditunjukin ke recruiter sebagai bukti kemampuanmu.
                 </p>
                 <p>
-                Dan yang paling penting kamu belajar bareng sesama perempuan lainnya di ruang yang safe dan saling mendukung.
+                <span className="font-bold">Dan yang paling penting kamu belajar bareng sesama perempuan lainnya di ruang yang aman dan saling mendukung.</span>
                 </p>
               </div>
+              
+              {/* Community Photo Collage */}
+{/* Desainer: ganti src di array COMMUNITY_PHOTOS. Foto 1 & 3 rasio 4:5 (portrait), foto 2 rasio 3:2 (landscape). Frame, shadow, rotate otomatis dari code. */}
+                <div className="w-full mt-12">
+                  <div className="flex items-end justify-between gap-3 sm:gap-5">
+                    {COMMUNITY_PHOTOS.map((photo, i) => (
+                      <div
+                        key={i}
+                        className={`relative bg-white border border-gray-200 rounded-lg shadow-md p-1.5 pb-3.5 ${photo.className}`}
+                        style={{ transform: `rotate(${photo.rotate}deg)`, zIndex: photo.z }}
+                      >
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          className={`w-full object-cover rounded ${photo.aspect}`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
             </div>
           </section>
     
@@ -589,14 +612,14 @@ export default function LnDPage() {
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
               <h2 className="text-3xl font-bold text-gray-900 mb-4">The Mentors</h2>
               <p className="text-gray-600 mb-12 text-left">Dibimbing langsung sama praktisi perempuan yang paham tantanganmu</p>
-              <div className="grid md:grid-cols-3 gap-8">
+              <div className="grid md:grid-cols-2 gap-8">
                 {mentors.map((mentor, index) => (
                   <div
                     key={index}
                     className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300"
                   >
                     <div className="relative w-full h-64 bg-gray-100">
-                      <img src={(mentor as any).image || "/placeholder.svg"} alt={(mentor as any).name} className="w-full h-full object-cover" />
+                      <img src={(mentor as any).image || "/placeholder.svg"} alt={(mentor as any).name} className="w-full h-full object-cover" style={{ objectPosition: (mentor as any).imagePosition || "center" }}/>
                       {(mentor as any).label && (
                         <div className="absolute top-4 right-4">
                           <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
@@ -777,50 +800,42 @@ export default function LnDPage() {
             </div>
           </section> */}
 
-          <section className="py-16 sm:py-24 bg-white">
-                <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                  <div className="grid md:grid-cols-2 gap-12 items-center">
-                    <div className="space-y-4">
-                      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                        Sertifikat yang Tervalidasi
-                      </h2>
-                      <p className="text-gray-600 leading-relaxed">
-                        Sertifikat yang ditandatangani oleh Grazedu, mitra UMKM, dan Career Mentor sebagai bukti bahwa kamu telah benar-benar terverifikasi menyelesaikan program.
-                      </p>
-                      {/* Badge trust signals */}
-                      <div className="flex flex-wrap gap-3 pt-2">
-                        <div className="flex items-center gap-2 bg-primary text-white text-sm font-medium px-3 py-1.5 rounded-full">
-                          <CheckCircle2 className="w-4 h-4" />
-                          Ditandatangani 3 pihak
-                        </div>
-                        <div className="flex items-center gap-2 bg-primary text-white text-sm font-medium px-3 py-1.5 rounded-full">
-                          <CheckCircle2 className="w-4 h-4" />
-                          Bisa diverifikasi online
-                        </div>
-                        <div className="flex items-center gap-2 bg-primary text-white text-sm font-medium px-3 py-1.5 rounded-full">
-                          <CheckCircle2 className="w-4 h-4" />
-                          Diakui mitra UMKM
-                        </div>
-                      </div>
-                    </div>
-                    <div className="w-full">
-                      <div className="relative w-full aspect-[297/210] max-h-[380px] mx-auto rounded-lg shadow-2xl overflow-hidden">
-                        <Image
-                          src="/contoh-sertifikat.jpg"
-                          alt="Contoh Sertifikat"
-                          fill
-                          className="object-cover"
-                        />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </section>
+<section className="py-16 sm:py-24 bg-white">
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="text-left max-w-3xl mb-12">
+      <h2 className="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl mb-4">
+        Sertifikat yang Bisa Kamu Lampirkan di CV
+      </h2>
+      <p className="text-gray-600 leading-relaxed">
+      Sertifikat dilengkapi final score tiap unit kompetensi yang telah terverifikasi dan valid melalui website Grazedu.
+      </p>
+    </div>
+
+    <div className="grid md:grid-cols-2 gap-8">
+      <div className="relative w-full aspect-[297/210] rounded-lg shadow-2xl overflow-hidden">
+        <Image
+          src="/ex-sertifwcl-lnd.jpg"
+          alt="Contoh Sertifikat - Halaman Depan"
+          fill
+          className="object-cover"
+        />
+      </div>
+      <div className="relative w-full aspect-[297/210] rounded-lg shadow-2xl overflow-hidden">
+        <Image
+          src="/ex-sertifwcl-lnd-competency.jpg"
+          alt="Contoh Sertifikat - Transkrip Kompetensi"
+          fill
+          className="object-cover"
+        />
+      </div>
+    </div>
+  </div>
+</section>
     
           {/* Schedule & Pricing */}
           <section id="pricing" className="py-16 bg-gray-50">
             <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 ">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Biaya Program</h2>
+              <h2 className="text-3xl font-bold text-gray-900 mb-4 text-center">Investasi Program</h2>
               <p className="text-gray-600 mb-12 text-center">Investasi sekali untuk jemput peluang berkali-kali.</p>
     
               <div className="grid grid-cols-1 justify-items-center">
