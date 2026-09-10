@@ -275,28 +275,28 @@ export default function LnDPage() {
    
     const COMMUNITY_PHOTOS = [
       {
-        src: "https://picsum.photos/seed/wcl1/400/500",
+        src: "/cuplikan-wcl.png",
         alt: "Sesi belajar WCL",
-        className: "w-[30%]",
+        className: "w-[26%] md:w-[30%]",
         aspect: "aspect-[4/5]",
         rotate: -6,
         z: 1,
       },
       {
-        src: "https://picsum.photos/seed/wcl2/500/350",
+        src: "/wcl-session.png",
         alt: "Sesi belajar WCL",
-        className: "w-[38%] -mx-2 sm:-mx-4 mb-[6%]",
+        className: "w-[58%] md:w-[42%] -mx-4 sm:-mx-6 md:-mx-4 mb-[6%] md:mb-[6%]",
         aspect: "aspect-[3/2]",
-        rotate: 3,
-        z: 1,
+        rotate: 6,
+        z: 3,
       },
       {
         src: "https://picsum.photos/seed/wcl3/400/500",
         alt: "Sesi belajar WCL",
-        className: "w-[26%] self-start mt-[-5%]",
+        className: "w-[20%] md:w-[22%] self-start mt-[-5%]",
         aspect: "aspect-[4/5]",
         rotate: -3,
-        z: 2,
+    z: 2,
       },
     ];
     
