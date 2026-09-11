@@ -23,7 +23,7 @@ export default function LnDPage() {
   };
 
      // --- Logika Flash Sale -- -
-        const flashSaleEndDate = new Date("2026-09-17T23:59:59");
+        const flashSaleEndDate = new Date("2026-09-18T23:59:59");
         const isFlashSaleActive = new Date() < flashSaleEndDate;
         // ------------------------
     
@@ -193,7 +193,7 @@ export default function LnDPage() {
           image:
             "/dinar-lathifah.jpg",
           bio: "Career & People Development Practitioner dengan pengalaman mendampingi 5.000+ learners yang akan membantumu menyiapkan diri menuju dunia kerja.",
-          specialties: ["Career Counseling & Coaching", "Interview Strategy","CV Review"],
+          specialties: ["Career Coaching","Linkedin Profile Optimization", "Interview Strategy","CV Review"],
           label: "Career Mentor",
           imagePosition: "center 20%",
         },
@@ -310,8 +310,8 @@ export default function LnDPage() {
           weeklyPrice: "Lebih hemat! Sekitar 6 ribuan/hari",
           duration: "3 bulan pembelajaran",
           href: isFlashSaleActive 
-                ? "https://grazedu.myr.id/pl/career-ready-content-creator"
-                : "https://grazedu.myr.id/pl/career-ready-content-creator", // Link dinamis
+                ? "https://grazedu.myr.id/pl/wcl-learning-dev"
+                : "https://grazedu.myr.id/pl/wcl-learning-dev", // Link dinamis
           isPopular: true,
           color: "from-primary to-primary-light",
           benefits: [
@@ -320,7 +320,7 @@ export default function LnDPage() {
             "Industry case project untuk portfolio",
             "Community support sesama perempuan: no pressure & safe space.",
             "Feedback setiap tugas untuk improve skill",
-            "Pendampingan karir 1-on-1 dengan Career Mentor",
+            "Pendampingan karir 1-on-1 dengan Career Mentor untuk membantu kamu menyiapkan apply magang/kerja",
             "Sertifikat Completion",
           ],
         },
@@ -411,7 +411,7 @@ export default function LnDPage() {
                 <div className="flex items-center gap-3 sm:gap-6 text-gray-300 font-medium text-xs sm:text-base">
                   <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                     <Users className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
-                    <span>Intimate session 20 orang</span>
+                    <span>Intimate session</span>
                   </div>
                   <div className="flex items-center gap-1.5 sm:gap-2 bg-white/5 backdrop-blur-sm border border-white/10 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full whitespace-nowrap">
                     <Calendar className="h-4 w-4 sm:h-5 sm:w-5 text-pink-400 flex-shrink-0" />
@@ -441,7 +441,7 @@ export default function LnDPage() {
               Kuasai skill dasar HR Learning & Development lewat studi kasus industri nyata melalui Women's Career Lab (WCL).
                 </p>
                 <p>
-                Kamu akan dipandu langsung sama Expert Mentor yang sudah berpengalaman belasan tahun di bidang ini. Outputnya kamu bawa pulang industry case project yang bisa kamu taruh di portfolio dan siap ditunjukin ke recruiter sebagai bukti kemampuanmu.
+                Kamu akan dipandu langsung sama Expert Mentor yang sudah berpengalaman belasan tahun sebagai Human Capital Development. Outputnya kamu bawa pulang industry case project yang bisa kamu taruh di portfolio dan siap ditunjukin ke recruiter sebagai bukti kemampuanmu.
                 </p>
                 <p>
                 <span className="font-bold">Dan yang paling penting kamu belajar bareng sesama perempuan lainnya di ruang yang aman dan saling mendukung.</span>
@@ -829,7 +829,7 @@ export default function LnDPage() {
                   >
                     {pkg.isPopular && isFlashSaleActive ? (
                         <CountdownTimer 
-                            targetDate="2026-09-17T23:59:59"
+                            targetDate="2026-09-18T23:59:59"
                             className="bg-primary text-white text-center py-2 text-sm font-semibold"
                         />
                       ) : pkg.isPopular ? (
