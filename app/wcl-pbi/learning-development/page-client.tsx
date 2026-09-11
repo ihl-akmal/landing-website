@@ -291,7 +291,7 @@ export default function LnDPage() {
         z: 3,
       },
       {
-        src: "https://picsum.photos/seed/wcl3/400/500",
+        src: "/hero-wcl.png",
         alt: "Sesi belajar WCL",
         className: "w-[20%] md:w-[22%] self-start mt-[-5%]",
         aspect: "aspect-[4/5]",
