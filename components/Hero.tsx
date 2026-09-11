@@ -39,27 +39,27 @@ const Hero = () => {
           >
             <div className="space-y-4 sm:space-y-6">
               {/* Cute badge - responsive */}
-              <div
+              {/* <div
                 className={`inline-flex items-center gap-2 bg-gradient-to-r from-primary/10 to-pink-100 px-3 sm:px-4 py-2 rounded-full border border-primary/20 transition-all duration-1000 delay-200 mt-4 sm:mt-8 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-5"
                 }`}
               >
                 <Sparkles className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
-                <span className="text-xs sm:text-sm font-medium text-primary">Platform Khusus Perempuan Hebat</span>
+                <span className="text-xs sm:text-sm font-medium text-primary">Saatnya Jadi Perempuan Berdaya</span>
                 <Heart className="h-3 w-3 sm:h-4 sm:w-4 text-primary" />
-              </div>
+              </div> */}
 
               <h1
                 className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-poppins transition-all duration-1000 delay-300 ${
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
               >
-                <span className="text-gray-800">Wujudkan</span>
+                <span className="text-gray-800">Titik 0 KM</span>
                 <br />
-                <span className="text-gray-800">Impianmu,</span>
+                <span className="text-gray-800">Perempuan</span>
                 <br />
                 <span className="bg-gradient-to-r from-primary to-primary-light bg-clip-text text-transparent">
-                  {"Karena Kamu Istimewa! ✨"}
+                  {"Menyiapkan Karir Pertamanya ✨"}
                 </span>
               </h1>
 
@@ -68,8 +68,7 @@ const Hero = () => {
                   isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
                 }`}
               >
-                Platform pengembangan diri untuk perempuan muda yang ingin mengembangkan potensi terbaiknya dalam karir
-                professional maupun pertumbuhan pribadi <b>#KarenaPerempuanJugaBisa</b> 💪
+                Ngga ada portfolio, ngga ada pengalaman, ngga apa-apa. Disini, kita temenin kamu buat buat belajar dari nol sampai kamu percaya diri <span className="font-bold">#KarenaPerempuanJugaBisa💪</span>
               </p>
             </div>
 
