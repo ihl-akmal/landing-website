@@ -5,7 +5,7 @@ import Footer from "@/components/Footer"
 import CountdownTimer from "@/components/general/CountdownTimer"
 import { useState } from "react"
 import Image from "next/image";
-import { ChevronDown, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, CheckCircle2 } from "lucide-react"
+import { ChevronDown, Gamepad2, CheckCircle, Users, BookOpen, Zap, MessageSquare, Calendar, Instagram, Linkedin} from "lucide-react"
 
 
 
@@ -179,24 +179,39 @@ export default function LnDPage() {
           // company: "Shopee Indonesia",
           image:
             "/novilia-ayu.jpg",
-          bio: "14+ tahun berpengalaman dalam talent management & development yang akan membimbing kamu mendalami materi belajar secara intensif.",
+          bio: "14+ tahun berkecimpung di dunia Human Capital, dengan pengalaman menghadapi berbagai ratusan kasus, tantangan, dan dinamika dibaliknya. Dapatkan semua ilmunya untuk membantumu berkembang menjadi professional L&D hanya dalam 5 sesi belajar.",
           specialties: ["Human Capital Strategy", "Learning & Development", "Talent & Performance Management"],
           label: "Expert Mentor",
           imagePosition: "center 20%",
+          achievements: [
+            { title: "", description: "Merancang Organization Development & Learning Strategy 1.500+ karyawan di perusahaan infrastruktur telekomunikasi nasional." },
+            { title: "", description: "Mengelola program Employee Engagement dan meraih Engagement Score 96%." },
+            { title: "", description: "Dipercaya mengelola investasi Learning & Development senilai miliaran rupiah untuk untuk membangun kapabilitas SDM perusahaan." },
+          ],
+          instagram :"https://instagram.com/ayunovilia",
+          linkedin: "https://www.linkedin.com/in/novilia-ayu-kusuma-chrp-b669a669/",
         },
         
       
         {
-          name: "Dinar Lathifah",
-          title: "GenZ Career Mentor & Top 20 LinkedIn Influencers Indonesia",
+          name: "Dinar Lathifah, S.A.B, CPS, CDTEE",
+          title: "GenZ Career Mentor",
           // company: "Manufacture Industry",
           image:
             "/dinar-lathifah.jpg",
-          bio: "Career & People Development Practitioner dengan pengalaman mendampingi 5.000+ learners yang akan membantumu menyiapkan diri menuju dunia kerja.",
+          bio: "Career & People Development Practitioner dengan pengalaman mendampingi 5.000+ learners yang akan membantumu menavigasi arah karir lebih percaya diri dan bermakna.",
           specialties: ["Career Coaching","Linkedin Profile Optimization", "Interview Strategy","CV Review"],
           label: "Career Mentor",
           imagePosition: "center 20%",
+          achievements: [
+            { title: "", description: "Top 20 LinkedIn Influencers Indonesia yang aktif membekali GenZ dalam hal persiapan karir melalui konten yang relatable dan actionable." },
+            { title: "", description: "Top 10 Voices in HR, Leadership & People Strategy in Indonesia 2026" },
+            { title: "", description: "Linkedin score 86/100 dengan 22k+ followers di Linkedin" },
+          ],
+          instagram :"https://instagram.com/dinarlala",
+          linkedin: "https://www.linkedin.com/in/dinar-lathifah/",
         },
+        
       ]
     
       // Jadwal Pembelajaran
@@ -441,7 +456,7 @@ export default function LnDPage() {
               Kuasai skill dasar HR Learning & Development lewat studi kasus industri nyata melalui Women's Career Lab (WCL).
                 </p>
                 <p>
-                Kamu akan dipandu langsung sama Expert Mentor yang sudah berpengalaman belasan tahun sebagai Human Capital Development. Outputnya kamu bawa pulang industry case project yang bisa kamu taruh di portfolio dan siap ditunjukin ke recruiter sebagai bukti kemampuanmu.
+                Kamu akan dipandu langsung sama Expert Mentor dengan berpengalaman lebih dari 14 tahun yang sudah melewati ratusan situasi, keputusan, keberhasilan,kegagalan, dan pembelajaran yang akan memberimu perspektif yang kaya untuk memulai merintis karir sebagai Learning & Development dari nol.
                 </p>
                 <p>
                 <span className="font-bold">Dan yang paling penting kamu belajar bareng sesama perempuan lainnya di ruang yang aman dan saling mendukung.</span>
@@ -588,46 +603,98 @@ export default function LnDPage() {
     
           {/* Mentors */}
           <section className="py-16 bg-gray-50">
-            <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-              <h2 className="text-3xl font-bold text-gray-900 mb-4">The Mentors</h2>
-              <p className="text-gray-600 mb-12 text-left">Dibimbing langsung sama praktisi perempuan yang paham tantanganmu</p>
-              <div className="grid md:grid-cols-2 gap-8">
-                {mentors.map((mentor, index) => (
-                  <div
-                    key={index}
-                    className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300"
-                  >
-                    <div className="relative w-full h-64 bg-gray-100">
-                      <img src={(mentor as any).image || "/placeholder.svg"} alt={(mentor as any).name} className="w-full h-full object-cover" style={{ objectPosition: (mentor as any).imagePosition || "center" }}/>
-                      {(mentor as any).label && (
-                        <div className="absolute top-4 right-4">
-                          <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
-                            {(mentor as any).label}
-                          </span>
-                        </div>
-                      )}
-                    </div>
-                    <div className="p-6">
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">{mentor.name}</h3>
-                      <p className="text-primary font-semibold mb-3">{mentor.title}</p>
-                      
-                      <p className="text-gray-700 text-sm mb-4">{mentor.bio}</p>
-                      <div className="flex flex-wrap gap-2">
-                        {mentor.specialties.map((spec, idx) => (
-                          <span
-                            key={idx}
-                            className="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full"
-                          >
-                            {spec}
-                          </span>
-                        ))}
-                      </div>
+  <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+    <h2 className="text-3xl font-bold text-gray-900 mb-4">The Mentors</h2>
+    <p className="text-gray-600 mb-12 text-left">Dibimbing langsung sama praktisi perempuan yang siap bantu kamu grow.</p>
+    <div className="grid gap-8">
+      {mentors.map((mentor, index) => (
+        <div
+          key={index}
+          className="bg-white rounded-xl overflow-hidden border border-gray-200 hover:shadow-lg transition-all duration-300 flex flex-col md:flex-row"
+        >
+          {/* Kolom kiri: foto */}
+          <div className="relative w-full md:w-64 h-64 md:h-auto flex-shrink-0 bg-gray-100">
+            <img
+              src={(mentor as any).image || "/placeholder.svg"}
+              alt={(mentor as any).name}
+              className="w-full h-full object-cover"
+              style={{ objectPosition: (mentor as any).imagePosition || "center" }}
+            />
+            {(mentor as any).label && (
+              <div className="absolute top-4 right-4">
+                <span className="bg-primary text-white text-xs font-semibold px-3 py-1.5 rounded-full shadow-md">
+                  {(mentor as any).label}
+                </span>
+              </div>
+            )}
+          </div>
+
+          {/* Kolom kanan: deskripsi & pencapaian */}
+          <div className="p-6 flex-1">
+            <h3 className="text-xl font-bold text-gray-900 mb-1">{mentor.name}</h3>
+            <p className="text-primary font-semibold mb-3">{mentor.title}</p>
+
+            <p className="text-gray-700 text-sm mb-4">{mentor.bio}</p>
+
+            <div className="flex flex-wrap gap-2 mb-4">
+              {mentor.specialties.map((spec, idx) => (
+                <span
+                  key={idx}
+                  className="bg-primary/10 text-primary text-xs font-semibold px-3 py-1 rounded-full"
+                >
+                  {spec}
+                </span>
+              ))}
+            </div>
+
+            {(mentor as any).achievements && (mentor as any).achievements.length > 0 && (
+              <div className="space-y-3 pt-4 border-t border-gray-100">
+                <p className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-3">
+                  Pencapaian
+                </p>
+                {(mentor as any).achievements.map((item: any, idx: number) => (
+                  <div key={idx} className="flex gap-2">
+                    <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
+                    <div>
+                      <p className="text-sm font-semibold text-gray-900">{item.title}</p>
+                      <p className="text-sm text-gray-600">{item.description}</p>
                     </div>
                   </div>
                 ))}
               </div>
-            </div>
-          </section>
+            )}
+            {((mentor as any).instagram || (mentor as any).linkedin) && (
+              <div className="flex gap-3 mt-4 pt-4">
+                {(mentor as any).instagram && (
+                  <a
+                    href={(mentor as any).instagram}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    aria-label={`Instagram ${mentor.name}`}
+                  >
+                    <Instagram className="w-4 h-4" />
+                  </a>
+                )}
+                {(mentor as any).linkedin && (
+                  <a
+                    href={(mentor as any).linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-9 h-9 flex items-center justify-center rounded-full bg-primary/10 text-primary hover:bg-primary hover:text-white transition-colors"
+                    aria-label={`LinkedIn ${mentor.name}`}
+                  >
+                    <Linkedin className="w-4 h-4" />
+                  </a>
+                )}
+              </div>
+            )}          
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
     
           {/* Jadwal Pembelajaran */}
           <section className="py-16 bg-gray-50">
