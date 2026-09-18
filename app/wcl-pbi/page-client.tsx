@@ -486,7 +486,7 @@ const handleCardClick = () => {
                     <CardContent className="mt-auto">
                       
                     <span className="text-sm text-gray-400 line-through">Rp 549.000</span>
-                    <span className="text-lg font-bold text-primary"> Rp 429.000</span>
+                    <span className="text-lg font-bold text-primary"> Rp 489.000</span>
                     </CardContent>
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/learning-development" className="flex items-center font-bold text-primary hover:underline">

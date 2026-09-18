@@ -320,13 +320,13 @@ export default function LnDPage() {
         
         {
           name: "Career-Ready",
-          price: isFlashSaleActive ? "Rp 429.000" : "Rp 429.000", // Harga dinamis
-          originalPrice: isFlashSaleActive ? "Rp 549.000" : "Rp 499.000", // Harga coret dinamis
+          price: isFlashSaleActive ? "Rp 549.000" : "Rp 489.000", // Harga dinamis
+          originalPrice: isFlashSaleActive ? "Rp 549.000" : "Rp 549.000", // Harga coret dinamis
           weeklyPrice: "Lebih hemat! Sekitar 6 ribuan/hari",
           duration: "3 bulan pembelajaran",
           href: isFlashSaleActive 
                 ? "https://grazedu.myr.id/pl/wcl-learning-dev"
-                : "https://grazedu.myr.id/pl/wcl-learning-dev", // Link dinamis
+                : "https://grazedu.myr.id/pl/wcl-learning-dev-last-call", // Link dinamis
           isPopular: true,
           color: "from-primary to-primary-light",
           benefits: [
@@ -901,7 +901,7 @@ export default function LnDPage() {
                         />
                       ) : pkg.isPopular ? (
                         <div className="bg-primary text-white text-center py-2 text-sm font-semibold">
-                            FLASH SALE
+                            LAST CALL UNTUK 2 SEAT TERAKHIR!
                         </div>
                     ) : (
                     <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
@@ -935,7 +935,7 @@ export default function LnDPage() {
                             : "border-2 border-primary text-primary hover:bg-primary hover:text-white "
                         }`}
                       >
-                        Amanin Seat Sekarang
+                        Amanin Seat Terakhir
                       </a>
                       
     
