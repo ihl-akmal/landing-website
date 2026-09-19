@@ -326,7 +326,7 @@ export default function LnDPage() {
           duration: "3 bulan pembelajaran",
           href: isFlashSaleActive 
                 ? "https://grazedu.myr.id/pl/wcl-learning-dev"
-                : "https://grazedu.myr.id/pl/wcl-learning-dev-last-call", // Link dinamis
+                : "https://grazedu.myr.id/pl/last-call-wcl-hr-learning-development", // Link dinamis
           isPopular: true,
           color: "from-primary to-primary-light",
           benefits: [
@@ -901,7 +901,7 @@ export default function LnDPage() {
                         />
                       ) : pkg.isPopular ? (
                         <div className="bg-primary text-white text-center py-2 text-sm font-semibold">
-                            LAST CALL UNTUK 2 SEAT TERAKHIR!
+                            LAST CALL UNTUK 1 SEAT TERAKHIR!
                         </div>
                     ) : (
                     <div className="bg-gray-500 text-white text-center py-2 text-sm font-semibold">
