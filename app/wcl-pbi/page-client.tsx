@@ -478,19 +478,23 @@ const handleCardClick = () => {
             
             <Card className="bg-white border-2 border-primary shadow-lg text-left hover:scale-105 transition-transform flex flex-col">
                     <CardHeader>
-                        <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span>
+                        {/* <span className="px-3 py-1 text-sm bg-green-100 text-green-800 rounded-full font-semibold self-start">New</span> */}
+                        <span className="px-3 py-1 text-sm bg-gray-700 text-white rounded-full font-semibold self-start">Ditutup </span>
                         <span className="px-3 py-1 text-sm bg-pink-50 text-primary border border-primary/30 rounded-full font-medium self-start">Batch 1 - Juli 2026</span>
                         <CardTitle className="text-2xl font-bold pt-4">HR Learning & Development</CardTitle>
                         <CardDescription className="text-base text-gray-600">5x sesi · Industry Case Project</CardDescription>
                     </CardHeader>
                     <CardContent className="mt-auto">
                       
-                    <span className="text-sm text-gray-400 line-through">Rp 549.000</span>
-                    <span className="text-lg font-bold text-primary"> Rp 489.000</span>
+                    <div className="flex items-center gap-2">
+                          <span className="text-sm text-gray-400 line-through">Rp 549.000</span>
+                          <span className="text-lg font-bold text-primary">Rp 489.000</span>
+                      </div>
+                      <p className="text-xs text-red-600 font-medium mt-1">*Batch berikutnya dibuka awal 2027.</p>
                     </CardContent>
                     <CardFooter className="mt-auto">
                         <Link href="/wcl-pbi/learning-development" className="flex items-center font-bold text-primary hover:underline">
-                            Lihat detail <ArrowRight className="w-5 h-5 ml-2" />
+                            Join Waiting List <ArrowRight className="w-5 h-5 ml-2" />
                         </Link>
                     </CardFooter>
                 </Card>
@@ -513,7 +517,7 @@ const handleCardClick = () => {
                           <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
                           <span className="text-lg font-bold text-primary">Rp 599.000</span>
                       </div>
-                      <p className="text-xs text-red-600 font-medium mt-1">*Batch berikutnya baru dibuka 2027.</p>
+                      <p className="text-xs text-red-600 font-medium mt-1">*Batch berikutnya dibuka awal 2027.</p>
                       {/* <p className="text-xs text-gray-500 mt-1">*Berakhir 20 Juli atau seat penuh.</p> */}
                   </CardContent>
                     {/* <CardContent className="mt-auto">
@@ -545,7 +549,7 @@ const handleCardClick = () => {
                     <span className="text-sm text-gray-400 line-through">Rp 699.000</span>
                     <span className="text-lg font-bold text-primary">Rp 599.000</span>
                 </div>
-                <p className="text-xs text-red-600 font-medium mt-1">*Batch berikutnya baru dibuka 2027.</p>
+                <p className="text-xs text-red-600 font-medium mt-1">*Batch berikutnya dibuka awal 2027.</p>
             </CardContent>
 
             {/* <CardContent className="flex-grow">
