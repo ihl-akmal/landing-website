@@ -6,8 +6,8 @@ const Footer = () => {
   const footerLinks = {
     Company: ["About Us", "Careers", "Contact"],
     Programs: ["Short Class", "Women's Career Lab", "Career-Mentorship"],
-    Resources: ["FAQ", "Documentation", "Help Center", "Community"],
-    Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Disclaimer"],
+    // Resources: ["FAQ", "Documentation", "Help Center", "Community"],
+    // Legal: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Disclaimer"],
   }
 
   const socialLinks = [
@@ -20,6 +20,23 @@ const Footer = () => {
     },
     { icon: Linkedin, href: "https://linkedin.com/company/grazedu", label: "LinkedIn" },
   ]
+
+  const getHref = (link: string) =>
+    link === "FAQ" ? "/faq" :
+    link === "About Us" ? "/about-us" :
+    link === "Short Class" ? "/kelas" :
+    link === "Women's Career Lab" ? "/wcl-pbi" :
+    link === "Contact" ? "https://wa.me/6282340622274" :
+    "#"
+
+  const supporters = [
+    { name: "UNDP", src: "/mitra/undp.png", width: 64, height: 64 },
+    { name: "Islamic Development Bank", src: "/mitra/isdb.png",  width: 64, height: 64 },
+    { name: "Kitabisa.org", src: "/mitra/kitabisa.png",width: 64, height: 64},
+    { name: "Microsoft", src: "/mitra/microsoft.png",width: 64, height: 64  },
+    { name: "Skill Our Future", src: "/mitra/skill_our_future.png",width: 64, height: 64 },
+    { name: "EdTech Impact Bootcamp", src: "/mitra/edtech_impact.png",width: 64, height: 64 },
+  ];
 
   return (
     <footer className="bg-gradient-to-br from-white via-pink-50 to-rose-50 text-gray-800 relative overflow-hidden border-t border-pink-100">
@@ -46,18 +63,18 @@ const Footer = () => {
 
             {/* SDGs Section */}
             <div className="mt-6">
-                <h4 className="text-md font-semibold text-gray-700 font-poppins mb-4">
-                    Fokus kami pada 3 poin SDGs:
-                </h4>
-                <div className="flex gap-2">
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB_EHlOtMH2gBDctYPVOknRH1-qJweClDMfs1qBYxj4Q&s=10" alt="SDG 4" className="w-20 h-20" />
-                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYGKiXK4WpiZvACjH2TY7EajTx1t5DoQwnMFB49N6jtpgzOiUIPT2lldo&s=10" alt="SDG 5" className="w-20 h-20" />
-                    <img src="https://indonesia.un.org/profiles/undg_country/themes/custom/undg/images/SDGs/id/SDG-8.svg" alt="SDG 8" className="w-20 h-20" />
-                </div>
+              <h4 className="text-md font-semibold text-gray-700 font-poppins mb-4">
+                Fokus kami pada 3 poin SDGs:
+              </h4>
+              <div className="flex gap-2">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRB_EHlOtMH2gBDctYPVOknRH1-qJweClDMfs1qBYxj4Q&s=10" alt="SDG 4" className="w-20 h-20" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLYGKiXK4WpiZvACjH2TY7EajTx1t5DoQwnMFB49N6jtpgzOiUIPT2lldo&s=10" alt="SDG 5" className="w-20 h-20" />
+                <img src="https://indonesia.un.org/profiles/undg_country/themes/custom/undg/images/SDGs/id/SDG-8.svg" alt="SDG 8" className="w-20 h-20" />
+              </div>
             </div>
 
             <div className="space-y-3">
-               <div className="flex items-center gap-3 text-gray-600">
+              <div className="flex items-center gap-3 text-gray-600">
                 <div className="bg-primary/10 p-2 rounded-lg">
                   <Mail className="h-5 w-5 text-primary" />
                 </div>
@@ -91,14 +108,7 @@ const Footer = () => {
                 {links.map((link) => (
                   <li key={link}>
                     <a
-                      href={
-                        link === "FAQ" ? "/faq" :
-                        link === "About Us" ? "/about-us" :
-                        link === "Short Class" ? "/kelas" :
-                        link === "Women's Career Lab" ? "/wcl-pbi/socmed-strategist":
-
-                        "#"
-                      }
+                      href={getHref(link)}
                       className="text-gray-600 hover:text-primary transition-colors duration-200"
                     >
                       {link}
@@ -108,6 +118,32 @@ const Footer = () => {
               </ul>
             </div>
           ))}
+
+          {/* Supported By */}
+          <div className="md:col-span-2 lg:col-span-2 space-y-4">
+            <h4 className="text-lg font-semibold text-gray-800 font-poppins">
+              Supported by:
+            </h4>
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-4">
+            {supporters.map((s) => (
+                <img
+                  key={s.name}
+                  src={s.src}
+                  alt={s.name}
+                  loading="lazy"
+                  width={s.width}
+                  height={s.height}
+                  style={{
+                    width: s.width,
+                    height: s.height,
+                    maxWidth: "none",
+                    flexShrink: 0,
+                    objectFit: "contain",
+                  }}
+                />
+              ))}
+            </div>
+          </div>
         </div>
 
         <div className="border-t border-pink-200 mt-12 pt-8">
@@ -121,6 +157,8 @@ const Footer = () => {
                 <a
                   key={social.label}
                   href={social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="p-2 bg-white/80 backdrop-blur-sm rounded-xl hover:bg-primary hover:text-white transition-colors duration-200 border border-pink-200 hover:border-primary shadow-sm"
                   aria-label={social.label}
                 >
