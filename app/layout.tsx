@@ -123,6 +123,7 @@ export default function RootLayout({
             __html: JSON.stringify(generateStructuredData('faq'))
           }}
         />
+       <script defer src="https://korelasicreative.com/widget/B3YrmQvjaqyAQR3UWnIwPTsXiqF5lh4flM9nrrUYDwmFYqmQ/embed"></script> 
       </head>
       <body className={`${poppins.variable} font-sans`}>
         <noscript>
