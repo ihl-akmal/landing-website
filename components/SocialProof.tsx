@@ -25,7 +25,7 @@ const SocialProof = () => {
     mentors: 15,
     students: 3000,
     rating: 92,
-    komunitas: 1000,
+    komunitas: 10,
   }
 
   useEffect(() => {
@@ -95,7 +95,7 @@ const SocialProof = () => {
     {
       icon: Star,
       number: `${counts.komunitas}+`,
-      label: "Anggota Komunitas",
+      label: "Mitra kolaborasi",
       color: "bg-rose-100 text-rose-600",
       bgGradient: "from-rose-100 to-pink-100",
     },

@@ -4,16 +4,16 @@ import { Heart, Sparkles, Star } from "lucide-react"
 
 const Partnership = () => {
   const partners = [
-    { name: "Indigo Telkom", logo: "/mitra/indigo.png" },
-    { name: "Dibimbing.id", logo: "/mitra/dibimbing.png" },
+    { name: "Indigo Telkom", logo: "/mitra/telkom-ai.png" },
+    { name: "Pigeon Teens", logo: "/mitra/pigeon-teens.png" },
     { name: "HearMe", logo: "/mitra/hearme.png" },
-    { name: "Kitalulus", logo: "/mitra/kitalulus.png", customClass: "h-16 md:h-20 w-auto" },
+    { name: "Markoding", logo: "/mitra/markoding.png", customClass: "h-16 md:h-20 w-auto" },
     { name: "itb stikom", logo: "/mitra/stikom.png" },
     { name: "growthskill", logo: "/mitra/growthskill.png" },
-    { name: "aiesec usu", logo: "/mitra/aiesecusu.png"},
+    { name: "aiesec", logo: "/mitra/aiesec.png"},
     { name: "temanbicaraku", logo: "/mitra/temanbicaraku.png", customClass: "h-16 md:h-20 w-auto" },
   ]
-
+  
   return (
     <section className="py-20 bg-gradient-to-br from-pink-50 via-rose-50 to-white relative overflow-hidden">
       {/* Decorative elements */}
@@ -33,7 +33,7 @@ const Partnership = () => {
             Mitra <span className="text-primary">Kolaborasi</span> ✨
           </h2>
           <p className="text-lg text-gray-600">
-            {"Telah berkolaborasi dengan berbagai perusahaan, kampus hingga local community💕"}
+            {"Telah berkolaborasi dengan berbagai perusahaan, organisasi, hingga local community💕"}
           </p>
         </div>
 
@@ -66,12 +66,12 @@ const Partnership = () => {
             {"Ingin berkolaborasi menciptakan dampak yang positif & memberdayakan perempuan? 🌟"}
           </p>
           <a
-            href="https://wa.me/6282340622274"
+            href="https://mail.google.com/mail/?view=cm&to=grazeduindonesia@gmail.com&su=Pengajuan%20Kerjasama%20Grazedu"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md"
           >
-            {"Ajukan Kerjasama 💕"}
+            {"Hubungi Kami Melalui Email 💕"}
           </a>
         </div>
       </div>
