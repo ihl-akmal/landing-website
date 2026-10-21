@@ -66,12 +66,12 @@ const Partnership = () => {
             {"Ingin berkolaborasi menciptakan dampak yang positif & memberdayakan perempuan? 🌟"}
           </p>
           <a
-            href="https://mail.google.com/mail/?view=cm&to=grazeduindonesia@gmail.com&su=Pengajuan%20Kerjasama%20Grazedu"
+            href="https://korelasicreative.com/l/wa-partnership"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-block bg-gradient-to-r from-primary to-primary-light text-white px-8 py-4 rounded-full font-semibold hover:shadow-lg hover:scale-105 transition-all duration-200 shadow-md"
           >
-            {"Hubungi Kami Melalui Email 💕"}
+            {"Ajukan Kolaborasi 💕"}
           </a>
         </div>
       </div>
