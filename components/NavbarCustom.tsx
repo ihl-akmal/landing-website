@@ -64,6 +64,9 @@ const NavbarCustom = ({ announcementVisible = true }: NavbarProps) => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
+              <Link href="/perusahaan" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
+                Layanan Perusahaan
+              </Link>
               <Link href="/about-us" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About Us
               </Link>
