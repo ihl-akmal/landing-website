@@ -31,19 +31,19 @@ const WA_LINK = "https://wa.me/6282340622274"
 const HERO_IMG = ""
 // ===========================================
 
-const heroChips = ["100% Tailored Curriculum", "Dedicated Facilitators", "Comprehensive Impact Report"] // TODO: verifikasi "Impact Report"
+const heroChips = ["Curriculum Development", "Women-Centric Learning", "End-to-end Support"] 
 
 const pillars = [
   {
     icon: BookOpen,
-    title: "Kurikulum Berbasis Kebutuhan",
-    desc: "Modul praktis yang dirancang khusus sesuai profil, tantangan nyata, dan aspirasi pertumbuhan peserta perempuan.",
+    title: "Perancangan Kurikulum dan Materi Pembelajaran",
+    desc: "Penyusunan kurikulum dan materi pembelajaran yang mencakup struktur sesi, aktivitas belajar, serta metode pembelajaran.",
     tag: "Bespoke Modules",
   },
   {
     icon: Users,
-    title: "Fasilitator & Mentor Ahli",
-    desc: "Praktisi perempuan industri terkemuka dengan pendekatan mentoring yang empatik, terstruktur, dan aplikatif.",
+    title: "Dukungan Fasilitator Ahli",
+    desc: "Praktisi perempuan berpengalaman dengan pendekatan mentoring yang empatik, terstruktur, dan aplikatif.",
     tag: "Industry Leaders",
   },
   {
@@ -107,7 +107,7 @@ const portfolio = [
     alt: "Program Corporate CSR Partnership",
     badge: "Corporate CSR Partnership",
     stat: "👥 1.250+ Peserta Perempuan Terlatih", // TODO: verifikasi angka
-    title: "Tech & Leadership Empowerment for Female Talents",
+    title: "Build Your Confidence & Creative Skills",
     desc: "Program intensif persiapan kepemimpinan dan kapabilitas digital bagi talenta perempuan muda.",
   },
   {
@@ -115,7 +115,15 @@ const portfolio = [
     alt: "Program Community & NGO Alliance",
     badge: "Community & NGO Alliance",
     stat: "👥 850+ Pengusaha Perempuan Daerah", // TODO: verifikasi angka
-    title: "Women Entrepreneurship Bootcamp & Mentorship",
+    title: "From Campus to Career",
+    desc: "Akselerasi kapasitas bisnis mandiri dan pendampingan mentor 1-on-1 bagi komunitas wirausaha perempuan.",
+  },
+  {
+    img: "",
+    alt: "Program Community & NGO Alliance",
+    badge: "Community & NGO Alliance",
+    stat: "👥 850+ Pengusaha Perempuan Daerah", // TODO: verifikasi angka
+    title: "Beasiswa Career Development",
     desc: "Akselerasi kapasitas bisnis mandiri dan pendampingan mentor 1-on-1 bagi komunitas wirausaha perempuan.",
   },
 ]
@@ -171,12 +179,12 @@ export default function LayananPerusahaan() {
   
                   {/* Hero Headline */}
                   <h1 className="text-4xl leading-[2.75rem] lg:text-[3.25rem] lg:leading-[3.75rem] font-bold text-white tracking-tight drop-shadow-sm">
-                    Jalankan Program Pemberdayaan Perempuan, Tanpa Membangun Tim Pembelajaran Sendiri
+                  Mitra Strategis dalam Pengembangan Talenta Perempuan
                   </h1>
   
                   {/* Hero Subheadline */}
                   <p className="text-lg leading-relaxed text-pink-100/90 font-normal max-w-2xl mx-auto">
-                    Sebagai Learning Partner, Grazedu merancang dan mendukung pelaksanaan program pembelajaran untuk komunitas atau penerima manfaat organisasimu.
+                  Wujudkan inisiatif pengembangan kapasitas perempuan tanpa terbebani kompleksitas perencanaan dan pelaksanaan pembelajaran.
                   </p>
   
                   {/* Primary CTA Button */}
@@ -220,7 +228,7 @@ export default function LayananPerusahaan() {
                   Apa itu Learning Partner?
                 </h2>
                 <p className="text-lg leading-relaxed text-gray-900 text-center">
-                  Kemitraan di mana Grazedu bertindak sebagai pelaksana pembelajaran program organisasi, mencakup kurikulum, rencana sesi, fasilitasi, dan pendampingan menyeluruh.
+                Kemitraan pembelajaran yang membantu organisasi menjalankan inisiatif program melalui dukungan yang menyeluruh.
                 </p>
               </div>
   
@@ -326,8 +334,8 @@ export default function LayananPerusahaan() {
                 </p>
               </div>
   
-              {/* Portfolio Grid 2 Kolom */}
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Portfolio Grid 3 Kolom */}
+              <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {portfolio.map((item) => (
                   <div
                     key={item.title}
