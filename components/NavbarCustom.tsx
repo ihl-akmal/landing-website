@@ -64,9 +64,17 @@ const NavbarCustom = ({ announcementVisible = true }: NavbarProps) => {
                 </DropdownMenuContent>
               </DropdownMenu>
 
-              <Link href="/perusahaan" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
-                Layanan Perusahaan
-              </Link>
+              <DropdownMenu>
+                <DropdownMenuTrigger className="flex items-center text-gray-700 hover:text-primary transition-colors duration-200 font-medium focus:outline-none">
+                  Partnership <ChevronDown className="h-4 w-4 ml-1" />
+                </DropdownMenuTrigger>
+                <DropdownMenuContent>
+                  <DropdownMenuItem asChild>
+                    <Link href="/partnership/learning-partner">Learning Partner</Link>
+                  </DropdownMenuItem>
+                  
+                </DropdownMenuContent>
+              </DropdownMenu>
               <Link href="/about-us" className="text-gray-700 hover:text-primary transition-colors duration-200 font-medium">
                 About Us
               </Link>
@@ -124,6 +132,22 @@ const NavbarCustom = ({ announcementVisible = true }: NavbarProps) => {
               </CollapsibleContent>
             </Collapsible>
             
+            <Collapsible>
+              <CollapsibleTrigger className="flex justify-between items-center w-full px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg">
+                <span>Partnership</span>
+                <ChevronDown className="h-5 w-5" />
+              </CollapsibleTrigger>
+              <CollapsibleContent className="pl-4">
+                <a
+                  href="/partnership/learning-partner"
+                  onClick={() => setIsOpen(false)}
+                  className="block px-4 py-3 text-gray-700 hover:text-primary hover:bg-pink-50 transition-colors duration-200 font-medium rounded-lg"
+                >
+                  Learning Partner
+                </a>
+                
+              </CollapsibleContent>
+            </Collapsible>
             <a
               href="/about-us"
               onClick={() => setIsOpen(false)}

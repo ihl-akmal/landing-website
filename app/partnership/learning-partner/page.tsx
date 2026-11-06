@@ -1,18 +1,18 @@
 import type { Metadata } from "next"
-import LayananPerusahaanClient from "./page-client"
+import LearningPartnerClient from "./page-client"
 
 export const metadata: Metadata = {
-  title: "Layanan Perusahaan - Grazedu",
+  title: "Learning Partner | Grazedu",
   description: "Kenali tim Grazedu yang berdedikasi untuk memberdayakan perempuan muda Indonesia melalui melalui kelas-kelas pembelajaran yang hangat dan aman.",
   keywords: "tentang grazedu, tim grazedu, visi misi, tentang kami",
   openGraph: {
-    title: "Layanan Perusahaan - Grazedu",
+    title: "Learning Partner | Grazedu",
     description: "Kenali tim Grazedu yang berdedikasi untuk memberdayakan perempuan muda Indonesia melalui kelas-kelas pembelajaran yang hangat dan aman.",
     type: "website",
     locale: "id_ID",
   },
 }
 
-export default function LayananPerusahaanPage() {
-    return <LayananPerusahaanClient />
+export default function LearningPartnerPage() {
+    return <LearningPartnerClient />
   }

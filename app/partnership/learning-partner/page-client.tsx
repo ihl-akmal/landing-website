@@ -72,10 +72,10 @@ const partners = [
     title: "Lembaga & NGO",
     desc: "Pelatihan upskilling & kemandirian ekonomi penerima manfaat dengan kurikulum inklusif yang mudah dipahami dan dipraktikkan.",
     footer: "Inklusif & Terarah",
-    blob: "bg-primary-dark/10",
-    iconBg: "bg-primary-dark",
-    pill: "bg-secondary-fixed text-primary-dark",
-    footerColor: "text-primary-dark",
+    blob: "bg-primary/10",
+    iconBg: "bg-primary",
+    pill: "bg-primary-fixed text-primary",
+    footerColor: "text-primary",
   },
   {
     icon: School,
@@ -92,12 +92,12 @@ const partners = [
     icon: Users,
     label: "Komunitas Perempuan",
     title: "Women Community",
-    desc: "Workshop intensif, bootcamp karier, & community learning labs yang mempererat kolaborasi dan kapasitas member aktif.",
-    footer: "Community Labs",
-    blob: "bg-primary-dark/10",
-    iconBg: "bg-primary-dark",
-    pill: "bg-secondary-fixed text-primary-dark",
-    footerColor: "text-primary-dark",
+    desc: "Workshop intensif untuk meningkatkan kapasitas dan engagement member aktif.",
+    footer: "Community Empowerment",
+    blob: "bg-primary/10",
+    iconBg: "bg-primary",
+    pill: "bg-primary-fixed text-primary",
+    footerColor: "text-primary",
   },
 ]
 
@@ -105,8 +105,8 @@ const portfolio = [
   {
     img: "/partnership/teensclub-doc.webp",
     org: "Teens Club by Pigeon Teens",
-    alt: "Program Corporate CSR Partnership",
-    badge: "Corporate CSR Partnership",
+    alt: "Women Community",
+    badge: "Women Community",
     stat: "👥 25 Anggota Perempuan Terlatih", // TODO: verifikasi angka
     title: "Build Your Confidence & Creative Skills",
     desc: "Program intensif persiapan kepemimpinan dan kapabilitas digital bagi talenta perempuan muda.",
@@ -114,8 +114,8 @@ const portfolio = [
   {
     img: "/partnership/iampowered-polimedia.webp",
     org:"Polimedia Kreatif Jakarta",
-    alt: "Program Community & NGO Alliance",
-    badge: "Community & NGO Alliance",
+    alt: "Universitas & Kampus",
+    badge: "Universitas & Kampus",
     stat: "👥 850+ Pengusaha Perempuan Daerah", // TODO: verifikasi angka
     title: "From Campus to Career",
     desc: "Akselerasi kapasitas bisnis mandiri dan pendampingan mentor 1-on-1 bagi komunitas wirausaha perempuan.",
@@ -123,8 +123,8 @@ const portfolio = [
   {
     img: "",
     org:"Perempuan Inovasi",
-    alt: "Program Community & NGO Alliance",
-    badge: "Community & NGO Alliance",
+    alt: "Lembaga & NGO",
+    badge: "Lembaga & NGO",
     stat: "👥 850+ Pengusaha Perempuan Daerah", // TODO: verifikasi angka
     title: "Beasiswa Career Development",
     desc: "Akselerasi kapasitas bisnis mandiri dan pendampingan mentor 1-on-1 bagi komunitas wirausaha perempuan.",
@@ -145,7 +145,7 @@ const H2 =
   "font-headline-xl text-headline-xl-mobile lg:text-headline-xl font-bold text-on-surface"
 const SECTION = "relative z-10 max-w-7xl mx-auto px-6 lg:px-12 py-space-xl"
 
-export default function LayananPerusahaan() {
+export default function LearningPartner() {
     return (
       <div className="min-h-screen bg-white">
         <Navbar />
@@ -210,13 +210,13 @@ export default function LayananPerusahaan() {
                     </div>
 
                     {/* Value Checklist / Stats Chips */}
-                    <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+                    <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3">
                       {heroChips.map((chip) => (
                         <div
                           key={chip}
-                          className="flex items-center gap-2 bg-black/30 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/25 text-white text-sm font-medium"
+                          className="flex items-center gap-1.5 sm:gap-2 bg-black/30 backdrop-blur-md px-2.5 py-1.5 sm:px-3.5 sm:py-2 rounded-full border border-white/25 text-white text-xs sm:text-sm font-medium"
                         >
-                          <CheckCircle2 className="h-[18px] w-[18px] text-pink-300" />
+                          <CheckCircle2 className="h-3.5 w-3.5 sm:h-[18px] sm:w-[18px] text-pink-300 shrink-0" />
                           <span>{chip}</span>
                         </div>
                       ))}
@@ -302,11 +302,11 @@ export default function LayananPerusahaan() {
         >
           <p.icon className="h-[26px] w-[26px]" />
         </div>
-        <span
+        {/* <span
           className={`inline-flex items-center px-3 py-1 rounded-full ${p.pill} text-xs font-bold tracking-wide uppercase text-left`}
         >
           {p.label}
-        </span>
+        </span> */}
       </div>
       <h3 className="text-xl leading-7 font-semibold tracking-tight text-gray-900 mb-2 lg:min-h-[3 rem]">
         {p.title}
