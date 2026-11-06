@@ -28,10 +28,10 @@ const WA_LINK = "https://wa.me/6282340622274"
 
 // Isi dengan path file di /public, contoh: "/learning-partner/hero.jpg"
 // Kalau dikosongkan, hero tampil dengan latar gelap + overlay.
-const HERO_IMG = ""
+const HERO_IMG = "/partnership/career-mental-wellness.webp"
 // ===========================================
 
-const heroChips = ["Curriculum Development", "Women-Centric Learning", "End-to-end Support"] 
+const heroChips = ["Curriculum Development", "Women-Centric Approach", "End-to-end Support"] 
 
 const pillars = [
   {
@@ -103,15 +103,17 @@ const partners = [
 
 const portfolio = [
   {
-    img: "",
+    img: "/partnership/teensclub-doc.webp",
+    org: "Teens Club by Pigeon Teens",
     alt: "Program Corporate CSR Partnership",
     badge: "Corporate CSR Partnership",
-    stat: "👥 1.250+ Peserta Perempuan Terlatih", // TODO: verifikasi angka
+    stat: "👥 25 Anggota Perempuan Terlatih", // TODO: verifikasi angka
     title: "Build Your Confidence & Creative Skills",
     desc: "Program intensif persiapan kepemimpinan dan kapabilitas digital bagi talenta perempuan muda.",
   },
   {
-    img: "",
+    img: "/partnership/iampowered-polimedia.webp",
+    org:"Polimedia Kreatif Jakarta",
     alt: "Program Community & NGO Alliance",
     badge: "Community & NGO Alliance",
     stat: "👥 850+ Pengusaha Perempuan Daerah", // TODO: verifikasi angka
@@ -120,6 +122,7 @@ const portfolio = [
   },
   {
     img: "",
+    org:"Perempuan Inovasi",
     alt: "Program Community & NGO Alliance",
     badge: "Community & NGO Alliance",
     stat: "👥 850+ Pengusaha Perempuan Daerah", // TODO: verifikasi angka
@@ -150,65 +153,74 @@ export default function LayananPerusahaan() {
         <main className="w-full bg-gray-50 flex-1">
           <div className="flex flex-col w-full">
             {/* 1. HERO SECTION WITH IMAGE OVERLAY */}
-            <section className="relative w-full overflow-hidden bg-slate-950 py-16 lg:py-24">
-              {/* Background Image with Overlay */}
-              <div className="absolute inset-0 z-0">
-                {HERO_IMG && (
-                  <Image
-                    src={HERO_IMG}
-                    alt="Suasana sesi pembelajaran Grazedu"
-                    fill
-                    priority
-                    sizes="100vw"
-                    className="object-cover object-center scale-105 filter brightness-90 transform motion-safe:transition-transform duration-1000"
-                  />
-                )}
-                <div className="absolute inset-0 bg-gradient-to-r from-[#210214]/65 via-[#380422]/55 to-[#1c0211]/60 mix-blend-multiply"></div>
-                <div className="absolute inset-0 bg-gradient-to-t from-[#18020e]/80 via-transparent to-[#18020e]/40"></div>
-              </div>
-  
-              <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
-                <div className="max-w-3xl space-y-6 mx-auto text-center">
-                  {/* Sparkle Tag */}
-                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/25 border border-pink-300/40 text-pink-100 text-sm font-semibold tracking-wide backdrop-blur-md shadow-sm">
-                    <svg aria-hidden="true" className="w-4 h-4 text-pink-300 fill-current" viewBox="0 0 24 24">
-                      <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"></path>
-                    </svg>
-                    <span>✦ B2B Learning Partner • Grazedu for Organization</span>
-                  </div>
-  
-                  {/* Hero Headline */}
-                  <h1 className="text-4xl leading-[2.75rem] lg:text-[3.25rem] lg:leading-[3.75rem] font-bold text-white tracking-tight drop-shadow-sm">
-                  Mitra Strategis dalam Pengembangan Talenta Perempuan
-                  </h1>
-  
-                  {/* Hero Subheadline */}
-                  <p className="text-lg leading-relaxed text-pink-100/90 font-normal max-w-2xl mx-auto">
-                  Wujudkan inisiatif pengembangan kapasitas perempuan tanpa terbebani kompleksitas perencanaan dan pelaksanaan pembelajaran.
-                  </p>
-  
-                  {/* Primary CTA Button */}
-                  <div className="pt-3 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 justify-center">
-                    <a
-                      className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white bg-primary shadow-[0_8px_28px_rgba(203,54,137,0.45)] hover:bg-primary-dark transition-all duration-300 transform hover:-translate-y-0.5"
-                      href="#hubungi-kami"
-                    >
-                      <span>Diskusikan Kolaborasi</span>
-                      <ArrowRight className="h-[18px] w-[18px]" />
-                    </a>
-                  </div>
-  
-                  {/* Value Checklist / Stats Chips */}
-                  <div className="pt-6 flex flex-wrap items-center gap-y-3 gap-x-4 text-white/90 text-sm font-semibold justify-center">
-                    {heroChips.map((chip) => (
-                      <div
-                        key={chip}
-                        className="flex items-center gap-2 bg-white/10 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/15"
+            <section className="relative w-full px-4 sm:px-6 lg:px-8 pt-24 lg:pt-28 pb-6">
+              <div className="relative max-w-7xl mx-auto overflow-hidden rounded-3xl bg-slate-950 ring-1 ring-black/5 shadow-[0_20px_50px_-12px_rgba(33,2,20,0.35)]">
+                {/* Background Image with Overlay */}
+                <div className="absolute inset-0 z-0">
+                  {HERO_IMG && (
+                    <Image
+                      src={HERO_IMG}
+                      alt="Suasana sesi pembelajaran Grazedu"
+                      fill
+                      priority
+                      sizes="100vw"
+                      className="object-cover object-center"
+                    />
+                  )}
+                  {/* 1. Scrim rata: jaminan kontras minimum untuk foto apa pun */}
+                  <div className="absolute inset-0 bg-slate-950/55"></div>
+                  {/* 2. Tint brand */}
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/40 via-transparent to-slate-950/30"></div>
+                  {/* 3. Gelap di tepi atas dan bawah */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-slate-950/30"></div>
+                  {/* 4. Sorotan gelap di belakang teks */}
+                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(10,2,8,0.45)_0%,transparent_70%)]"></div>
+                </div>
+
+                {/* Content */}
+                <div className="relative z-10 flex min-h-[32rem] lg:min-h-[36rem] items-center justify-center px-6 py-20 lg:px-12 lg:py-32">
+                  <div className="max-w-5xl mx-auto text-center">
+                    {/* Sparkle Tag */}
+                    <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-black/30 border border-white/25 text-white text-sm font-semibold tracking-wide backdrop-blur-md">
+                      <svg aria-hidden="true" className="w-4 h-4 text-pink-300 fill-current" viewBox="0 0 24 24">
+                        <path d="M12 0L14.59 9.41L24 12L14.59 14.59L12 24L9.41 14.59L0 12L9.41 9.41L12 0Z"></path>
+                      </svg>
+                      <span>B2B Learning Partner • Grazedu for Organization</span>
+                    </div>
+
+                    {/* Hero Headline */}
+                    <h1 className="mt-6  text-3xl sm:text-5xl lg:text-[3.25rem] leading-tight lg:leading-[1.15] font-bold text-white tracking-tight text-balance drop-shadow-[0_2px_12px_rgba(0,0,0,0.5)]">
+                      Mitra Strategis dalam Pengembangan Talenta Perempuan
+                    </h1>
+
+                    {/* Hero Subheadline */}
+                    <p className="mt-5 text-base sm:text-lg leading-relaxed text-white/90 max-w-2xl mx-auto drop-shadow-[0_1px_8px_rgba(0,0,0,0.5)]">
+                      Wujudkan inisiatif pengembangan kapasitas perempuan tanpa terbebani kompleksitas perencanaan dan pelaksanaan pembelajaran.
+                    </p>
+
+                    {/* Primary CTA Button */}
+                    <div className="mt-8 flex justify-center">
+                      <a
+                        className="inline-flex items-center justify-center gap-3 px-8 py-4 rounded-full text-sm font-semibold text-white bg-primary shadow-[0_8px_28px_rgba(203,54,137,0.5)] hover:bg-primary-dark transition-all duration-300 transform hover:-translate-y-0.5"
+                        href="#hubungi-kami"
                       >
-                        <CheckCircle2 className="h-[18px] w-[18px] text-pink-300" />
-                        <span className="font-medium text-sm">{chip}</span>
-                      </div>
-                    ))}
+                        <span>Diskusikan Kolaborasi</span>
+                        <ArrowRight className="h-[18px] w-[18px]" />
+                      </a>
+                    </div>
+
+                    {/* Value Checklist / Stats Chips */}
+                    <div className="mt-10 flex flex-wrap items-center justify-center gap-3">
+                      {heroChips.map((chip) => (
+                        <div
+                          key={chip}
+                          className="flex items-center gap-2 bg-black/30 backdrop-blur-md px-3.5 py-2 rounded-full border border-white/25 text-white text-sm font-medium"
+                        >
+                          <CheckCircle2 className="h-[18px] w-[18px] text-pink-300" />
+                          <span>{chip}</span>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -233,30 +245,28 @@ export default function LayananPerusahaan() {
               </div>
   
               {/* Value Pillars Cards */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
-                {pillars.map((p) => (
-                  <div
-                    key={p.title}
-                    className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_-2px_rgba(203,54,137,0.06)] hover:shadow-[0_12px_32px_-4px_rgba(203,54,137,0.12)] transition-all duration-300 flex flex-col justify-between group"
-                  >
-                    <div>
-                      <div className="w-12 h-12 rounded-[3rem] bg-[#FFF5F8] text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                  {pillars.map((p) => (
+                    <div
+                      key={p.title}
+                      className="bg-white rounded-2xl p-6 shadow-[0_4px_20px_-2px_rgba(203,54,137,0.06)] hover:shadow-[0_12px_32px_-4px_rgba(203,54,137,0.12)] transition-all duration-300 flex flex-col group"
+                    >
+                      <div className="w-12 h-12 shrink-0 rounded-[3rem] bg-[#FFF5F8] text-primary flex items-center justify-center mb-5 group-hover:bg-primary group-hover:text-white transition-colors">
                         <p.icon className="h-6 w-6" />
                       </div>
-                      <h3 className="text-xl leading-7 font-bold tracking-tight text-gray-900 mb-2">
+                      <h3 className="text-xl leading-7 font-bold tracking-tight text-gray-900 mb-2 md:min-h-[5.25rem] lg:min-h-[3.5rem]">
                         {p.title}
                       </h3>
-                      <p className="text-sm leading-relaxed text-gray-600">
+                      <p className="text-sm leading-relaxed text-gray-600 flex-1">
                         {p.desc}
                       </p>
+                      <div className="pt-6 mt-4 flex items-center text-primary text-xs font-semibold">
+                        <span>{p.tag}</span>
+                        <ChevronRight className="h-4 w-4 ml-1" />
+                      </div>
                     </div>
-                    <div className="pt-6 mt-4 flex items-center text-primary text-xs font-semibold">
-                      <span>{p.tag}</span>
-                      <ChevronRight className="h-4 w-4 ml-1" />
-                    </div>
-                  </div>
-                ))}
-              </div>
+                  ))}
+                </div>
             </section>
   
             {/* 3. TARGET PARTNERS SECTION */}
@@ -334,7 +344,7 @@ export default function LayananPerusahaan() {
                 </p>
               </div>
   
-              {/* Portfolio Grid 3 Kolom */}
+             {/* Portfolio Grid 3 Kolom */}
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                 {portfolio.map((item) => (
                   <div
@@ -347,7 +357,7 @@ export default function LayananPerusahaan() {
                           src={item.img}
                           alt={item.alt}
                           fill
-                          sizes="(min-width: 1024px) 50vw, 100vw"
+                          sizes="(min-width: 1024px) 33vw, 100vw"
                           className="object-cover group-hover:scale-105 transition-transform duration-500"
                         />
                       ) : (
@@ -359,19 +369,31 @@ export default function LayananPerusahaan() {
                         </span>
                       </div>
                     </div>
-                    <div className="p-7 sm:p-8 flex-1 flex flex-col justify-between space-y-4">
-                      <div className="space-y-3">
-                        <div className="inline-flex items-center gap-1.5 text-primary text-xs font-semibold">
-                          <span>{item.stat}</span>
-                        </div>
-                        <h3 className="text-xl leading-7 font-semibold tracking-tight text-gray-900 group-hover:text-primary transition-colors">
-                          {item.title}
-                        </h3>
-                        <p className="text-sm leading-relaxed text-gray-600">
-                          {item.desc}
-                        </p>
+
+                    <div className="p-7 sm:p-8 flex-1 flex flex-col">
+                      {/* Nama organisasi */}
+                      <div className="flex items-center gap-1.5 min-w-0 text-gray-500 text-xs font-medium mb-2">
+                        <Building2 className="h-3.5 w-3.5 shrink-0" />
+                        <span className="truncate">{item.org}</span>
                       </div>
-                      <div className="pt-4 border-t border-gray-100">
+
+                      {/* Judul */}
+                      <h3 className="text-xl leading-7 font-semibold tracking-tight text-gray-900 group-hover:text-primary transition-colors mb-2">
+                        {item.title}
+                      </h3>
+
+                      {/* Deskripsi */}
+                      <p className="text-sm leading-relaxed text-gray-600 flex-1">
+                        {item.desc}
+                      </p>
+
+                      {/* Statistik */}
+                      <div className="inline-flex items-center gap-1.5 text-primary text-xs font-semibold mt-4">
+                        <span>{item.stat}</span>
+                      </div>
+
+                      {/* Tombol */}
+                      <div className="pt-4 mt-4 border-t border-gray-100">
                         <a
                           className="inline-flex items-center justify-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold text-primary border border-primary/40 hover:bg-pink-100/40 transition-all"
                           href="#hubungi-kami"
@@ -409,7 +431,7 @@ export default function LayananPerusahaan() {
   
                   {/* Subtext */}
                   <p className="text-lg leading-7 text-gray-600 max-w-xl mx-auto">
-                    Konsultasikan kebutuhan program organisasimu bersama tim ahli Grazedu hari ini.
+                    Konsultasikan kebutuhan program organisasi Anda bersama tim Grazedu hari ini.
                   </p>
   
                   {/* Action Button */}
